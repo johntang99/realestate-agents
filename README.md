@@ -13,7 +13,7 @@ admin@jinpanghomes.com / admin123
 ```bash
 # Kill port if in use
 
-lsof -ti:3060 | xargs kill -9
+lsof -ti:3070 | xargs kill -9
 rm -rf .next
 npm run dev
 
@@ -29,7 +29,7 @@ git commit -m "Update: describe your changes"
 git push
 
 
-curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_k31xBRtgJpi9fD1s9ie6AnSaPUW5/xHICFN5yaJ
+curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_HKSyDvgHQ8ubdhG5xLpaGeEi0xkT/rQETuW9lbL
 
 
 
