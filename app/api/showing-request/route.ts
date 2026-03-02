@@ -3,7 +3,8 @@ import { Resend } from 'resend';
 import { writeAuditLog } from '@/lib/admin/audit';
 import { emitLeadToCrm } from '@/lib/leads/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -253,7 +254,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    if (EMAIL_ADAPTER_ENABLED && process.env.RESEND_API_KEY) {
+    if (EMAIL_ADAPTER_ENABLED && resend) {
       const from = process.env.RESEND_FROM || 'no-reply@baamplatform.com';
       await resend.emails.send({
         from,
