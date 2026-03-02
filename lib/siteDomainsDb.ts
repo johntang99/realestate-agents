@@ -5,11 +5,11 @@ interface SiteDomainRow {
   id: string;
   site_id: string;
   domain: string;
-  environment: RuntimeEnvironment;
-  is_primary: boolean;
-  enabled: boolean;
+  environment?: RuntimeEnvironment;
+  is_primary?: boolean;
+  enabled?: boolean;
   created_at: string;
-  updated_at: string;
+  updated_at?: string;
 }
 
 function mapSiteDomainRow(row: SiteDomainRow): SiteDomainAlias {
@@ -17,11 +17,11 @@ function mapSiteDomainRow(row: SiteDomainRow): SiteDomainAlias {
     id: row.id,
     siteId: row.site_id,
     domain: row.domain,
-    environment: row.environment,
-    isPrimary: row.is_primary,
-    enabled: row.enabled,
+    environment: row.environment ?? 'prod',
+    isPrimary: row.is_primary ?? false,
+    enabled: row.enabled ?? true,
     createdAt: row.created_at,
-    updatedAt: row.updated_at,
+    updatedAt: row.updated_at ?? row.created_at,
   };
 }
 
@@ -49,15 +49,25 @@ export async function getSiteDomainMatchDb(domain: string): Promise<SiteDomainAl
   const supabase = getSupabaseServerClient();
   if (!supabase) return null;
   const normalized = normalizeDomain(domain);
-  const { data, error } = await supabase
+
+  const baseQuery = supabase
     .from('site_domains')
     .select('*')
     .eq('domain', normalized)
-    .eq('enabled', true)
     .order('is_primary', { ascending: false })
-    .limit(1)
-    .maybeSingle();
+    .limit(1);
+
+  const { data, error } = await baseQuery.eq('enabled', true).maybeSingle();
   if (error) {
+    // Backward compatibility: older DB schema may not have site_domains.enabled.
+    if (error.code === '42703' && String(error.message || '').includes('site_domains.enabled')) {
+      const { data: fallbackData, error: fallbackError } = await baseQuery.maybeSingle();
+      if (fallbackError) {
+        console.error('Supabase getSiteDomainMatchDb fallback error:', fallbackError);
+        return null;
+      }
+      return fallbackData ? mapSiteDomainRow(fallbackData as SiteDomainRow) : null;
+    }
     console.error('Supabase getSiteDomainMatchDb error:', error);
     return null;
   }
