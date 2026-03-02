@@ -13,13 +13,14 @@ const DOMAIN_SITE_MAP: Record<string, string> = {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const host = request.headers.get('host') || '';
+  const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '').split(',')[0].trim();
 
   // Set site ID header for domain routing on production
   const siteId = DOMAIN_SITE_MAP[host];
   if (siteId) {
-    const response = NextResponse.next();
-    response.headers.set('x-site-id', siteId);
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set('x-site-id', siteId);
+    const response = NextResponse.next({ request: { headers: requestHeaders } });
     // If no locale prefix, redirect to default
     const pathnameHasLocale = ['en', 'zh'].some(l => pathname.startsWith(`/${l}/`) || pathname === `/${l}`);
     if (!pathnameHasLocale && !pathname.startsWith('/admin') && !pathname.startsWith('/api') &&

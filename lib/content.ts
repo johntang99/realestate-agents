@@ -35,17 +35,26 @@ async function getLocalDefaultSiteId(): Promise<string | null> {
 // Reads both env var names so Vercel works whether the user set
 // NEXT_PUBLIC_DEFAULT_SITE or NEXT_PUBLIC_DEFAULT_SITE_ID
 function getEnvSiteId(): string | undefined {
-  return (
+  const raw = (
     process.env.NEXT_PUBLIC_DEFAULT_SITE_ID ||
     process.env.NEXT_PUBLIC_DEFAULT_SITE ||
     undefined
   );
+  if (!raw) return undefined;
+  return raw.replace(/^['"]|['"]$/g, '').trim() || undefined;
 }
 
 async function resolveSiteId(siteId?: string): Promise<string> {
   if (siteId) return siteId;
   try {
-    const host = headers().get('host');
+    const requestHeaders = headers();
+    const headerSiteId = requestHeaders.get('x-site-id') || undefined;
+    if (headerSiteId) return headerSiteId.replace(/^['"]|['"]$/g, '').trim();
+
+    const forwardedHost = requestHeaders.get('x-forwarded-host');
+    const host = (forwardedHost || requestHeaders.get('host') || '')
+      .split(',')[0]
+      .trim();
     const normalizedHost = (host || '').toLowerCase();
     if (!host) {
       const localSiteId = await getLocalDefaultSiteId();

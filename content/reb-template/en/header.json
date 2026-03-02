@@ -1,0 +1,27 @@
+{
+  "topbar": {
+    "phone": "",
+    "phoneHref": "",
+    "address": "",
+    "addressHref": "",
+    "hours": "",
+    "badge": ""
+  },
+  "menu": {
+    "logo": {
+      "emoji": "",
+      "text": "",
+      "subtext": "",
+      "image": {
+        "src": "",
+        "alt": ""
+      }
+    },
+    "items": []
+  },
+  "languages": [],
+  "cta": {
+    "text": "",
+    "link": ""
+  }
+}

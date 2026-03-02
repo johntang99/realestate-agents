@@ -1,0 +1,80 @@
+{
+  "brand": {
+    "logoText": "BIZ",
+    "name": "Business Name",
+    "description": "Helping customers with high-quality, professional service."
+  },
+  "quickLinks": [
+    {
+      "text": "About Us",
+      "url": "/en/about"
+    },
+    {
+      "text": "Services",
+      "url": "/en/services"
+    },
+    {
+      "text": "Conditions",
+      "url": "/en/conditions"
+    },
+    {
+      "text": "Case Studies",
+      "url": "/en/case-studies"
+    },
+    {
+      "text": "Getting Started",
+      "url": "/en/new-patients"
+    },
+    {
+      "text": "Blog",
+      "url": "/en/blog"
+    },
+    {
+      "text": "Contact",
+      "url": "/en/contact"
+    }
+  ],
+  "services": [
+    {
+      "text": "Featured Services",
+      "url": "/en/services"
+    },
+    {
+      "text": "Plans & Packages",
+      "url": "/en/services"
+    },
+    {
+      "text": "How It Works",
+      "url": "/en/services"
+    },
+    {
+      "text": "Support",
+      "url": "/en/contact"
+    }
+  ],
+  "contact": {
+    "addressLines": [
+      "Address line 1",
+      "City, State ZIP"
+    ],
+    "phone": "(000) 000-0000",
+    "phoneLink": "tel:+10000000000",
+    "email": "info@example.com",
+    "emailLink": "mailto:info@example.com"
+  },
+  "hours": [
+    "Mon-Fri: 9:00 AM - 6:00 PM",
+    "Sat: 10:00 AM - 2:00 PM"
+  ],
+  "legalLinks": [
+    {
+      "text": "Privacy Policy",
+      "url": "/en/privacy"
+    },
+    {
+      "text": "Terms of Service",
+      "url": "/en/terms"
+    }
+  ],
+  "copyright": "© {year} Business Name. All rights reserved."
+}

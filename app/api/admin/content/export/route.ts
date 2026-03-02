@@ -7,6 +7,19 @@ import { canWriteContent, requireSiteAccess } from '@/lib/admin/permissions';
 import { writeAuditLog } from '@/lib/admin/audit';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
 
+const SITES_FILE = path.join(process.cwd(), 'content', '_sites.json');
+
+async function isProjectSiteAllowed(siteId: string): Promise<boolean> {
+  try {
+    const raw = await fs.readFile(SITES_FILE, 'utf-8');
+    const parsed = JSON.parse(raw) as { sites?: Array<{ id?: string }> };
+    const sites = Array.isArray(parsed.sites) ? parsed.sites : [];
+    return sites.some((site) => site?.id === siteId);
+  } catch {
+    return false;
+  }
+}
+
 async function collectJsonPathsRecursive(
   rootDir: string,
   currentDir = rootDir
@@ -65,6 +78,13 @@ export async function POST(request: NextRequest) {
   if (!siteId || !locale) {
     return NextResponse.json(
       { message: 'siteId and locale are required' },
+      { status: 400 }
+    );
+  }
+
+  if (!(await isProjectSiteAllowed(siteId))) {
+    return NextResponse.json(
+      { message: `Site "${siteId}" is not declared in this project and cannot be exported.` },
       { status: 400 }
     );
   }

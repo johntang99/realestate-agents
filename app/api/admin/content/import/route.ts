@@ -9,10 +9,22 @@ import { writeAuditLog } from '@/lib/admin/audit';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
+const SITES_FILE = path.join(CONTENT_DIR, '_sites.json');
 
 async function readJson(filePath: string) {
   const raw = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(raw);
+}
+
+async function isProjectSiteAllowed(siteId: string): Promise<boolean> {
+  try {
+    const raw = await fs.readFile(SITES_FILE, 'utf-8');
+    const parsed = JSON.parse(raw) as { sites?: Array<{ id?: string }> };
+    const sites = Array.isArray(parsed.sites) ? parsed.sites : [];
+    return sites.some((site) => site?.id === siteId);
+  } catch {
+    return false;
+  }
 }
 
 interface ImportCandidate {
@@ -28,6 +40,7 @@ const DEDICATED_TABLE_BY_DIR: Record<string, string> = {
   'new-construction': 'new_construction',
   events: 'events',
 };
+const MISSING_DEDICATED_TABLES = new Set<string>();
 
 function getDedicatedTableForPath(contentPath: string): string | null {
   const dir = contentPath.includes('/') ? contentPath.split('/')[0] : '';
@@ -50,7 +63,16 @@ function getEventDateFromCandidate(data: any): string | null {
   return null;
 }
 
+function isMissingRelationError(error: any): boolean {
+  if (!error) return false;
+  return (
+    error.code === 'PGRST205' ||
+    /Could not find the table/i.test(String(error.message || ''))
+  );
+}
+
 async function fetchDedicatedRow(siteId: string, table: string, slug: string): Promise<any | null> {
+  if (MISSING_DEDICATED_TABLES.has(table)) return null;
   const supabase = getSupabaseServerClient();
   if (!supabase) return null;
   const { data, error } = await supabase
@@ -60,6 +82,10 @@ async function fetchDedicatedRow(siteId: string, table: string, slug: string): P
     .eq('slug', slug)
     .maybeSingle();
   if (error) {
+    if (isMissingRelationError(error)) {
+      MISSING_DEDICATED_TABLES.add(table);
+      return null;
+    }
     console.error(`fetchDedicatedRow error for ${table}:`, error);
     return null;
   }
@@ -67,6 +93,7 @@ async function fetchDedicatedRow(siteId: string, table: string, slug: string): P
 }
 
 async function upsertDedicatedRow(siteId: string, table: string, slug: string, data: any): Promise<boolean> {
+  if (MISSING_DEDICATED_TABLES.has(table)) return true;
   const supabase = getSupabaseServerClient();
   if (!supabase) return false;
   const payload: Record<string, unknown> = {
@@ -80,6 +107,10 @@ async function upsertDedicatedRow(siteId: string, table: string, slug: string, d
   }
   const { error } = await supabase.from(table).upsert(payload, { onConflict: 'site_id,slug' });
   if (error) {
+    if (isMissingRelationError(error)) {
+      MISSING_DEDICATED_TABLES.add(table);
+      return true;
+    }
     console.error(`upsertDedicatedRow error for ${table}:`, error);
     return false;
   }
@@ -227,6 +258,13 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  if (!(await isProjectSiteAllowed(siteId))) {
+    return NextResponse.json(
+      { message: `Site "${siteId}" is not declared in this project and cannot be imported.` },
+      { status: 400 }
+    );
+  }
+
   try {
     requireSiteAccess(session.user, siteId);
   } catch {
@@ -287,6 +325,7 @@ export async function POST(request: NextRequest) {
     const dedicatedTable = getDedicatedTableForPath(candidate.path);
     const dedicatedNeedsSync = Boolean(
       dedicatedTable &&
+      !MISSING_DEDICATED_TABLES.has(dedicatedTable) &&
       (!dedicated?.data || !deepEqual(dedicated.data, candidate.data))
     );
 
@@ -385,6 +424,7 @@ export async function POST(request: NextRequest) {
     const dedicatedTable = getDedicatedTableForPath(candidate.path);
     const dedicatedNeedsSync = Boolean(
       dedicatedTable &&
+      !MISSING_DEDICATED_TABLES.has(dedicatedTable) &&
       (!dedicated?.data || !deepEqual(dedicated.data, candidate.data))
     );
 
