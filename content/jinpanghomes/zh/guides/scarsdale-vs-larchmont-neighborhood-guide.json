@@ -1,0 +1,31 @@
+{
+  "body": "# Port Jervis vs Warwick\n\nBoth towns are top choices for relocating buyers, but they fit different lifestyles and budgets.\n\n## Port Jervis\n\n- Higher average home price\n- Strong school reputation\n- Larger lot sizes in many neighborhoods\n\n## Warwick\n\n- Strong village and waterfront feel\n- Excellent commuter rail access\n- More walkable town center options\n\n## Which is right for you?\n\nIf schools and larger homes are priority one, Port Jervis may fit better. If walkability and coastal lifestyle matter most, Warwick often wins.",
+  "slug": "scarsdale-vs-larchmont-neighborhood-guide",
+  "tags": [
+    "buyers",
+    "neighborhoods",
+    "scarsdale",
+    "larchmont"
+  ],
+  "type": "guide",
+  "title": "Port Jervis vs Warwick: Neighborhood Guide for 2026 Buyers",
+  "author": "marcus-johnson",
+  "excerpt": "Compare school districts, commute times, home styles, and budget ranges side by side.",
+  "category": "neighborhood-guide",
+  "featured": false,
+  "readTime": "9 min read",
+  "heroImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/26f0b21c691c606b1e43.jpg",
+  "comparison": {
+    "larchmont": {
+      "medianPrice": "$925K",
+      "walkability": "high",
+      "commuteToGCT": "37 min"
+    },
+    "scarsdale": {
+      "medianPrice": "$1.65M",
+      "walkability": "medium",
+      "commuteToGCT": "33 min"
+    }
+  },
+  "publishDate": "2026-03-05"
+}

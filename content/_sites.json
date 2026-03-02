@@ -1,0 +1,13 @@
+{
+  "sites": [
+    {
+      "id": "jinpanghomes",
+      "name": "Jin Pang",
+      "domain": "jinpanghomes.com",
+      "defaultLocale": "en",
+      "supportedLocales": ["en", "zh"],
+      "enabled": true,
+      "type": "agent"
+    }
+  ]
+}

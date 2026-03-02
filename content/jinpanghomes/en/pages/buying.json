@@ -1,0 +1,209 @@
+{
+  "cta": {
+    "subline": "Get matched with a local expert who specializes in your goals and price range.",
+    "variant": "centered",
+    "headline": "Ready to Start Your Search?"
+  },
+  "faq": {
+    "items": [
+      {
+        "a": "In New York, a buyer's agent protects your interests and is typically paid through the transaction structure.",
+        "q": "Do I need a buyer's agent?"
+      },
+      {
+        "a": "From accepted offer to closing, most transactions complete in about 60-90 days.",
+        "q": "How long does buying take?"
+      },
+      {
+        "a": "Pre-approval is stronger because it includes full lender underwriting review.",
+        "q": "Pre-qualification vs pre-approval?"
+      },
+      {
+        "a": "Yes. We coordinate timing, contingencies, and negotiations for both sides.",
+        "q": "Can I buy and sell at the same time?"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Buy a Home in Orange County, NY | Jin Pang",
+    "keywords": "orange-county buyer agent, buy home orange-county, first time buyer",
+    "description": "Work with Jin Pang buyer specialists to find and win the right home in Orange County, NY."
+  },
+  "hero": {
+    "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/general/1772388364652-photo-1505843513577-22bb7d21e455.jpg",
+    "eyebrow": "Buying",
+    "subline": "Expert buyer representation, off-market access, and proven negotiation in Orange County, NY.",
+    "variant": "photo-background",
+    "headline": "Find Your Perfect Home in Orange County, NY",
+    "heightVh": 95
+  },
+  "process": {
+    "steps": [
+      {
+        "name": "Get Pre-Approved",
+        "number": "01",
+        "description": "Secure financing before your search so your offer is market-ready."
+      },
+      {
+        "name": "Define Your Search",
+        "number": "02",
+        "description": "Prioritize schools, commute, home style, and budget with your advisor."
+      },
+      {
+        "name": "Tour Properties",
+        "number": "03",
+        "description": "Tour on-market and private opportunities that match your criteria."
+      },
+      {
+        "name": "Make an Offer",
+        "number": "04",
+        "description": "Submit a strategic offer with terms designed to win and protect you."
+      },
+      {
+        "name": "Due Diligence",
+        "number": "05",
+        "description": "Inspection, attorney review, and contingency management handled with precision."
+      },
+      {
+        "name": "Close and Move",
+        "number": "06",
+        "description": "Coordinate with all parties to close smoothly and on schedule."
+      }
+    ],
+    "title": "How Buying Works"
+  },
+  "proofStats": {
+    "items": [
+      {
+        "label": "Avg sale-to-list ratio",
+        "value": "103%"
+      },
+      {
+        "label": "Avg days to contract",
+        "value": "24 days"
+      },
+      {
+        "label": "Homes closed",
+        "value": "620+"
+      }
+    ]
+  },
+  "vendorTips": {
+    "items": [
+      {
+        "title": "Lenders and Mortgage Advisors",
+        "description": "Professionals for conventional, jumbo, and specialized financing paths."
+      },
+      {
+        "title": "Inspectors and Attorneys",
+        "description": "Reliable partners for due diligence and contract-to-close execution."
+      }
+    ],
+    "headline": "Trusted Vendor Connections"
+  },
+  "buyerGuides": {
+    "items": [
+      {
+        "title": "First-Time Home Buyer Guide",
+        "description": "Financing prep, offer strategy, and due-diligence basics for first-time buyers."
+      },
+      {
+        "title": "Newlywed Home Buying Guide",
+        "description": "How to align budget, lifestyle, and long-term planning when buying together."
+      },
+      {
+        "title": "Step-by-Step Buying Guide",
+        "description": "Our complete timeline from pre-approval to closing day."
+      }
+    ],
+    "ctaHref": "/contact",
+    "ctaLabel": "Request Buyer Guides",
+    "headline": "Buyer Guide Library"
+  },
+  "leadCapture": {
+    "sourceTag": "buying-page",
+    "consentText": "By submitting, you agree to be contacted by Jin Pang about your home search.",
+    "primaryActionHref": "/team",
+    "primaryActionLabel": "Find a Buyer's Agent",
+    "secondaryActionHref": "/properties",
+    "secondaryActionLabel": "Browse Properties"
+  },
+  "whyBuyWithUs": {
+    "items": [
+      {
+        "heading": "Deep Local Expertise",
+        "description": "We know every school district, commute corridor, and micro-market in Orange County, NY."
+      },
+      {
+        "heading": "Off-Market Access",
+        "description": "Our network surfaces opportunities before they hit public portals."
+      },
+      {
+        "heading": "Proven Negotiation",
+        "description": "We structure clean, competitive offers designed to win in multiple-offer situations."
+      },
+      {
+        "heading": "First-Time Buyer Guidance",
+        "description": "Clear step-by-step support from financing prep to closing day."
+      },
+      {
+        "heading": "Smart Offer Strategy",
+        "description": "We use pricing, timing, and terms to protect your downside while staying competitive."
+      },
+      {
+        "heading": "Trusted Vendor Network",
+        "description": "Inspectors, attorneys, and lenders you can rely on from day one."
+      }
+    ]
+  },
+  "showingRequest": {
+    "subline": "Tell us your areas and must-haves, and we will coordinate the right tour plan.",
+    "ctaLabel": "Request Showings",
+    "headline": "Plan Your Private Showings",
+    "sourceTag": "buying-showing-request"
+  },
+  "successStories": {
+    "items": [
+      {
+        "name": "A. Kim",
+        "summary": "Won in a multiple-offer situation with stronger terms but controlled downside."
+      },
+      {
+        "name": "The Martins",
+        "summary": "Relocated from out of state and closed on schedule with school-focused neighborhood matching."
+      }
+    ],
+    "headline": "Buyer Success Stories"
+  },
+  "mistakesToAvoid": {
+    "items": [
+      "Touring before financing is fully prepared.",
+      "Focusing only on list price and ignoring total monthly cost.",
+      "Skipping neighborhood and commute due diligence.",
+      "Waiving protections without a clear risk strategy."
+    ],
+    "headline": "Common Mistakes to Avoid"
+  },
+  "financingEducation": {
+    "items": [
+      "Pre-qualification vs pre-approval and why it matters.",
+      "Rate buy-downs, points, and payment sensitivity.",
+      "Closing cost planning and reserve strategy.",
+      "How contingencies impact negotiating power."
+    ],
+    "headline": "Financing Education"
+  },
+  "newToAreaResources": {
+    "items": [
+      {
+        "title": "Neighborhood Fit",
+        "description": "Compare schools, commute patterns, and lifestyle trade-offs."
+      },
+      {
+        "title": "Activities and Local Living",
+        "description": "Family activities, dining, parks, and everyday convenience factors."
+      }
+    ],
+    "headline": "New to the Area Resources"
+  }
+}

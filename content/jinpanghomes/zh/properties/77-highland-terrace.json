@@ -1,0 +1,56 @@
+{
+  "hoa": null,
+  "seo": {
+    "title": "77 Highland Terrace, Middletown NY | $2,150,000",
+    "description": "Landmark Tudor estate in Middletown. 6BR/5BA, 5,800 SF, stunning updated interior preserving original 1928 details. Listed by Jin Pang."
+  },
+  "zip": "10708",
+  "beds": 6,
+  "city": "Middletown",
+  "slug": "77-highland-terrace",
+  "sqft": 5800,
+  "type": "single-family",
+  "baths": 5,
+  "price": 2150000,
+  "state": "NY",
+  "garage": "2-car detached",
+  "status": "active",
+  "address": "77 Highland Terrace",
+  "gallery": [
+    {
+      "alt": "Exterior",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/cdcae92983c1d4c43355.jpg"
+    }
+  ],
+  "lotSize": "0.68 acres",
+  "featured": true,
+  "features": {
+    "systems": [
+      "New HVAC 2021",
+      "Updated Electrical",
+      "Generator"
+    ],
+    "exterior": [
+      "Stone Walls",
+      "Mature Gardens",
+      "Bluestone Terrace",
+      "Two-Car Garage"
+    ],
+    "interior": [
+      "Tudor Architecture",
+      "Original Details",
+      "Library",
+      "Formal Dining",
+      "Great Room Addition",
+      "Multiple Fireplaces"
+    ]
+  },
+  "mlsNumber": "H6280015",
+  "yearBuilt": 1928,
+  "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/cdcae92983c1d4c43355.jpg",
+  "description": "A landmark Tudor estate on the most coveted street in Middletown. Thoughtfully updated while preserving all original architectural details — leaded glass windows, ornate plasterwork, original stone fireplace mantels. Six bedrooms, five full baths, a library, formal dining room, and a stunning great room addition completed in 2019.",
+  "neighborhood": "northfield",
+  "priceDisplay": "$2,150,000",
+  "schoolDistrict": "Middletown Union Free School District",
+  "listingAgentSlug": "jane-smith"
+}

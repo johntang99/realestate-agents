@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "buyers-guide",
+    "title": "Complete Buyer's Guide to Orange County",
+    "active": true,
+    "pdfUrl": "/guides/buyers-guide.pdf",
+    "category": "buyers",
+    "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/1bbf4e60bb8389e56ce1.jpg",
+    "description": "Everything you need to know about buying a home in Orange County — from pre-approval to closing day. 24 pages of expert guidance."
+  },
+  {
+    "slug": "sellers-guide",
+    "title": "Seller's Complete Guide",
+    "active": true,
+    "pdfUrl": "/guides/sellers-guide.pdf",
+    "category": "sellers",
+    "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/9a3cb4e262593e9eb4d8.jpg",
+    "description": "Our step-by-step guide to selling your Orange County home for maximum value. Includes pricing strategy, staging checklist, and marketing timeline."
+  },
+  {
+    "slug": "relocation-guide",
+    "title": "Complete Relocation Guide to Orange County",
+    "active": true,
+    "pdfUrl": "/guides/relocation-guide.pdf",
+    "category": "relocation",
+    "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/68574bd31d74d0d3407b.jpg",
+    "description": "Moving to Orange County? This comprehensive guide covers neighborhoods, schools, commute times, cost of living, and everything you need to make the right choice."
+  },
+  {
+    "slug": "investor-report",
+    "title": "Orange County Investment Market Report",
+    "active": true,
+    "pdfUrl": "/guides/investor-report.pdf",
+    "category": "investors",
+    "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/bb73962d66a0434fb3e5.jpg",
+    "description": "Current cap rates, rental yield data by neighborhood, market trends, and off-market deal criteria for Orange County investors."
+  },
+  {
+    "slug": "first-time-buyer",
+    "title": "First-Time Buyer Guide",
+    "active": true,
+    "pdfUrl": "/guides/first-time-buyer.pdf",
+    "category": "buyers",
+    "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/0f50d25cd42506f8cb45.jpg",
+    "description": "Specifically designed for first-time buyers in Orange County. Covers the entire process, common mistakes to avoid, and how to compete in a fast-moving market."
+  }
+]

@@ -1,0 +1,162 @@
+{
+  "cta": {
+    "ctaHref": "/contact",
+    "subline": "Whether you're ready to buy, sell, or explore what Jin Pang can offer your real estate career.",
+    "variant": "centered",
+    "ctaLabel": "Contact Us",
+    "headline": "Let's work together.",
+    "ctaSecondaryHref": "/join",
+    "ctaSecondaryLabel": "Join Our Team"
+  },
+  "seo": {
+    "title": "About Jin Pang, NY, Inc"
+  },
+  "hero": {
+    "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/9db5c82acfa817d23a00.jpg",
+    "subline": "One mission: to be the most trusted brokerage partner in Orange County, NY.",
+    "variant": "photo-background",
+    "headline": "About Jin Pang Team",
+    "imageAlt": "Jin Pang team"
+  },
+  "stats": {
+    "items": [
+      {
+        "label": "Total Sales Volume",
+        "value": "$180M+"
+      },
+      {
+        "label": "Transactions Closed",
+        "value": "620+"
+      },
+      {
+        "label": "Years in Business",
+        "value": "12"
+      },
+      {
+        "label": "Active Agents",
+        "value": "18"
+      },
+      {
+        "label": "Avg Sale-to-List",
+        "value": "103%"
+      },
+      {
+        "label": "Avg Days on Market",
+        "value": "24 days"
+      }
+    ],
+    "variant": "quiet-numbers",
+    "headline": "By the Numbers"
+  },
+  "story": {
+    "blocks": [
+      {
+        "body": "Jin Pang was built around a simple principle: clients deserve clear advice, local expertise, and consistent support for one of life's most important financial decisions.",
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/8c3bc9e4f16f175e842b.jpg",
+        "imageAlt": "Jin Pang leadership"
+      },
+      {
+        "body": "Our team supports buyers, sellers, investors, and relocating families across Orange County, NY, with practical strategy and personalized service at every step.",
+        "image": "",
+        "imageAlt": ""
+      }
+    ],
+    "variant": "text-image-alternating",
+    "headline": "Our Story"
+  },
+  "awards": {
+    "items": [
+      {
+        "name": "Top Independent Brokerage — Orange County",
+        "year": 2025,
+        "organization": "Hudson Gateway Association of REALTORS®"
+      },
+      {
+        "name": "Five Star Real Estate Company",
+        "year": 2024,
+        "organization": "Orange County Magazine"
+      },
+      {
+        "name": "Top Independent Brokerage",
+        "year": 2023,
+        "organization": "Hudson Gateway Association of REALTORS®"
+      }
+    ],
+    "headline": "Awards & Recognition"
+  },
+  "values": {
+    "items": [
+      {
+        "icon": "Heart",
+        "name": "Client-First Always",
+        "description": "Every decision starts with one question: what's best for our client?"
+      },
+      {
+        "icon": "MapPin",
+        "name": "Deep Local Roots",
+        "description": "We live here. We know every street, school, and market dynamic."
+      },
+      {
+        "icon": "Shield",
+        "name": "Honest Advice",
+        "description": "We tell you the truth about pricing and strategy, even when it's not what you want to hear."
+      }
+    ],
+    "headline": "Our Mission & Values"
+  },
+  "differentiators": {
+    "headline": "How Jin Pang Is Different",
+    "items": [
+      {
+        "title": "Strategy First, Not Pressure First",
+        "description": "We provide practical guidance anchored in market data and your goals, even when the right move is to wait."
+      },
+      {
+        "title": "Orange County, NY Neighborhood Depth",
+        "description": "Our team works at neighborhood level, helping clients evaluate trade-offs in schools, commute, lifestyle, and value."
+      },
+      {
+        "title": "Full-Team Execution",
+        "description": "Clients benefit from collaborative expertise across pricing, marketing, negotiation, and transaction management."
+      },
+      {
+        "title": "Transparent Communication",
+        "description": "You always know where your transaction stands, what options you have next, and why we recommend each step."
+      }
+    ]
+  },
+  "community": {
+    "body": "Orange County, NY is home for our team, and serving this community is part of our mission. Jin Pang supports local initiatives, partnerships, and practical education that helps residents navigate real estate with confidence.",
+    "image": "",
+    "headline": "Community Involvement"
+  },
+  "principalBroker": {
+    "bio": "Jin Pang leadership is focused on creating a brokerage experience built on trust, accountability, and long-term client relationships. We combine neighborhood-level knowledge with disciplined strategy to help clients make confident decisions.",
+    "photo": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+    "title": "Brokerage Leadership",
+    "ctaHref": "/team",
+    "variant": "portrait",
+    "ctaLabel": "Meet Our Full Team",
+    "headline": "Meet the Leadership Team",
+    "credentials": [
+      "Licensed Real Estate Broker - NY",
+      "Market Strategy and Negotiation Expertise",
+      "Client-First Service Standards"
+    ]
+  },
+  "agentTestimonials": {
+    "items": [
+      {
+        "name": "Marcus Johnson",
+        "quote": "I came from a franchise where I was a number. At Jin Pang, I have a real broker who answers the phone, a team that collaborates, and the freedom to build my business my way.",
+        "tenure": "9 years at Jin Pang"
+      },
+      {
+        "name": "Sarah Rodriguez",
+        "quote": "Jane's mentorship in my first two years was worth more than any training program I could have paid for. This is where I'll build my entire career.",
+        "tenure": "7 years at Jin Pang"
+      }
+    ],
+    "headline": "What Our Agents Say"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "date": "2026-03-15",
+      "name": "First-Time Buyer Seminar",
+      "slug": "first-time-buyer-seminar-march-2026",
+      "time": "10:00 AM – 12:00 PM",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/355487d1b555933cdad0.jpg",
+      "active": true,
+      "location": "Jin Pang Office — 123 Main Street, Middletown NY",
+      "description": "Join us for a free two-hour seminar covering everything first-time buyers need to know: pre-approval, the offer process, inspections, closing costs, and what to expect in today's Orange County market. Light breakfast provided.",
+      "externalLink": ""
+    },
+    {
+      "date": "2026-04-08",
+      "name": "Orange County Real Estate Investment Forum",
+      "slug": "orange-county-investment-forum-april-2026",
+      "time": "6:00 PM – 8:30 PM",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/eb7b8a70a190d2cbe539.jpg",
+      "active": true,
+      "location": "Jin Pang Office — 123 Main Street, Middletown NY",
+      "description": "An evening for serious investors exploring Orange County's multifamily, commercial, and single-family investment market. Sarah Rodriguez will present current cap rate data, rental yield analysis, and off-market opportunities. RSVP required — limited seating.",
+      "externalLink": ""
+    },
+    {
+      "date": "2026-04-19",
+      "name": "Spring Market Open House Weekend",
+      "slug": "spring-market-open-house-weekend",
+      "time": "All day",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/b1cf669c5090161f58e4.jpg",
+      "active": true,
+      "location": "Multiple locations across Orange County",
+      "description": "Our annual open house weekend featuring all active Jin Pang listings. Visit multiple properties in a single weekend, meet our agents, and get a firsthand look at this spring's inventory.",
+      "externalLink": ""
+    }
+  ]
+}

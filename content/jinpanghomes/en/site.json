@@ -1,0 +1,60 @@
+{
+  "id": "jinpanghomes",
+  "name": "Jin Pang",
+  "email": "hello@jinpanghomes.com",
+  "phone": "(845) 555-0190",
+  "stats": {
+    "agentCount": "18",
+    "totalVolume": "$180M+",
+    "avgDaysOnMarket": "24",
+    "fiveStarReviews": "200+",
+    "saleToListRatio": "103%",
+    "yearsInBusiness": "12",
+    "totalTransactions": "620+"
+  },
+  "social": {
+    "tiktok": "",
+    "twitter": "",
+    "youtube": "",
+    "facebook": "",
+    "linkedin": "",
+    "instagram": ""
+  },
+  "address": {
+    "lat": 41.423,
+    "lng": -74.614,
+    "zip": "12771",
+    "city": "Port Jervis",
+    "full": "21 Painted Apron Ter, Port Jervis, NY 12771",
+    "state": "NY",
+    "street": "21 Painted Apron Ter",
+    "mapsUrl": "https://maps.google.com/?q=21+Painted+Apron+Ter+Port+Jervis+NY+12771",
+    "mapsEmbedUrl": ""
+  },
+  "license": {
+    "licenseState": "NY",
+    "brokerageType": "Licensed Real Estate Broker",
+    "licenseNumber": "10991200XXX",
+    "principalBrokerName": "Jin Pang Leadership Team",
+    "principalBrokerTitle": "Principal Broker & Founder",
+    "principalBrokerLicense": "10301200XXX"
+  },
+  "tagline": "Trusted Orange County Real Estate Experts",
+  "smsPhone": "(845) 555-0190",
+  "chatWidget": {
+    "enabled": false,
+    "provider": "tidio",
+    "tidioKey": ""
+  },
+  "compliance": {
+    "mlsDisclaimer": "All listing information is from sources deemed reliable but not guaranteed. Information is provided for consumers' personal, non-commercial use.",
+    "equalHousingText": "Jin Pang is an Equal Housing Opportunity broker.",
+    "fairHousingStatement": "We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation."
+  },
+  "subtagline": "Serving Orange County, NY with deep local expertise, practical guidance, and client-first service.",
+  "officeHours": {
+    "sunday": "Sun: By appointment",
+    "saturday": "Sat: 10:00 AM – 4:00 PM",
+    "weekdays": "Mon–Fri: 9:00 AM – 6:00 PM"
+  }
+}

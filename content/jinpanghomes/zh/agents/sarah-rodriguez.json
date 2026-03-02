@@ -1,0 +1,62 @@
+{
+  "bio": "Sarah brings a background in finance and 7 years of real estate experience to every transaction. She specializes in investment properties, multifamily acquisitions, and seller representation in the upper market tier. Her analytical approach and financial modeling skills set her apart — investors trust her to find deals that actually pencil out.",
+  "name": "Sarah Rodriguez",
+  "role": "agent",
+  "slug": "sarah-rodriguez",
+  "email": "sarah@jinpanghomes.com",
+  "phone": "(845) 555-0193",
+  "photo": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/1aed3bcbb922388dac21.jpg",
+  "title": "Real Estate Agent & Investment Specialist",
+  "awards": [
+    "Investment Specialist Certification 2023"
+  ],
+  "social": {
+    "facebook": "",
+    "linkedin": "https://linkedin.com/in/sarahrodriguez-re",
+    "instagram": "https://instagram.com/sarah_re_orange-county"
+  },
+  "status": "active",
+  "featured": false,
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "specialties": [
+    "Investment",
+    "Sellers",
+    "Multifamily",
+    "1031 Exchange"
+  ],
+  "volumeLabel": "$42M+",
+  "displayOrder": 3,
+  "licenseState": "NY",
+  "testimonials": [
+    {
+      "id": "t-sr-1",
+      "text": "Sarah found us a duplex with a 7.2% cap rate that we almost passed on. She ran the numbers with us, showed us the upside, and now it's our best performing asset.",
+      "rating": 5,
+      "reviewer": "Tom & Angela Voss",
+      "verified": true,
+      "reviewDate": "2025-08",
+      "transactionType": "buyer"
+    },
+    {
+      "id": "t-sr-2",
+      "text": "Her underwriting and negotiation support gave us confidence to close on a multifamily property that exceeded our targets.",
+      "rating": 5,
+      "reviewer": "N. Patel",
+      "verified": true,
+      "reviewDate": "2025-04",
+      "transactionType": "buyer"
+    }
+  ],
+  "licenseNumber": "10501200XXX",
+  "neighborhoods": [
+    "Westside",
+    "Northfield"
+  ],
+  "avgDaysOnMarket": 28,
+  "saleToListRatio": "102%",
+  "yearsExperience": 7,
+  "transactionCount": 98
+}

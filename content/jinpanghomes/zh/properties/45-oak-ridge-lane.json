@@ -1,0 +1,65 @@
+{
+  "hoa": null,
+  "seo": {
+    "title": "45 Oak Ridge Lane, Port Jervis NY | $1,295,000",
+    "description": "Stunning 5BR/4BA colonial in Port Jervis. Renovated 2022, chef's kitchen, in-ground pool, Port Jervis schools. Listed by Jin Pang."
+  },
+  "zip": "10583",
+  "beds": 5,
+  "city": "Port Jervis",
+  "slug": "45-oak-ridge-lane",
+  "sqft": 4200,
+  "type": "single-family",
+  "baths": 4,
+  "price": 1295000,
+  "state": "NY",
+  "garage": "2-car attached",
+  "status": "active",
+  "address": "45 Oak Ridge Lane",
+  "gallery": [
+    {
+      "alt": "Front exterior",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/b1cf669c5090161f58e4.jpg"
+    },
+    {
+      "alt": "Living room",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/d14b9ca75124c6efd775.jpg"
+    },
+    {
+      "alt": "Kitchen",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/fec7a8094980927134df.jpg"
+    }
+  ],
+  "lotSize": "0.42 acres",
+  "featured": true,
+  "features": {
+    "systems": [
+      "Whole-House Generator",
+      "Central Vacuum",
+      "Smart Home System",
+      "3-Zone HVAC"
+    ],
+    "exterior": [
+      "In-Ground Pool",
+      "Bluestone Patio",
+      "3-Season Porch",
+      "Privacy Landscaping"
+    ],
+    "interior": [
+      "Chef's Kitchen",
+      "Primary Suite",
+      "Home Office",
+      "Gas Fireplace",
+      "Wine Cellar",
+      "Mudroom"
+    ]
+  },
+  "mlsNumber": "H6280011",
+  "yearBuilt": 2018,
+  "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/b1cf669c5090161f58e4.jpg",
+  "description": "Stunning colonial set on nearly half an acre in the heart of Port Jervis. Completely renovated in 2022, this exceptional home features a chef's kitchen with Thermador appliances, wide-plank white oak floors throughout, and a primary suite that rivals any luxury hotel. The professionally landscaped grounds include a heated in-ground pool, bluestone patio, and mature specimen trees offering complete privacy.",
+  "neighborhood": "northfield",
+  "priceDisplay": "$1,295,000",
+  "schoolDistrict": "Port Jervis Union Free School District",
+  "listingAgentSlug": "jane-smith"
+}

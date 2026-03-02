@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Warwick NY Real Estate | Jin Pang",
+    "description": "Search homes for sale in Warwick, NY. Waterfront village, top schools, walkable downtown, 35 min to NYC. Expert local real estate guidance."
+  },
+  "name": "Warwick",
+  "slug": "larchmont",
+  "region": "Southern Orange County",
+  "gallery": [],
+  "schools": [
+    {
+      "name": "Mamaroneck High School",
+      "type": "Public",
+      "grades": "9-12",
+      "rating": "9/10"
+    },
+    {
+      "name": "Hommocks Middle School",
+      "type": "Public",
+      "grades": "6-8",
+      "rating": "9/10"
+    },
+    {
+      "name": "Murray Avenue Elementary",
+      "type": "Public",
+      "grades": "K-5",
+      "rating": "9/10"
+    }
+  ],
+  "tagline": "Village Charm on Long Island Sound",
+  "featured": true,
+  "overview": "Warwick is Southern Orange County's most beloved waterfront village. Tree-lined streets, a charming walkable downtown packed with independent restaurants and boutiques, and direct access to Long Island Sound make this one of the most desirable communities in the region. The Metro-North New Haven Line connects to Grand Central in about 35 minutes.",
+  "lifestyle": [
+    "Waterfront Access",
+    "Walkable Village",
+    "Top Schools",
+    "NYC Commuter",
+    "Harbor Views"
+  ],
+  "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/c4d0682cf03a5055d462.jpg",
+  "marketSnapshot": {
+    "yoyChange": "+3.1%",
+    "medianPrice": "$925,000",
+    "pricePerSqft": "$420",
+    "inventoryCount": "22",
+    "avgDaysOnMarket": "26"
+  }
+}

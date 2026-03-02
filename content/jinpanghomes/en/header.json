@@ -1,0 +1,50 @@
+{
+  "logo": {
+    "alt": "Jin Pang",
+    "src": "",
+    "width": 160,
+    "height": 48
+  },
+  "phone": "(845) 555-0190",
+  "ctaHref": "/contact",
+  "ctaLabel": "Request Info",
+  "logoText": "JIN PANG HOMES",
+  "navigation": [
+    {
+      "href": "/buying",
+      "label": "Buy"
+    },
+    {
+      "href": "/selling",
+      "label": "Sell"
+    },
+    {
+      "href": "/investing",
+      "label": "Invest"
+    },
+    {
+      "href": "/relocating",
+      "label": "Relocate"
+    },
+    {
+      "href": "/properties",
+      "label": "Properties"
+    },
+    {
+      "href": "/about",
+      "label": "About Jin Pang"
+    },
+    {
+      "href": "/knowledge-center",
+      "label": "Blog"
+    },
+    {
+      "href": "/contact",
+      "label": "Contact"
+    }
+  ],
+  "stickyCtaPhone": true,
+  "scrollThreshold": 80,
+  "stickyCtaButton": true,
+  "transparentOnHero": true
+}

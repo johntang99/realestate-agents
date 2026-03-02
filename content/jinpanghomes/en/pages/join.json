@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "image": "",
+    "subline": "Join a brokerage that invests in your growth with real mentorship and marketing support.",
+    "variant": "photo-background",
+    "headline": "Build Your Real Estate Career Where It Matters",
+    "eyebrow": "Careers"
+  },
+  "seo": {
+    "title": "Join Jin Pang | Real Estate Careers in Orange County",
+    "description": "Explore agent opportunities at Jin Pang with mentorship, systems, and growth support.",
+    "keywords": "real estate careers orange-county, join brokerage, agent recruitment"
+  },
+  "proofStats": {
+    "items": [
+      { "value": "18+", "label": "Agents" },
+      { "value": "$180M+", "label": "Annual volume" },
+      { "value": "12", "label": "Years in business" }
+    ]
+  },
+  "brokerMessage": {
+    "headline": "Why We Built Jin Pang",
+    "paragraphs": [
+      "Jin Pang was built to give agents a better path than high-overhead franchise models.",
+      "Our team gets practical mentorship, modern marketing support, and leadership that responds quickly."
+    ]
+  },
+  "whatWeOffer": {
+    "items": [
+      { "title": "Competitive Split", "desc": "Transparent compensation discussed in a confidential consultation." },
+      { "title": "Training and Mentorship", "desc": "Structured onboarding and skill development at every stage." },
+      { "title": "Marketing Support", "desc": "Listing media, campaign templates, and brand systems that convert." },
+      { "title": "Technology Stack", "desc": "CRM, content tools, and operational workflows that scale." },
+      { "title": "Collaborative Culture", "desc": "A professional team environment where agents share strategy." },
+      { "title": "Admin Operations", "desc": "Transaction support that keeps agents focused on clients and revenue." }
+    ]
+  },
+  "faq": {
+    "items": [
+      { "q": "What commission models are available?", "a": "We discuss model fit privately based on your production level and goals." },
+      { "q": "Do you support new agents?", "a": "Yes. New agents receive mentorship plus practical transaction guidance." },
+      { "q": "Do you provide marketing support?", "a": "Yes. We provide listing and personal-brand support aligned to your growth plan." },
+      { "q": "Is my inquiry confidential?", "a": "Yes. Every recruiting conversation is handled confidentially." }
+    ]
+  },
+  "leadCapture": {
+    "sourceTag": "join-page",
+    "consentText": "By submitting, you agree to be contacted by Jin Pang regarding career opportunities.",
+    "headline": "Let's Have a Conversation",
+    "subline": "No pressure. Just an honest discussion about fit and growth."
+  },
+  "cta": {
+    "variant": "centered",
+    "headline": "Ready for the Next Step?",
+    "subline": "Share your goals and schedule a confidential career conversation."
+  }
+}

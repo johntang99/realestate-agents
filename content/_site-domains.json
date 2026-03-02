@@ -1,0 +1,22 @@
+{
+  "domains": [
+    {
+      "siteId": "jinpanghomes",
+      "domain": "localhost:3070",
+      "environment": "dev",
+      "enabled": true
+    },
+    {
+      "siteId": "jinpanghomes",
+      "domain": "www.jinpanghomes.com",
+      "environment": "prod",
+      "enabled": true
+    },
+    {
+      "siteId": "jinpanghomes",
+      "domain": "jinpanghomes.com",
+      "environment": "prod",
+      "enabled": true
+    }
+  ]
+}

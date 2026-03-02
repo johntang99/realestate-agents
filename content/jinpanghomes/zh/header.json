@@ -1,0 +1,53 @@
+{
+  "logo": {
+    "alt": "Jin Pang",
+    "src": "",
+    "width": 160,
+    "height": 48
+  },
+  "phone": "(845) 555-0190",
+  "logoText": "JIN PANG HOMES",
+  "navigation": [
+    {
+      "href": "/buying",
+      "label": "买房"
+    },
+    {
+      "href": "/selling",
+      "label": "卖房"
+    },
+    {
+      "href": "/investing",
+      "label": "投资"
+    },
+    {
+      "href": "/relocating",
+      "label": "搬迁"
+    },
+    {
+      "href": "/properties",
+      "label": "房源"
+    },
+    {
+      "href": "/about",
+      "label": "关于锦庞"
+    },
+    {
+      "href": "/knowledge-center",
+      "label": "博客"
+    },
+    {
+      "href": "/contact",
+      "label": "联系我们"
+    }
+  ],
+  "ctaButton": {
+    "label": "预约咨询",
+    "labelCn": "预约咨询",
+    "href": "/contact"
+  },
+  "stickyCtaPhone": true,
+  "scrollThreshold": 80,
+  "stickyCtaButton": true,
+  "transparentOnHero": true
+}

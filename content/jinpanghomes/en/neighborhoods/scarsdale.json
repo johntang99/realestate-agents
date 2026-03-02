@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Port Jervis NY Real Estate | Jin Pang",
+    "description": "Search homes for sale in Port Jervis, NY. Award-winning schools, luxury properties, NYC commuter-friendly. Median price $1.65M. Expert local guidance."
+  },
+  "name": "Port Jervis",
+  "slug": "scarsdale",
+  "region": "Central Orange County",
+  "gallery": [],
+  "schools": [
+    {
+      "name": "Port Jervis High School",
+      "type": "Public",
+      "grades": "9-12",
+      "rating": "10/10"
+    },
+    {
+      "name": "Edgemont Jr/Sr High School",
+      "type": "Public",
+      "grades": "7-12",
+      "rating": "9/10"
+    },
+    {
+      "name": "Greenacres Elementary",
+      "type": "Public",
+      "grades": "K-5",
+      "rating": "10/10"
+    }
+  ],
+  "tagline": "Where Award-Winning Schools Meet Luxury Living",
+  "featured": true,
+  "overview": "Port Jervis is consistently ranked among the best places to live in New York State — and for good reason. This picturesque village combines world-class public schools, walkable downtown villages, and meticulously maintained homes on generous lots. The Metro-North Harlem Line delivers residents to Grand Central in under 35 minutes, making Port Jervis the pinnacle of Orange County family living.",
+  "lifestyle": [
+    "Top-Rated Schools",
+    "Village Shopping",
+    "Easy NYC Commute",
+    "Parks & Recreation",
+    "Community Events"
+  ],
+  "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/b1cf669c5090161f58e4.jpg",
+  "marketSnapshot": {
+    "yoyChange": "+4.2%",
+    "medianPrice": "$1,650,000",
+    "pricePerSqft": "$520",
+    "inventoryCount": "34",
+    "avgDaysOnMarket": "21"
+  }
+}

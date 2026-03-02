@@ -1,0 +1,52 @@
+{
+  "hoa": 385,
+  "seo": {
+    "title": "88 Riverside Court, Dobbs Ferry NY | $649,000",
+    "description": "3BR/2BA end-unit townhouse in Dobbs Ferry. Open floor plan, private deck, Metro-North nearby. Listed by Jin Pang."
+  },
+  "zip": "10522",
+  "beds": 3,
+  "city": "Dobbs Ferry",
+  "slug": "88-riverside-court",
+  "sqft": 1950,
+  "type": "townhouse",
+  "baths": 2,
+  "price": 649000,
+  "state": "NY",
+  "garage": "1-car garage",
+  "status": "pending",
+  "address": "88 Riverside Court",
+  "gallery": [
+    {
+      "alt": "Front view",
+      "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/0ce43c0c6c8c754dd69b.jpg"
+    }
+  ],
+  "lotSize": null,
+  "featured": false,
+  "features": {
+    "systems": [
+      "Central A/C",
+      "Gas Heat",
+      "In-Unit W/D"
+    ],
+    "exterior": [
+      "Private Deck",
+      "Wooded Views"
+    ],
+    "interior": [
+      "Open Floor Plan",
+      "10ft Ceilings",
+      "Gas Fireplace",
+      "Primary Suite"
+    ]
+  },
+  "mlsNumber": "H6280013",
+  "yearBuilt": 2005,
+  "coverImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/0ce43c0c6c8c754dd69b.jpg",
+  "description": "Elegant end-unit townhouse in the sought-after Riverside Court community. Features an open floor plan, soaring ceilings, and a private deck overlooking a wooded backdrop. Minutes to Dobbs Ferry Metro-North and the waterfront village.",
+  "neighborhood": "westside",
+  "priceDisplay": "$649,000",
+  "schoolDistrict": "Dobbs Ferry Union Free School District",
+  "listingAgentSlug": "sarah-rodriguez"
+}

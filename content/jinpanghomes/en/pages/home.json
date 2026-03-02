@@ -1,0 +1,196 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "alt": "Luxury home in Port Jervis",
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg"
+      },
+      {
+        "alt": "Waterfront home in Warwick",
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
+      },
+      {
+        "alt": "Estate home in Middletown",
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
+      }
+    ],
+    "subline": "Clear strategy for buying, selling, relocating, and investing - with a local team that puts your goals first.",
+    "variant": "gallery-background",
+    "headline": "Welcome to Jin Pang",
+    "ctaPrimary": {
+      "href": "/properties",
+      "label": "Search Properties"
+    },
+    "ctaSecondary": {
+      "href": "/contact",
+      "label": "Free Consultation"
+    },
+    "overlayOpacity": 0.45
+  },
+  "intro": {
+    "body": "Jin Pang is built around one core promise: to earn your trust with honest advice, strong local knowledge, and hands-on support from first conversation to closing.",
+    "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/78543c79b8563255d988.jpg",
+    "ctaHref": "/about",
+    "ctaLabel": "Our Story",
+    "headline": "A Brokerage Built Around Client Trust"
+  },
+  "statsBar": {
+    "items": [
+      {
+        "label": "In Career Sales",
+        "value": "180",
+        "prefix": "$",
+        "suffix": "M+"
+      },
+      {
+        "label": "Transactions Closed",
+        "value": "620",
+        "suffix": "+"
+      },
+      {
+        "label": "Years in Business",
+        "value": "12"
+      },
+      {
+        "label": "Expert Agents",
+        "value": "18"
+      },
+      {
+        "label": "Five-Star Reviews",
+        "value": "200",
+        "suffix": "+"
+      }
+    ],
+    "variant": "animated-count"
+  },
+  "goalPaths": {
+    "items": [
+      {
+        "href": "/buying",
+        "icon": "Home",
+        "label": "I Want to Buy",
+        "subline": "Find your perfect home with expert guidance"
+      },
+      {
+        "href": "/selling",
+        "icon": "DollarSign",
+        "label": "I Want to Sell",
+        "subline": "Strategic pricing and premium marketing"
+      },
+      {
+        "href": "/relocating",
+        "icon": "MapPin",
+        "label": "I'm Relocating",
+        "subline": "Deep local knowledge for your move"
+      },
+      {
+        "href": "/investing",
+        "icon": "TrendingUp",
+        "label": "I'm an Investor",
+        "subline": "Data-driven investment strategy"
+      },
+      {
+        "href": "/join",
+        "icon": "Users",
+        "label": "I Want to Join the Team",
+        "subline": "Explore opportunities to grow with Jin Pang"
+      }
+    ],
+    "headline": "How Can We Help You?"
+  },
+  "contactForm": {
+    "subline": "Send us a message and we'll respond within 2 hours.",
+    "headline": "Get in Touch"
+  },
+  "teamPreview": {
+    "ctaHref": "/team",
+    "subline": "Meet the Jin Pang team serving Orange County, NY.",
+    "ctaLabel": "Meet the Full Team",
+    "headline": "Meet Our Agents",
+    "agentSlugs": [
+      "jane-smith",
+      "marcus-johnson",
+      "sarah-rodriguez"
+    ]
+  },
+  "whyChooseUs": {
+    "items": [
+      {
+        "icon": "MapPin",
+        "heading": "Orange County Market Expertise",
+        "description": "Neighborhood-level insight across Orange County, NY to help you make better decisions."
+      },
+      {
+        "icon": "TrendingUp",
+        "heading": "Clear Strategy and Execution",
+        "description": "Pricing, negotiation, and marketing plans tailored to your goals and timeline."
+      },
+      {
+        "icon": "Users",
+        "heading": "Personalized Client Experience",
+        "description": "Responsive communication and practical guidance for one of life's biggest transactions."
+      }
+    ],
+    "headline": "Why Choose Jin Pang"
+  },
+  "consultationCta": {
+    "ctaHref": "/contact",
+    "subline": "Ready to buy, sell, relocate, or invest? Let's talk about your next move.",
+    "ctaLabel": "Request Consultation",
+    "headline": "Ready to Take the Next Step?",
+    "backgroundImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg",
+    "reviewQuote": {
+      "text": "Jin Pang sold our home in just 19 days and guided us into our next one with zero stress.",
+      "author": "The Carter Family",
+      "source": "Google Review"
+    }
+  },
+  "featuredListings": {
+    "ctaHref": "/properties",
+    "subline": "Handpicked listings across Orange County, NY communities.",
+    "ctaLabel": "View All Properties",
+    "headline": "Featured Properties",
+    "maxDisplay": 6,
+    "propertySlugs": [
+      "45-oak-ridge-lane",
+      "77-highland-terrace",
+      "12-harbor-view-drive"
+    ]
+  },
+  "testimonialStrip": {
+    "headline": "What Our Clients Say",
+    "testimonialIds": [
+      "t-001",
+      "t-002",
+      "t-005"
+    ]
+  },
+  "marketReportTeaser": {
+    "ctaHref": "/market-reports/february-2026",
+    "keyStat": "Local trends and pricing signals for smarter decisions",
+    "subline": "Orange County, NY — Latest Update",
+    "ctaLabel": "Read Full Report",
+    "headline": "Market Report"
+  },
+  "neighborhoodSpotlight": {
+    "ctaHref": "/neighborhoods",
+    "subline": "Area insights for buyers, sellers, relocators, and investors.",
+    "ctaLabel": "All Neighborhoods",
+    "headline": "Explore Orange County Neighborhoods",
+    "neighborhoodSlugs": [
+      "scarsdale",
+      "larchmont",
+      "bronxville"
+    ]
+  },
+  "knowledgeCenterPreview": {
+    "ctaHref": "/knowledge-center",
+    "ctaLabel": "Visit the Knowledge Center",
+    "headline": "From Our Knowledge Center",
+    "postSlugs": [
+      "orange-county-market-report-2026",
+      "first-time-buyer-guide-orange-county",
+      "relocating-to-orange-county"
+    ]
+  }
+}

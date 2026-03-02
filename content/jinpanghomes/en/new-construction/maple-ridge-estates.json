@@ -1,0 +1,45 @@
+{
+  "seo": {
+    "title": "Maple Ridge Estates New Construction | Harrison NY | Jin Pang",
+    "description": "New construction homes in Harrison NY from $1.85M. Custom colonials on half-acre lots, Harrison schools. Maple Ridge Estates by Silverstone Homes."
+  },
+  "name": "Maple Ridge Estates",
+  "slug": "maple-ridge-estates",
+  "status": "under-construction",
+  "builder": "Silverstone Homes",
+  "gallery": [],
+  "priceTo": 2400000,
+  "features": [
+    "Custom Kitchen with Sub-Zero & Wolf Appliances",
+    "White Oak Hardwood Floors Throughout",
+    "Primary Suite with Spa Bath",
+    "3-Car Garage",
+    "Smart Home Pre-Wiring",
+    "Energy Star Certified"
+  ],
+  "location": "Harrison, NY 10528",
+  "heroImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/5fd15e731ac7ac5e29fc.jpg",
+  "priceFrom": 1850000,
+  "floorPlans": [
+    {
+      "beds": 5,
+      "name": "The Harrison",
+      "sqft": 4800,
+      "baths": 4.5,
+      "image": ""
+    },
+    {
+      "beds": 4,
+      "name": "The Madison",
+      "sqft": 4100,
+      "baths": 3.5,
+      "image": ""
+    }
+  ],
+  "priceRange": "$1,850,000 – $2,400,000",
+  "description": "Maple Ridge Estates is an exclusive collection of 14 custom-built colonial and transitional homes set on half-acre to one-acre lots in the prestigious Harrison school district. Each home features high-end finishes, open-concept floor plans, 3-car garages, and sweeping views of the Hudson Valley ridge.",
+  "neighborhood": "northfield",
+  "virtualTourUrl": "",
+  "inquiryAgentSlug": "jane-smith",
+  "estimatedCompletion": "Q4 2026"
+}

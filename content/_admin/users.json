@@ -1,0 +1,12 @@
+[
+  {
+    "id": "admin-rea-001",
+    "email": "admin@example.com",
+    "name": "REA Admin",
+    "role": "super_admin",
+    "sites": ["realestate"],
+    "passwordHash": "$2b$10$WSevTYPp5V9yF5LXi4WThuqj3DyOLMV.DJOLa.D8h8sLvCEf8ovnq",
+    "createdAt": "2026-02-23T00:00:00Z",
+    "lastLoginAt": "2026-02-23T00:00:00Z"
+  }
+]
