@@ -31,12 +31,20 @@
       "label": "Properties"
     },
     {
+      "href": "/neighborhoods",
+      "label": "Neighbourhood"
+    },
+    {
       "href": "/about",
-      "label": "About Jin Pang"
+      "label": "About"
     },
     {
       "href": "/knowledge-center",
       "label": "Blog"
+    },
+    {
+      "href": "/testimonials",
+      "label": "Testimonials"
     },
     {
       "href": "/contact",

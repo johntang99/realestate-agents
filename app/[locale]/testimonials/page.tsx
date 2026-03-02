@@ -24,6 +24,29 @@ function Stars({ count = 5 }: { count?: number }) {
   );
 }
 
+function normalizeCategory(raw?: string) {
+  if (!raw) return undefined;
+  const value = raw.toLowerCase();
+  if (value === 'buyer') return 'buyers';
+  if (value === 'seller') return 'sellers';
+  if (value === 'investor') return 'investors';
+  return value;
+}
+
+function normalizeTestimonial(raw: any): Testimonial {
+  return {
+    id: raw?.id,
+    quote: raw?.quote || raw?.text || '',
+    author: raw?.author || raw?.reviewer || '',
+    title: raw?.title || raw?.location || '',
+    category: normalizeCategory(raw?.category || raw?.transactionType),
+    rating: typeof raw?.rating === 'number' ? raw.rating : 5,
+    featured: Boolean(raw?.featured),
+    date: raw?.date || raw?.reviewDate,
+    transactionType: raw?.transactionType,
+  };
+}
+
 export default function TestimonialsPage() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [pageData, setPageData] = useState<any>({});
@@ -42,7 +65,8 @@ export default function TestimonialsPage() {
       try { setPageData(JSON.parse(pageRes.content || '{}')); } catch {}
       try {
         const t = JSON.parse(testRes.content || '{}');
-        setTestimonials(Array.isArray(t.items) ? t.items : []);
+        const rawItems = Array.isArray(t) ? t : (Array.isArray(t.items) ? t.items : []);
+        setTestimonials(rawItems.map(normalizeTestimonial));
       } catch {}
       setLoading(false);
     }).catch(() => setLoading(false));

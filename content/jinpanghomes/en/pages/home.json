@@ -29,7 +29,7 @@
   },
   "intro": {
     "body": "Jin Pang is built around one core promise: to earn your trust with honest advice, strong local knowledge, and hands-on support from first conversation to closing.",
-    "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/78543c79b8563255d988.jpg",
+    "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png",
     "ctaHref": "/about",
     "ctaLabel": "Our Story",
     "headline": "A Brokerage Built Around Client Trust"
@@ -103,14 +103,12 @@
     "headline": "Get in Touch"
   },
   "teamPreview": {
-    "ctaHref": "/team",
-    "subline": "Meet the Jin Pang team serving Orange County, NY.",
-    "ctaLabel": "Meet the Full Team",
-    "headline": "Meet Our Agents",
+    "ctaHref": "/about",
+    "subline": "Work directly with Jin Pang for buying, selling, investing, and relocation guidance in Orange County, NY.",
+    "ctaLabel": "View Profile",
+    "headline": "Meet Jin Pang",
     "agentSlugs": [
-      "jane-smith",
-      "marcus-johnson",
-      "sarah-rodriguez"
+      "jin-pang"
     ]
   },
   "whyChooseUs": {
@@ -138,12 +136,12 @@
     "subline": "Ready to buy, sell, relocate, or invest? Let's talk about your next move.",
     "ctaLabel": "Request Consultation",
     "headline": "Ready to Take the Next Step?",
-    "backgroundImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg",
     "reviewQuote": {
       "text": "Jin Pang sold our home in just 19 days and guided us into our next one with zero stress.",
       "author": "The Carter Family",
       "source": "Google Review"
-    }
+    },
+    "backgroundImage": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
   },
   "featuredListings": {
     "ctaHref": "/properties",

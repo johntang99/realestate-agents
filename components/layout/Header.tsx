@@ -59,8 +59,10 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
     { label: 'Invest', href: '/investing' },
     { label: 'Relocate', href: '/relocating' },
     { label: 'Properties', href: '/properties' },
+    { label: 'Neighbourhood', href: '/neighborhoods' },
     { label: 'Blog', href: '/knowledge-center' },
-    { label: 'About Jin Pang', href: '/about' },
+    { label: 'Testimonials', href: '/testimonials' },
+    { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ];
   const cta = config.ctaButton || { label: 'Schedule Consultation', href: '/contact' };

@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { ArrowRight, Star, Search, Bed, Bath, Maximize2, MapPin, Phone } from 'lucide-react';
 import { GoalEntryPaths } from '@/components/sections/GoalEntryPaths';
 import { TrustPromise } from '@/components/sections/TrustPromise';
-import { AgentCard, type AgentData } from '@/components/ui/AgentCard';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface Slide { image?: string; alt?: string }
@@ -266,7 +265,6 @@ function InlineContactForm({ locale, headline, subline }: { locale: string; head
 export default function HomePage() {
   const [h, setH] = useState<HomeData>({});
   const [site, setSite] = useState<SiteData>({});
-  const [agents, setAgents] = useState<AgentData[]>([]);
   const [properties, setProperties] = useState<Property[]>([]);
   const [neighborhoods, setNeighborhoods] = useState<Neighborhood[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -288,9 +286,6 @@ export default function HomePage() {
     viewAll: isZh ? '查看全部' : 'View All',
     whyJinPangTag: isZh ? '为什么选择 Jin Pang Homes' : 'Why Jin Pang Homes',
     whyJinPangFallbackHeadline: isZh ? '为什么选择 Jin Pang Homes' : 'Why Choose Jin Pang Homes',
-    ourAgentsTag: isZh ? '经纪人团队' : 'Our Agents',
-    meetOurAgents: isZh ? '认识我们的经纪人' : 'Meet Our Agents',
-    meetFullTeam: isZh ? '查看完整团队' : 'Meet the Full Team',
     testimonialFallbackHeadline: isZh ? '客户怎么说' : 'What Our Clients Say',
     localExpertiseTag: isZh ? '本地洞察' : 'Local Expertise',
     exploreNeighborhoods: isZh ? '探索社区' : 'Explore Neighborhoods',
@@ -323,16 +318,13 @@ export default function HomePage() {
     Promise.all([
       fetch(`/api/content/file?locale=${loc}&path=pages/home.json`).then(r => r.json()),
       fetch(`/api/content/file?locale=${loc}&path=site.json`).then(r => r.json()),
-      fetch(`/api/content/items?locale=${loc}&directory=agents`).then(r => r.json()),
       fetch(`/api/content/items?locale=${loc}&directory=properties`).then(r => r.json()),
       fetch(`/api/content/items?locale=${loc}&directory=neighborhoods`).then(r => r.json()),
       fetch(`/api/content/file?locale=${loc}&path=testimonials.json`).then(r => r.json()),
       fetch(`/api/content/items?locale=${loc}&directory=knowledge-center`).then(r => r.json()),
-    ]).then(([homeRes, siteRes, agentsRes, propsRes, nbRes, testRes, postsRes]) => {
+    ]).then(([homeRes, siteRes, propsRes, nbRes, testRes, postsRes]) => {
       try { setH(JSON.parse(homeRes.content || '{}')); } catch {}
       try { setSite(JSON.parse(siteRes.content || '{}')); } catch {}
-      const rawAgents = Array.isArray(agentsRes.items) ? agentsRes.items as AgentData[] : [];
-      setAgents(rawAgents.sort((a: any, b: any) => (a.displayOrder || 99) - (b.displayOrder || 99)));
       setProperties(Array.isArray(propsRes.items) ? propsRes.items as Property[] : []);
       setNeighborhoods(Array.isArray(nbRes.items) ? nbRes.items as Neighborhood[] : []);
       try { const t = JSON.parse(testRes.content || '{}'); setTestimonials(Array.isArray(t.items) ? t.items : []); } catch {}
@@ -366,11 +358,6 @@ export default function HomePage() {
     const slugs = h.neighborhoodSpotlight?.neighborhoodSlugs || [];
     const pinned = slugs.map(s => neighborhoods.find(n => n.slug === s)).filter(Boolean) as Neighborhood[];
     return (pinned.length > 0 ? pinned : neighborhoods).slice(0, 3);
-  })();
-  const previewAgents = (() => {
-    const slugs = h.teamPreview?.agentSlugs || [];
-    const pinned = slugs.map(s => agents.find(a => a.slug === s)).filter(Boolean) as AgentData[];
-    return (pinned.length > 0 ? pinned : agents.filter(a => a.featured)).slice(0, 4);
   })();
   const stripTests = testimonials.filter(t => !t.agentSlug).slice(0, 5);
   const previewPosts = (() => {
@@ -495,33 +482,6 @@ export default function HomePage() {
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{item.description}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 7. TEAM PREVIEW */}
-      {previewAgents.length > 0 && (
-        <section className="section-padding" style={{ background: 'var(--backdrop-light)' }}>
-          <div className="container-custom">
-            <div className="flex items-end justify-between mb-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'var(--secondary)' }}>{ui.ourAgentsTag}</p>
-                <h2 className="font-serif text-3xl md:text-4xl font-semibold" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
-                  {h.teamPreview?.headline || ui.meetOurAgents}
-                </h2>
-                {h.teamPreview?.subline && <p className="text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>{h.teamPreview.subline}</p>}
-              </div>
-              <Link href={`/${locale}${h.teamPreview?.ctaHref || '/team'}`}
-                className="hidden md:flex items-center gap-2 text-sm font-semibold group" style={{ color: 'var(--secondary)' }}>
-                {h.teamPreview?.ctaLabel || ui.meetFullTeam} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {previewAgents.map(agent => <AgentCard key={agent.slug} agent={agent} locale={locale} variant="detailed" />)}
-            </div>
-            <div className="text-center mt-8 md:hidden">
-              <Link href={`/${locale}/team`} className="btn-gold inline-block">{h.teamPreview?.ctaLabel || ui.meetFullTeam}</Link>
             </div>
           </div>
         </section>

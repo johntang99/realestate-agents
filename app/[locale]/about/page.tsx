@@ -3,15 +3,13 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Award, Heart, Shield, MapPin } from 'lucide-react';
-import { AgentCard, type AgentData } from '@/components/ui/AgentCard';
+import { Award, Heart, Shield, MapPin } from 'lucide-react';
 import { TrustPromise } from '@/components/sections/TrustPromise';
 
 const ICON_MAP: Record<string, React.ElementType> = { Heart, Shield, MapPin, Award };
 
 export default function AboutPage() {
   const [d, setD] = useState<any>({});
-  const [agents, setAgents] = useState<AgentData[]>([]);
   const [locale, setLocale] = useState('en');
   const [loading, setLoading] = useState(true);
 
@@ -20,16 +18,11 @@ export default function AboutPage() {
     setLocale(loc);
     Promise.all([
       fetch(`/api/content/file?locale=${loc}&path=pages/about.json`).then(r => r.json()),
-      fetch(`/api/content/items?locale=${loc}&directory=agents`).then(r => r.json()),
-    ]).then(([pageRes, agentsRes]) => {
+    ]).then(([pageRes]) => {
       try { setD(JSON.parse(pageRes.content || '{}')); } catch {}
-      const raw = Array.isArray(agentsRes.items) ? agentsRes.items as AgentData[] : [];
-      setAgents(raw.sort((a: any, b: any) => (a.displayOrder || 99) - (b.displayOrder || 99)));
       setLoading(false);
     }).catch(() => setLoading(false));
   }, []);
-
-  const leadership = agents.filter(a => ['principal_broker', 'managing_broker', 'director'].includes((a as any).role || ''));
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--backdrop-light)' }}>
@@ -40,10 +33,10 @@ export default function AboutPage() {
   return (
     <>
       {/* 1. HERO */}
-      <section className="relative pt-20 overflow-hidden" style={{ minHeight: '52vh', background: 'var(--primary)' }}>
-        {d.hero?.image && <Image src={d.hero.image} alt={d.hero.imageAlt || ''} fill className="object-cover opacity-30" priority />}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,39,68,0.7) 0%, rgba(26,39,68,0.3) 60%, transparent 100%)' }} />
-        <div className="relative z-10 container-custom flex items-end pb-12 md:pb-16" style={{ minHeight: 'calc(52vh - 5rem)' }}>
+      <section className="relative pt-20 overflow-hidden min-h-[62vh] md:min-h-[74vh]" style={{ background: 'var(--primary)' }}>
+        {d.hero?.image && <Image src={d.hero.image} alt={d.hero.imageAlt || ''} fill className="object-cover opacity-55" priority />}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,39,68,0.38) 0%, rgba(26,39,68,0.14) 60%, transparent 100%)' }} />
+        <div className="relative z-10 container-custom flex items-end pb-12 md:pb-16 min-h-[calc(62vh-5rem)] md:min-h-[calc(74vh-5rem)]">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-3" style={{ color: 'var(--secondary)' }}>About Us</p>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold text-white mb-3 leading-tight"
@@ -166,63 +159,6 @@ export default function AboutPage() {
                   <p className="text-xs" style={{ color: 'var(--text-on-dark-muted)' }}>{item.label}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 5. PRINCIPAL BROKER / BROKER WELCOME */}
-      {d.principalBroker && (
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden max-w-sm mx-auto md:mx-0"
-                style={{ boxShadow: 'var(--photo-shadow)' }}>
-                {d.principalBroker.photo
-                  ? <Image src={d.principalBroker.photo} alt={d.principalBroker.headline || 'Principal Broker'} fill className="object-cover object-top" sizes="50vw" />
-                  : <div className="w-full h-full flex items-center justify-center text-6xl font-bold text-white/30"
-                      style={{ background: 'var(--primary)', fontFamily: 'var(--font-heading)' }}>
-                      {(d.principalBroker.headline || 'P').charAt(0)}
-                    </div>}
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-3" style={{ color: 'var(--secondary)' }}>Message from the Broker</p>
-                <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-2" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
-                  {d.principalBroker.headline}
-                </h2>
-                <p className="text-sm font-semibold uppercase tracking-widest mb-6" style={{ color: 'var(--text-secondary)' }}>{d.principalBroker.title}</p>
-                <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--text-secondary)', lineHeight: '1.85' }}>{d.principalBroker.bio}</p>
-                {d.principalBroker.credentials?.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {d.principalBroker.credentials.map((c: string, i: number) => (
-                      <span key={i} className="px-3 py-1 text-xs font-medium rounded-full border" style={{ borderColor: 'var(--secondary)', color: 'var(--secondary)' }}>{c}</span>
-                    ))}
-                  </div>
-                )}
-                {d.principalBroker.ctaHref && (
-                  <Link href={`/${locale}${d.principalBroker.ctaHref}`} className="inline-flex items-center gap-2 font-semibold group" style={{ color: 'var(--secondary)' }}>
-                    {d.principalBroker.ctaLabel || 'Meet Our Team'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 6. LEADERSHIP TEAM */}
-      {leadership.length > 0 && (
-        <section className="section-padding" style={{ background: 'var(--backdrop-light)' }}>
-          <div className="container-custom">
-            <div className="text-center mb-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-3" style={{ color: 'var(--secondary)' }}>Leadership</p>
-              <h2 className="font-serif text-3xl font-semibold" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>Meet the Leadership Team</h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {leadership.map(a => <AgentCard key={a.slug} agent={a} locale={locale} variant="detailed" />)}
-            </div>
-            <div className="text-center mt-8">
-              <Link href={`/${locale}/team`} className="btn-gold inline-block">Meet All Our Agents</Link>
             </div>
           </div>
         </section>

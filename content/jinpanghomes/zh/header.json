@@ -29,12 +29,20 @@
       "label": "房源"
     },
     {
+      "href": "/neighborhoods",
+      "label": "社区"
+    },
+    {
       "href": "/about",
-      "label": "关于锦庞"
+      "label": "关于"
     },
     {
       "href": "/knowledge-center",
       "label": "博客"
+    },
+    {
+      "href": "/testimonials",
+      "label": "客户评价"
     },
     {
       "href": "/contact",

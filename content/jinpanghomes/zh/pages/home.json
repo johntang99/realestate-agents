@@ -103,14 +103,12 @@
     "headline": "联系我们"
   },
   "teamPreview": {
-    "ctaHref": "/team",
-    "subline": "认识服务 Orange County, NY 的 Jin Pang 团队。",
-    "ctaLabel": "查看完整团队",
-    "headline": "认识我们的经纪人",
+    "ctaHref": "/about",
+    "subline": "由 Jin Pang 本人直接为您提供 Orange County, NY 的买房、卖房、投资与搬迁咨询服务。",
+    "ctaLabel": "查看个人资料",
+    "headline": "认识 Jin Pang",
     "agentSlugs": [
-      "jane-smith",
-      "marcus-johnson",
-      "sarah-rodriguez"
+      "jin-pang"
     ]
   },
   "whyChooseUs": {

@@ -65,25 +65,43 @@ function walkJsonFiles(dir, prefix = '') {
 }
 
 async function upsertEntry(siteId, locale, contentPath, content) {
-  const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/content_entries?on_conflict=site_id,locale,path`,
-    {
-      method: 'POST',
-      headers: {
-        apikey: SERVICE_KEY,
-        Authorization: `Bearer ${SERVICE_KEY}`,
-        'Content-Type': 'application/json',
-        Prefer: 'resolution=merge-duplicates',
-      },
-      body: JSON.stringify({
-        site_id: siteId,
-        locale,
-        path: contentPath,
-        content,
-        data: content,
-      }),
-    }
-  );
+  const endpoint = `${SUPABASE_URL}/rest/v1/content_entries?on_conflict=site_id,locale,path`;
+  const headers = {
+    apikey: SERVICE_KEY,
+    Authorization: `Bearer ${SERVICE_KEY}`,
+    'Content-Type': 'application/json',
+    Prefer: 'resolution=merge-duplicates',
+  };
+  // Prefer writing both content/data for dual-schema compatibility.
+  // Some DBs only have `content`; in that case retry without `data`.
+  let response = await fetch(endpoint, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      site_id: siteId,
+      locale,
+      path: contentPath,
+      content,
+      data: content,
+    }),
+  });
+  if (response.ok) return;
+
+  const firstError = await response.text();
+  if (!firstError.includes("Could not find the 'data' column")) {
+    throw new Error(`Upsert failed for ${locale}:${contentPath} -> ${firstError}`);
+  }
+
+  response = await fetch(endpoint, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      site_id: siteId,
+      locale,
+      path: contentPath,
+      content,
+    }),
+  });
   if (!response.ok) {
     throw new Error(`Upsert failed for ${locale}:${contentPath} -> ${await response.text()}`);
   }
