@@ -1,6 +1,16 @@
 import { getSupabaseServerClient } from '@/lib/supabase/server';
 import type { BookingRecord, BookingService, BookingSettings } from '@/lib/types';
 
+function isMissingRelationError(error: { code?: string; message?: string } | null | undefined, table: string) {
+  if (!error) return false;
+  const msg = String(error.message || '');
+  return (
+    error.code === 'PGRST205' ||
+    msg.includes(`Could not find the table 'public.${table}'`) ||
+    msg.includes(`relation "${table}" does not exist`)
+  );
+}
+
 interface BookingRow {
   id: string;
   site_id: string;
@@ -74,6 +84,7 @@ export async function loadBookingServicesDb(siteId: string): Promise<BookingServ
     .eq('site_id', siteId)
     .maybeSingle();
   if (error) {
+    if (isMissingRelationError(error, 'booking_services')) return [];
     console.error('Supabase loadBookingServicesDb error:', error);
     return [];
   }
@@ -95,6 +106,7 @@ export async function saveBookingServicesDb(siteId: string, services: BookingSer
       { onConflict: 'site_id' }
     );
   if (error) {
+    if (isMissingRelationError(error, 'booking_services')) return;
     console.error('Supabase saveBookingServicesDb error:', error);
   }
 }
@@ -111,6 +123,7 @@ export async function loadBookingSettingsDb(
     .eq('site_id', siteId)
     .maybeSingle();
   if (error) {
+    if (isMissingRelationError(error, 'booking_settings')) return null;
     console.error('Supabase loadBookingSettingsDb error:', error);
     return null;
   }
@@ -132,6 +145,7 @@ export async function saveBookingSettingsDb(siteId: string, settings: BookingSet
       { onConflict: 'site_id' }
     );
   if (error) {
+    if (isMissingRelationError(error, 'booking_settings')) return;
     console.error('Supabase saveBookingSettingsDb error:', error);
   }
 }
