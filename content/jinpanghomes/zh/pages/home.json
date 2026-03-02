@@ -3,7 +3,9 @@
     "slides": [
       {
         "alt": "Port Jervis 豪华住宅",
-        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg"
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg",
+        "video": "/videos/agent-intro-jinpanghomes.mp4",
+        "poster": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg"
       },
       {
         "alt": "Warwick 临水住宅",

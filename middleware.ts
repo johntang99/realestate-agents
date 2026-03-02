@@ -23,7 +23,8 @@ export function middleware(request: NextRequest) {
     // If no locale prefix, redirect to default
     const pathnameHasLocale = ['en', 'zh'].some(l => pathname.startsWith(`/${l}/`) || pathname === `/${l}`);
     if (!pathnameHasLocale && !pathname.startsWith('/admin') && !pathname.startsWith('/api') &&
-        !pathname.startsWith('/_next') && !pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|txt|xml)$/)) {
+        !pathname.startsWith('/_next') && !pathname.startsWith('/videos') &&
+        !pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|txt|xml|mp4|webm|m4v|mov)$/)) {
       return NextResponse.redirect(new URL(`/en${pathname}`, request.url));
     }
     return response;
@@ -46,13 +47,14 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/uploads') ||
+    pathname.startsWith('/videos') ||
     pathname === '/icon' ||
     pathname.startsWith('/icon/') ||
     pathname === '/apple-icon' ||
     pathname.startsWith('/apple-icon/') ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
-    pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js)$/)
+    pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|mp4|webm|m4v|mov)$/)
   ) {
     return NextResponse.next();
   }
@@ -81,6 +83,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * - uploads (uploaded media)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|icon|apple-icon|uploads).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|icon|apple-icon|uploads|videos).*)',
   ],
 };

@@ -3,15 +3,17 @@
     "slides": [
       {
         "alt": "Luxury home in Port Jervis",
-        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg"
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg",
+        "video": "/videos/agent-intro-jinpanghomes.mp4",
+        "poster": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
       },
       {
         "alt": "Waterfront home in Warwick",
-        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
       },
       {
         "alt": "Estate home in Middletown",
-        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
+        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772437026335-photo-1608429835892-30be51ea4d6c.jpg"
       }
     ],
     "subline": "Clear strategy for buying, selling, relocating, and investing - with a local team that puts your goals first.",

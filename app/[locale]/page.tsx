@@ -6,9 +6,15 @@ import Image from 'next/image';
 import { ArrowRight, Star, Search, Bed, Bath, Maximize2, MapPin, Phone } from 'lucide-react';
 import { GoalEntryPaths } from '@/components/sections/GoalEntryPaths';
 import { TrustPromise } from '@/components/sections/TrustPromise';
+import VideoSplash from '@/components/VideoSplash';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-interface Slide { image?: string; alt?: string }
+interface Slide {
+  image?: string;
+  video?: string;
+  poster?: string;
+  alt?: string;
+}
 interface StatItem { value?: string; label?: string; prefix?: string; suffix?: string }
 interface Property {
   slug: string; address?: string; city?: string; state?: string;
@@ -134,9 +140,22 @@ function HeroSlideshow({ slides, headline, subline, ctaPrimary, ctaSecondary, lo
     <section className="relative h-screen min-h-[640px] overflow-hidden flex items-end">
       {slides.map((slide, i) => (
         <div key={i} className={`absolute inset-0 transition-opacity duration-1200 ${i === active ? 'opacity-100' : 'opacity-0'}`}>
-          {slide.image
-            ? <Image src={slide.image} alt={slide.alt || ''} fill className="object-cover" priority={i === 0} sizes="100vw" />
-            : <div className="w-full h-full" style={{ background: 'var(--primary)' }} />}
+          {slide.video ? (
+            <video
+              className="w-full h-full object-cover"
+              src={slide.video}
+              poster={slide.poster || slide.image}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : slide.image ? (
+            <Image src={slide.image} alt={slide.alt || ''} fill className="object-cover" priority={i === 0} sizes="100vw" />
+          ) : (
+            <div className="w-full h-full" style={{ background: 'var(--primary)' }} />
+          )}
         </div>
       ))}
       {/* Directional gradient — bright photo, readable text */}
@@ -340,7 +359,11 @@ export default function HomePage() {
     return () => clearInterval(t);
   }, [testimonials.length]);
 
-  const slides = h.hero?.slides?.filter(s => s.image) || [];
+  const allSlides = h.hero?.slides || [];
+  const introVideo = allSlides.find(s => s.video)?.video;
+  const slides = allSlides
+    .filter(s => s.image)
+    .map(s => ({ image: s.image, alt: s.alt }));
   const stats: StatItem[] = h.statsBar?.items || [
     { value: '180', label: 'In Total Sales', prefix: '$', suffix: 'M+' },
     { value: '620', label: 'Transactions Closed', suffix: '+' },
@@ -377,6 +400,8 @@ export default function HomePage() {
 
   return (
     <>
+      {introVideo && <VideoSplash src={introVideo} skipAfter={2} />}
+
       {/* 1. HERO */}
       {slides.length > 0 ? (
         <HeroSlideshow slides={slides} headline={h.hero?.headline} subline={h.hero?.subline}
