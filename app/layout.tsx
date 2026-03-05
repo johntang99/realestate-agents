@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, DM_Sans, Noto_Serif_SC } from 'next/font/google';
 import '../styles/globals.css';
-import { generateLocalBusinessSchema, generateOrganizationSchema, generateWebSiteSchema } from '@/lib/schema';
+import {
+  generateLocalBusinessSchema,
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+} from '@/lib/schema';
+
+// comment from alice for testing
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -29,8 +35,11 @@ const notoSerifSC = Noto_Serif_SC({
 
 export const metadata: Metadata = {
   title: 'Jin Pang Homes — Port Jervis Real Estate',
-  description: 'Jin Pang Homes provides trusted guidance for buying, selling, investing, and relocating in Port Jervis and Orange County, NY.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://jinpanghomes.com'),
+  description:
+    'Jin Pang Homes provides trusted guidance for buying, selling, investing, and relocating in Port Jervis and Orange County, NY.',
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://jinpanghomes.com',
+  ),
   icons: {
     icon: [
       { url: '/favicon.svg?v=3', type: 'image/svg+xml' },
@@ -44,7 +53,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
@@ -54,15 +67,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateLocalBusinessSchema()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateLocalBusinessSchema()),
+          }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateOrganizationSchema()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateOrganizationSchema()),
+          }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebSiteSchema()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebSiteSchema()),
+          }}
         />
       </head>
       <body>{children}</body>
