@@ -38,8 +38,6 @@ const nextConfig = {
     remotePatterns,
     unoptimized: process.env.NODE_ENV === 'development',
   },
-  // Enable static exports for ISR
-  output: 'standalone',
 }
 
 module.exports = nextConfig

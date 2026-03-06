@@ -5,7 +5,10 @@
       "name": "Jin Pang",
       "domain": "jinpanghomes.com",
       "defaultLocale": "en",
-      "supportedLocales": ["en", "zh"],
+      "supportedLocales": [
+        "en",
+        "zh"
+      ],
       "enabled": true,
       "type": "agent"
     }

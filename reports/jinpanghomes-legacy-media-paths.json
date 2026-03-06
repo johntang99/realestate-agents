@@ -1,0 +1,170 @@
+{
+  "siteId": "jinpanghomes",
+  "legacyHost": "rpwwafkpsdotglwzgbdf.supabase.co",
+  "newOrigin": "https://chmltixvrlyqclxenhpu.supabase.co",
+  "bucket": "media",
+  "totalPaths": 32,
+  "generatedAt": "2026-03-02T11:43:44.773Z",
+  "paths": [
+    {
+      "objectPath": "jinpanghomes/general/1772432006468-jinpang-group-1.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432006468-jinpang-group-1.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432006468-jinpang-group-1.jpg"
+    },
+    {
+      "objectPath": "jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png"
+    },
+    {
+      "objectPath": "jinpanghomes/general/1772437026335-photo-1608429835892-30be51ea4d6c.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772437026335-photo-1608429835892-30be51ea4d6c.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772437026335-photo-1608429835892-30be51ea4d6c.jpg"
+    },
+    {
+      "objectPath": "reb-template/general/1772388364652-photo-1505843513577-22bb7d21e455.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/general/1772388364652-photo-1505843513577-22bb7d21e455.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/general/1772388364652-photo-1505843513577-22bb7d21e455.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/0ce43c0c6c8c754dd69b.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/0ce43c0c6c8c754dd69b.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/0ce43c0c6c8c754dd69b.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/0f50d25cd42506f8cb45.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/0f50d25cd42506f8cb45.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/0f50d25cd42506f8cb45.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/1aed3bcbb922388dac21.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/1aed3bcbb922388dac21.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/1aed3bcbb922388dac21.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/1bbf4e60bb8389e56ce1.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/1bbf4e60bb8389e56ce1.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/1bbf4e60bb8389e56ce1.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/23e46f2fd0956e055754.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/26f0b21c691c606b1e43.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/26f0b21c691c606b1e43.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/26f0b21c691c606b1e43.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/31a280b9390128e3f4e5.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/31a280b9390128e3f4e5.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/31a280b9390128e3f4e5.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/355487d1b555933cdad0.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/355487d1b555933cdad0.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/355487d1b555933cdad0.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/3b455169df0b2b1d9006.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/3b455169df0b2b1d9006.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/3b455169df0b2b1d9006.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/4bcff0290367977a8a10.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/5fd15e731ac7ac5e29fc.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/5fd15e731ac7ac5e29fc.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/5fd15e731ac7ac5e29fc.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/64e3ff2179ead7585f95.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/64e3ff2179ead7585f95.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/64e3ff2179ead7585f95.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/68574bd31d74d0d3407b.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/68574bd31d74d0d3407b.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/68574bd31d74d0d3407b.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/78543c79b8563255d988.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/78543c79b8563255d988.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/78543c79b8563255d988.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/86482f9ae4c65769ec03.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/86482f9ae4c65769ec03.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/86482f9ae4c65769ec03.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/8c3bc9e4f16f175e842b.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/8c3bc9e4f16f175e842b.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/8c3bc9e4f16f175e842b.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/99b069f02a46f2112057.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/9a3cb4e262593e9eb4d8.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/9a3cb4e262593e9eb4d8.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/9a3cb4e262593e9eb4d8.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/9db5c82acfa817d23a00.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/9db5c82acfa817d23a00.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/9db5c82acfa817d23a00.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/a6d54115286e03fb34ad.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/a6d54115286e03fb34ad.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/a6d54115286e03fb34ad.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/b1cf669c5090161f58e4.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/b1cf669c5090161f58e4.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/b1cf669c5090161f58e4.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/bb73962d66a0434fb3e5.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/bb73962d66a0434fb3e5.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/bb73962d66a0434fb3e5.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/c4d0682cf03a5055d462.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/c4d0682cf03a5055d462.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/c4d0682cf03a5055d462.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/cdcae92983c1d4c43355.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/cdcae92983c1d4c43355.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/cdcae92983c1d4c43355.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/d14b9ca75124c6efd775.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/d14b9ca75124c6efd775.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/d14b9ca75124c6efd775.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/eb7b8a70a190d2cbe539.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/eb7b8a70a190d2cbe539.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/eb7b8a70a190d2cbe539.jpg"
+    },
+    {
+      "objectPath": "reb-template/imported/fec7a8094980927134df.jpg",
+      "sourceUrl": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/fec7a8094980927134df.jpg",
+      "targetUrl": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/fec7a8094980927134df.jpg"
+    }
+  ]
+}

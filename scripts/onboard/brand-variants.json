@@ -1,0 +1,97 @@
+{
+  "navy-gold": {
+    "colors": {
+      "primary": { "50": "#E9EEF7", "100": "#D4DEEE", "DEFAULT": "#1A2744", "light": "#2A3E63", "dark": "#121D33" },
+      "secondary": { "50": "#F6EFE3", "DEFAULT": "#C9A96E", "light": "#D8BE8E", "dark": "#B08E54" },
+      "accent": "#2E6B4F",
+      "accentAlt": "#8B1A1A",
+      "backdrop": { "primary": "#F8F6F2", "secondary": "#141E30" }
+    },
+    "typography": {
+      "display": "3rem", "heading": "2rem", "subheading": "1.5rem", "body": "1rem", "small": "0.875rem",
+      "fonts": {
+        "display": "'Cormorant Garamond', Georgia, serif",
+        "heading": "'Cormorant Garamond', Georgia, serif",
+        "subheading": "'Playfair Display', Georgia, serif",
+        "body": "'Inter', -apple-system, sans-serif",
+        "small": "'DM Sans', -apple-system, sans-serif"
+      }
+    }
+  },
+  "slate-sage": {
+    "colors": {
+      "primary": { "50": "#ECEEF0", "100": "#D5D9DD", "DEFAULT": "#374151", "light": "#4B5563", "dark": "#272E3B" },
+      "secondary": { "50": "#EEF2EE", "DEFAULT": "#6B8E6B", "light": "#8BAF8B", "dark": "#527452" },
+      "accent": "#2563EB",
+      "accentAlt": "#9B2C2C",
+      "backdrop": { "primary": "#F7F7F5", "secondary": "#1A1F2E" }
+    },
+    "typography": {
+      "display": "3rem", "heading": "2rem", "subheading": "1.5rem", "body": "1rem", "small": "0.875rem",
+      "fonts": {
+        "display": "'Montserrat', -apple-system, sans-serif",
+        "heading": "'Montserrat', -apple-system, sans-serif",
+        "subheading": "'Montserrat', -apple-system, sans-serif",
+        "body": "'Open Sans', -apple-system, sans-serif",
+        "small": "'Open Sans', -apple-system, sans-serif"
+      }
+    }
+  },
+  "midnight-copper": {
+    "colors": {
+      "primary": { "50": "#E8EBF0", "100": "#D1D6E0", "DEFAULT": "#1E293B", "light": "#2D3D56", "dark": "#151D2B" },
+      "secondary": { "50": "#F5EDE4", "DEFAULT": "#B87333", "light": "#D08F55", "dark": "#9A5F28" },
+      "accent": "#2E6B4F",
+      "accentAlt": "#8B2252",
+      "backdrop": { "primary": "#F9F7F4", "secondary": "#121825" }
+    },
+    "typography": {
+      "display": "3rem", "heading": "2rem", "subheading": "1.5rem", "body": "1rem", "small": "0.875rem",
+      "fonts": {
+        "display": "'DM Serif Display', Georgia, serif",
+        "heading": "'DM Serif Display', Georgia, serif",
+        "subheading": "'DM Serif Display', Georgia, serif",
+        "body": "'DM Sans', -apple-system, sans-serif",
+        "small": "'DM Sans', -apple-system, sans-serif"
+      }
+    }
+  },
+  "charcoal-emerald": {
+    "colors": {
+      "primary": { "50": "#EAECEE", "100": "#D3D7DC", "DEFAULT": "#2D3748", "light": "#414D60", "dark": "#202834" },
+      "secondary": { "50": "#E8F0EC", "DEFAULT": "#2E6B4F", "light": "#488B6E", "dark": "#1F5039" },
+      "accent": "#C9A96E",
+      "accentAlt": "#8B1A1A",
+      "backdrop": { "primary": "#F6F8F7", "secondary": "#151B28" }
+    },
+    "typography": {
+      "display": "3rem", "heading": "2rem", "subheading": "1.5rem", "body": "1rem", "small": "0.875rem",
+      "fonts": {
+        "display": "'Lora', Georgia, serif",
+        "heading": "'Lora', Georgia, serif",
+        "subheading": "'Lora', Georgia, serif",
+        "body": "'Source Sans 3', -apple-system, sans-serif",
+        "small": "'Source Sans 3', -apple-system, sans-serif"
+      }
+    }
+  },
+  "burgundy-cream": {
+    "colors": {
+      "primary": { "50": "#EDEAEF", "100": "#D6CFDA", "DEFAULT": "#4A1942", "light": "#6A2E62", "dark": "#361230" },
+      "secondary": { "50": "#F8F0E5", "DEFAULT": "#DDA15E", "light": "#E8BA82", "dark": "#C58840" },
+      "accent": "#2E6B4F",
+      "accentAlt": "#8B1A1A",
+      "backdrop": { "primary": "#FAF8F5", "secondary": "#1E1228" }
+    },
+    "typography": {
+      "display": "3rem", "heading": "2rem", "subheading": "1.5rem", "body": "1rem", "small": "0.875rem",
+      "fonts": {
+        "display": "'Playfair Display', Georgia, serif",
+        "heading": "'Playfair Display', Georgia, serif",
+        "subheading": "'Playfair Display', Georgia, serif",
+        "body": "'Nunito Sans', -apple-system, sans-serif",
+        "small": "'Nunito Sans', -apple-system, sans-serif"
+      }
+    }
+  }
+}
