@@ -1,53 +1,44 @@
-import Link from 'next/link';
-import {
-  Home,
-  Building2,
-  Map,
-  FileText,
-  BarChart2,
-  MessageSquare,
-  Image,
-  Layers,
-  Settings,
-  SlidersHorizontal,
-  Users,
-  BookOpen,
-  CalendarCheck2,
-  Download,
-  UserCircle,
-  Globe,
-  Rocket,
-} from 'lucide-react';
 import { getSession } from '@/lib/admin/auth';
 import { canManageUsers, isSuperAdmin } from '@/lib/admin/permissions';
+import { AdminSidebarNav } from './AdminSidebarNav';
+import type { IconKey } from './AdminSidebarNav';
 
-const brokerAdminNav = [
-  { name: 'Sites', href: '/admin/sites', icon: Building2 },
-  { name: 'Domains', href: '/admin/sites', icon: Globe },
-  { name: 'Site Settings', href: '/admin/site-settings', icon: SlidersHorizontal },
-  { name: 'Onboarding', href: '/admin/onboarding', icon: Rocket },
-  { name: 'Content', href: '/admin/content', icon: FileText },
-  { name: 'Properties', href: '/admin/properties', icon: Home },
-  { name: 'Neighborhoods', href: '/admin/neighborhoods', icon: Map },
-  { name: 'Case Studies', href: '/admin/case-studies', icon: FileText },
-  { name: 'Knowledge Center', href: '/admin/knowledge-center', icon: BookOpen },
-  { name: 'Market Reports', href: '/admin/market-reports', icon: BarChart2 },
-  { name: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },
-  { name: 'Resources', href: '/admin/resources', icon: Download },
-  { name: 'Investor Inquiries', href: '/admin/investor-inquiries', icon: CalendarCheck2 },
-  { name: 'Showing Requests', href: '/admin/showing-requests', icon: CalendarCheck2 },
-  { name: 'Media', href: '/admin/media', icon: Image },
-  { name: 'Variants', href: '/admin/variants', icon: Layers },
-  { name: 'Users', href: '/admin/users', icon: Users },
-  { name: 'Settings', href: '/admin/settings', icon: Settings },
+type SidebarItem = {
+  name: string;
+  href: string;
+  iconKey: IconKey;
+  group: 'site' | 'system';
+  preserveContext?: boolean;
+};
+
+const brokerAdminNav: SidebarItem[] = [
+  { name: 'Site Settings', href: '/admin/site-settings', iconKey: 'slidersHorizontal', group: 'site' },
+  { name: 'Content', href: '/admin/content', iconKey: 'fileText', group: 'site' },
+  { name: 'Properties', href: '/admin/properties', iconKey: 'home', group: 'site' },
+  { name: 'Neighborhoods', href: '/admin/neighborhoods', iconKey: 'map', group: 'site' },
+  { name: 'Case Studies', href: '/admin/case-studies', iconKey: 'fileText', group: 'site' },
+  { name: 'Knowledge Center', href: '/admin/knowledge-center', iconKey: 'bookOpen', group: 'site' },
+  { name: 'Market Reports', href: '/admin/market-reports', iconKey: 'barChart2', group: 'site' },
+  { name: 'Testimonials', href: '/admin/testimonials', iconKey: 'messageSquare', group: 'site' },
+  { name: 'Resources', href: '/admin/resources', iconKey: 'download', group: 'site' },
+  { name: 'Investor Inquiries', href: '/admin/investor-inquiries', iconKey: 'calendarCheck2', group: 'site' },
+  { name: 'Showing Requests', href: '/admin/showing-requests', iconKey: 'calendarCheck2', group: 'site' },
+  { name: 'Media', href: '/admin/media', iconKey: 'image', group: 'site' },
+
+  { name: 'Sites', href: '/admin/sites', iconKey: 'building2', group: 'system', preserveContext: false },
+  { name: 'Domains', href: '/admin/sites', iconKey: 'globe', group: 'system', preserveContext: false },
+  { name: 'Onboarding', href: '/admin/onboarding', iconKey: 'rocket', group: 'system', preserveContext: false },
+  { name: 'Variants', href: '/admin/variants', iconKey: 'layers', group: 'system', preserveContext: false },
+  { name: 'Users', href: '/admin/users', iconKey: 'users', group: 'system', preserveContext: false },
+  { name: 'Settings', href: '/admin/settings', iconKey: 'settings', group: 'system', preserveContext: false },
 ];
 
 const staffNav = brokerAdminNav.filter((item) =>
   ['Content', 'Case Studies', 'Knowledge Center', 'Market Reports', 'Testimonials', 'Resources', 'Media'].includes(item.name)
 );
 
-const agentNav = [
-  { name: 'My Profile', href: '/admin/agent-profile', icon: UserCircle },
+const agentNav: SidebarItem[] = [
+  { name: 'My Profile', href: '/admin/agent-profile', iconKey: 'userCircle', group: 'system', preserveContext: false },
 ];
 
 export async function AdminSidebar() {
@@ -70,18 +61,7 @@ export async function AdminSidebar() {
           {role === 'agent' ? 'Agent Portal' : 'Admin Dashboard'}
         </span>
       </div>
-      <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-1">
-        {items.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100"
-          >
-            <item.icon className="w-4 h-4 text-gray-500" />
-            {item.name}
-          </Link>
-        ))}
-      </nav>
+      <AdminSidebarNav items={items} />
       {role === 'agent' && (
         <div className="px-4 py-4 border-t border-gray-100">
           <p className="text-xs text-gray-400 text-center">

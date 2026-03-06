@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/admin/mls/sync",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}

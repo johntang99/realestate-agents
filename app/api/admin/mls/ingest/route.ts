@@ -8,18 +8,20 @@ import {
 } from '@/lib/contentDb';
 import { writeAuditLog } from '@/lib/admin/audit';
 import { genericJsonMlsAdapter } from '@/lib/mls/providers/genericJson';
+import { mlsGridAdapter } from '@/lib/mls/providers/mlsGrid';
 import type { RawMlsRecord } from '@/lib/mls/providers/types';
 
 type IngestPayload = {
   siteId?: string;
   locale?: string;
-  provider?: 'generic-json';
+  provider?: 'generic-json' | 'mlsgrid';
   records?: RawMlsRecord[];
   archiveMissing?: boolean;
 };
 
 const PROVIDERS = {
   'generic-json': genericJsonMlsAdapter,
+  'mlsgrid': mlsGridAdapter,
 } as const;
 
 export async function POST(request: NextRequest) {
