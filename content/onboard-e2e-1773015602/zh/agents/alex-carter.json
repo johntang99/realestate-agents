@@ -1,0 +1,21 @@
+{
+  "bio": "",
+  "name": "Alex Carter",
+  "role": "principal_broker",
+  "slug": "alex-carter",
+  "email": "hello@summitrealtygroup.com",
+  "phone": "(914) 555-1100",
+  "photo": "",
+  "title": "Principal Broker",
+  "status": "active",
+  "featured": true,
+  "languages": [
+    "English"
+  ],
+  "specialties": [],
+  "displayOrder": 1,
+  "licenseState": "NY",
+  "licenseNumber": "10401329999",
+  "yearsExperience": 14,
+  "transactionCount": 740
+}

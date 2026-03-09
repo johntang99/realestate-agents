@@ -1,0 +1,52 @@
+{
+  "hoa": 520,
+  "seo": {
+    "title": "220 Maple Avenue, White Plains NY — SOLD",
+    "description": "2BR/2BA condo in White Plains. Sold for $445K — 4% above asking in 8 days."
+  },
+  "zip": "10601",
+  "beds": 2,
+  "city": "White Plains",
+  "slug": "220-maple-avenue",
+  "sqft": 1240,
+  "type": "condo",
+  "baths": 2,
+  "price": 429000,
+  "state": "NY",
+  "garage": "1 deeded space",
+  "status": "sold",
+  "address": "220 Maple Avenue",
+  "gallery": [],
+  "lotSize": null,
+  "featured": false,
+  "features": {
+    "systems": [
+      "Central A/C",
+      "In-Unit W/D"
+    ],
+    "exterior": [
+      "Rooftop Terrace Access",
+      "Fitness Center"
+    ],
+    "interior": [
+      "Floor-to-Ceiling Windows",
+      "Updated Kitchen",
+      "Primary Suite"
+    ]
+  },
+  "mlsNumber": "H6270099",
+  "yearBuilt": 2012,
+  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/a6d54115286e03fb34ad.jpg",
+  "description": "Modern corner unit condo in the heart of White Plains. Floor-to-ceiling windows, updated kitchen, and building amenities including a rooftop terrace and fitness center.",
+  "soldDetails": {
+    "notes": "Received 4 offers. Sold 4% above asking in 8 days.",
+    "soldDate": "2025-11-14",
+    "soldPrice": 445000,
+    "daysOnMarket": 8,
+    "saleToListRatio": "104%"
+  },
+  "neighborhood": "downtown",
+  "priceDisplay": "$429,000",
+  "schoolDistrict": "White Plains City School District",
+  "listingAgentSlug": "marcus-johnson"
+}

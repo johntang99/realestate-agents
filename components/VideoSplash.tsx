@@ -25,6 +25,12 @@ export default function VideoSplash({ src, skipAfter = 2 }: VideoSplashProps) {
     window.setTimeout(() => setVisible(false), 500);
   };
 
+  const handleVideoError = () => {
+    // If onboarding generated a video path that does not exist,
+    // remove the splash so the page content remains accessible.
+    dismiss();
+  };
+
   if (!visible || !src) return null;
 
   return (
@@ -45,6 +51,7 @@ export default function VideoSplash({ src, skipAfter = 2 }: VideoSplashProps) {
         muted
         playsInline
         onEnded={dismiss}
+        onError={handleVideoError}
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
       />
 

@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { getSessionFromRequest } from '@/lib/admin/auth';
 import { isSuperAdmin } from '@/lib/admin/permissions';
 import fs from 'fs';
+import fsPromises from 'fs/promises';
 import path from 'path';
 
 // ── Types ────────────────────────────────────────────────────────────
@@ -17,7 +18,7 @@ interface StepProgress {
 interface OnboardResult {
   siteId: string;
   entries: number;
-  agents: number;
+  services: number;
   domains: number;
   errors: string[];
   warnings: string[];
@@ -137,6 +138,37 @@ function interpolateTemplate(template: string, vars: Record<string, string>): st
   return result;
 }
 
+async function syncSiteContentToLocal(siteId: string): Promise<number> {
+  const siteEntries = await fetchRows('content_entries', { site_id: siteId });
+  const siteDir = path.join(process.cwd(), 'content', siteId);
+  await fsPromises.rm(siteDir, { recursive: true, force: true });
+  let written = 0;
+
+  for (const entry of siteEntries) {
+    const locale = String(entry.locale || '').trim();
+    const contentPath = String(entry.path || '').trim();
+    if (!locale || !contentPath) continue;
+    const filePath = path.join(siteDir, locale, contentPath);
+    await fsPromises.mkdir(path.dirname(filePath), { recursive: true });
+    await fsPromises.writeFile(filePath, JSON.stringify(entry.content ?? {}, null, 2) + '\n', 'utf-8');
+    written += 1;
+  }
+  return written;
+}
+
+async function canWriteToPath(targetPath: string): Promise<boolean> {
+  const probeName = `.onboard-write-probe-${Date.now()}-${Math.random().toString(16).slice(2)}.tmp`;
+  try {
+    await fsPromises.mkdir(targetPath, { recursive: true });
+    const probePath = path.join(targetPath, probeName);
+    await fsPromises.writeFile(probePath, 'ok', 'utf-8');
+    await fsPromises.rm(probePath, { force: true });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 // ── Supabase REST helpers ────────────────────────────────────────────
 
 function getSupabaseConfig() {
@@ -185,6 +217,54 @@ async function deleteRows(table: string, filters: Record<string, string>): Promi
     { method: 'DELETE', headers: supaHeaders(key) }
   );
   if (!res.ok) throw new Error(`Delete ${table} failed (${res.status}): ${await res.text()}`);
+}
+
+function getStorageBucket(): string {
+  return process.env.SUPABASE_STORAGE_BUCKET || process.env.NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET || '';
+}
+
+async function listStorageFiles(prefix: string): Promise<string[]> {
+  const { url, key } = getSupabaseConfig();
+  const bucket = getStorageBucket();
+  if (!bucket) return [];
+
+  const files: string[] = [];
+  const queue = [prefix];
+  while (queue.length > 0) {
+    const currentPrefix = queue.shift()!;
+    const res = await fetch(`${url}/storage/v1/object/list/${bucket}`, {
+      method: 'POST',
+      headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prefix: currentPrefix, limit: 1000, offset: 0 }),
+    });
+    if (!res.ok) break;
+    const items: any[] = await res.json();
+    for (const item of items) {
+      const fullPath = currentPrefix ? `${currentPrefix}/${item.name}` : item.name;
+      if (item.id) {
+        files.push(fullPath);
+      } else {
+        queue.push(fullPath);
+      }
+    }
+  }
+  return files;
+}
+
+async function copyStorageFile(fromPath: string, toPath: string): Promise<boolean> {
+  const { url, key } = getSupabaseConfig();
+  const bucket = getStorageBucket();
+  const res = await fetch(`${url}/storage/v1/object/copy`, {
+    method: 'POST',
+    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ bucketId: bucket, sourceKey: fromPath, destinationKey: toPath }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    if (body.includes('already exists')) return true;
+    return false;
+  }
+  return true;
 }
 
 // ── Claude API helpers ───────────────────────────────────────────────
@@ -260,6 +340,16 @@ export async function POST(request: NextRequest) {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+  const normalizedClientId = String(intake.clientId).trim().toLowerCase();
+  if (!/^[a-z0-9-]+$/.test(normalizedClientId)) {
+    return new Response(
+      JSON.stringify({ message: 'clientId must contain only lowercase letters, numbers, and hyphens' }),
+      {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+  }
 
   // Validate Supabase config early
   try {
@@ -272,11 +362,15 @@ export async function POST(request: NextRequest) {
   }
 
   const TEMPLATE_ID = intake.templateSiteId || 'jinpanghomes';
-  const SITE_ID: string = intake.clientId;
+  const SITE_ID: string = normalizedClientId;
   const LOCALES: string[] = intake.locales?.supported || ['en'];
   const DEFAULT_LOCALE: string = intake.locales?.default || 'en';
   const SKIP_AI: boolean = intake.skipAi === true;
   const CONTENT_DIR = path.join(process.cwd(), 'content');
+  const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
+  const localContentWritable = await canWriteToPath(CONTENT_DIR);
+  const localUploadsWritable = await canWriteToPath(UPLOADS_DIR);
+  const canWriteLocalFilesystem = localContentWritable && localUploadsWritable;
 
   // SSE stream
   const encoder = new TextEncoder();
@@ -295,11 +389,16 @@ export async function POST(request: NextRequest) {
       const result: OnboardResult = {
         siteId: SITE_ID,
         entries: 0,
-        agents: 0,
+        services: 0,
         domains: 0,
         errors: [],
         warnings: [],
       };
+      if (!canWriteLocalFilesystem) {
+        result.warnings.push(
+          'Local filesystem is read-only in this environment; onboarding skipped local file sync/copy and completed via DB/storage.'
+        );
+      }
 
       try {
         // ════════════════════════════════════════════════════════════════
@@ -350,38 +449,95 @@ export async function POST(request: NextRequest) {
           }
           result.domains = domainRows.length;
 
-          // Update local _sites.json
-          const sitesFile = path.join(CONTENT_DIR, '_sites.json');
-          try {
-            const sitesData = JSON.parse(fs.readFileSync(sitesFile, 'utf-8'));
-            if (!sitesData.sites.find((s: any) => s.id === SITE_ID)) {
-              sitesData.sites.push({
-                id: SITE_ID,
-                name: intake.business.name,
-                domain: intake.domains?.production || '',
-                enabled: true,
-                defaultLocale: DEFAULT_LOCALE,
-                supportedLocales: LOCALES,
-                createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString(),
-              });
-              fs.writeFileSync(sitesFile, JSON.stringify(sitesData, null, 2) + '\n');
+          // Clone media assets DB records
+          const templateMedia = await fetchRows('media_assets', { site_id: TEMPLATE_ID });
+          if (templateMedia.length > 0) {
+            const mediaBatch = 100;
+            for (let i = 0; i < templateMedia.length; i += mediaBatch) {
+              const batch = templateMedia.slice(i, i + mediaBatch);
+              const clonedMedia = batch.map((item: any) => ({
+                site_id: SITE_ID,
+                path: item.path,
+                url: (item.url || '')
+                  .replace(`/uploads/${TEMPLATE_ID}/`, `/uploads/${SITE_ID}/`)
+                  .replace(`/${TEMPLATE_ID}/`, `/${SITE_ID}/`),
+                updated_at: new Date().toISOString(),
+              }));
+              await upsert('media_assets', clonedMedia, 'site_id,path');
             }
-          } catch { /* _sites.json may not exist in all environments */ }
+          }
 
-          // Update local _site-domains.json
-          const domainsFile = path.join(CONTENT_DIR, '_site-domains.json');
-          try {
-            const domainsData = JSON.parse(fs.readFileSync(domainsFile, 'utf-8'));
-            for (const dr of domainRows) {
-              if (!domainsData.domains.find((d: any) => d.siteId === dr.site_id && d.domain === dr.domain)) {
-                domainsData.domains.push({ siteId: dr.site_id, domain: dr.domain, environment: dr.environment, enabled: true });
+          // Copy files in Supabase Storage bucket
+          if (getStorageBucket()) {
+            const storageFiles = await listStorageFiles(TEMPLATE_ID);
+            const CONCURRENCY = 5;
+            for (let i = 0; i < storageFiles.length; i += CONCURRENCY) {
+              const batch = storageFiles.slice(i, i + CONCURRENCY);
+              await Promise.allSettled(
+                batch.map((filePath) =>
+                  copyStorageFile(filePath, filePath.replace(`${TEMPLATE_ID}/`, `${SITE_ID}/`))
+                )
+              );
+            }
+          }
+
+          if (canWriteLocalFilesystem) {
+            const copyDirIfExists = async (src: string, dest: string) => {
+              try {
+                await fsPromises.access(src);
+              } catch {
+                return;
               }
-            }
-            fs.writeFileSync(domainsFile, JSON.stringify(domainsData, null, 2) + '\n');
-          } catch { /* _site-domains.json may not exist in all environments */ }
+              await fsPromises.mkdir(path.dirname(dest), { recursive: true });
+              await fsPromises.cp(src, dest, { recursive: true, errorOnExist: false });
+            };
 
-          emitProgress('O1', 'Clone', 'done', `Cloned ${cloned.length} entries`, Date.now() - o1Start);
+            await copyDirIfExists(path.join(UPLOADS_DIR, TEMPLATE_ID), path.join(UPLOADS_DIR, SITE_ID));
+            await copyDirIfExists(path.join(CONTENT_DIR, TEMPLATE_ID), path.join(CONTENT_DIR, SITE_ID));
+
+            // Update local _sites.json
+            const sitesFile = path.join(CONTENT_DIR, '_sites.json');
+            try {
+              const sitesData = JSON.parse(fs.readFileSync(sitesFile, 'utf-8'));
+              if (!sitesData.sites.find((s: any) => s.id === SITE_ID)) {
+                sitesData.sites.push({
+                  id: SITE_ID,
+                  name: intake.business.name,
+                  domain: intake.domains?.production || '',
+                  enabled: true,
+                  defaultLocale: DEFAULT_LOCALE,
+                  supportedLocales: LOCALES,
+                  createdAt: new Date().toISOString(),
+                  updatedAt: new Date().toISOString(),
+                });
+                fs.writeFileSync(sitesFile, JSON.stringify(sitesData, null, 2) + '\n');
+              }
+            } catch {
+              // _sites.json may not exist in all environments
+            }
+
+            // Update local _site-domains.json
+            const domainsFile = path.join(CONTENT_DIR, '_site-domains.json');
+            try {
+              const domainsData = JSON.parse(fs.readFileSync(domainsFile, 'utf-8'));
+              for (const dr of domainRows) {
+                if (!domainsData.domains.find((d: any) => d.siteId === dr.site_id && d.domain === dr.domain)) {
+                  domainsData.domains.push({ siteId: dr.site_id, domain: dr.domain, environment: dr.environment, enabled: true });
+                }
+              }
+              fs.writeFileSync(domainsFile, JSON.stringify(domainsData, null, 2) + '\n');
+            } catch {
+              // _site-domains.json may not exist in all environments
+            }
+          }
+
+          emitProgress(
+            'O1',
+            'Clone',
+            'done',
+            `Cloned ${cloned.length} entries, ${templateMedia.length} media assets`,
+            Date.now() - o1Start
+          );
         } catch (err: any) {
           emitProgress('O1', 'Clone', 'error', err.message, Date.now() - o1Start);
           throw err;
@@ -577,6 +733,7 @@ export async function POST(request: NextRequest) {
             }
           }
 
+          result.services = enabledSlugs.length;
           emitProgress('O3', 'Prune Verticals', 'done', `${enabledSlugs.length} enabled, ${disabledSlugs.length} removed`, Date.now() - o3Start);
         } catch (err: any) {
           emitProgress('O3', 'Prune Verticals', 'error', err.message, Date.now() - o3Start);
@@ -1026,8 +1183,20 @@ export async function POST(request: NextRequest) {
           // Final entry count
           const finalEntries = await fetchRows('content_entries', { site_id: SITE_ID });
           result.entries = finalEntries.length;
+          let syncedLocalFiles = 0;
+          if (canWriteLocalFilesystem) {
+            syncedLocalFiles = await syncSiteContentToLocal(SITE_ID);
+          }
 
-          emitProgress('O6', 'Cleanup', 'done', `${result.entries} entries remaining`, Date.now() - o6Start);
+          emitProgress(
+            'O6',
+            'Cleanup',
+            'done',
+            canWriteLocalFilesystem
+              ? `${result.entries} entries remaining, synced ${syncedLocalFiles} local files`
+              : `${result.entries} entries remaining, skipped local file sync (read-only filesystem)`,
+            Date.now() - o6Start
+          );
         } catch (err: any) {
           emitProgress('O6', 'Cleanup', 'error', err.message, Date.now() - o6Start);
           throw err;
@@ -1074,7 +1243,6 @@ export async function POST(request: NextRequest) {
 
           // 3. Agent count check
           const agentEntries = allEntries.filter((e: any) => e.locale === DEFAULT_LOCALE && e.path.startsWith('agents/'));
-          result.agents = agentEntries.length;
           if (agentEntries.length === 0) {
             result.warnings.push('No agent entries found');
           }

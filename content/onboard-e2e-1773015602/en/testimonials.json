@@ -1,0 +1,120 @@
+{
+  "items": [
+    {
+      "id": "t-001",
+      "text": "Summit Realty Group is in a class by itself. We interviewed four brokerages before listing our home in White Plains. No one came close to matching their market knowledge, marketing plan, or the professionalism of every person on their team. We received six offers in four days and closed at 9% above asking.",
+      "rating": 5,
+      "featured": true,
+      "location": "White Plains, NY",
+      "reviewer": "Robert & Catherine Mills",
+      "verified": true,
+      "reviewDate": "2025-12",
+      "transactionType": "seller"
+    },
+    {
+      "id": "t-002",
+      "text": "Relocating from London with three children, we had no idea where to start. Summit Realty Group didn't just find us a house — they gave us a complete education on Westchester County. We knew exactly which school districts fit our family, which neighborhoods matched our lifestyle, and what fair value looked like before we made a single offer.",
+      "rating": 5,
+      "featured": true,
+      "location": "Warwick, NY",
+      "reviewer": "James & Priya Agarwal",
+      "verified": true,
+      "reviewDate": "2025-11",
+      "transactionType": "buyer"
+    },
+    {
+      "id": "t-003",
+      "text": "I've been an investor for 20 years. Sarah Rodriguez at Summit Realty Group found me an off-market multifamily that cash flows from day one. She ran the numbers more rigorously than my previous investment broker ever did. If you're serious about real estate investing in Westchester County, call Summit Realty Group.",
+      "rating": 5,
+      "featured": true,
+      "location": "White Plains, NY",
+      "reviewer": "Steven Kaufman",
+      "verified": true,
+      "agentSlug": "sarah-rodriguez",
+      "reviewDate": "2025-10",
+      "transactionType": "investor"
+    },
+    {
+      "id": "t-004",
+      "text": "We've been Summit Realty Group clients for 11 years and three transactions. Jane Smith has been our agent every time. When you find an agent with that level of integrity and market knowledge, you don't go anywhere else.",
+      "rating": 5,
+      "featured": false,
+      "location": "Middletown, NY",
+      "reviewer": "Diane & Frank Pellegrino",
+      "verified": true,
+      "agentSlug": "jane-smith",
+      "reviewDate": "2025-09",
+      "transactionType": "seller"
+    },
+    {
+      "id": "t-005",
+      "text": "As a single first-time buyer, I was nervous about the whole process. Marcus Johnson made every step feel manageable. He was endlessly patient with my questions, fiercely protective of my interests during negotiation, and completely honest even when the answer wasn't what I wanted to hear.",
+      "rating": 5,
+      "featured": true,
+      "location": "Dobbs Ferry, NY",
+      "reviewer": "Amanda Torres",
+      "verified": true,
+      "agentSlug": "marcus-johnson",
+      "reviewDate": "2025-08",
+      "transactionType": "buyer"
+    },
+    {
+      "id": "t-006",
+      "text": "Moving from Shanghai, we needed someone who truly understood both cultures. Marcus Johnson was extraordinary — he helped us understand the American home-buying process in detail, communicated in both English and Mandarin, and found us a home that exceeded every item on our list.",
+      "rating": 5,
+      "featured": false,
+      "location": "White Plains, NY",
+      "reviewer": "Daniel & Sophie Huang",
+      "verified": true,
+      "agentSlug": "marcus-johnson",
+      "reviewDate": "2025-07",
+      "transactionType": "buyer"
+    },
+    {
+      "id": "t-007",
+      "text": "We needed to sell quickly due to a job relocation. Jane Smith listed our home on a Tuesday, held an open house that weekend, and had a signed contract by Monday — 8% above asking price. That's not luck. That's skill, preparation, and an incredible network.",
+      "rating": 5,
+      "featured": false,
+      "location": "White Plains, NY",
+      "reviewer": "The Harrison Family",
+      "verified": true,
+      "agentSlug": "jane-smith",
+      "reviewDate": "2025-06",
+      "transactionType": "seller"
+    },
+    {
+      "id": "t-008",
+      "text": "Summit Realty Group understands the Westchester County market at a level that the big national brokerages simply can't match. When we were competing on a home in Middletown, Jane's knowledge of the local market — specifically what the sellers valued beyond price — is what won us the deal.",
+      "rating": 5,
+      "featured": false,
+      "location": "Middletown, NY",
+      "reviewer": "Marcus & Jennifer Wei",
+      "verified": true,
+      "reviewDate": "2025-05",
+      "transactionType": "buyer"
+    },
+    {
+      "id": "t-009",
+      "text": "Sarah Rodriguez is an investment specialist in the truest sense. She ran a full financial model on every property we considered — cap rates, projected appreciation, rent comps, expense ratios. We closed on a duplex that's now generating positive cash flow from month one.",
+      "rating": 5,
+      "featured": false,
+      "location": "Yonkers, NY",
+      "reviewer": "George & Lisa Fontaine",
+      "verified": true,
+      "agentSlug": "sarah-rodriguez",
+      "reviewDate": "2025-04",
+      "transactionType": "investor"
+    },
+    {
+      "id": "t-010",
+      "text": "Relocating from Tokyo with children in middle school, school quality was everything for us. Summit Realty Group gave us a comprehensive school-by-school briefing before we ever looked at a single home. We found the perfect property in a top district and couldn't be happier.",
+      "rating": 5,
+      "featured": false,
+      "location": "Warwick, NY",
+      "reviewer": "The Nakamura Family",
+      "verified": true,
+      "reviewDate": "2025-03",
+      "transactionType": "buyer"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "image": "",
+    "subline": "Summit Realty Group — Westchester County, NY's trusted real estate brokerage.",
+    "variant": "photo-background",
+    "headline": "Team"
+  },
+  "brokerageTestimonials": {
+    "items": [
+      {
+        "name": "Emily Carter",
+        "quote": "Summit Realty Group gave us a clear strategy, communicated constantly, and helped us close above asking without surprises.",
+        "context": "Goshen Seller"
+      },
+      {
+        "name": "David Nguyen",
+        "quote": "In a competitive market, Summit Realty Group helped us win the right home with the right terms and zero pressure.",
+        "context": "Warwick Buyer"
+      },
+      {
+        "name": "Priya Shah",
+        "quote": "Their local guidance on neighborhoods and schools saved us months of trial and error.",
+        "context": "Relocating Family"
+      }
+    ]
+  }
+}

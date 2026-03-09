@@ -1,0 +1,96 @@
+{
+  "cta": {
+    "subline": "Share your goals and schedule a confidential career conversation.",
+    "variant": "centered",
+    "headline": "Ready for the Next Step?"
+  },
+  "faq": {
+    "items": [
+      {
+        "a": "We discuss model fit privately based on your production level and goals.",
+        "q": "What commission models are available?"
+      },
+      {
+        "a": "Yes. New agents receive mentorship plus practical transaction guidance.",
+        "q": "Do you support new agents?"
+      },
+      {
+        "a": "Yes. We provide listing and personal-brand support aligned to your growth plan.",
+        "q": "Do you provide marketing support?"
+      },
+      {
+        "a": "Yes. Every recruiting conversation is handled confidentially.",
+        "q": "Is my inquiry confidential?"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Join Summit Realty Group | Real Estate Careers in Westchester County",
+    "keywords": "real estate careers orange-county, join brokerage, agent recruitment",
+    "description": "Explore agent opportunities at Summit Realty Group with mentorship, systems, and growth support."
+  },
+  "hero": {
+    "image": "",
+    "eyebrow": "Careers",
+    "subline": "Join a brokerage that invests in your growth with real mentorship and marketing support.",
+    "variant": "photo-background",
+    "headline": "Build Your Real Estate Career Where It Matters"
+  },
+  "proofStats": {
+    "items": [
+      {
+        "label": "Agents",
+        "value": "18+"
+      },
+      {
+        "label": "Annual volume",
+        "value": "$180M+"
+      },
+      {
+        "label": "Years in business",
+        "value": "12"
+      }
+    ]
+  },
+  "leadCapture": {
+    "subline": "No pressure. Just an honest discussion about fit and growth.",
+    "headline": "Let's Have a Conversation",
+    "sourceTag": "join-page",
+    "consentText": "By submitting, you agree to be contacted by Summit Realty Group regarding career opportunities."
+  },
+  "whatWeOffer": {
+    "items": [
+      {
+        "desc": "Transparent compensation discussed in a confidential consultation.",
+        "title": "Competitive Split"
+      },
+      {
+        "desc": "Structured onboarding and skill development at every stage.",
+        "title": "Training and Mentorship"
+      },
+      {
+        "desc": "Listing media, campaign templates, and brand systems that convert.",
+        "title": "Marketing Support"
+      },
+      {
+        "desc": "CRM, content tools, and operational workflows that scale.",
+        "title": "Technology Stack"
+      },
+      {
+        "desc": "A professional team environment where agents share strategy.",
+        "title": "Collaborative Culture"
+      },
+      {
+        "desc": "Transaction support that keeps agents focused on clients and revenue.",
+        "title": "Admin Operations"
+      }
+    ]
+  },
+  "brokerMessage": {
+    "headline": "Why We Built Summit Realty Group",
+    "paragraphs": [
+      "Summit Realty Group was built to give agents a better path than high-overhead franchise models.",
+      "Our team gets practical mentorship, modern marketing support, and leadership that responds quickly."
+    ]
+  }
+}

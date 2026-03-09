@@ -11,6 +11,19 @@
       ],
       "enabled": true,
       "type": "agent"
+    },
+    {
+      "id": "onboard-e2e-1773015602",
+      "name": "Onboard E2E Realty",
+      "domain": "onboard-e2e-1773015602.example.com",
+      "enabled": true,
+      "defaultLocale": "en",
+      "supportedLocales": [
+        "en",
+        "zh"
+      ],
+      "createdAt": "2026-03-09T00:20:05.131Z",
+      "updatedAt": "2026-03-09T00:20:05.131Z"
     }
   ]
 }

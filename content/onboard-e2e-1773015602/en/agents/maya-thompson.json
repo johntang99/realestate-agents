@@ -1,0 +1,25 @@
+{
+  "bio": "",
+  "name": "Maya Thompson",
+  "role": "agent",
+  "slug": "maya-thompson",
+  "email": "maya@summitrealtygroup.com",
+  "phone": "(914) 555-1101",
+  "photo": "",
+  "title": "Senior Real Estate Advisor",
+  "status": "active",
+  "featured": true,
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "specialties": [
+    "First-time buyers",
+    "Condo sales"
+  ],
+  "displayOrder": 2,
+  "licenseState": "",
+  "licenseNumber": "10401320001",
+  "yearsExperience": 0,
+  "transactionCount": 0
+}

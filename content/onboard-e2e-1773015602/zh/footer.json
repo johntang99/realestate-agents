@@ -1,0 +1,116 @@
+{
+  "columns": [
+    {
+      "links": [
+        {
+          "href": "/buying",
+          "label": "买房服务"
+        },
+        {
+          "href": "/selling",
+          "label": "卖房服务"
+        },
+        {
+          "href": "/home-valuation",
+          "label": "房屋估值"
+        },
+        {
+          "href": "/investing",
+          "label": "房产投资"
+        },
+        {
+          "href": "/relocating",
+          "label": "搬迁服务"
+        },
+        {
+          "href": "/new-construction",
+          "label": "新房项目"
+        }
+      ],
+      "title": "服务",
+      "heading": "Summit Realty Group"
+    },
+    {
+      "links": [
+        {
+          "href": "/about",
+          "label": "关于我们"
+        },
+        {
+          "href": "/team",
+          "label": "团队介绍"
+        },
+        {
+          "href": "/join",
+          "label": "加入团队"
+        },
+        {
+          "href": "/knowledge-center",
+          "label": "知识中心"
+        },
+        {
+          "href": "/market-reports",
+          "label": "市场报告"
+        },
+        {
+          "href": "/contact",
+          "label": "联系我们"
+        }
+      ],
+      "title": "公司",
+      "heading": "公司"
+    },
+    {
+      "links": [
+        {
+          "href": "/properties",
+          "label": "全部房源"
+        },
+        {
+          "href": "/properties?status=active",
+          "label": "在售房源"
+        },
+        {
+          "href": "/sold",
+          "label": "历史成交"
+        },
+        {
+          "href": "/neighborhoods",
+          "label": "社区导览"
+        },
+        {
+          "href": "/faq",
+          "label": "常见问题"
+        }
+      ],
+      "title": "房源",
+      "heading": "房源"
+    }
+  ],
+  "tagline": "您在 Westchester County, NY 值得信赖的地产伙伴。买房、卖房、投资与搬迁，全程专业陪伴。",
+  "compliance": {
+    "state": "NY",
+    "termsHref": "/terms",
+    "privacyHref": "/privacy",
+    "brokerageName": "Summit Realty Group",
+    "copyrightYear": "2026",
+    "licenseNumber": "10991200999",
+    "mlsDisclaimer": "All listing information is deemed reliable but not guaranteed and should be independently verified.",
+    "copyrightSuffix": "版权所有。技术支持：baamplatform.com。",
+    "principalBroker": "Summit Realty Group Leadership Team",
+    "equalHousingText": "Summit Realty Group is committed to Equal Housing Opportunity.",
+    "fairHousingStatement": "We support the principles of the Fair Housing Act and provide equal professional service to all clients.",
+    "showEqualHousingLogo": true,
+    "principalBrokerLicense": "10401329999"
+  },
+  "legalLinks": [
+    {
+      "href": "/privacy",
+      "label": "隐私政策"
+    },
+    {
+      "href": "/terms",
+      "label": "服务条款"
+    }
+  ]
+}

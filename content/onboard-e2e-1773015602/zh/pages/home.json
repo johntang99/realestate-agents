@@ -1,0 +1,190 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "alt": "White Plains 豪华住宅",
+        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg",
+        "video": "/videos/agent-intro-onboard-e2e-1773015602.mp4",
+        "poster": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/99b069f02a46f2112057.jpg"
+      },
+      {
+        "alt": "Warwick 临水住宅",
+        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
+      },
+      {
+        "alt": "Middletown 庄园住宅",
+        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
+      }
+    ],
+    "subline": "为买房、卖房、搬迁与投资提供清晰策略，由本地团队全程支持您的目标。",
+    "variant": "gallery-background",
+    "headline": "欢迎来到 Summit Realty Group",
+    "ctaPrimary": {
+      "href": "/properties",
+      "label": "搜索房源"
+    },
+    "ctaSecondary": {
+      "href": "/contact",
+      "label": "免费咨询"
+    },
+    "overlayOpacity": 0.45
+  },
+  "intro": {
+    "body": "Summit Realty Group 坚持一个核心承诺：以坦诚建议、扎实本地经验和全流程实操支持，赢得您的信任。",
+    "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/78543c79b8563255d988.jpg",
+    "ctaHref": "/about",
+    "ctaLabel": "了解我们",
+    "headline": "以客户信任为核心的地产团队"
+  },
+  "statsBar": {
+    "items": [
+      {
+        "label": "累计成交额",
+        "value": "180",
+        "prefix": "$",
+        "suffix": "M+"
+      },
+      {
+        "label": "累计成交笔数",
+        "value": "620",
+        "suffix": "+"
+      },
+      {
+        "label": "从业年限",
+        "value": "12"
+      },
+      {
+        "label": "专业经纪人",
+        "value": "18"
+      },
+      {
+        "label": "五星好评",
+        "value": "200",
+        "suffix": "+"
+      }
+    ],
+    "variant": "animated-count"
+  },
+  "goalPaths": {
+    "items": [
+      {
+        "href": "/buying",
+        "icon": "Home",
+        "label": "我想买房",
+        "subline": "在专业指导下找到理想之家"
+      },
+      {
+        "href": "/selling",
+        "icon": "DollarSign",
+        "label": "我想卖房",
+        "subline": "定价策略与高质量营销并行"
+      },
+      {
+        "href": "/relocating",
+        "icon": "MapPin",
+        "label": "我在搬迁",
+        "subline": "以本地深度经验支持您的新生活"
+      },
+      {
+        "href": "/join",
+        "icon": "Users",
+        "label": "我想加入团队",
+        "subline": "探索与 Summit Realty Group 一起成长的机会"
+      }
+    ],
+    "headline": "我们如何帮助您？"
+  },
+  "contactForm": {
+    "subline": "给我们留言，我们将在 2 小时内回复您。",
+    "headline": "联系我们"
+  },
+  "teamPreview": {
+    "ctaHref": "/about",
+    "subline": "由 Summit Realty Group 本人直接为您提供 Westchester County, NY 的买房、卖房、投资与搬迁咨询服务。",
+    "ctaLabel": "查看个人资料",
+    "headline": "Meet Alex Carter",
+    "agentSlugs": [
+      "alex-carter"
+    ]
+  },
+  "whyChooseUs": {
+    "items": [
+      {
+        "icon": "MapPin",
+        "heading": "Westchester County 市场洞察",
+        "description": "深入到社区层面的市场认知，帮助您做出更稳健的决策。"
+      },
+      {
+        "icon": "TrendingUp",
+        "heading": "清晰策略与高效执行",
+        "description": "围绕您的目标与时间线，定制定价、谈判与营销方案。"
+      },
+      {
+        "icon": "Users",
+        "heading": "个性化客户体验",
+        "description": "在人生重要交易中，提供高响应沟通与务实专业建议。"
+      }
+    ],
+    "headline": "为什么选择 Summit Realty Group"
+  },
+  "consultationCta": {
+    "ctaHref": "/contact",
+    "subline": "准备买房、卖房、搬迁或投资？欢迎与我们聊聊您的下一步计划。",
+    "ctaLabel": "预约咨询",
+    "headline": "准备好迈出下一步了吗？",
+    "reviewQuote": {
+      "text": "Summit Realty Group 在 19 天内帮我们顺利售出房屋，并无压力完成下一套置业。",
+      "author": "Carter Family",
+      "source": "Google Review"
+    },
+    "backgroundImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/23e46f2fd0956e055754.jpg"
+  },
+  "featuredListings": {
+    "ctaHref": "/properties",
+    "subline": "精选 Westchester County, NY 各社区重点房源。",
+    "ctaLabel": "查看全部房源",
+    "headline": "精选房源",
+    "maxDisplay": 6,
+    "propertySlugs": [
+      "45-oak-ridge-lane",
+      "77-highland-terrace",
+      "12-harbor-view-drive"
+    ]
+  },
+  "testimonialStrip": {
+    "headline": "客户评价",
+    "testimonialIds": [
+      "t-001",
+      "t-002",
+      "t-005"
+    ]
+  },
+  "marketReportTeaser": {
+    "ctaHref": "/market-reports/february-2026",
+    "keyStat": "本地趋势与价格信号，帮助您做出更稳健决策",
+    "subline": "Westchester County, NY — 最新更新",
+    "ctaLabel": "阅读完整报告",
+    "headline": "市场报告"
+  },
+  "neighborhoodSpotlight": {
+    "ctaHref": "/neighborhoods",
+    "subline": "为买房、卖房、搬迁与投资提供社区洞察。",
+    "ctaLabel": "全部社区",
+    "headline": "探索 Westchester County 社区",
+    "neighborhoodSlugs": [
+      "scarsdale",
+      "larchmont",
+      "bronxville"
+    ]
+  },
+  "knowledgeCenterPreview": {
+    "ctaHref": "/knowledge-center",
+    "ctaLabel": "访问知识中心",
+    "headline": "来自知识中心",
+    "postSlugs": [
+      "orange-county-market-report-2026",
+      "first-time-buyer-guide-orange-county",
+      "relocating-to-orange-county"
+    ]
+  }
+}

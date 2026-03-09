@@ -1,0 +1,39 @@
+{
+  "slug": "orange-county-spring-open-house-tour",
+  "tags": [
+    "open-house",
+    "buyers",
+    "orange-county"
+  ],
+  "title": "Westchester County Spring Open House Tour",
+  "agenda": [
+    {
+      "item": "Check-in and coffee",
+      "time": "10:00"
+    },
+    {
+      "item": "Property tour begins",
+      "time": "10:30"
+    },
+    {
+      "item": "Financing Q&A with lender",
+      "time": "12:30"
+    }
+  ],
+  "status": "upcoming",
+  "address": "Starting at 45 Maple Ave, White Plains, NY",
+  "endDate": "2026-03-21",
+  "endTime": "14:00",
+  "excerpt": "Tour five curated listings in one day with our team and lending partners.",
+  "featured": true,
+  "location": "Multiple Homes Across White Plains and Warwick",
+  "timezone": "America/New_York",
+  "eventType": "open-house-tour",
+  "heroImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/31a280b9390128e3f4e5.jpg",
+  "organizer": "Summit Realty Group",
+  "startDate": "2026-03-21",
+  "startTime": "10:00",
+  "description": "Join our spring open house tour featuring five move-in-ready listings across top school districts in Westchester County. We will provide market insight, neighborhood overviews, and on-site mortgage Q&A.",
+  "contactEmail": "info@onboard-e2e-1773015602.example.com",
+  "registrationUrl": "https://onboard-e2e-1773015602.example.com/events/spring-open-house-tour"
+}

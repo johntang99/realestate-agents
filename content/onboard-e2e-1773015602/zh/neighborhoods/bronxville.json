@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Middletown NY Real Estate | Summit Realty Group",
+    "description": "Search luxury homes in Middletown, NY. Top-rated schools, Tudor estates, 16 miles to Midtown. Median price $2.1M. Summit Realty Group."
+  },
+  "name": "Middletown",
+  "slug": "bronxville",
+  "region": "Southern Westchester County",
+  "gallery": [],
+  "schools": [
+    {
+      "name": "Middletown High School",
+      "type": "Public",
+      "grades": "9-12",
+      "rating": "10/10"
+    },
+    {
+      "name": "Middletown Middle School",
+      "type": "Public",
+      "grades": "6-8",
+      "rating": "10/10"
+    },
+    {
+      "name": "Middletown Elementary School",
+      "type": "Public",
+      "grades": "K-5",
+      "rating": "10/10"
+    }
+  ],
+  "tagline": "The Crown Jewel of Westchester County",
+  "featured": true,
+  "overview": "Middletown is Westchester County's most prestigious village — a tightly-held community of grand Tudor and Colonial estates set on tree-canopied streets just 16 miles from Midtown Manhattan. With one of the top-rated school districts in the state, a quaint village center, and an extraordinarily loyal resident base, Middletown consistently commands Westchester County's highest prices.",
+  "lifestyle": [
+    "Luxury Estates",
+    "Top-Ranked Schools",
+    "Village Center",
+    "Close to NYC",
+    "Historic Architecture"
+  ],
+  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/cdcae92983c1d4c43355.jpg",
+  "marketSnapshot": {
+    "yoyChange": "+5.8%",
+    "medianPrice": "$2,100,000",
+    "pricePerSqft": "$640",
+    "inventoryCount": "15",
+    "avgDaysOnMarket": "18"
+  }
+}

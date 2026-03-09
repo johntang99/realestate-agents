@@ -1,0 +1,35 @@
+{
+  "slug": "first-time-buyer-webinar-orange-county",
+  "tags": [
+    "webinar",
+    "first-time-buyers",
+    "education"
+  ],
+  "title": "First-Time Buyer Webinar: Westchester County 2026 Playbook",
+  "status": "upcoming",
+  "address": "",
+  "endDate": "2026-04-02",
+  "endTime": "20:15",
+  "excerpt": "Learn how to win in a competitive market without overpaying.",
+  "featured": false,
+  "location": "Online",
+  "speakers": [
+    {
+      "name": "Jane Smith",
+      "title": "Principal Broker"
+    },
+    {
+      "name": "Marcus Johnson",
+      "title": "Senior Agent"
+    }
+  ],
+  "timezone": "America/New_York",
+  "eventType": "webinar",
+  "heroImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/3b455169df0b2b1d9006.jpg",
+  "organizer": "Summit Realty Group",
+  "startDate": "2026-04-02",
+  "startTime": "19:00",
+  "description": "This live webinar walks first-time buyers through pre-approval, offer strategy, inspection contingencies, and closing timelines tailored to Westchester County neighborhoods.",
+  "contactEmail": "info@onboard-e2e-1773015602.example.com",
+  "registrationUrl": "https://onboard-e2e-1773015602.example.com/events/first-time-buyer-webinar"
+}
