@@ -92,6 +92,17 @@ function getAllVerticalSlugs(): string[] {
   return Object.values(RE_VERTICALS).flat().map(v => v.slug);
 }
 
+async function parseApiError(response: Response, fallback: string) {
+  const text = await response.text();
+  if (!text) return fallback;
+  try {
+    const parsed = JSON.parse(text) as { message?: string };
+    return parsed.message || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 // ---------------------------------------------------------------------------
 // CollapsibleSection
 // ---------------------------------------------------------------------------
@@ -451,8 +462,8 @@ export function OnboardingWizard({ templateSites }: Props) {
       });
 
       if (!response.ok) {
-        const err = await response.json();
-        throw new Error(err.message || 'Failed to start onboarding');
+        const message = await parseApiError(response, 'Failed to start onboarding');
+        throw new Error(message);
       }
 
       const reader = response.body!.getReader();

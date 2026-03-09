@@ -17,6 +17,18 @@
       "domain": "jinpanghomes.com",
       "environment": "prod",
       "enabled": true
+    },
+    {
+      "siteId": "onboard-e2e-1773015602",
+      "domain": "onboard-e2e-1773015602.example.com",
+      "environment": "prod",
+      "enabled": true
+    },
+    {
+      "siteId": "onboard-e2e-1773015602",
+      "domain": "onboard-e2e-1773015602.local",
+      "environment": "dev",
+      "enabled": true
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "bio": "",
+  "name": "Jamie Tester",
+  "role": "principal_broker",
+  "slug": "jamie-tester",
+  "email": "hello@onboarde2e.com",
+  "phone": "(914) 555-0101",
+  "photo": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1400&q=80",
+  "title": "Principal Broker",
+  "status": "active",
+  "featured": true,
+  "languages": [
+    "English"
+  ],
+  "specialties": [],
+  "displayOrder": 1,
+  "licenseState": "NY",
+  "licenseNumber": "1234567",
+  "yearsExperience": 0,
+  "transactionCount": 0
+}

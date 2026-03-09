@@ -1,0 +1,57 @@
+{
+  "logo": {
+    "alt": "Summit Realty Group",
+    "src": "",
+    "width": 160,
+    "height": 48
+  },
+  "phone": "(914) 555-1100",
+  "logoText": "SUMMIT REALTY GROUP",
+  "ctaButton": {
+    "href": "/contact",
+    "label": "预约咨询",
+    "labelCn": "预约咨询"
+  },
+  "navigation": [
+    {
+      "href": "/buying",
+      "label": "买房"
+    },
+    {
+      "href": "/selling",
+      "label": "卖房"
+    },
+    {
+      "href": "/relocating",
+      "label": "搬迁"
+    },
+    {
+      "href": "/properties",
+      "label": "房源"
+    },
+    {
+      "href": "/neighborhoods",
+      "label": "社区"
+    },
+    {
+      "href": "/about",
+      "label": "关于"
+    },
+    {
+      "href": "/knowledge-center",
+      "label": "博客"
+    },
+    {
+      "href": "/testimonials",
+      "label": "客户评价"
+    },
+    {
+      "href": "/contact",
+      "label": "联系我们"
+    }
+  ],
+  "stickyCtaPhone": true,
+  "scrollThreshold": 80,
+  "stickyCtaButton": true,
+  "transparentOnHero": true
+}

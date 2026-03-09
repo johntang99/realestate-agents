@@ -1,0 +1,25 @@
+{
+  "bio": "",
+  "name": "Daniel Kim",
+  "role": "agent",
+  "slug": "daniel-kim",
+  "email": "daniel@summitrealtygroup.com",
+  "phone": "(914) 555-1102",
+  "photo": "",
+  "title": "Relocation Specialist",
+  "status": "active",
+  "featured": true,
+  "languages": [
+    "English",
+    "Korean"
+  ],
+  "specialties": [
+    "Relocation",
+    "Luxury leasing"
+  ],
+  "displayOrder": 3,
+  "licenseState": "",
+  "licenseNumber": "10401320002",
+  "yearsExperience": 0,
+  "transactionCount": 0
+}

@@ -1,0 +1,80 @@
+{
+  "fonts": {
+    "ui": "DM Sans",
+    "body": "Inter",
+    "heading": "Cormorant Garamond",
+    "subheading": "Playfair Display",
+    "chineseBody": "Noto Sans SC",
+    "chineseHeading": "Noto Serif SC"
+  },
+  "colors": {
+    "error": "#8B1A1A",
+    "accent": "#2E6B4F",
+    "border": "#E2E5EA",
+    "primary": "#1A2744",
+    "success": "#2E6B4F",
+    "warning": "#C17F24",
+    "backdrop": {
+      "primary": "#F8F6F2",
+      "secondary": "#141E30"
+    },
+    "goldStar": "#F59E0B",
+    "accentAlt": "#8B1A1A",
+    "secondary": "#C9A96E",
+    "statusSold": "#8B1A1A",
+    "textOnDark": "#FFFFFF",
+    "backdropMid": "#EDF0F4",
+    "statusLease": "#2563EB",
+    "textPrimary": "#1A1A2E",
+    "backdropDark": "#141E30",
+    "primaryScale": {
+      "50": "#E9EEF7",
+      "100": "#D4DEEE",
+      "dark": "#121D33",
+      "light": "#2A3E63",
+      "DEFAULT": "#1A2744"
+    },
+    "statusActive": "#2E6B4F",
+    "backdropLight": "#F8F6F2",
+    "statusPending": "#C17F24",
+    "textSecondary": "#5A6478",
+    "secondaryScale": {
+      "50": "#F6EFE3",
+      "dark": "#B08E54",
+      "light": "#D8BE8E",
+      "DEFAULT": "#C9A96E"
+    },
+    "textOnDarkMuted": "#B8C4D4",
+    "statusComingSoon": "#1A2744"
+  },
+  "effects": {
+    "cardRadius": "12px",
+    "cardShadow": "0 2px 12px rgba(26,39,68,0.08)",
+    "badgeRadius": "4px",
+    "photoShadow": "0 4px 24px rgba(26,39,68,0.14)",
+    "buttonRadius": "6px",
+    "transitionBase": "200ms ease",
+    "cardShadowHover": "0 8px 32px rgba(26,39,68,0.16)",
+    "heroOverlayOpacity": "0.45"
+  },
+  "spacing": {
+    "sectionPaddingY": "80px",
+    "containerMaxWidth": "1280px",
+    "containerPaddingX": "24px",
+    "sectionPaddingYSm": "56px"
+  },
+  "typography": {
+    "body": "1rem",
+    "fonts": {
+      "body": "'Inter', -apple-system, sans-serif",
+      "small": "'DM Sans', -apple-system, sans-serif",
+      "display": "'Cormorant Garamond', Georgia, serif",
+      "heading": "'Cormorant Garamond', Georgia, serif",
+      "subheading": "'Playfair Display', Georgia, serif"
+    },
+    "small": "0.875rem",
+    "display": "3rem",
+    "heading": "2rem",
+    "subheading": "1.5rem"
+  }
+}

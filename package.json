@@ -13,6 +13,7 @@
     "ci:check": "npm run type-check && npm run lint && npm run build",
     "media:migrate": "node scripts/migrate-media-to-supabase.mjs",
     "media:migrate-content-images": "node scripts/migrate-content-images-to-supabase.mjs",
+    "onboard:reclone": "node scripts/reonboard-site.mjs",
     "content:normalize-media-urls": "node scripts/normalize-content-media-urls.mjs",
     "seed": "node scripts/seed-rea-content.mjs",
     "content:sync:import": "node scripts/sync-content-db.mjs --mode=import",

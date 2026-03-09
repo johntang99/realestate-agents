@@ -1,0 +1,186 @@
+{
+  "cta": {
+    "subline": "Schedule a listing consultation and get a clear go-to-market strategy.",
+    "variant": "centered",
+    "headline": "Ready to Sell?",
+    "primaryActionHref": "/contact",
+    "primaryActionLabel": "Schedule a Listing Consultation"
+  },
+  "seo": {
+    "title": "Sell Your Home in Westchester County, NY | Summit Realty Group",
+    "keywords": "sell home orange-county, listing agent orange-county, home valuation",
+    "description": "Get a local pricing strategy and full-funnel marketing plan from Summit Realty Group."
+  },
+  "hero": {
+    "image": "",
+    "eyebrow": "Selling",
+    "subline": "Strategic pricing, premium marketing, and sharp negotiation to maximize your sale.",
+    "variant": "photo-background",
+    "headline": "We Sell Homes Faster and For More"
+  },
+  "objections": {
+    "items": [
+      {
+        "title": "Worried about underpricing?",
+        "description": "We model comparables, absorption, and timing windows to set a defendable list price."
+      },
+      {
+        "title": "Unsure about prep budget?",
+        "description": "We prioritize only high-ROI repairs and staging improvements."
+      },
+      {
+        "title": "Concerned about timing your next move?",
+        "description": "We coordinate your sale timeline with your buy or relocation plan."
+      }
+    ]
+  },
+  "proofStats": {
+    "items": [
+      {
+        "label": "Avg sale-to-list",
+        "value": "103%"
+      },
+      {
+        "label": "Avg DOM",
+        "value": "24 days"
+      },
+      {
+        "label": "Homes sold",
+        "value": "620+"
+      }
+    ]
+  },
+  "leadCapture": {
+    "subline": "A local agent will prepare your personalized valuation report within 24 hours.",
+    "headline": "What Is Your Home Worth?",
+    "sourceTag": "selling-page",
+    "consentText": "By submitting, you agree to be contacted by Summit Realty Group regarding your home valuation."
+  },
+  "sellerGuide": {
+    "ctaHref": "/contact",
+    "subline": "Get our checklist for pricing, prep, launch, negotiation, and closing.",
+    "ctaLabel": "Get the Seller Guide",
+    "headline": "Step-by-Step Seller Guide"
+  },
+  "stagingTips": {
+    "items": [
+      "Declutter high-traffic rooms and remove oversized furniture.",
+      "Use neutral paint touch-ups in key visual areas.",
+      "Improve first impression with entryway and curb updates.",
+      "Fix minor deferred maintenance before photos and showings.",
+      "Use lighting and layout to make rooms feel larger and brighter."
+    ],
+    "headline": "Staging and Prep Tips"
+  },
+  "timingAdvice": {
+    "items": [
+      {
+        "title": "If inventory is low in your segment",
+        "description": "Lower competition can increase leverage and reduce days on market."
+      },
+      {
+        "title": "If your next move is already planned",
+        "description": "A clear purchase/relocation plan usually improves your timing decisions and negotiation confidence."
+      },
+      {
+        "title": "If small updates can materially raise value",
+        "description": "Targeted prep often outperforms broad renovations when deciding whether to list this season."
+      }
+    ],
+    "headline": "Should You Sell Now?"
+  },
+  "marketingPlan": {
+    "items": [
+      {
+        "desc": "Wide-angle, high-resolution visuals optimized for buyer click-through.",
+        "title": "Professional Photography"
+      },
+      {
+        "desc": "Cinematic footage for properties where visuals drive stronger offers.",
+        "title": "Video and Drone"
+      },
+      {
+        "desc": "Distributed across high-intent search channels and broker networks.",
+        "title": "MLS and Portal Syndication"
+      },
+      {
+        "desc": "Audience-targeted campaigns to reach qualified local and relocation buyers.",
+        "title": "Paid Social Promotion"
+      },
+      {
+        "desc": "Immediate promotion across active agent and buyer circles.",
+        "title": "Agent-to-Agent Exposure"
+      },
+      {
+        "desc": "Broker previews and public opens when they support your pricing strategy.",
+        "title": "Open House Strategy"
+      }
+    ],
+    "title": "How We Market Your Home",
+    "subline": "A full campaign, not just an MLS post."
+  },
+  "sellingProcess": {
+    "steps": [
+      "Consultation",
+      "Pricing Strategy",
+      "Home Prep",
+      "List and Market",
+      "Offers and Negotiate",
+      "Close"
+    ]
+  },
+  "supportResources": {
+    "items": [
+      {
+        "title": "Recommended Movers",
+        "description": "Vetted local movers for full-service and short-notice moves."
+      },
+      {
+        "title": "Home Prep Vendors",
+        "description": "Painting, handyman, cleaning, and light staging partners."
+      },
+      {
+        "title": "Closing Partners",
+        "description": "Trusted attorneys, inspectors, and title professionals."
+      }
+    ],
+    "headline": "Seller Support Resources"
+  },
+  "sellerTestimonials": {
+    "items": [
+      {
+        "name": "A. Thompson",
+        "quote": "Summit Realty Group gave us a pricing strategy we could actually trust, and we accepted a strong offer in under three weeks.",
+        "context": "Cornwall seller"
+      },
+      {
+        "name": "M. Rivera",
+        "quote": "The communication was excellent from prep through closing. We always knew exactly what the next step was.",
+        "context": "Middletown seller"
+      }
+    ]
+  },
+  "whatWeDoForSellers": {
+    "items": [
+      {
+        "title": "Free Home Evaluation",
+        "description": "We provide a practical pricing range based on comparable sales, active competition, and likely buyer demand."
+      },
+      {
+        "title": "Marketing + Creative Production",
+        "description": "Professional photography, launch copy, digital promotion, and channel strategy tailored to your property."
+      },
+      {
+        "title": "Negotiation and Transaction Support",
+        "description": "From offer review to inspection and closing, we structure terms to protect value and reduce surprises."
+      }
+    ],
+    "headline": "What We Do for Sellers"
+  },
+  "downloadablePackage": {
+    "ctaHref": "/contact",
+    "subline": "Request our prep checklist and timeline package in exchange for email capture.",
+    "ctaLabel": "Request Prep Package",
+    "headline": "Free Seller Prep Package"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "onboard-e2e-1773015602",
+  "name": "Summit Realty Group",
+  "email": "hello@summitrealtygroup.com",
+  "phone": "(914) 555-1100",
+  "stats": {
+    "agentCount": "22",
+    "totalVolume": "$210M+",
+    "avgDaysOnMarket": "27",
+    "fiveStarReviews": "280+",
+    "saleToListRatio": "102%",
+    "yearsInBusiness": "14",
+    "totalTransactions": "740+"
+  },
+  "social": {
+    "tiktok": "",
+    "twitter": "",
+    "youtube": "",
+    "facebook": "https://facebook.com/summitrealtygroup",
+    "linkedin": "",
+    "instagram": "https://instagram.com/summitrealtygroup"
+  },
+  "address": {
+    "lat": 41.423,
+    "lng": -74.614,
+    "zip": "10601",
+    "city": "White Plains",
+    "full": "250 Main Street, Suite 400, White Plains, NY 10601",
+    "state": "NY",
+    "street": "250 Main Street, Suite 400",
+    "mapsUrl": "https://maps.google.com/?q=21+Painted+Apron+Ter+Port+Jervis+NY+10601",
+    "mapsEmbedUrl": ""
+  },
+  "license": {
+    "licenseState": "NY",
+    "brokerageType": "Licensed Real Estate Broker",
+    "licenseNumber": "10991200999",
+    "principalBrokerName": "Summit Realty Group Leadership Team",
+    "principalBrokerTitle": "Principal Broker & Founder",
+    "principalBrokerLicense": "10401329999"
+  },
+  "tagline": "Trusted Westchester County Real Estate Experts",
+  "smsPhone": "(914) 555-1100",
+  "languages": [
+    {
+      "code": "en",
+      "flag": "US",
+      "label": "English",
+      "enabled": true
+    },
+    {
+      "code": "zh",
+      "flag": "CN",
+      "label": "中文",
+      "enabled": true
+    }
+  ],
+  "chatWidget": {
+    "enabled": false,
+    "provider": "tidio",
+    "tidioKey": ""
+  },
+  "compliance": {
+    "mlsDisclaimer": "All listing information is deemed reliable but not guaranteed and should be independently verified.",
+    "equalHousingText": "Summit Realty Group is committed to Equal Housing Opportunity.",
+    "fairHousingStatement": "We support the principles of the Fair Housing Act and provide equal professional service to all clients."
+  },
+  "subtagline": "Serving Westchester County, NY with deep local expertise, practical guidance, and client-first service.",
+  "officeHours": {
+    "sunday": "Sun: By appointment",
+    "saturday": "Sat: 10:00 AM - 3:00 PM",
+    "weekdays": "Mon-Fri: 9:00 AM - 6:00 PM"
+  }
+}

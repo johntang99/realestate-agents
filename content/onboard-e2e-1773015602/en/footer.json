@@ -1,0 +1,100 @@
+{
+  "columns": [
+    {
+      "content": "Your trusted real estate partner in Westchester County, NY. Buying, selling, investing, and relocating — we guide you every step of the way.",
+      "heading": "Summit Realty Group",
+      "showLogo": true,
+      "showSocials": true
+    },
+    {
+      "links": [
+        {
+          "href": "/buying",
+          "label": "Buy a Home"
+        },
+        {
+          "href": "/selling",
+          "label": "Sell Your Home"
+        },
+        {
+          "href": "/home-valuation",
+          "label": "Home Valuation"
+        },
+        {
+          "href": "/relocating",
+          "label": "Relocating"
+        }
+      ],
+      "heading": "Services"
+    },
+    {
+      "links": [
+        {
+          "href": "/about",
+          "label": "About Us"
+        },
+        {
+          "href": "/team",
+          "label": "Our Team"
+        },
+        {
+          "href": "/join",
+          "label": "Join the Team"
+        },
+        {
+          "href": "/knowledge-center",
+          "label": "Knowledge Center"
+        },
+        {
+          "href": "/market-reports",
+          "label": "Market Reports"
+        },
+        {
+          "href": "/contact",
+          "label": "Contact"
+        }
+      ],
+      "heading": "Company"
+    },
+    {
+      "links": [
+        {
+          "href": "/properties",
+          "label": "All Listings"
+        },
+        {
+          "href": "/properties?status=active",
+          "label": "For Sale"
+        },
+        {
+          "href": "/sold",
+          "label": "Sold Portfolio"
+        },
+        {
+          "href": "/neighborhoods",
+          "label": "Neighborhoods"
+        },
+        {
+          "href": "/faq",
+          "label": "FAQ"
+        }
+      ],
+      "heading": "Properties"
+    }
+  ],
+  "compliance": {
+    "state": "NY",
+    "termsHref": "/terms",
+    "privacyHref": "/privacy",
+    "brokerageName": "Summit Realty Group",
+    "copyrightYear": "2026",
+    "licenseNumber": "10991200999",
+    "mlsDisclaimer": "All listing information is deemed reliable but not guaranteed and should be independently verified.",
+    "copyrightSuffix": "All rights reserved. Technical Support By baamplatform.com.",
+    "principalBroker": "Summit Realty Group Leadership Team",
+    "equalHousingText": "Summit Realty Group is committed to Equal Housing Opportunity.",
+    "fairHousingStatement": "We support the principles of the Fair Housing Act and provide equal professional service to all clients.",
+    "showEqualHousingLogo": true,
+    "principalBrokerLicense": "10401329999"
+  }
+}
