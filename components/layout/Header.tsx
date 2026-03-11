@@ -19,6 +19,7 @@ import type { Locale } from '@/lib/i18n';
 
 export interface JuliaHeaderConfig {
   logo?: string;
+  logoTransparent?: string | { src?: string; alt?: string };
   logoText?: string;
   navigation?: Array<{
     label: string; labelCn?: string; href: string;
@@ -67,6 +68,20 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
   ];
   const cta = config.ctaButton || { label: 'Schedule Consultation', href: '/contact' };
   const logoText = config.logoText || (siteInfo as any)?.name || 'Alexandra Reeves';
+  const getLogoSrc = (logoValue: unknown): string | undefined => {
+    if (typeof logoValue === 'string' && logoValue.trim().length > 0) {
+      return logoValue;
+    }
+    if (
+      logoValue &&
+      typeof logoValue === 'object' &&
+      typeof (logoValue as { src?: unknown }).src === 'string' &&
+      ((logoValue as { src: string }).src || '').trim().length > 0
+    ) {
+      return (logoValue as { src: string }).src;
+    }
+    return undefined;
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -78,6 +93,9 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
   const isHomeRoute = pathWithoutLocale === '/';
   const allowTransparent = transparentOnHero && isHomeRoute;
   const isSolid = !allowTransparent || scrolled || mobileOpen;
+  const regularLogoSrc = getLogoSrc(config.logo);
+  const transparentLogoSrc = getLogoSrc(config.logoTransparent);
+  const activeLogoSrc = !isSolid && transparentLogoSrc ? transparentLogoSrc : regularLogoSrc;
   const showLanguageSwitcher = config.showLanguageSwitcher !== false;
   const enHref = `/en${pathWithoutLocale}`;
   const zhHref = `/zh${pathWithoutLocale}`;
@@ -197,9 +215,8 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-3 flex-shrink-0">
             {(() => {
-              const logoSrc = typeof config.logo === 'string' ? config.logo : (config.logo as any)?.src;
-              return logoSrc ? (
-                <img src={logoSrc} alt={logoText} className="h-8 w-auto" />
+              return activeLogoSrc ? (
+                <img src={activeLogoSrc} alt={logoText} className="h-8 w-auto" />
               ) : (
                 <span className="font-serif text-lg font-semibold tracking-wide transition-colors"
                   style={{ color: isSolid ? 'var(--primary)' : 'rgba(255,255,255,0.96)', textShadow: isSolid ? 'none' : '0 1px 8px rgba(0,0,0,0.35)' }}>
@@ -210,7 +227,7 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
             {navItems.map(item => (
               <Link key={item.href} href={`/${locale}${item.href}`}
                 className={navLink}

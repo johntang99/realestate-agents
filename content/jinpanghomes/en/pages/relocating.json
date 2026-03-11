@@ -1,85 +1,168 @@
 {
-  "hero": {
-    "image": "",
-    "subline": "Neighborhood guidance, school insight, and relocation planning from local experts.",
-    "variant": "photo-background",
-    "headline": "Welcome to Orange County. We Know This Place.",
-    "eyebrow": "Relocating"
+  "cta": {
+    "subline": "Talk with a relocation specialist who understands your priorities.",
+    "variant": "centered",
+    "headline": "Plan Your Move With Confidence",
+    "primaryActionHref": "/contact",
+    "primaryActionLabel": "Schedule a Relocation Consultation"
   },
   "seo": {
     "title": "Relocating to Orange County | Jin Pang",
-    "description": "Relocation advisory, neighborhood matching, and school-focused guidance for families moving to Orange County.",
-    "keywords": "relocating to orange-county, orange-county neighborhoods, orange-county schools"
+    "keywords": "relocating to orange-county, orange-county neighborhoods, orange-county schools",
+    "description": "Relocation advisory, neighborhood matching, and school-focused guidance for families moving to Orange County."
+  },
+  "hero": {
+    "image": "",
+    "eyebrow": "Relocating",
+    "subline": "Neighborhood guidance, school insight, and relocation planning from local experts.",
+    "variant": "photo-background",
+    "headline": "Welcome to Orange County. We Know This Place."
+  },
+  "schools": {
+    "items": [
+      {
+        "name": "Port Jervis High School",
+        "grades": "9-12",
+        "rating": "10/10",
+        "district": "Port Jervis UFSD"
+      },
+      {
+        "name": "Edgemont High School",
+        "grades": "9-12",
+        "rating": "10/10",
+        "district": "Edgemont UFSD"
+      },
+      {
+        "name": "Middletown High School",
+        "grades": "9-12",
+        "rating": "10/10",
+        "district": "Middletown UFSD"
+      },
+      {
+        "name": "Ardsley High School",
+        "grades": "9-12",
+        "rating": "9/10",
+        "district": "Ardsley UFSD"
+      },
+      {
+        "name": "Mamaroneck High School",
+        "grades": "9-12",
+        "rating": "9/10",
+        "district": "Mamaroneck UFSD"
+      }
+    ],
+    "title": "Top School Districts",
+    "subline": "Orange County is home to some of New York's highest-rated public schools."
   },
   "areaFacts": {
     "items": [
-      { "label": "Distance to Midtown NYC", "value": "16-45 min", "note": "Via Metro-North" },
-      { "label": "County Population", "value": "1M+", "note": "Orange County" },
-      { "label": "Top-Ranked School Districts", "value": "10+", "note": "Nationally recognized" },
-      { "label": "Median Household Income", "value": "$110K+", "note": "Above national average" }
+      {
+        "note": "Via Metro-North",
+        "label": "Distance to Midtown NYC",
+        "value": "16-45 min"
+      },
+      {
+        "note": "Orange County",
+        "label": "County Population",
+        "value": "1M+"
+      },
+      {
+        "note": "Nationally recognized",
+        "label": "Top-Ranked School Districts",
+        "value": "10+"
+      },
+      {
+        "note": "Above national average",
+        "label": "Median Household Income",
+        "value": "$110K+"
+      }
     ]
-  },
-  "schools": {
-    "title": "Top School Districts",
-    "subline": "Orange County is home to some of New York's highest-rated public schools.",
-    "items": [
-      { "name": "Port Jervis High School", "district": "Port Jervis UFSD", "grades": "9-12", "rating": "10/10" },
-      { "name": "Edgemont High School", "district": "Edgemont UFSD", "grades": "9-12", "rating": "10/10" },
-      { "name": "Middletown High School", "district": "Middletown UFSD", "grades": "9-12", "rating": "10/10" },
-      { "name": "Ardsley High School", "district": "Ardsley UFSD", "grades": "9-12", "rating": "9/10" },
-      { "name": "Mamaroneck High School", "district": "Mamaroneck UFSD", "grades": "9-12", "rating": "9/10" }
-    ]
-  },
-  "relocationRoadmap": {
-    "headline": "Relocation Roadmap",
-    "steps": [
-      { "title": "Discover Priorities", "description": "Clarify schools, commute, home style, and timeline before touring." },
-      { "title": "Shortlist Neighborhoods", "description": "Compare districts, lifestyle fit, and budget alignment with local guidance." },
-      { "title": "Tour and Evaluate", "description": "Tour selected areas and properties with practical decision criteria." },
-      { "title": "Offer and Secure", "description": "Build a competitive offer strategy aligned to your move timing." },
-      { "title": "Move Coordination", "description": "Plan closing, movers, and utility setup for a smoother transition." }
-    ]
-  },
-  "costOfLivingGuide": {
-    "headline": "Cost of Living Guide",
-    "items": [
-      { "title": "Housing", "description": "Understand purchase price ranges and ongoing ownership costs by neighborhood." },
-      { "title": "Transportation", "description": "Estimate commuting costs for Metro-North, driving, and parking." },
-      { "title": "Family Expenses", "description": "Plan for childcare, activities, and local service costs." }
-    ]
-  },
-  "relocationResources": {
-    "headline": "Relocation Resources",
-    "items": [
-      { "title": "School Enrollment Links", "description": "Key district contacts and enrollment references to start early." },
-      { "title": "Moving and Utility Setup", "description": "Trusted movers and practical utility checklist for your first month." },
-      { "title": "Community Starter Guide", "description": "Parks, dining, healthcare, and everyday essentials by area." }
-    ]
-  },
-  "newcomerGuide": {
-    "headline": "Newcomer Starter Guide",
-    "subline": "Request our relocation checklist and neighborhood comparison worksheet.",
-    "ctaLabel": "Get Relocation Guide",
-    "ctaHref": "/contact"
   },
   "objections": {
     "items": [
-      { "title": "Unsure where to live first?", "description": "We shortlist neighborhoods based on schools, commute, and lifestyle priorities." },
-      { "title": "Concerned about local market timing?", "description": "We provide micro-market context before you make offers." },
-      { "title": "Need moving coordination support?", "description": "We help plan your timeline from first tour to closing day." }
+      {
+        "title": "Unsure where to live first?",
+        "description": "We shortlist neighborhoods based on schools, commute, and lifestyle priorities."
+      },
+      {
+        "title": "Concerned about local market timing?",
+        "description": "We provide micro-market context before you make offers."
+      },
+      {
+        "title": "Need moving coordination support?",
+        "description": "We help plan your timeline from first tour to closing day."
+      }
     ]
   },
   "leadCapture": {
-    "sourceTag": "relocating-page",
-    "consentText": "By submitting, you agree to be contacted by Jin Pang relocation advisors.",
+    "subline": "Let's find the right neighborhood for your family.",
     "headline": "Moving to Orange County?",
-    "subline": "Let's find the right neighborhood for your family."
+    "sourceTag": "relocating-page",
+    "consentText": "By submitting, you agree to be contacted by Jin Pang relocation advisors."
   },
-  "cta": {
-    "variant": "centered",
-    "headline": "Plan Your Move With Confidence",
-    "subline": "Talk with a relocation specialist who understands your priorities.",
-    "primaryActionLabel": "Schedule a Relocation Consultation",
-    "primaryActionHref": "/contact"
+  "newcomerGuide": {
+    "ctaHref": "/contact",
+    "subline": "Request our relocation checklist and neighborhood comparison worksheet.",
+    "ctaLabel": "Get Relocation Guide",
+    "headline": "Newcomer Starter Guide"
+  },
+  "costOfLivingGuide": {
+    "items": [
+      {
+        "title": "Housing",
+        "description": "Understand purchase price ranges and ongoing ownership costs by neighborhood."
+      },
+      {
+        "title": "Transportation",
+        "description": "Estimate commuting costs for Metro-North, driving, and parking."
+      },
+      {
+        "title": "Family Expenses",
+        "description": "Plan for childcare, activities, and local service costs."
+      }
+    ],
+    "headline": "Cost of Living Guide"
+  },
+  "relocationRoadmap": {
+    "steps": [
+      {
+        "title": "Discover Priorities",
+        "description": "Clarify schools, commute, home style, and timeline before touring."
+      },
+      {
+        "title": "Shortlist Neighborhoods",
+        "description": "Compare districts, lifestyle fit, and budget alignment with local guidance."
+      },
+      {
+        "title": "Tour and Evaluate",
+        "description": "Tour selected areas and properties with practical decision criteria."
+      },
+      {
+        "title": "Offer and Secure",
+        "description": "Build a competitive offer strategy aligned to your move timing."
+      },
+      {
+        "title": "Move Coordination",
+        "description": "Plan closing, movers, and utility setup for a smoother transition."
+      }
+    ],
+    "headline": "Relocation Roadmap"
+  },
+  "relocationResources": {
+    "items": [
+      {
+        "title": "School Enrollment Links",
+        "description": "Key district contacts and enrollment references to start early."
+      },
+      {
+        "title": "Moving and Utility Setup",
+        "description": "Trusted movers and practical utility checklist for your first month."
+      },
+      {
+        "title": "Community Starter Guide",
+        "description": "Parks, dining, healthcare, and everyday essentials by area."
+      }
+    ],
+    "headline": "Relocation Resources"
   }
 }

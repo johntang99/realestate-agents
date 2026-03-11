@@ -12,7 +12,7 @@
     "title": "About Jin Pang, NY, Inc"
   },
   "hero": {
-    "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432006468-jinpang-group-1.jpg",
+    "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432006468-jinpang-group-1.jpg",
     "subline": "One mission: to be the most trusted brokerage partner in Orange County, NY.",
     "variant": "photo-background",
     "headline": "About Jin Pang Team",
@@ -52,7 +52,7 @@
     "blocks": [
       {
         "body": "Jin Pang was built around a simple principle: clients deserve clear advice, local expertise, and consistent support for one of life's most important financial decisions.",
-        "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png",
+        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png",
         "imageAlt": "Jin Pang leadership"
       },
       {
@@ -132,7 +132,7 @@
   },
   "principalBroker": {
     "bio": "Jin Pang leadership is focused on creating a brokerage experience built on trust, accountability, and long-term client relationships. We combine neighborhood-level knowledge with disciplined strategy to help clients make confident decisions.",
-    "photo": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+    "photo": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
     "title": "Brokerage Leadership",
     "ctaHref": "/team",
     "variant": "portrait",

@@ -1,10 +1,11 @@
 {
+  "bio": "Jin Pang helps clients buy, sell, and invest across Orange County, NY with practical market strategy, clear communication, and hands-on support from first meeting to closing.",
   "name": "Jin Pang",
   "role": "principal_broker",
   "slug": "jin-pang",
   "email": "info@jinpanghomes.com",
   "phone": "(845) 555-0190",
-  "photo": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+  "photo": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
   "title": "Licensed Real Estate Agent",
   "status": "active",
   "featured": true,
@@ -22,6 +23,5 @@
   "licenseState": "NY",
   "licenseNumber": "10991200XXX",
   "yearsExperience": 12,
-  "transactionCount": 320,
-  "bio": "Jin Pang helps clients buy, sell, and invest across Orange County, NY with practical market strategy, clear communication, and hands-on support from first meeting to closing."
+  "transactionCount": 320
 }

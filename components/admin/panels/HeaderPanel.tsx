@@ -14,6 +14,16 @@ export function HeaderPanel({
   openImagePicker,
 }: HeaderPanelProps) {
   const navigationItems = Array.isArray(formData.navigation) ? formData.navigation : [];
+  const isLogoObject = Boolean(formData.logo && typeof formData.logo === 'object');
+  const logoSrcValue =
+    typeof formData.logo === 'string' ? formData.logo : formData.logo?.src || '';
+  const isTransparentLogoObject = Boolean(
+    formData.logoTransparent && typeof formData.logoTransparent === 'object'
+  );
+  const transparentLogoSrcValue =
+    typeof formData.logoTransparent === 'string'
+      ? formData.logoTransparent
+      : formData.logoTransparent?.src || '';
 
   const addNavigationItem = () => {
     const next = [...navigationItems, { label: '', href: '', children: [] }];
@@ -161,17 +171,53 @@ export function HeaderPanel({
               <div className="mt-1 flex gap-2">
                 <input
                   className="w-full rounded-md border border-gray-200 px-3 py-2 text-sm"
-                  value={formData.logo?.src || ''}
-                  onChange={(event) => updateFormValue(['logo', 'src'], event.target.value)}
+                  value={logoSrcValue}
+                  onChange={(event) =>
+                    isLogoObject
+                      ? updateFormValue(['logo', 'src'], event.target.value)
+                      : updateFormValue(['logo'], event.target.value)
+                  }
                 />
                 <button
                   type="button"
-                  onClick={() => openImagePicker(['logo', 'src'])}
+                  onClick={() =>
+                    openImagePicker(isLogoObject ? ['logo', 'src'] : ['logo'])
+                  }
                   className="px-3 rounded-md border border-gray-200 text-xs"
                 >
                   Choose
                 </button>
               </div>
+            </div>
+            <div>
+              <label className="block text-xs text-gray-500">Transparent Logo Image Src</label>
+              <div className="mt-1 flex gap-2">
+                <input
+                  className="w-full rounded-md border border-gray-200 px-3 py-2 text-sm"
+                  value={transparentLogoSrcValue}
+                  onChange={(event) =>
+                    isTransparentLogoObject
+                      ? updateFormValue(['logoTransparent', 'src'], event.target.value)
+                      : updateFormValue(['logoTransparent'], event.target.value)
+                  }
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    openImagePicker(
+                      isTransparentLogoObject
+                        ? ['logoTransparent', 'src']
+                        : ['logoTransparent']
+                    )
+                  }
+                  className="px-3 rounded-md border border-gray-200 text-xs"
+                >
+                  Choose
+                </button>
+              </div>
+              <p className="mt-1 text-[11px] text-gray-500">
+                Used only when header is transparent (hero mode).
+              </p>
             </div>
             <div>
               <label className="block text-xs text-gray-500">Logo Alt</label>

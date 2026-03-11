@@ -1,7 +1,7 @@
 {
   "logo": {
     "alt": "Jin Pang",
-    "src": "",
+    "src": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773200121536-jinpanghomes-logo1-black.png",
     "width": 160,
     "height": 48
   },
@@ -52,6 +52,7 @@
     }
   ],
   "stickyCtaPhone": true,
+  "logoTransparent": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773200033589-jinpanghomes-logo1-white.png",
   "scrollThreshold": 80,
   "stickyCtaButton": true,
   "transparentOnHero": true

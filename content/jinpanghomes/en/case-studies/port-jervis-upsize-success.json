@@ -1,14 +1,18 @@
 {
+  "body": "We prepared the existing home for market, launched with targeted pricing, and secured a replacement property within the same school district.",
   "slug": "port-jervis-upsize-success",
-  "title": "From Starter Home to Long-Term Upgrade",
-  "category": "seller",
+  "tags": [
+    "seller",
+    "buyer",
+    "strategy"
+  ],
   "type": "case-study",
+  "title": "From Starter Home to Long-Term Upgrade",
   "author": "Jin Pang",
-  "publishDate": "2026-02-20",
-  "heroImage": "",
   "excerpt": "A coordinated sell-and-buy strategy that reduced timing risk for a growing family.",
-  "readTime": "4 min",
+  "category": "seller",
   "featured": true,
-  "tags": ["seller", "buyer", "strategy"],
-  "body": "We prepared the existing home for market, launched with targeted pricing, and secured a replacement property within the same school district."
+  "readTime": "4 min",
+  "heroImage": "",
+  "publishDate": "2026-02-20"
 }

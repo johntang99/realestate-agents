@@ -1,14 +1,17 @@
 {
+  "body": "This guide summarizes the full timeline from pre-approval to closing day, with key decisions and common pitfalls to avoid.",
   "slug": "first-time-buyer-checklist",
-  "title": "First-Time Buyer Checklist",
-  "category": "buyer-guide",
+  "tags": [
+    "buyers",
+    "checklist"
+  ],
   "type": "resource",
+  "title": "First-Time Buyer Checklist",
   "author": "Jin Pang",
-  "publishDate": "2026-02-15",
-  "heroImage": "",
   "excerpt": "A practical checklist covering financing, offers, inspections, and closing steps.",
-  "readTime": "6 min",
+  "category": "buyer-guide",
   "featured": true,
-  "tags": ["buyers", "checklist"],
-  "body": "This guide summarizes the full timeline from pre-approval to closing day, with key decisions and common pitfalls to avoid."
+  "readTime": "6 min",
+  "heroImage": "",
+  "publishDate": "2026-02-15"
 }

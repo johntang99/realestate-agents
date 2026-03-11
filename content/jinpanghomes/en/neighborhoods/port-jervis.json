@@ -1,0 +1,10 @@
+{
+  "name": "Port Jervis",
+  "slug": "port-jervis",
+  "summary": "A river city with commuter access, local character, and mixed housing stock.",
+  "marketSnapshot": {
+    "inventory": "Low-Medium",
+    "medianPrice": "$320K",
+    "daysOnMarket": "34"
+  }
+}
