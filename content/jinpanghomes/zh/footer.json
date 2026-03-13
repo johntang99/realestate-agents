@@ -102,15 +102,16 @@
     "state": "New York",
     "termsHref": "/terms",
     "privacyHref": "/privacy",
-    "brokerageName": "Jin Pang",
+    "brokerageName": "Panorama NY, Inc",
     "copyrightYear": "2026",
     "licenseNumber": "10991200XXX",
     "mlsDisclaimer": "房源信息来源于被认为可靠的渠道，但不作任何担保，仅供消费者个人、非商业用途参考。",
     "copyrightSuffix": "版权所有。技术支持：baamplatform.com。",
-    "principalBroker": "Jin Pang Leadership Team",
-    "equalHousingText": "Jin Pang 坚持平等住房机会原则。所有信息在发布时被认为可靠，但不作担保。",
+    "principalBroker": "Panorama NY, Inc",
+    "equalHousingText": "Panorama NY, Inc 坚持平等住房机会原则。所有信息在发布时被认为可靠，但不作担保。",
     "fairHousingStatement": "我们承诺遵循并支持美国公平住房政策的文字与精神，推动平等住房机会。",
     "showEqualHousingLogo": true,
-    "principalBrokerLicense": "10301200XXX"
+    "principalBrokerLicense": "10301200XXX",
+    "brokerageAddress": "444 Peenpack Trl, Huguenot, NY 12746"
   }
 }

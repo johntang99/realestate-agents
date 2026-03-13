@@ -1,19 +1,19 @@
 {
   "cta": {
     "ctaHref": "/contact",
-    "subline": "Whether you're ready to buy, sell, or explore what Jin Pang can offer your real estate career.",
+    "subline": "Whether you're ready to buy, sell, or invest, Jin Pang is here to guide your next move.",
     "variant": "centered",
     "ctaLabel": "Contact Us",
     "headline": "Let's work together.",
-    "ctaSecondaryHref": "/join",
-    "ctaSecondaryLabel": "Join Our Team"
+    "ctaSecondaryHref": "/team",
+    "ctaSecondaryLabel": "Meet Our Team"
   },
   "seo": {
     "title": "About Jin Pang, NY, Inc"
   },
   "hero": {
     "image": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/9db5c82acfa817d23a00.jpg",
-    "subline": "One mission: to be the most trusted brokerage partner in Orange County, NY.",
+    "subline": "One mission: to be the most trusted real estate advisor in Orange County, NY.",
     "variant": "photo-background",
     "headline": "About Jin Pang Team",
     "imageAlt": "Jin Pang team"
@@ -131,15 +131,15 @@
     "headline": "Community Involvement"
   },
   "principalBroker": {
-    "bio": "Jin Pang leadership is focused on creating a brokerage experience built on trust, accountability, and long-term client relationships. We combine neighborhood-level knowledge with disciplined strategy to help clients make confident decisions.",
+    "bio": "Jin Pang is a dedicated real estate agent focused on trust, accountability, and long-term client relationships. Backed by Panorama NY, Inc, Jin combines neighborhood-level knowledge with disciplined strategy to help clients make confident decisions.",
     "photo": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
-    "title": "Brokerage Leadership",
+    "title": "Licensed Real Estate Agent",
     "ctaHref": "/team",
     "variant": "portrait",
     "ctaLabel": "Meet Our Full Team",
-    "headline": "Meet the Leadership Team",
+    "headline": "Meet Jin Pang",
     "credentials": [
-      "Licensed Real Estate Broker - NY",
+      "Licensed Real Estate Agent - NY",
       "Market Strategy and Negotiation Expertise",
       "Client-First Service Standards"
     ]
@@ -148,7 +148,7 @@
     "items": [
       {
         "name": "Marcus Johnson",
-        "quote": "I came from a franchise where I was a number. At Jin Pang, I have a real broker who answers the phone, a team that collaborates, and the freedom to build my business my way.",
+        "quote": "I came from a franchise where I was a number. At Jin Pang, I have a real mentor who answers the phone, a team that collaborates, and the freedom to build my business my way.",
         "tenure": "9 years at Jin Pang"
       },
       {

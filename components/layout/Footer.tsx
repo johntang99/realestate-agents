@@ -52,6 +52,7 @@ export default function Footer({ locale, footer, siteInfo }: FooterProps) {
   const mlsDisclaimer = (siteInfo as any)?.compliance?.mlsDisclaimer as string | undefined;
   const fairHousingStatement = (siteInfo as any)?.compliance?.fairHousingStatement as string | undefined;
   const equalHousingText = (siteInfo as any)?.compliance?.equalHousingText as string | undefined;
+  const brokerageAddress = (data as any)?.compliance?.brokerageAddress as string | undefined;
 
   const defaultColumns: JuliaFooterData['columns'] = [
     { title: 'Properties', links: [
@@ -189,6 +190,12 @@ export default function Footer({ locale, footer, siteInfo }: FooterProps) {
                 {licenseNumber && compliance?.showLicenseNumber !== false && (
                   <p className="text-xs mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
                     License: {licenseNumber}
+                  </p>
+                )}
+                {((data as any).compliance?.brokerageName || brokerageName || brokerageAddress) && (
+                  <p className="text-xs mb-2 leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                    Brokerage: {(data as any).compliance?.brokerageName || brokerageName}
+                    {brokerageAddress ? `, ${brokerageAddress}` : ''}
                   </p>
                 )}
                 {principalBrokerLicense && (

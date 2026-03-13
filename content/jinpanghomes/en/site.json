@@ -21,25 +21,25 @@
     "instagram": ""
   },
   "address": {
-    "lat": 41.423,
-    "lng": -74.614,
-    "zip": "12771",
-    "city": "Port Jervis",
-    "full": "21 Painted Apron Ter, Port Jervis, NY 12771",
+    "lat": 41.41787,
+    "lng": -74.63099,
+    "zip": "12746",
+    "city": "Huguenot",
+    "full": "444 Peenpack Trl, Huguenot, NY 12746",
     "state": "NY",
-    "street": "21 Painted Apron Ter",
-    "mapsUrl": "https://maps.google.com/?q=21+Painted+Apron+Ter+Port+Jervis+NY+12771",
+    "street": "444 Peenpack Trl",
+    "mapsUrl": "https://maps.google.com/?q=444+Peenpack+Trl+Huguenot+NY+12746",
     "mapsEmbedUrl": ""
   },
   "license": {
     "licenseState": "NY",
-    "brokerageType": "Licensed Real Estate Broker",
+    "brokerageType": "Licensed Real Estate Brokerage",
     "licenseNumber": "10991200XXX",
-    "principalBrokerName": "Jin Pang Leadership Team",
-    "principalBrokerTitle": "Principal Broker & Founder",
+    "principalBrokerName": "Panorama NY, Inc",
+    "principalBrokerTitle": "Licensed Brokerage",
     "principalBrokerLicense": "10301200XXX"
   },
-  "tagline": "Trusted Orange County Real Estate Experts",
+  "tagline": "Trusted Orange County Real Estate Agent",
   "smsPhone": "(845) 555-0190",
   "chatWidget": {
     "enabled": false,
@@ -48,10 +48,10 @@
   },
   "compliance": {
     "mlsDisclaimer": "All listing information is from sources deemed reliable but not guaranteed. Information is provided for consumers' personal, non-commercial use.",
-    "equalHousingText": "Jin Pang is an Equal Housing Opportunity broker.",
+    "equalHousingText": "Panorama NY, Inc is an Equal Housing Opportunity brokerage.",
     "fairHousingStatement": "We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation."
   },
-  "subtagline": "Serving Orange County, NY with deep local expertise, practical guidance, and client-first service.",
+  "subtagline": "Serving Orange County, NY with deep local expertise and client-first service under Panorama NY, Inc.",
   "officeHours": {
     "sunday": "Sun: By appointment",
     "saturday": "Sat: 10:00 AM – 4:00 PM",

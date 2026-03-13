@@ -94,15 +94,16 @@
     "state": "New York",
     "termsHref": "/terms",
     "privacyHref": "/privacy",
-    "brokerageName": "Jin Pang",
+    "brokerageName": "Panorama NY, Inc",
     "copyrightYear": "2026",
     "licenseNumber": "10991200XXX",
     "mlsDisclaimer": "Listing information is from sources deemed reliable but not guaranteed and is provided exclusively for consumers' personal, non-commercial use.",
     "copyrightSuffix": "All rights reserved. Technical Support By baamplatform.com.",
-    "principalBroker": "Jin Pang Leadership Team",
-    "equalHousingText": "Jin Pang is an Equal Housing Opportunity broker. All information deemed reliable but not guaranteed.",
+    "principalBroker": "Panorama NY, Inc",
+    "equalHousingText": "Panorama NY, Inc is an Equal Housing Opportunity brokerage. All information deemed reliable but not guaranteed.",
     "fairHousingStatement": "We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation.",
     "showEqualHousingLogo": true,
-    "principalBrokerLicense": "10301200XXX"
+    "principalBrokerLicense": "10301200XXX",
+    "brokerageAddress": "444 Peenpack Trl, Huguenot, NY 12746"
   }
 }
