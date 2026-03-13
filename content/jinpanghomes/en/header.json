@@ -52,8 +52,8 @@
     }
   ],
   "stickyCtaPhone": true,
-  "logoTransparent": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773200033589-jinpanghomes-logo1-white.png",
   "scrollThreshold": 80,
   "stickyCtaButton": true,
-  "transparentOnHero": true
+  "transparentOnHero": true,
+  "logoTransparent": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773200033589-jinpanghomes-logo1-white.png"
 }

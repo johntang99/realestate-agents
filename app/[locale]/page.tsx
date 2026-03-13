@@ -83,6 +83,8 @@ interface HomeData {
   hero?: {
     variant?: string;
     slides?: Slide[];
+    frontVideoEnabled?: boolean;
+    frontVideoUrl?: string;
     headline?: string;
     subline?: string;
     ctaPrimary?: { label?: string; href?: string };
@@ -736,7 +738,10 @@ export default function HomePage() {
   }, [testimonials.length]);
 
   const allSlides = home.hero?.slides || [];
-  const introVideo = allSlides.find((s) => s.video)?.video;
+  const introVideo =
+    home.hero?.frontVideoEnabled === false
+      ? undefined
+      : home.hero?.frontVideoUrl || allSlides.find((s) => s.video)?.video;
   const slides = allSlides
     .filter((s) => s.image)
     .map((s) => ({ image: s.image, alt: s.alt }));

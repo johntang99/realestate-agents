@@ -1,7 +1,7 @@
 {
   "hoa": null,
   "seo": {
-    "title": "77 Highland Terrace, Middletown NY | $2,150,000",
+    "title": "77 Highland Terrace, Middletown NY | $550,000",
     "description": "Landmark Tudor estate in Middletown. 6BR/5BA, 5,800 SF, stunning updated interior preserving original 1928 details. Listed by Jin Pang."
   },
   "zip": "10708",
@@ -11,7 +11,7 @@
   "sqft": 5800,
   "type": "single-family",
   "baths": 5,
-  "price": 2150000,
+  "price": 550000,
   "state": "NY",
   "garage": "2-car detached",
   "status": "active",
@@ -50,7 +50,7 @@
   "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/cdcae92983c1d4c43355.jpg",
   "description": "A landmark Tudor estate on the most coveted street in Middletown. Thoughtfully updated while preserving all original architectural details — leaded glass windows, ornate plasterwork, original stone fireplace mantels. Six bedrooms, five full baths, a library, formal dining room, and a stunning great room addition completed in 2019.",
   "neighborhood": "northfield",
-  "priceDisplay": "$2,150,000",
+  "priceDisplay": "$550,000",
   "schoolDistrict": "Middletown Union Free School District",
   "listingAgentSlug": "jane-smith"
 }

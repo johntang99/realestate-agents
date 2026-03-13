@@ -3,7 +3,7 @@
     "slides": [
       {
         "alt": "Luxury home in Port Jervis",
-        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg",
+        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773352922316-photo-1628624747186-a941c476b7ef.jpg",
         "video": "/videos/agent-intro-jinpanghomes.mp4",
         "poster": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
       },
@@ -27,7 +27,8 @@
       "href": "/contact",
       "label": "Free Consultation"
     },
-    "overlayOpacity": 0.45
+    "overlayOpacity": 0.45,
+    "frontVideoEnabled": false
   },
   "intro": {
     "body": "Jin Pang is built around one core promise: to earn your trust with honest advice, strong local knowledge, and hands-on support from first conversation to closing.",
@@ -40,26 +41,22 @@
     "items": [
       {
         "label": "In Career Sales",
-        "value": "180",
+        "value": "40",
         "prefix": "$",
         "suffix": "M+"
       },
       {
         "label": "Transactions Closed",
-        "value": "620",
+        "value": "100",
         "suffix": "+"
       },
       {
         "label": "Years in Business",
-        "value": "12"
-      },
-      {
-        "label": "Expert Agents",
-        "value": "18"
+        "value": "5"
       },
       {
         "label": "Five-Star Reviews",
-        "value": "200",
+        "value": "90",
         "suffix": "+"
       }
     ],

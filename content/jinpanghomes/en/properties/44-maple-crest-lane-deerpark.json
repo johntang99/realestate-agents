@@ -4,10 +4,13 @@
   "slug": "44-maple-crest-lane-deerpark",
   "sqft": 2480,
   "baths": 3,
-  "price": 535000,
+  "price": 435000,
   "state": "NY",
-  "status": "pending",
+  "status": "for-sale",
   "address": "44 Maple Crest Lane",
   "description": "Two-story residence with expanded kitchen, fenced backyard, and strong school access.",
-  "priceDisplay": "$535,000"
+  "priceDisplay": "$435,000",
+  "type": "single-family",
+  "featured": true,
+  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773353938921-photo-1611602132416-da2045990f76.jpg"
 }

@@ -11,11 +11,56 @@ export function HeroPanel({
   updateFormValue,
   openImagePicker,
 }: HeroPanelProps) {
+  const frontVideoEnabled = formData?.hero?.frontVideoEnabled !== false;
+  const firstSlideVideo =
+    Array.isArray(formData?.hero?.slides) && typeof formData.hero.slides[0]?.video === 'string'
+      ? formData.hero.slides[0].video
+      : '';
+
   return (
     <div className="border border-gray-200 rounded-lg p-4">
       <div className="text-xs font-semibold text-gray-500 uppercase mb-3">
         Hero
       </div>
+      {isHomePageFile && (
+        <div className="mb-3 rounded-md border border-gray-200 p-3 bg-gray-50">
+          <div className="flex items-center justify-between gap-3">
+            <label className="text-xs font-medium text-gray-600">Front Video Enabled (Video Splash)</label>
+            <input
+              type="checkbox"
+              checked={frontVideoEnabled}
+              onChange={(event) => updateFormValue(['hero', 'frontVideoEnabled'], event.target.checked)}
+              className="h-4 w-4"
+            />
+          </div>
+          <p className="mt-1 text-[11px] text-gray-500">
+            Toggle intro splash video on homepage load.
+          </p>
+          <div className="mt-3">
+            <label className="block text-xs text-gray-500">Front Video URL</label>
+            <div className="mt-1 flex gap-2">
+              <input
+                className="w-full rounded-md border border-gray-200 px-3 py-2 text-sm"
+                value={formData.hero.frontVideoUrl || ''}
+                onChange={(event) => updateFormValue(['hero', 'frontVideoUrl'], event.target.value)}
+                placeholder="/videos/hero-intro.mp4"
+              />
+              {firstSlideVideo ? (
+                <button
+                  type="button"
+                  onClick={() => updateFormValue(['hero', 'frontVideoUrl'], firstSlideVideo)}
+                  className="px-3 rounded-md border border-gray-200 text-xs whitespace-nowrap"
+                >
+                  Use Slide 1
+                </button>
+              ) : null}
+            </div>
+            <p className="mt-1 text-[11px] text-gray-500">
+              If empty, it falls back to the first slide video.
+            </p>
+          </div>
+        </div>
+      )}
       {'title' in formData.hero && (
         <div className="mb-3">
           <label className="block text-xs text-gray-500">Title</label>

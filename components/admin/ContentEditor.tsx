@@ -1968,6 +1968,15 @@ export function ContentEditor({
                 />
               )}
 
+              {formData?.hero && !isAboutPageFile && (
+                <HeroPanel
+                  formData={formData}
+                  isHomePageFile={isHomePageFile}
+                  updateFormValue={updateFormValue}
+                  openImagePicker={openImagePicker}
+                />
+              )}
+
               {isHomePageFile && homePhotoFields.length > 0 && (
                 <HomeSectionPhotosPanel
                   homePhotoFields={homePhotoFields}
@@ -1989,15 +1998,6 @@ export function ContentEditor({
               {isAboutPageFile && formData && (
                 <AboutPagePanel
                   formData={formData}
-                  updateFormValue={updateFormValue}
-                  openImagePicker={openImagePicker}
-                />
-              )}
-
-              {formData?.hero && !isAboutPageFile && (
-                <HeroPanel
-                  formData={formData}
-                  isHomePageFile={isHomePageFile}
                   updateFormValue={updateFormValue}
                   openImagePicker={openImagePicker}
                 />

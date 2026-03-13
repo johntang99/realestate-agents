@@ -5,11 +5,11 @@
     "description": "2BR/2BA condo in White Plains. Sold for $445K — 4% above asking in 8 days."
   },
   "zip": "10601",
-  "beds": 2,
+  "beds": 3,
   "city": "White Plains",
   "slug": "220-maple-avenue",
-  "sqft": 1240,
-  "type": "condo",
+  "sqft": 1840,
+  "type": "single-family",
   "baths": 2,
   "price": 429000,
   "state": "NY",
@@ -36,7 +36,7 @@
   },
   "mlsNumber": "H6270099",
   "yearBuilt": 2012,
-  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/a6d54115286e03fb34ad.jpg",
+  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773353849125-photo-1576941089067-2de3c901e126.jpg",
   "description": "Modern corner unit condo in the heart of White Plains. Floor-to-ceiling windows, updated kitchen, and building amenities including a rooftop terrace and fitness center.",
   "soldDetails": {
     "notes": "Received 4 offers. Sold 4% above asking in 8 days.",

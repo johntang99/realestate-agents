@@ -1,7 +1,7 @@
 {
   "hoa": null,
   "seo": {
-    "title": "12 Harbor View Drive, Warwick NY | $875,000",
+    "title": "12 Harbor View Drive, Warwick NY | $575,000",
     "description": "4BR/3BA colonial in Warwick. Steps to Long Island Sound, updated kitchen, walk to Metro-North. Listed by Jin Pang."
   },
   "zip": "10538",
@@ -11,10 +11,17 @@
   "sqft": 2800,
   "type": "single-family",
   "baths": 3,
-  "price": 875000,
+  "price": 575000,
   "state": "NY",
   "garage": "1-car attached",
-  "status": "active",
+  "images": [
+    {
+      "alt": "",
+      "url": "",
+      "order": 0
+    }
+  ],
+  "status": "for-sale",
   "address": "12 Harbor View Drive",
   "gallery": [
     {
@@ -43,10 +50,10 @@
   },
   "mlsNumber": "H6280012",
   "yearBuilt": 1965,
-  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/c4d0682cf03a5055d462.jpg",
+  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773353413926-photo-1582063289852-62e3ba2747f8.jpg",
   "description": "Charming colonial steps from Warwick Manor Park and Long Island Sound. Updated kitchen, hardwood floors throughout, and a finished lower level perfect for a family room or home office. Walk to Warwick Village shops, restaurants, and the Metro-North station for a 35-minute commute to Grand Central.",
   "neighborhood": "downtown",
-  "priceDisplay": "$875,000",
+  "priceDisplay": "$575,000",
   "schoolDistrict": "Mamaroneck Union Free School District",
   "listingAgentSlug": "marcus-johnson"
 }
