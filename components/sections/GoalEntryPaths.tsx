@@ -43,14 +43,14 @@ export function GoalEntryPaths({ headline, items, locale = 'en' }: GoalEntryPath
             <div className="w-12 h-0.5 mx-auto mt-4" style={{ background: 'var(--secondary)' }} />
           </div>
         )}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {paths.map((path) => {
             const Icon = ICONS[path.icon] || Home;
             return (
               <Link
                 key={path.href}
                 href={`/${locale}${path.href}`}
-                className="goal-path-card group flex flex-col items-center text-center p-6 md:p-8 rounded-2xl border bg-white"
+                className="goal-path-card group flex flex-col items-center text-center p-6 md:p-8 rounded-2xl border bg-white w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.67rem)] lg:w-[220px]"
                 style={{
                   borderColor: 'var(--border)',
                   borderRadius: 'var(--effect-card-radius)',

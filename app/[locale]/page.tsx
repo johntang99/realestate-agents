@@ -864,9 +864,14 @@ export default function HomePage() {
       {/* 3. STATS BAR */}
       <section className="py-14" style={{ background: 'var(--backdrop-dark)' }}>
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 divide-x divide-white/10">
+          <div className="flex flex-wrap justify-center">
             {stats.map((item, i) => (
-              <AnimatedStat key={i} item={item} />
+              <div
+                key={i}
+                className="w-1/2 md:w-1/3 lg:w-[220px] border-r border-white/10 last:border-r-0"
+              >
+                <AnimatedStat item={item} />
+              </div>
             ))}
           </div>
         </div>
