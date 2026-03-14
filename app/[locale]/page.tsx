@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import { GoalEntryPaths } from '@/components/sections/GoalEntryPaths';
 import { TrustPromise } from '@/components/sections/TrustPromise';
-import VideoSplash from '@/components/VideoSplash';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface Slide {
@@ -379,21 +378,7 @@ function HeroSlideshow({
         key={active}
         className="absolute inset-0 transition-opacity duration-700 opacity-100"
       >
-        {currentSlide?.video ? (
-          <video
-            className="w-full h-full object-cover"
-            src={currentSlide.video}
-            poster={
-              optimizeHeroImageUrl(currentSlide.poster, { width: 1440 }) ||
-              optimizeHeroImageUrl(currentSlide.image, { width: 1440 })
-            }
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-          />
-        ) : currentSlide?.image ? (
+        {currentSlide?.image ? (
           <Image
             src={currentSlide.image}
             alt={currentSlide.alt || ''}
@@ -767,17 +752,11 @@ export default function HomePage() {
   }, [testimonials.length]);
 
   const allSlides = home.hero?.slides || [];
-  const introVideo =
-    home.hero?.frontVideoEnabled === false
-      ? undefined
-      : home.hero?.frontVideoUrl || allSlides.find((s) => s.video)?.video;
   const slides = allSlides
     .filter((s) => s.image)
     .map((s) => ({
       image: optimizeHeroImageUrl(s.image, { width: 1920 }),
-      poster: optimizeHeroImageUrl(s.poster, { width: 1440 }),
       alt: s.alt,
-      video: s.video,
     }));
   const stats: StatItem[] = home.statsBar?.items || [
     { value: '180', label: 'In Total Sales', prefix: '$', suffix: 'M+' },
@@ -802,7 +781,13 @@ export default function HomePage() {
     const pinned = slugs
       .map((s) => neighborhoods.find((n) => n.slug === s))
       .filter(Boolean) as Neighborhood[];
-    return (pinned.length > 0 ? pinned : neighborhoods).slice(0, 3);
+    if (pinned.length >= 3) return pinned.slice(0, 3);
+    if (pinned.length === 0) return neighborhoods.slice(0, 3);
+
+    // If one configured slug is missing, backfill from the remaining list.
+    const pinnedSlugs = new Set(pinned.map((n) => n.slug));
+    const fallback = neighborhoods.filter((n) => !pinnedSlugs.has(n.slug));
+    return [...pinned, ...fallback].slice(0, 3);
   })();
   const stripTests = testimonials.filter((t) => !t.agentSlug).slice(0, 5);
   const previewPosts = (() => {
@@ -855,8 +840,6 @@ export default function HomePage() {
 
   return (
     <>
-      {introVideo && <VideoSplash src={introVideo} skipAfter={2} />}
-
       {/* 1. HERO */}
       {slides.length > 0 ? (
         <HeroSlideshow
