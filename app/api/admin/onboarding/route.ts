@@ -38,7 +38,9 @@ const RE_VERTICALS: Record<string, Array<{ slug: string; label: string }>> = {
     { slug: 'new-construction', label: 'New Construction' },
   ],
 };
-const ALL_VERTICAL_SLUGS = Object.values(RE_VERTICALS).flat().map((s) => s.slug);
+const ALL_VERTICAL_SLUGS = Object.values(RE_VERTICALS)
+  .flat()
+  .map((s) => s.slug);
 
 // ── Color utilities ──────────────────────────────────────────────────
 
@@ -47,8 +49,10 @@ function hexToHsl(hex: string): [number, number, number] {
   const r = parseInt(hex.substring(0, 2), 16) / 255;
   const g = parseInt(hex.substring(2, 4), 16) / 255;
   const b = parseInt(hex.substring(4, 6), 16) / 255;
-  const max = Math.max(r, g, b), min = Math.min(r, g, b);
-  let h = 0, s = 0;
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  let h = 0,
+    s = 0;
   const l = (max + min) / 2;
   if (max !== min) {
     const d = max - min;
@@ -61,13 +65,16 @@ function hexToHsl(hex: string): [number, number, number] {
 }
 
 function hslToHex(h: number, s: number, l: number): string {
-  h /= 360; s /= 100; l /= 100;
+  h /= 360;
+  s /= 100;
+  l /= 100;
   let r: number, g: number, b: number;
   if (s === 0) {
     r = g = b = l;
   } else {
     const hue2rgb = (p: number, q: number, t: number) => {
-      if (t < 0) t += 1; if (t > 1) t -= 1;
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
       if (t < 1 / 6) return p + (q - p) * 6 * t;
       if (t < 1 / 2) return q;
       if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
@@ -79,7 +86,16 @@ function hslToHex(h: number, s: number, l: number): string {
     g = hue2rgb(p, q, h);
     b = hue2rgb(p, q, h - 1 / 3);
   }
-  return '#' + [r, g, b].map(x => Math.round(x * 255).toString(16).padStart(2, '0')).join('');
+  return (
+    '#' +
+    [r, g, b]
+      .map((x) =>
+        Math.round(x * 255)
+          .toString(16)
+          .padStart(2, '0'),
+      )
+      .join('')
+  );
 }
 
 function darken(hex: string, percent: number): string {
@@ -102,7 +118,8 @@ function deepReplace(obj: any, replacements: [string, string][]): any {
     }
     return result;
   }
-  if (Array.isArray(obj)) return obj.map((item) => deepReplace(item, replacements));
+  if (Array.isArray(obj))
+    return obj.map((item) => deepReplace(item, replacements));
   if (obj && typeof obj === 'object') {
     const out: Record<string, any> = {};
     for (const [key, val] of Object.entries(obj)) {
@@ -116,7 +133,8 @@ function deepReplace(obj: any, replacements: [string, string][]): any {
 // ── Slugify ──────────────────────────────────────────────────────────
 
 function slugify(text: string): string {
-  return text.toLowerCase()
+  return text
+    .toLowerCase()
     .replace(/,.*$/, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
@@ -128,9 +146,27 @@ function phoneToTel(phone: string): string {
   return 'tel:+1' + phone.replace(/[^0-9]/g, '');
 }
 
+function normalizeStringArray(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => String(item || '').trim())
+      .filter(Boolean);
+  }
+  if (typeof value === 'string') {
+    return value
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+  return [];
+}
+
 // ── Template interpolation ───────────────────────────────────────────
 
-function interpolateTemplate(template: string, vars: Record<string, string>): string {
+function interpolateTemplate(
+  template: string,
+  vars: Record<string, string>,
+): string {
   let result = template;
   for (const [key, value] of Object.entries(vars)) {
     result = result.replaceAll(`{{${key}}}`, value);
@@ -150,14 +186,20 @@ async function syncSiteContentToLocal(siteId: string): Promise<number> {
     if (!locale || !contentPath) continue;
     const filePath = path.join(siteDir, locale, contentPath);
     await fsPromises.mkdir(path.dirname(filePath), { recursive: true });
-    await fsPromises.writeFile(filePath, JSON.stringify(entry.content ?? {}, null, 2) + '\n', 'utf-8');
+    await fsPromises.writeFile(
+      filePath,
+      JSON.stringify(entry.content ?? {}, null, 2) + '\n',
+      'utf-8',
+    );
     written += 1;
   }
   return written;
 }
 
 async function canWriteToPath(targetPath: string): Promise<boolean> {
-  const probeName = `.onboard-write-probe-${Date.now()}-${Math.random().toString(16).slice(2)}.tmp`;
+  const probeName = `.onboard-write-probe-${Date.now()}-${Math.random()
+    .toString(16)
+    .slice(2)}.tmp`;
   try {
     await fsPromises.mkdir(targetPath, { recursive: true });
     const probePath = path.join(targetPath, probeName);
@@ -187,22 +229,43 @@ function supaHeaders(key: string): Record<string, string> {
   };
 }
 
-async function supaFetch(path: string, options: RequestInit = {}): Promise<Response> {
+async function supaFetch(
+  path: string,
+  options: RequestInit = {},
+): Promise<Response> {
   const { url, key } = getSupabaseConfig();
-  const headers = { ...supaHeaders(key), ...(options.headers as Record<string, string> || {}) };
+  const headers = {
+    ...supaHeaders(key),
+    ...((options.headers as Record<string, string>) || {}),
+  };
   return fetch(`${url}/rest/v1/${path}`, { ...options, headers });
 }
 
-async function upsert(table: string, rows: any[], onConflict?: string): Promise<any[]> {
+async function upsert(
+  table: string,
+  rows: any[],
+  onConflict?: string,
+): Promise<any[]> {
   const queryPath = onConflict ? `${table}?on_conflict=${onConflict}` : table;
-  const res = await supaFetch(queryPath, { method: 'POST', body: JSON.stringify(rows) });
-  if (!res.ok) throw new Error(`Upsert ${table} failed (${res.status}): ${await res.text()}`);
+  const res = await supaFetch(queryPath, {
+    method: 'POST',
+    body: JSON.stringify(rows),
+  });
+  if (!res.ok)
+    throw new Error(
+      `Upsert ${table} failed (${res.status}): ${await res.text()}`,
+    );
   return res.json();
 }
 
-async function fetchRows(table: string, filters: Record<string, string>): Promise<any[]> {
+async function fetchRows(
+  table: string,
+  filters: Record<string, string>,
+): Promise<any[]> {
   const { url, key } = getSupabaseConfig();
-  const params = Object.entries(filters).map(([k, v]) => `${k}=eq.${encodeURIComponent(v)}`).join('&');
+  const params = Object.entries(filters)
+    .map(([k, v]) => `${k}=eq.${encodeURIComponent(v)}`)
+    .join('&');
   const res = await fetch(`${url}/rest/v1/${table}?${params}`, {
     headers: { apikey: key, Authorization: `Bearer ${key}` },
   });
@@ -210,17 +273,29 @@ async function fetchRows(table: string, filters: Record<string, string>): Promis
   return res.json();
 }
 
-async function deleteRows(table: string, filters: Record<string, string>): Promise<void> {
+async function deleteRows(
+  table: string,
+  filters: Record<string, string>,
+): Promise<void> {
   const { key } = getSupabaseConfig();
   const res = await supaFetch(
-    `${table}?${Object.entries(filters).map(([k, v]) => `${k}=eq.${encodeURIComponent(v)}`).join('&')}`,
-    { method: 'DELETE', headers: supaHeaders(key) }
+    `${table}?${Object.entries(filters)
+      .map(([k, v]) => `${k}=eq.${encodeURIComponent(v)}`)
+      .join('&')}`,
+    { method: 'DELETE', headers: supaHeaders(key) },
   );
-  if (!res.ok) throw new Error(`Delete ${table} failed (${res.status}): ${await res.text()}`);
+  if (!res.ok)
+    throw new Error(
+      `Delete ${table} failed (${res.status}): ${await res.text()}`,
+    );
 }
 
 function getStorageBucket(): string {
-  return process.env.SUPABASE_STORAGE_BUCKET || process.env.NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET || '';
+  return (
+    process.env.SUPABASE_STORAGE_BUCKET ||
+    process.env.NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET ||
+    ''
+  );
 }
 
 async function listStorageFiles(prefix: string): Promise<string[]> {
@@ -234,13 +309,19 @@ async function listStorageFiles(prefix: string): Promise<string[]> {
     const currentPrefix = queue.shift()!;
     const res = await fetch(`${url}/storage/v1/object/list/${bucket}`, {
       method: 'POST',
-      headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ prefix: currentPrefix, limit: 1000, offset: 0 }),
     });
     if (!res.ok) break;
     const items: any[] = await res.json();
     for (const item of items) {
-      const fullPath = currentPrefix ? `${currentPrefix}/${item.name}` : item.name;
+      const fullPath = currentPrefix
+        ? `${currentPrefix}/${item.name}`
+        : item.name;
       if (item.id) {
         files.push(fullPath);
       } else {
@@ -251,13 +332,24 @@ async function listStorageFiles(prefix: string): Promise<string[]> {
   return files;
 }
 
-async function copyStorageFile(fromPath: string, toPath: string): Promise<boolean> {
+async function copyStorageFile(
+  fromPath: string,
+  toPath: string,
+): Promise<boolean> {
   const { url, key } = getSupabaseConfig();
   const bucket = getStorageBucket();
   const res = await fetch(`${url}/storage/v1/object/copy`, {
     method: 'POST',
-    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ bucketId: bucket, sourceKey: fromPath, destinationKey: toPath }),
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      bucketId: bucket,
+      sourceKey: fromPath,
+      destinationKey: toPath,
+    }),
   });
   if (!res.ok) {
     const body = await res.text();
@@ -335,19 +427,25 @@ export async function POST(request: NextRequest) {
   }
 
   if (!intake.clientId || !intake.business?.name) {
-    return new Response(JSON.stringify({ message: 'clientId and business.name are required' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({ message: 'clientId and business.name are required' }),
+      {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   }
   const normalizedClientId = String(intake.clientId).trim().toLowerCase();
   if (!/^[a-z0-9-]+$/.test(normalizedClientId)) {
     return new Response(
-      JSON.stringify({ message: 'clientId must contain only lowercase letters, numbers, and hyphens' }),
+      JSON.stringify({
+        message:
+          'clientId must contain only lowercase letters, numbers, and hyphens',
+      }),
       {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
-      }
+      },
     );
   }
 
@@ -377,10 +475,18 @@ export async function POST(request: NextRequest) {
   const stream = new ReadableStream({
     async start(controller) {
       const emit = (event: string, data: any) => {
-        controller.enqueue(encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`));
+        controller.enqueue(
+          encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`),
+        );
       };
 
-      const emitProgress = (step: string, label: string, status: StepProgress['status'], message: string, duration?: number) => {
+      const emitProgress = (
+        step: string,
+        label: string,
+        status: StepProgress['status'],
+        message: string,
+        duration?: number,
+      ) => {
         const payload: StepProgress = { step, label, status, message };
         if (duration !== undefined) payload.duration = duration;
         emit('progress', payload);
@@ -396,7 +502,7 @@ export async function POST(request: NextRequest) {
       };
       if (!canWriteLocalFilesystem) {
         result.warnings.push(
-          'Local filesystem is read-only in this environment; onboarding skipped local file sync/copy and completed via DB/storage.'
+          'Local filesystem is read-only in this environment; onboarding skipped local file sync/copy and completed via DB/storage.',
         );
       }
 
@@ -411,18 +517,26 @@ export async function POST(request: NextRequest) {
           // Check if site already exists
           const existing = await fetchRows('sites', { id: SITE_ID });
           if (existing.length === 0) {
-            await upsert('sites', [{
-              id: SITE_ID,
-              name: intake.business.name,
-              domain: intake.domains?.production || '',
-              enabled: true,
-              default_locale: DEFAULT_LOCALE,
-              supported_locales: LOCALES,
-            }], 'id');
+            await upsert(
+              'sites',
+              [
+                {
+                  id: SITE_ID,
+                  name: intake.business.name,
+                  domain: intake.domains?.production || '',
+                  enabled: true,
+                  default_locale: DEFAULT_LOCALE,
+                  supported_locales: LOCALES,
+                },
+              ],
+              'id',
+            );
           }
 
           // Clone content entries from template
-          const templateEntries = await fetchRows('content_entries', { site_id: TEMPLATE_ID });
+          const templateEntries = await fetchRows('content_entries', {
+            site_id: TEMPLATE_ID,
+          });
           const cloned = templateEntries.map((e: any) => ({
             site_id: SITE_ID,
             locale: e.locale,
@@ -433,24 +547,44 @@ export async function POST(request: NextRequest) {
 
           const BATCH = 50;
           for (let i = 0; i < cloned.length; i += BATCH) {
-            await upsert('content_entries', cloned.slice(i, i + BATCH), 'site_id,locale,path');
+            await upsert(
+              'content_entries',
+              cloned.slice(i, i + BATCH),
+              'site_id,locale,path',
+            );
           }
 
           // Register domain aliases
           const domainRows: any[] = [];
           if (intake.domains?.production) {
-            domainRows.push({ site_id: SITE_ID, domain: intake.domains.production, environment: 'prod', enabled: true });
+            domainRows.push({
+              site_id: SITE_ID,
+              domain: intake.domains.production,
+              environment: 'prod',
+              enabled: true,
+            });
           }
           if (intake.domains?.dev) {
-            domainRows.push({ site_id: SITE_ID, domain: intake.domains.dev, environment: 'dev', enabled: true });
+            domainRows.push({
+              site_id: SITE_ID,
+              domain: intake.domains.dev,
+              environment: 'dev',
+              enabled: true,
+            });
           }
           if (domainRows.length > 0) {
-            await upsert('site_domains', domainRows, 'site_id,domain,environment');
+            await upsert(
+              'site_domains',
+              domainRows,
+              'site_id,domain,environment',
+            );
           }
           result.domains = domainRows.length;
 
           // Clone media assets DB records
-          const templateMedia = await fetchRows('media_assets', { site_id: TEMPLATE_ID });
+          const templateMedia = await fetchRows('media_assets', {
+            site_id: TEMPLATE_ID,
+          });
           if (templateMedia.length > 0) {
             const mediaBatch = 100;
             for (let i = 0; i < templateMedia.length; i += mediaBatch) {
@@ -475,8 +609,11 @@ export async function POST(request: NextRequest) {
               const batch = storageFiles.slice(i, i + CONCURRENCY);
               await Promise.allSettled(
                 batch.map((filePath) =>
-                  copyStorageFile(filePath, filePath.replace(`${TEMPLATE_ID}/`, `${SITE_ID}/`))
-                )
+                  copyStorageFile(
+                    filePath,
+                    filePath.replace(`${TEMPLATE_ID}/`, `${SITE_ID}/`),
+                  ),
+                ),
               );
             }
           }
@@ -489,11 +626,20 @@ export async function POST(request: NextRequest) {
                 return;
               }
               await fsPromises.mkdir(path.dirname(dest), { recursive: true });
-              await fsPromises.cp(src, dest, { recursive: true, errorOnExist: false });
+              await fsPromises.cp(src, dest, {
+                recursive: true,
+                errorOnExist: false,
+              });
             };
 
-            await copyDirIfExists(path.join(UPLOADS_DIR, TEMPLATE_ID), path.join(UPLOADS_DIR, SITE_ID));
-            await copyDirIfExists(path.join(CONTENT_DIR, TEMPLATE_ID), path.join(CONTENT_DIR, SITE_ID));
+            await copyDirIfExists(
+              path.join(UPLOADS_DIR, TEMPLATE_ID),
+              path.join(UPLOADS_DIR, SITE_ID),
+            );
+            await copyDirIfExists(
+              path.join(CONTENT_DIR, TEMPLATE_ID),
+              path.join(CONTENT_DIR, SITE_ID),
+            );
 
             // Update local _sites.json
             const sitesFile = path.join(CONTENT_DIR, '_sites.json');
@@ -510,7 +656,10 @@ export async function POST(request: NextRequest) {
                   createdAt: new Date().toISOString(),
                   updatedAt: new Date().toISOString(),
                 });
-                fs.writeFileSync(sitesFile, JSON.stringify(sitesData, null, 2) + '\n');
+                fs.writeFileSync(
+                  sitesFile,
+                  JSON.stringify(sitesData, null, 2) + '\n',
+                );
               }
             } catch {
               // _sites.json may not exist in all environments
@@ -519,13 +668,28 @@ export async function POST(request: NextRequest) {
             // Update local _site-domains.json
             const domainsFile = path.join(CONTENT_DIR, '_site-domains.json');
             try {
-              const domainsData = JSON.parse(fs.readFileSync(domainsFile, 'utf-8'));
+              const domainsData = JSON.parse(
+                fs.readFileSync(domainsFile, 'utf-8'),
+              );
               for (const dr of domainRows) {
-                if (!domainsData.domains.find((d: any) => d.siteId === dr.site_id && d.domain === dr.domain)) {
-                  domainsData.domains.push({ siteId: dr.site_id, domain: dr.domain, environment: dr.environment, enabled: true });
+                if (
+                  !domainsData.domains.find(
+                    (d: any) =>
+                      d.siteId === dr.site_id && d.domain === dr.domain,
+                  )
+                ) {
+                  domainsData.domains.push({
+                    siteId: dr.site_id,
+                    domain: dr.domain,
+                    environment: dr.environment,
+                    enabled: true,
+                  });
                 }
               }
-              fs.writeFileSync(domainsFile, JSON.stringify(domainsData, null, 2) + '\n');
+              fs.writeFileSync(
+                domainsFile,
+                JSON.stringify(domainsData, null, 2) + '\n',
+              );
             } catch {
               // _site-domains.json may not exist in all environments
             }
@@ -536,10 +700,16 @@ export async function POST(request: NextRequest) {
             'Clone',
             'done',
             `Cloned ${cloned.length} entries, ${templateMedia.length} media assets`,
-            Date.now() - o1Start
+            Date.now() - o1Start,
           );
         } catch (err: any) {
-          emitProgress('O1', 'Clone', 'error', err.message, Date.now() - o1Start);
+          emitProgress(
+            'O1',
+            'Clone',
+            'error',
+            err.message,
+            Date.now() - o1Start,
+          );
           throw err;
         }
 
@@ -550,13 +720,24 @@ export async function POST(request: NextRequest) {
         emitProgress('O2', 'Brand', 'running', 'Applying brand theme...');
 
         try {
-          const variantsPath = path.join(process.cwd(), 'scripts', 'onboard', 'brand-variants.json');
+          const variantsPath = path.join(
+            process.cwd(),
+            'scripts',
+            'onboard',
+            'brand-variants.json',
+          );
           const variants = JSON.parse(fs.readFileSync(variantsPath, 'utf-8'));
           const variantName = intake.brand?.variant || 'navy-gold';
-          const variant = JSON.parse(JSON.stringify(variants[variantName] || variants['navy-gold']));
+          const variant = JSON.parse(
+            JSON.stringify(variants[variantName] || variants['navy-gold']),
+          );
 
           // Read existing theme from DB to preserve full structure (status colors, spacing, effects, etc.)
-          const themeRows = await fetchRows('content_entries', { site_id: SITE_ID, locale: 'en', path: 'theme.json' });
+          const themeRows = await fetchRows('content_entries', {
+            site_id: SITE_ID,
+            locale: 'en',
+            path: 'theme.json',
+          });
           const existingTheme = themeRows[0]?.content || {};
 
           // Start from existing theme and merge variant colors/typography
@@ -568,12 +749,20 @@ export async function POST(request: NextRequest) {
               ...base.colors,
               primary: variant.colors.primary?.DEFAULT || base.colors?.primary,
               primaryScale: variant.colors.primary || base.colors?.primaryScale,
-              secondary: variant.colors.secondary?.DEFAULT || base.colors?.secondary,
-              secondaryScale: variant.colors.secondary || base.colors?.secondaryScale,
+              secondary:
+                variant.colors.secondary?.DEFAULT || base.colors?.secondary,
+              secondaryScale:
+                variant.colors.secondary || base.colors?.secondaryScale,
             };
-            if (variant.colors.accent) base.colors.accent = variant.colors.accent;
-            if (variant.colors.accentAlt) base.colors.accentAlt = variant.colors.accentAlt;
-            if (variant.colors.backdrop) base.colors.backdrop = { ...base.colors.backdrop, ...variant.colors.backdrop };
+            if (variant.colors.accent)
+              base.colors.accent = variant.colors.accent;
+            if (variant.colors.accentAlt)
+              base.colors.accentAlt = variant.colors.accentAlt;
+            if (variant.colors.backdrop)
+              base.colors.backdrop = {
+                ...base.colors.backdrop,
+                ...variant.colors.backdrop,
+              };
           }
 
           // Apply color overrides from intake
@@ -633,34 +822,60 @@ export async function POST(request: NextRequest) {
             base.fonts = { ...base.fonts, ui: intake.brand.fonts.ui };
           }
           if (intake.brand?.fonts?.chineseBody) {
-            base.fonts = { ...base.fonts, chineseBody: intake.brand.fonts.chineseBody };
+            base.fonts = {
+              ...base.fonts,
+              chineseBody: intake.brand.fonts.chineseBody,
+            };
           }
           if (intake.brand?.fonts?.chineseHeading) {
-            base.fonts = { ...base.fonts, chineseHeading: intake.brand.fonts.chineseHeading };
+            base.fonts = {
+              ...base.fonts,
+              chineseHeading: intake.brand.fonts.chineseHeading,
+            };
           }
 
           // Also derive top-level fonts from variant if not overridden by intake
           if (variant.typography?.fonts && !intake.brand?.fonts?.heading) {
-            const dispFont = variant.typography.fonts.display?.match(/'([^']+)'/)?.[1];
+            const dispFont =
+              variant.typography.fonts.display?.match(/'([^']+)'/)?.[1];
             if (dispFont) base.fonts = { ...base.fonts, heading: dispFont };
           }
           if (variant.typography?.fonts && !intake.brand?.fonts?.body) {
-            const bodyFont = variant.typography.fonts.body?.match(/'([^']+)'/)?.[1];
+            const bodyFont =
+              variant.typography.fonts.body?.match(/'([^']+)'/)?.[1];
             if (bodyFont) base.fonts = { ...base.fonts, body: bodyFont };
           }
 
           // Upsert theme.json
-          await upsert('content_entries', [{
-            site_id: SITE_ID,
-            locale: 'en',
-            path: 'theme.json',
-            content: base,
-            updated_by: 'onboard-api',
-          }], 'site_id,locale,path');
+          await upsert(
+            'content_entries',
+            [
+              {
+                site_id: SITE_ID,
+                locale: 'en',
+                path: 'theme.json',
+                content: base,
+                updated_by: 'onboard-api',
+              },
+            ],
+            'site_id,locale,path',
+          );
 
-          emitProgress('O2', 'Brand', 'done', `Applied variant "${variantName}"`, Date.now() - o2Start);
+          emitProgress(
+            'O2',
+            'Brand',
+            'done',
+            `Applied variant "${variantName}"`,
+            Date.now() - o2Start,
+          );
         } catch (err: any) {
-          emitProgress('O2', 'Brand', 'error', err.message, Date.now() - o2Start);
+          emitProgress(
+            'O2',
+            'Brand',
+            'error',
+            err.message,
+            Date.now() - o2Start,
+          );
           throw err;
         }
 
@@ -668,32 +883,55 @@ export async function POST(request: NextRequest) {
         //  O3: PRUNE VERTICALS
         // ════════════════════════════════════════════════════════════════
         const o3Start = Date.now();
-        emitProgress('O3', 'Prune Verticals', 'running', 'Pruning disabled verticals...');
+        emitProgress(
+          'O3',
+          'Prune Verticals',
+          'running',
+          'Pruning disabled verticals...',
+        );
 
         try {
-          const enabledSlugs: string[] = intake.services?.enabled || ALL_VERTICAL_SLUGS;
-          const disabledSlugs = ALL_VERTICAL_SLUGS.filter((s) => !enabledSlugs.includes(s));
+          const enabledSlugs: string[] =
+            intake.services?.enabled || ALL_VERTICAL_SLUGS;
+          const disabledSlugs = ALL_VERTICAL_SLUGS.filter(
+            (s) => !enabledSlugs.includes(s),
+          );
 
           if (disabledSlugs.length > 0) {
             for (const locale of LOCALES) {
               // 1. Delete page content entries for disabled verticals
               for (const slug of disabledSlugs) {
-                await deleteRows('content_entries', { site_id: SITE_ID, locale, path: `pages/${slug}.json` });
+                await deleteRows('content_entries', {
+                  site_id: SITE_ID,
+                  locale,
+                  path: `pages/${slug}.json`,
+                });
               }
 
               // 2. Delete related content directories (e.g., new-construction/*.json)
-              const allEntries = await fetchRows('content_entries', { site_id: SITE_ID });
+              const allEntries = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+              });
               for (const slug of disabledSlugs) {
                 const relatedEntries = allEntries.filter(
-                  (e: any) => e.locale === locale && e.path.startsWith(`${slug}/`)
+                  (e: any) =>
+                    e.locale === locale && e.path.startsWith(`${slug}/`),
                 );
                 for (const entry of relatedEntries) {
-                  await deleteRows('content_entries', { site_id: SITE_ID, locale, path: entry.path });
+                  await deleteRows('content_entries', {
+                    site_id: SITE_ID,
+                    locale,
+                    path: entry.path,
+                  });
                 }
               }
 
               // 3. Update header.json: filter navigation[] array
-              const headerRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'header.json' });
+              const headerRows = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: 'header.json',
+              });
               if (headerRows[0]?.content) {
                 const header = headerRows[0].content;
                 if (header.navigation) {
@@ -702,41 +940,101 @@ export async function POST(request: NextRequest) {
                     return !disabledSlugs.includes(href);
                   });
                 }
-                await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'header.json', content: header, updated_by: 'onboard-api' }], 'site_id,locale,path');
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'header.json',
+                      content: header,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
 
               // 4. Update footer.json: filter columns[1].links[] (Services column)
-              const footerRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'footer.json' });
+              const footerRows = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: 'footer.json',
+              });
               if (footerRows[0]?.content) {
                 const footer = footerRows[0].content;
                 if (footer.columns?.[1]?.links) {
-                  footer.columns[1].links = footer.columns[1].links.filter((link: any) => {
-                    const href = link.href?.replace(/^\//, '');
-                    return !disabledSlugs.includes(href);
-                  });
+                  footer.columns[1].links = footer.columns[1].links.filter(
+                    (link: any) => {
+                      const href = link.href?.replace(/^\//, '');
+                      return !disabledSlugs.includes(href);
+                    },
+                  );
                 }
-                await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'footer.json', content: footer, updated_by: 'onboard-api' }], 'site_id,locale,path');
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'footer.json',
+                      content: footer,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
 
               // 5. Update pages/home.json: filter goalPaths.items[]
-              const homeRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'pages/home.json' });
+              const homeRows = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: 'pages/home.json',
+              });
               if (homeRows[0]?.content) {
                 const home = homeRows[0].content;
                 if (home.goalPaths?.items) {
-                  home.goalPaths.items = home.goalPaths.items.filter((item: any) => {
-                    const href = item.href?.replace(/^\//, '');
-                    return !disabledSlugs.includes(href);
-                  });
+                  home.goalPaths.items = home.goalPaths.items.filter(
+                    (item: any) => {
+                      const href = item.href?.replace(/^\//, '');
+                      return !disabledSlugs.includes(href);
+                    },
+                  );
                 }
-                await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'pages/home.json', content: home, updated_by: 'onboard-api' }], 'site_id,locale,path');
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'pages/home.json',
+                      content: home,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
             }
           }
 
           result.services = enabledSlugs.length;
-          emitProgress('O3', 'Prune Verticals', 'done', `${enabledSlugs.length} enabled, ${disabledSlugs.length} removed`, Date.now() - o3Start);
+          emitProgress(
+            'O3',
+            'Prune Verticals',
+            'done',
+            `${enabledSlugs.length} enabled, ${disabledSlugs.length} removed`,
+            Date.now() - o3Start,
+          );
         } catch (err: any) {
-          emitProgress('O3', 'Prune Verticals', 'error', err.message, Date.now() - o3Start);
+          emitProgress(
+            'O3',
+            'Prune Verticals',
+            'error',
+            err.message,
+            Date.now() - o3Start,
+          );
           throw err;
         }
 
@@ -744,7 +1042,12 @@ export async function POST(request: NextRequest) {
         //  O4: CONTENT REPLACEMENT
         // ════════════════════════════════════════════════════════════════
         const o4Start = Date.now();
-        emitProgress('O4', 'Content Replacement', 'running', 'Replacing template content...');
+        emitProgress(
+          'O4',
+          'Content Replacement',
+          'running',
+          'Replacing template content...',
+        );
 
         try {
           const biz = intake.business;
@@ -753,14 +1056,19 @@ export async function POST(request: NextRequest) {
           // Build replacement pairs — ordered longest-first, only when values provided
           const replacements: [string, string][] = [];
 
-          // 1. Principal broker name
-          if (intake.license?.principalBrokerName) {
-            replacements.push(['Jin Pang Leadership Team', intake.license.principalBrokerName]);
+          // 1. Single agent name
+          if (intake.agent?.name) {
+            replacements.push([
+              'Jin Pang Leadership Team',
+              intake.agent.name,
+            ]);
           }
           // 2. Business name uppercase
           replacements.push(['JIN PANG HOMES', biz.name.toUpperCase()]);
           // 3. Business name + Homes (if not already included)
-          const bizNameWithHomes = biz.name.toLowerCase().includes('homes') ? biz.name : `${biz.name} Homes`;
+          const bizNameWithHomes = biz.name.toLowerCase().includes('homes')
+            ? biz.name
+            : `${biz.name} Homes`;
           replacements.push(['Jin Pang Homes', bizNameWithHomes]);
           // 4. Business name
           replacements.push(['Jin Pang', biz.name]);
@@ -787,7 +1095,10 @@ export async function POST(request: NextRequest) {
           // 8. Address components (longest-first)
           if (loc.address && loc.city && loc.state && loc.zip) {
             replacements.push(
-              ['21 Painted Apron Ter, Port Jervis, NY 12771', `${loc.address}, ${loc.city}, ${loc.state} ${loc.zip}`],
+              [
+                '21 Painted Apron Ter, Port Jervis, NY 12771',
+                `${loc.address}, ${loc.city}, ${loc.state} ${loc.zip}`,
+              ],
               ['21 Painted Apron Ter', loc.address],
               ['Port Jervis, NY 12771', `${loc.city}, ${loc.state} ${loc.zip}`],
               ['Port Jervis, NY', `${loc.city}, ${loc.state}`],
@@ -804,26 +1115,42 @@ export async function POST(request: NextRequest) {
           replacements.push(['jinpanghomes', SITE_ID]);
 
           // Fetch all content entries for new site and deep-replace
-          const allEntries = await fetchRows('content_entries', { site_id: SITE_ID });
+          const allEntries = await fetchRows('content_entries', {
+            site_id: SITE_ID,
+          });
           const updated: any[] = [];
           for (const entry of allEntries) {
             if (entry.path === 'theme.json') continue;
             const newData = deepReplace(entry.content, replacements);
             if (JSON.stringify(newData) !== JSON.stringify(entry.content)) {
-              updated.push({ site_id: SITE_ID, locale: entry.locale, path: entry.path, content: newData, updated_by: 'onboard-api' });
+              updated.push({
+                site_id: SITE_ID,
+                locale: entry.locale,
+                path: entry.path,
+                content: newData,
+                updated_by: 'onboard-api',
+              });
             }
           }
 
           const BATCH = 50;
           for (let i = 0; i < updated.length; i += BATCH) {
-            await upsert('content_entries', updated.slice(i, i + BATCH), 'site_id,locale,path');
+            await upsert(
+              'content_entries',
+              updated.slice(i, i + BATCH),
+              'site_id,locale,path',
+            );
           }
 
           // ── Structural updates for specific files ──────────────────
 
           for (const locale of LOCALES) {
             // site.json — update structured fields
-            const siteRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'site.json' });
+            const siteRows = await fetchRows('content_entries', {
+              site_id: SITE_ID,
+              locale,
+              path: 'site.json',
+            });
             if (siteRows[0]?.content) {
               const site = siteRows[0].content;
               site.id = SITE_ID;
@@ -870,129 +1197,232 @@ export async function POST(request: NextRequest) {
                 site.officeHours = intake.hours;
               }
               // Languages
-              const langLabels: Record<string, string> = { en: 'English', zh: '中文', es: 'Espanol', ko: '한국어' };
-              const langFlags: Record<string, string> = { en: 'US', zh: 'CN', es: 'MX', ko: 'KR' };
+              const langLabels: Record<string, string> = {
+                en: 'English',
+                zh: '中文',
+                es: 'Espanol',
+                ko: '한국어',
+              };
+              const langFlags: Record<string, string> = {
+                en: 'US',
+                zh: 'CN',
+                es: 'MX',
+                ko: 'KR',
+              };
               site.languages = LOCALES.map((code) => ({
-                code, label: langLabels[code] || code, flag: langFlags[code] || '', enabled: true,
+                code,
+                label: langLabels[code] || code,
+                flag: langFlags[code] || '',
+                enabled: true,
               }));
-              await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'site.json', content: site, updated_by: 'onboard-api' }], 'site_id,locale,path');
+              await upsert(
+                'content_entries',
+                [
+                  {
+                    site_id: SITE_ID,
+                    locale,
+                    path: 'site.json',
+                    content: site,
+                    updated_by: 'onboard-api',
+                  },
+                ],
+                'site_id,locale,path',
+              );
             }
 
             // header.json — update logoText, phone, logo alt
-            const headerRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'header.json' });
+            const headerRows = await fetchRows('content_entries', {
+              site_id: SITE_ID,
+              locale,
+              path: 'header.json',
+            });
             if (headerRows[0]?.content) {
               const header = headerRows[0].content;
               header.logoText = biz.name.toUpperCase();
               if (loc.phone) header.phone = loc.phone;
               if (header.logo) header.logo.alt = biz.name;
-              await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'header.json', content: header, updated_by: 'onboard-api' }], 'site_id,locale,path');
+              await upsert(
+                'content_entries',
+                [
+                  {
+                    site_id: SITE_ID,
+                    locale,
+                    path: 'header.json',
+                    content: header,
+                    updated_by: 'onboard-api',
+                  },
+                ],
+                'site_id,locale,path',
+              );
             }
 
             // footer.json — update brand column, compliance
-            const footerRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'footer.json' });
+            const footerRows = await fetchRows('content_entries', {
+              site_id: SITE_ID,
+              locale,
+              path: 'footer.json',
+            });
             if (footerRows[0]?.content) {
               const footer = footerRows[0].content;
               // First column is brand/about
               if (footer.columns?.[0]) {
                 footer.columns[0].heading = biz.name;
-                if (biz.description) footer.columns[0].content = biz.description;
+                if (biz.description)
+                  footer.columns[0].content = biz.description;
               }
               // Compliance
               if (footer.compliance) {
                 footer.compliance.brokerageName = biz.name;
-                if (intake.license?.principalBrokerName) footer.compliance.principalBroker = intake.license.principalBrokerName;
-                if (intake.license?.licenseNumber) footer.compliance.licenseNumber = intake.license.licenseNumber;
-                if (intake.license?.principalBrokerLicense) footer.compliance.principalBrokerLicense = intake.license.principalBrokerLicense;
-                if (intake.license?.licenseState) footer.compliance.state = intake.license.licenseState;
-                footer.compliance.copyrightYear = String(new Date().getFullYear());
-                if (intake.compliance?.equalHousingText) footer.compliance.equalHousingText = intake.compliance.equalHousingText;
-                if (intake.compliance?.mlsDisclaimer) footer.compliance.mlsDisclaimer = intake.compliance.mlsDisclaimer;
-                if (intake.compliance?.fairHousingStatement) footer.compliance.fairHousingStatement = intake.compliance.fairHousingStatement;
+                if (intake.license?.brokerCompany)
+                  footer.compliance.brokerCompany =
+                    intake.license.brokerCompany;
+                if (intake.license?.licenseNumber)
+                  footer.compliance.licenseNumber =
+                    intake.license.licenseNumber;
+                if (intake.license?.principalBrokerLicense)
+                  footer.compliance.principalBrokerLicense =
+                    intake.license.principalBrokerLicense;
+                if (intake.license?.licenseState)
+                  footer.compliance.state = intake.license.licenseState;
+                footer.compliance.copyrightYear = String(
+                  new Date().getFullYear(),
+                );
+                if (intake.compliance?.equalHousingText)
+                  footer.compliance.equalHousingText =
+                    intake.compliance.equalHousingText;
+                if (intake.compliance?.mlsDisclaimer)
+                  footer.compliance.mlsDisclaimer =
+                    intake.compliance.mlsDisclaimer;
+                if (intake.compliance?.fairHousingStatement)
+                  footer.compliance.fairHousingStatement =
+                    intake.compliance.fairHousingStatement;
               }
-              await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'footer.json', content: footer, updated_by: 'onboard-api' }], 'site_id,locale,path');
+              await upsert(
+                'content_entries',
+                [
+                  {
+                    site_id: SITE_ID,
+                    locale,
+                    path: 'footer.json',
+                    content: footer,
+                    updated_by: 'onboard-api',
+                  },
+                ],
+                'site_id,locale,path',
+              );
             }
 
-            // agents/ — replace template agents with new agents
-            const templateAgentSlugs = ['jin-pang', 'jane-smith', 'marcus-johnson', 'sarah-rodriguez'];
+            // agents/ — replace all existing agent entries with one current agent
+            const existingEntries = await fetchRows('content_entries', {
+              site_id: SITE_ID,
+            });
+            const existingAgentEntries = existingEntries.filter(
+              (entry: any) =>
+                entry.locale === locale &&
+                String(entry.path || '').startsWith('agents/'),
+            );
 
-            if (intake.business.principalBrokerName) {
-              // Delete all 4 template agent files
-              for (const slug of templateAgentSlugs) {
-                await deleteRows('content_entries', { site_id: SITE_ID, locale, path: `agents/${slug}.json` });
-              }
-
-              // Create principal broker agent file
-              const principalName = intake.business.principalBrokerName;
-              const principalSlug = slugify(principalName);
-              const principalAgent = {
-                name: principalName,
-                slug: principalSlug,
-                role: 'principal_broker',
-                email: loc.email || '',
-                phone: loc.phone || '',
-                photo: '',
-                title: intake.license?.principalBrokerTitle || 'Principal Broker',
-                status: 'active',
-                featured: true,
-                languages: intake.business.languages || ['English'],
-                specialties: intake.business.specialties || [],
-                displayOrder: 1,
-                licenseState: intake.license?.licenseState || '',
-                licenseNumber: intake.license?.principalBrokerLicense || '',
-                yearsExperience: intake.stats?.yearsInBusiness ? parseInt(intake.stats.yearsInBusiness) : 0,
-                transactionCount: intake.stats?.totalTransactions ? parseInt(String(intake.stats.totalTransactions).replace(/[^0-9]/g, '')) : 0,
-                bio: '',
-              };
-              await upsert('content_entries', [{ site_id: SITE_ID, locale, path: `agents/${principalSlug}.json`, content: principalAgent, updated_by: 'onboard-api' }], 'site_id,locale,path');
-
-              // Create team agent files from intake.agents[]
-              if (intake.agents && intake.agents.length > 0) {
-                for (let i = 0; i < intake.agents.length; i++) {
-                  const agent = intake.agents[i];
-                  if (!agent.name) continue;
-                  const agentSlug = slugify(agent.name);
-                  const agentData = {
-                    name: agent.name,
-                    slug: agentSlug,
-                    role: agent.role || 'agent',
-                    email: agent.email || '',
-                    phone: agent.phone || '',
-                    photo: '',
-                    title: agent.title || 'Licensed Real Estate Agent',
-                    status: 'active',
-                    featured: agent.featured !== false,
-                    languages: agent.languages || ['English'],
-                    specialties: agent.specialties || [],
-                    displayOrder: i + 2,
-                    licenseState: agent.licenseState || '',
-                    licenseNumber: agent.licenseNumber || '',
-                    yearsExperience: agent.yearsExperience || 0,
-                    transactionCount: agent.transactionCount || 0,
-                    bio: agent.bio || '',
-                  };
-                  await upsert('content_entries', [{ site_id: SITE_ID, locale, path: `agents/${agentSlug}.json`, content: agentData, updated_by: 'onboard-api' }], 'site_id,locale,path');
-                }
-              }
-
-              // Update pages/home.json teamPreview
-              const homeRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'pages/home.json' });
-              if (homeRows[0]?.content) {
-                const home = homeRows[0].content;
-                if (home.teamPreview) {
-                  home.teamPreview.agentSlugs = [principalSlug];
-                  const shortName = principalName.split(',')[0].trim();
-                  home.teamPreview.headline = `Meet ${shortName}`;
-                }
-                await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'pages/home.json', content: home, updated_by: 'onboard-api' }], 'site_id,locale,path');
-              }
+            for (const entry of existingAgentEntries) {
+              await deleteRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: entry.path,
+              });
             }
-            // If no principalBrokerName provided, template agents are kept as-is
+
+            // Create the single agent profile
+            const agent = intake.agent;
+            if (!agent.name) continue;
+            const agentSlug = slugify(agent.name);
+            const agentData = {
+              name: agent.name,
+              slug: agentSlug,
+              role: agent.role || 'agent',
+              email: agent.email || '',
+              phone: agent.phone || '',
+              photo: '',
+              title: agent.title || 'Licensed Real Estate Agent',
+              status: 'active',
+              featured: true,
+              languages: agent.languages || ['English'],
+              specialties: normalizeStringArray(agent.specialties),
+              displayOrder: 1,
+              licenseState: agent.licenseState || '',
+              licenseNumber: agent.licenseNumber || '',
+              yearsExperience: intake.stats?.yearsInBusiness
+                ? parseInt(String(intake.stats.yearsInBusiness), 10) || 0
+                : 0,
+              transactionCount: intake.stats?.totalTransactions
+                ? parseInt(
+                    String(intake.stats.totalTransactions).replace(
+                      /[^0-9]/g,
+                      '',
+                    ),
+                    10,
+                  ) || 0
+                : 0,
+              bio: agent.bio || '',
+            };
+            await upsert(
+              'content_entries',
+              [
+                {
+                  site_id: SITE_ID,
+                  locale,
+                  path: `agents/${agentSlug}.json`,
+                  content: agentData,
+                  updated_by: 'onboard-api',
+                },
+              ],
+              'site_id,locale,path',
+            );
+
+            // Update pages/home.json teamPreview
+            const homeRows = await fetchRows('content_entries', {
+              site_id: SITE_ID,
+              locale,
+              path: 'pages/home.json',
+            });
+            if (homeRows[0]?.content) {
+              const home = homeRows[0].content;
+              if (home.teamPreview) {
+                home.teamPreview.agentSlugs = [agentSlug];
+                const shortName = agent.name.split(',')[0].trim();
+                home.teamPreview.headline = `Meet ${shortName}`;
+              }
+              await upsert(
+                'content_entries',
+                [
+                  {
+                    site_id: SITE_ID,
+                    locale,
+                    path: 'pages/home.json',
+                    content: home,
+                    updated_by: 'onboard-api',
+                  },
+                ],
+                'site_id,locale,path',
+              );
+            }
+            // If no agent name is provided, template agents are kept as-is
             // (their names were already swapped by the deep-replace step above)
           }
 
-          emitProgress('O4', 'Content Replacement', 'done', `Deep-replaced ${updated.length} entries`, Date.now() - o4Start);
+          emitProgress(
+            'O4',
+            'Content Replacement',
+            'done',
+            `Deep-replaced ${updated.length} entries`,
+            Date.now() - o4Start,
+          );
         } catch (err: any) {
-          emitProgress('O4', 'Content Replacement', 'error', err.message, Date.now() - o4Start);
+          emitProgress(
+            'O4',
+            'Content Replacement',
+            'error',
+            err.message,
+            Date.now() - o4Start,
+          );
           throw err;
         }
 
@@ -1000,7 +1430,14 @@ export async function POST(request: NextRequest) {
         //  O5: AI CONTENT + SEO
         // ════════════════════════════════════════════════════════════════
         const o5Start = Date.now();
-        emitProgress('O5', 'AI Content', 'running', SKIP_AI ? 'Skipping AI (skipAi=true)...' : 'Generating AI content + SEO...');
+        emitProgress(
+          'O5',
+          'AI Content',
+          'running',
+          SKIP_AI
+            ? 'Skipping AI (skipAi=true)...'
+            : 'Generating AI content + SEO...',
+        );
 
         try {
           if (!SKIP_AI) {
@@ -1009,21 +1446,30 @@ export async function POST(request: NextRequest) {
             const tone = intake.contentTone || {};
 
             // Generate content via Claude
-            const contentPromptPath = path.join(process.cwd(), 'scripts', 'onboard', 'prompts', 'realestate', 'content.md');
+            const contentPromptPath = path.join(
+              process.cwd(),
+              'scripts',
+              'onboard',
+              'prompts',
+              'realestate',
+              'content.md',
+            );
             const contentPrompt = fs.readFileSync(contentPromptPath, 'utf-8');
-            const teamDesc = intake.agents?.map((a: any) =>
-              `- ${a.name}, ${a.title || 'Licensed Real Estate Agent'}, ${a.role || 'Agent'}. Languages: ${(a.languages || []).join(', ')}. Specialties: ${(a.specialties || []).join(', ')}.`
-            ).join('\n') || 'No additional team members.';
-
-            const enabledVerticals = intake.services?.enabled || ALL_VERTICAL_SLUGS;
-            const verticalLabels = Object.values(RE_VERTICALS).flat()
+            const teamMembers = 'No additional team members.';
+            const enabledVerticals =
+              intake.services?.enabled || ALL_VERTICAL_SLUGS;
+            const verticalLabels = Object.values(RE_VERTICALS)
+              .flat()
               .filter((v) => enabledVerticals.includes(v.slug))
               .map((v) => v.label);
 
             const contentInput = interpolateTemplate(contentPrompt, {
               businessName: biz.name,
-              principalBrokerName: biz.principalBrokerName || '',
-              principalBrokerTitle: intake.license?.principalBrokerTitle || 'Principal Broker',
+              principalBrokerName: intake.agent?.name || '',
+              principalBrokerTitle:
+                intake.agent?.title ||
+                intake.license?.brokerTitle ||
+                'Licensed Real Estate Broker',
               city: loc.city,
               state: loc.state,
               county: loc.county || '',
@@ -1031,18 +1477,27 @@ export async function POST(request: NextRequest) {
               totalVolume: intake.stats?.totalVolume || '',
               languages: (biz.languages || []).join(', '),
               specialties: (biz.specialties || []).join(', '),
-              uniqueSellingPoints: (tone.uniqueSellingPoints || []).map((u: string) => `- ${u}`).join('\n'),
+              uniqueSellingPoints: (tone.uniqueSellingPoints || [])
+                .map((u: string) => `- ${u}`)
+                .join('\n'),
               targetDemographic: tone.targetDemographic || '',
               voice: tone.voice || 'warm-professional',
               verticalsList: verticalLabels.join(', '),
-              teamMembers: teamDesc,
+              teamMembers,
             });
 
             const contentResult = await callClaude(contentInput);
             const aiContent = parseJsonFromResponse(contentResult);
 
             // Generate SEO via Claude
-            const seoPromptPath = path.join(process.cwd(), 'scripts', 'onboard', 'prompts', 'realestate', 'seo.md');
+            const seoPromptPath = path.join(
+              process.cwd(),
+              'scripts',
+              'onboard',
+              'prompts',
+              'realestate',
+              'seo.md',
+            );
             const seoPrompt = fs.readFileSync(seoPromptPath, 'utf-8');
             const seoInput = interpolateTemplate(seoPrompt, {
               businessName: biz.name,
@@ -1060,102 +1515,199 @@ export async function POST(request: NextRequest) {
             // Merge AI content into DB entries
             for (const locale of LOCALES) {
               // Update home page
-              const homeRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'pages/home.json' });
+              const homeRows = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: 'pages/home.json',
+              });
               if (homeRows[0]?.content) {
                 const home = homeRows[0].content;
                 if (aiContent.hero) {
-                  if (aiContent.hero.headline) home.hero.headline = aiContent.hero.headline;
-                  if (aiContent.hero.subline) home.hero.subline = aiContent.hero.subline;
+                  if (aiContent.hero.headline)
+                    home.hero.headline = aiContent.hero.headline;
+                  if (aiContent.hero.subline)
+                    home.hero.subline = aiContent.hero.subline;
                 }
-                if (aiContent.introHeadline && home.intro) home.intro.headline = aiContent.introHeadline;
-                if (aiContent.introBody && home.intro) home.intro.body = aiContent.introBody;
+                if (aiContent.introHeadline && home.intro)
+                  home.intro.headline = aiContent.introHeadline;
+                if (aiContent.introBody && home.intro)
+                  home.intro.body = aiContent.introBody;
                 if (aiContent.whyChooseUs && home.whyChooseUs) {
                   home.whyChooseUs.items = aiContent.whyChooseUs;
                 }
                 if (aiContent.consultationCta) {
                   if (home.consultationCta) {
-                    if (aiContent.consultationCta.headline) home.consultationCta.headline = aiContent.consultationCta.headline;
-                    if (aiContent.consultationCta.subline) home.consultationCta.subline = aiContent.consultationCta.subline;
+                    if (aiContent.consultationCta.headline)
+                      home.consultationCta.headline =
+                        aiContent.consultationCta.headline;
+                    if (aiContent.consultationCta.subline)
+                      home.consultationCta.subline =
+                        aiContent.consultationCta.subline;
                   }
                 }
-                await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'pages/home.json', content: home, updated_by: 'onboard-api' }], 'site_id,locale,path');
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'pages/home.json',
+                      content: home,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
 
               // Update about page
-              const aboutRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: 'pages/about.json' });
+              const aboutRows = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: 'pages/about.json',
+              });
               if (aboutRows[0]?.content) {
                 const about = aboutRows[0].content;
                 if (aiContent.aboutStory && about.story?.blocks) {
-                  for (let i = 0; i < Math.min(aiContent.aboutStory.length, about.story.blocks.length); i++) {
+                  for (
+                    let i = 0;
+                    i <
+                    Math.min(
+                      aiContent.aboutStory.length,
+                      about.story.blocks.length,
+                    );
+                    i++
+                  ) {
                     about.story.blocks[i].body = aiContent.aboutStory[i];
                   }
                   // If AI returned more paragraphs than blocks, add extra blocks
                   if (aiContent.aboutStory.length > about.story.blocks.length) {
-                    for (let i = about.story.blocks.length; i < aiContent.aboutStory.length; i++) {
-                      about.story.blocks.push({ body: aiContent.aboutStory[i], image: '', imageAlt: '' });
+                    for (
+                      let i = about.story.blocks.length;
+                      i < aiContent.aboutStory.length;
+                      i++
+                    ) {
+                      about.story.blocks.push({
+                        body: aiContent.aboutStory[i],
+                        image: '',
+                        imageAlt: '',
+                      });
                     }
                   }
                 }
-                await upsert('content_entries', [{ site_id: SITE_ID, locale, path: 'pages/about.json', content: about, updated_by: 'onboard-api' }], 'site_id,locale,path');
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'pages/about.json',
+                      content: about,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
 
-              // Update principal broker agent bio
-              if (aiContent.principalBrokerBio && biz.principalBrokerName) {
-                const principalSlug = slugify(biz.principalBrokerName);
-                const agentRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: `agents/${principalSlug}.json` });
+              // Update single agent bio
+              if (aiContent.principalBrokerBio && intake.agent?.name) {
+                const agentSlug = slugify(intake.agent.name);
+                const agentRows = await fetchRows('content_entries', {
+                  site_id: SITE_ID,
+                  locale,
+                  path: `agents/${agentSlug}.json`,
+                });
+
                 if (agentRows[0]?.content) {
                   const agent = agentRows[0].content;
                   agent.bio = aiContent.principalBrokerBio;
-                  await upsert('content_entries', [{ site_id: SITE_ID, locale, path: `agents/${principalSlug}.json`, content: agent, updated_by: 'onboard-api' }], 'site_id,locale,path');
-                }
-              }
 
-              // Update team agent bios
-              if (aiContent.teamBios) {
-                for (const tb of aiContent.teamBios) {
-                  const slug = tb.slug || slugify(tb.name || '');
-                  if (!slug) continue;
-                  const agentRows = await fetchRows('content_entries', { site_id: SITE_ID, locale, path: `agents/${slug}.json` });
-                  if (agentRows[0]?.content) {
-                    const agent = agentRows[0].content;
-                    agent.bio = tb.bio;
-                    await upsert('content_entries', [{ site_id: SITE_ID, locale, path: `agents/${slug}.json`, content: agent, updated_by: 'onboard-api' }], 'site_id,locale,path');
-                  }
+                  await upsert(
+                    'content_entries',
+                    [
+                      {
+                        site_id: SITE_ID,
+                        locale,
+                        path: `agents/${agentSlug}.json`,
+                        content: agent,
+                        updated_by: 'onboard-api',
+                      },
+                    ],
+                    'site_id,locale,path',
+                  );
                 }
               }
 
               // Update testimonials
               if (aiContent.testimonials) {
-                const testimonials = aiContent.testimonials.map((t: any, i: number) => ({
-                  id: `t-${String(i + 1).padStart(3, '0')}`,
-                  text: t.text,
-                  rating: t.rating || 5,
-                  featured: i < 3,
-                  location: t.location || `${loc.city}, ${loc.state}`,
-                  reviewer: t.reviewer,
-                  verified: true,
-                  reviewDate: new Date(Date.now() - (i * 30 + Math.random() * 60) * 86400000).toISOString().split('T')[0].slice(0, 7),
-                  transactionType: t.transactionType || 'buyer',
-                }));
-                await upsert('content_entries', [{
-                  site_id: SITE_ID, locale, path: 'testimonials.json',
-                  content: { items: testimonials },
-                  updated_by: 'onboard-api',
-                }], 'site_id,locale,path');
+                const testimonials = aiContent.testimonials.map(
+                  (t: any, i: number) => ({
+                    id: `t-${String(i + 1).padStart(3, '0')}`,
+                    text: t.text,
+                    rating: t.rating || 5,
+                    featured: i < 3,
+                    location: t.location || `${loc.city}, ${loc.state}`,
+                    reviewer: t.reviewer,
+                    verified: true,
+                    reviewDate: new Date(
+                      Date.now() - (i * 30 + Math.random() * 60) * 86400000,
+                    )
+                      .toISOString()
+                      .split('T')[0]
+                      .slice(0, 7),
+                    transactionType: t.transactionType || 'buyer',
+                  }),
+                );
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'testimonials.json',
+                      content: { items: testimonials },
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
 
               // Update seo.json
               if (aiSeo) {
-                await upsert('content_entries', [{
-                  site_id: SITE_ID, locale, path: 'seo.json', content: aiSeo, updated_by: 'onboard-api',
-                }], 'site_id,locale,path');
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'seo.json',
+                      content: aiSeo,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
               }
             }
           }
 
-          emitProgress('O5', 'AI Content', 'done', SKIP_AI ? 'Skipped' : 'Content + SEO generated', Date.now() - o5Start);
+          emitProgress(
+            'O5',
+            'AI Content',
+            'done',
+            SKIP_AI ? 'Skipped' : 'Content + SEO generated',
+            Date.now() - o5Start,
+          );
         } catch (err: any) {
-          emitProgress('O5', 'AI Content', 'error', err.message, Date.now() - o5Start);
+          emitProgress(
+            'O5',
+            'AI Content',
+            'error',
+            err.message,
+            Date.now() - o5Start,
+          );
           throw err;
         }
 
@@ -1163,25 +1715,44 @@ export async function POST(request: NextRequest) {
         //  O6: CLEANUP
         // ════════════════════════════════════════════════════════════════
         const o6Start = Date.now();
-        emitProgress('O6', 'Cleanup', 'running', 'Removing unsupported locales...');
+        emitProgress(
+          'O6',
+          'Cleanup',
+          'running',
+          'Removing unsupported locales...',
+        );
 
         try {
-          const allEntries = await fetchRows('content_entries', { site_id: SITE_ID });
+          const allEntries = await fetchRows('content_entries', {
+            site_id: SITE_ID,
+          });
           const supportedSet = new Set(LOCALES);
-          const unsupportedEntries = allEntries.filter((e: any) => !supportedSet.has(e.locale) && e.locale !== 'en');
+          const unsupportedEntries = allEntries.filter(
+            (e: any) => !supportedSet.has(e.locale) && e.locale !== 'en',
+          );
 
           if (unsupportedEntries.length > 0) {
-            const unsupportedLocales = [...new Set(unsupportedEntries.map((e: any) => e.locale))] as string[];
+            const unsupportedLocales = [
+              ...new Set(unsupportedEntries.map((e: any) => e.locale)),
+            ] as string[];
             for (const locale of unsupportedLocales) {
-              const entries = unsupportedEntries.filter((e: any) => e.locale === locale);
+              const entries = unsupportedEntries.filter(
+                (e: any) => e.locale === locale,
+              );
               for (const entry of entries) {
-                await deleteRows('content_entries', { site_id: SITE_ID, locale, path: entry.path });
+                await deleteRows('content_entries', {
+                  site_id: SITE_ID,
+                  locale,
+                  path: entry.path,
+                });
               }
             }
           }
 
           // Final entry count
-          const finalEntries = await fetchRows('content_entries', { site_id: SITE_ID });
+          const finalEntries = await fetchRows('content_entries', {
+            site_id: SITE_ID,
+          });
           result.entries = finalEntries.length;
           let syncedLocalFiles = 0;
           if (canWriteLocalFilesystem) {
@@ -1195,10 +1766,16 @@ export async function POST(request: NextRequest) {
             canWriteLocalFilesystem
               ? `${result.entries} entries remaining, synced ${syncedLocalFiles} local files`
               : `${result.entries} entries remaining, skipped local file sync (read-only filesystem)`,
-            Date.now() - o6Start
+            Date.now() - o6Start,
           );
         } catch (err: any) {
-          emitProgress('O6', 'Cleanup', 'error', err.message, Date.now() - o6Start);
+          emitProgress(
+            'O6',
+            'Cleanup',
+            'error',
+            err.message,
+            Date.now() - o6Start,
+          );
           throw err;
         }
 
@@ -1206,65 +1783,99 @@ export async function POST(request: NextRequest) {
         //  O7: VERIFY
         // ════════════════════════════════════════════════════════════════
         const o7Start = Date.now();
-        emitProgress('O7', 'Verify', 'running', 'Running verification checks...');
+        emitProgress(
+          'O7',
+          'Verify',
+          'running',
+          'Running verification checks...',
+        );
 
         try {
-          const allEntries = await fetchRows('content_entries', { site_id: SITE_ID });
+          const allEntries = await fetchRows('content_entries', {
+            site_id: SITE_ID,
+          });
 
           // 1. Required paths
           const requiredPaths = [
-            'site.json', 'header.json', 'footer.json', 'seo.json',
-            'pages/home.json', 'pages/about.json', 'pages/contact.json',
+            'site.json',
+            'header.json',
+            'footer.json',
+            'seo.json',
+            'pages/home.json',
+            'pages/about.json',
+            'pages/contact.json',
           ];
           for (const locale of LOCALES) {
             for (const p of requiredPaths) {
-              const found = allEntries.find((e: any) => e.locale === locale && e.path === p);
+              const found = allEntries.find(
+                (e: any) => e.locale === locale && e.path === p,
+              );
               if (!found) result.errors.push(`Missing: ${locale}/${p}`);
             }
           }
 
           // 2. Template contamination check
-          const templateTerms = ['Jin Pang', 'jinpanghomes.com', 'jinpanghomes', '(845) 555-0190', '21 Painted Apron'];
+          const templateTerms = [
+            'Jin Pang',
+            'jinpanghomes.com',
+            'jinpanghomes',
+            '(845) 555-0190',
+            '21 Painted Apron',
+          ];
           const contaminated: string[] = [];
           for (const entry of allEntries) {
             if (entry.path === 'theme.json') continue;
             const str = JSON.stringify(entry.content);
             for (const term of templateTerms) {
               if (str.includes(term)) {
-                contaminated.push(`${entry.locale}/${entry.path} contains "${term}"`);
+                contaminated.push(
+                  `${entry.locale}/${entry.path} contains "${term}"`,
+                );
                 break;
               }
             }
           }
           if (contaminated.length > 0) {
-            result.warnings.push(`Template contamination in ${contaminated.length} entries`);
+            result.warnings.push(
+              `Template contamination in ${contaminated.length} entries`,
+            );
             contaminated.forEach((c) => result.warnings.push(c));
           }
 
           // 3. Agent count check
-          const agentEntries = allEntries.filter((e: any) => e.locale === DEFAULT_LOCALE && e.path.startsWith('agents/'));
+          const agentEntries = allEntries.filter(
+            (e: any) =>
+              e.locale === DEFAULT_LOCALE && e.path.startsWith('agents/'),
+          );
           if (agentEntries.length === 0) {
             result.warnings.push('No agent entries found');
           }
 
           // 4. Domain check
           const domains = await fetchRows('site_domains', { site_id: SITE_ID });
-          if (domains.length === 0) result.errors.push('No domain aliases registered');
+          if (domains.length === 0)
+            result.errors.push('No domain aliases registered');
           result.domains = domains.length;
 
-          const status = result.errors.length === 0 && result.warnings.length === 0
-            ? 'All checks passed'
-            : `${result.errors.length} errors, ${result.warnings.length} warnings`;
+          const status =
+            result.errors.length === 0 && result.warnings.length === 0
+              ? 'All checks passed'
+              : `${result.errors.length} errors, ${result.warnings.length} warnings`;
 
           emitProgress('O7', 'Verify', 'done', status, Date.now() - o7Start);
         } catch (err: any) {
-          emitProgress('O7', 'Verify', 'error', err.message, Date.now() - o7Start);
+          emitProgress(
+            'O7',
+            'Verify',
+            'error',
+            err.message,
+            Date.now() - o7Start,
+          );
           throw err;
         }
 
         // ── Complete ─────────────────────────────────────────────────
         emit('complete', result);
-
       } catch (err: any) {
         emit('error', {
           message: `Pipeline failed: ${err.message}`,
