@@ -37,6 +37,7 @@
     "@supabase/supabase-js": "^2.95.3",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.0",
+    "critters": "^0.0.23",
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.312.0",
     "negotiator": "^0.6.3",

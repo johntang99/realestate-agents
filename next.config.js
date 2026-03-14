@@ -33,7 +33,11 @@ for (const hostname of supabaseHostnames) {
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    optimizeCss: true,
+  },
   images: {
+    formats: ['image/avif', 'image/webp'],
     domains: ['localhost', 'images.unsplash.com'],
     remotePatterns,
     unoptimized: process.env.NODE_ENV === 'development',

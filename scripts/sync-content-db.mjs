@@ -134,16 +134,26 @@ async function importToDb(siteId, locales) {
 async function exportFromDb(siteId, locales) {
   let count = 0;
   for (const locale of locales) {
-    const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/content_entries?site_id=eq.${encodeURIComponent(siteId)}&locale=eq.${encodeURIComponent(locale)}&select=path,content,data`,
-      {
-        headers: { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}` },
-      }
-    );
+    const baseUrl = `${SUPABASE_URL}/rest/v1/content_entries?site_id=eq.${encodeURIComponent(siteId)}&locale=eq.${encodeURIComponent(locale)}`;
+    const headers = { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}` };
+    let rows = [];
+
+    // Prefer current schema (`content`), fallback to legacy (`data`).
+    let response = await fetch(`${baseUrl}&select=path,content`, { headers });
     if (!response.ok) {
-      throw new Error(`Export failed for ${locale}: ${await response.text()}`);
+      const firstError = await response.text();
+      if (!firstError.includes("Could not find the 'content' column")) {
+        throw new Error(`Export failed for ${locale}: ${firstError}`);
+      }
+      response = await fetch(`${baseUrl}&select=path,data`, { headers });
+      if (!response.ok) {
+        throw new Error(`Export failed for ${locale}: ${await response.text()}`);
+      }
+      rows = await response.json();
+    } else {
+      rows = await response.json();
     }
-    const rows = await response.json();
+
     for (const row of rows) {
       const filePath =
         row.path === 'theme.json'

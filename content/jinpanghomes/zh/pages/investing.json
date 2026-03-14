@@ -1,15 +1,52 @@
 {
-  "hero": {
-    "image": "",
-    "subline": "Data-driven strategy, cap-rate analysis, and acquisition support for serious investors.",
-    "variant": "photo-background",
-    "headline": "Build Wealth Through Real Estate in Orange County",
-    "eyebrow": "Investing"
+  "cta": {
+    "subline": "Schedule a consultation for strategy, underwriting, and sourcing.",
+    "variant": "centered",
+    "headline": "Want Investor Deal Reviews?"
   },
   "seo": {
     "title": "Real Estate Investing in Orange County | Jin Pang",
-    "description": "Analyze deals and grow your portfolio with Jin Pang investor advisors.",
-    "keywords": "orange-county real estate investing, cap rate calculator, multifamily investing"
+    "keywords": "orange-county real estate investing, cap rate calculator, multifamily investing",
+    "description": "Analyze deals and grow your portfolio with Jin Pang investor advisors."
+  },
+  "hero": {
+    "image": "",
+    "eyebrow": "Investing",
+    "subline": "Data-driven strategy, cap-rate analysis, and acquisition support for serious investors.",
+    "variant": "photo-background",
+    "headline": "Build Wealth Through Real Estate in Orange County"
+  },
+  "calculator": {
+    "subline": "Estimate capitalization rate, NOI, and gross rent multiplier.",
+    "headline": "CAP Rate Calculator"
+  },
+  "objections": {
+    "items": [
+      {
+        "title": "Not sure if this deal pencils?",
+        "description": "We review NOI drivers, cap-rate sensitivity, and downside scenarios."
+      },
+      {
+        "title": "Concerned about tenant demand?",
+        "description": "We discuss neighborhood-level demand and rent durability."
+      },
+      {
+        "title": "Need help choosing strategy?",
+        "description": "We align buy-and-hold, value-add, or exchange strategy to your timeline."
+      }
+    ]
+  },
+  "leadCapture": {
+    "subline": "Share your goals and we'll propose a data-backed acquisition strategy.",
+    "headline": "Ready to Build Your Portfolio?",
+    "sourceTag": "investing-page",
+    "consentText": "By submitting, you agree to be contacted by Jin Pang investment specialists."
+  },
+  "investorGuide": {
+    "ctaHref": "/contact",
+    "subline": "Receive our underwriting worksheet, checklist, and local strategy notes.",
+    "ctaLabel": "Request Investor Kit",
+    "headline": "Get the Investor Starter Kit"
   },
   "investmentTypes": {
     "items": [
@@ -22,64 +59,63 @@
     ]
   },
   "investorPlaybooks": {
-    "headline": "Investor Playbooks",
     "items": [
-      { "title": "Buy-and-Hold", "description": "Focus on stable cash flow, rent durability, and long-term appreciation." },
-      { "title": "Value-Add", "description": "Identify renovation upside and execute with realistic timelines and reserves." },
-      { "title": "1031 Exchange", "description": "Coordinate replacement property strategy with timing and tax advisors." }
-    ]
+      {
+        "title": "Buy-and-Hold",
+        "description": "Focus on stable cash flow, rent durability, and long-term appreciation."
+      },
+      {
+        "title": "Value-Add",
+        "description": "Identify renovation upside and execute with realistic timelines and reserves."
+      },
+      {
+        "title": "1031 Exchange",
+        "description": "Coordinate replacement property strategy with timing and tax advisors."
+      }
+    ],
+    "headline": "Investor Playbooks"
+  },
+  "investorResources": {
+    "items": [
+      {
+        "title": "Preferred Lenders",
+        "description": "Connections for DSCR, conventional, and portfolio lending paths."
+      },
+      {
+        "title": "Legal and Tax Network",
+        "description": "Attorney and CPA partners familiar with investor transaction structure."
+      },
+      {
+        "title": "Property Operations",
+        "description": "Management and contractor introductions for post-close execution."
+      }
+    ],
+    "headline": "Investor Resources"
   },
   "marketOpportunities": {
-    "headline": "Current Market Opportunities",
     "items": [
-      { "title": "Small Multifamily Demand", "description": "Continued renter demand supports select 2-4 unit opportunities." },
-      { "title": "Commuter-Corridor Rentals", "description": "Transit-linked submarkets remain resilient for long-term holds." },
-      { "title": "Under-Managed Assets", "description": "Operational improvements can unlock NOI growth without full repositioning." }
-    ]
+      {
+        "title": "Small Multifamily Demand",
+        "description": "Continued renter demand supports select 2-4 unit opportunities."
+      },
+      {
+        "title": "Commuter-Corridor Rentals",
+        "description": "Transit-linked submarkets remain resilient for long-term holds."
+      },
+      {
+        "title": "Under-Managed Assets",
+        "description": "Operational improvements can unlock NOI growth without full repositioning."
+      }
+    ],
+    "headline": "Current Market Opportunities"
   },
   "dueDiligenceChecklist": {
-    "headline": "Deal Due Diligence Checklist",
     "items": [
       "Verify trailing income and expense documentation.",
       "Stress-test vacancy and maintenance assumptions.",
       "Review zoning, permit history, and known deferred maintenance.",
       "Model exit scenarios with conservative pricing assumptions."
-    ]
-  },
-  "investorResources": {
-    "headline": "Investor Resources",
-    "items": [
-      { "title": "Preferred Lenders", "description": "Connections for DSCR, conventional, and portfolio lending paths." },
-      { "title": "Legal and Tax Network", "description": "Attorney and CPA partners familiar with investor transaction structure." },
-      { "title": "Property Operations", "description": "Management and contractor introductions for post-close execution." }
-    ]
-  },
-  "investorGuide": {
-    "headline": "Get the Investor Starter Kit",
-    "subline": "Receive our underwriting worksheet, checklist, and local strategy notes.",
-    "ctaLabel": "Request Investor Kit",
-    "ctaHref": "/contact"
-  },
-  "objections": {
-    "items": [
-      { "title": "Not sure if this deal pencils?", "description": "We review NOI drivers, cap-rate sensitivity, and downside scenarios." },
-      { "title": "Concerned about tenant demand?", "description": "We discuss neighborhood-level demand and rent durability." },
-      { "title": "Need help choosing strategy?", "description": "We align buy-and-hold, value-add, or exchange strategy to your timeline." }
-    ]
-  },
-  "calculator": {
-    "headline": "CAP Rate Calculator",
-    "subline": "Estimate capitalization rate, NOI, and gross rent multiplier."
-  },
-  "leadCapture": {
-    "sourceTag": "investing-page",
-    "consentText": "By submitting, you agree to be contacted by Jin Pang investment specialists.",
-    "headline": "Ready to Build Your Portfolio?",
-    "subline": "Share your goals and we'll propose a data-backed acquisition strategy."
-  },
-  "cta": {
-    "variant": "centered",
-    "headline": "Want Investor Deal Reviews?",
-    "subline": "Schedule a consultation for strategy, underwriting, and sourcing."
+    ],
+    "headline": "Deal Due Diligence Checklist"
   }
 }

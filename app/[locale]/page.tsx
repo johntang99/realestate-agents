@@ -159,6 +159,24 @@ interface HomeData {
   };
 }
 
+function optimizeHeroImageUrl(
+  url?: string,
+  opts: { width?: number; quality?: number } = {},
+) {
+  if (!url) return url;
+  if (!url.includes('/storage/v1/object/public/')) return url;
+
+  const [withoutHash, hash = ''] = url.split('#');
+  const [pathname, existingQuery = ''] = withoutHash.split('?');
+  const params = new URLSearchParams(existingQuery);
+  if (!params.has('width')) params.set('width', String(opts.width ?? 1600));
+  if (!params.has('quality')) params.set('quality', String(opts.quality ?? 68));
+  if (!params.has('format')) params.set('format', 'webp');
+
+  const query = params.toString();
+  return `${pathname}${query ? `?${query}` : ''}${hash ? `#${hash}` : ''}`;
+}
+
 // ── Status helpers ─────────────────────────────────────────────────────────────
 const STATUS_BADGE: Record<string, string> = {
   active: 'bg-[var(--status-active)]',
@@ -345,6 +363,7 @@ function HeroSlideshow({
   overlayOpacity?: number;
 }) {
   const [active, setActive] = useState(0);
+  const currentSlide = slides[active];
   useEffect(() => {
     if (slides.length <= 1) return;
     const t = setInterval(
@@ -356,39 +375,41 @@ function HeroSlideshow({
 
   return (
     <section className="relative h-screen min-h-[640px] overflow-hidden flex items-end">
-      {slides.map((slide, i) => (
-        <div
-          key={i}
-          className={`absolute inset-0 transition-opacity duration-1200 ${i === active ? 'opacity-100' : 'opacity-0'}`}
-        >
-          {slide.video ? (
-            <video
-              className="w-full h-full object-cover"
-              src={slide.video}
-              poster={slide.poster || slide.image}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-          ) : slide.image ? (
-            <Image
-              src={slide.image}
-              alt={slide.alt || ''}
-              fill
-              className="object-cover"
-              priority={i === 0}
-              sizes="100vw"
-            />
-          ) : (
-            <div
-              className="w-full h-full"
-              style={{ background: 'var(--primary)' }}
-            />
-          )}
-        </div>
-      ))}
+      <div
+        key={active}
+        className="absolute inset-0 transition-opacity duration-700 opacity-100"
+      >
+        {currentSlide?.video ? (
+          <video
+            className="w-full h-full object-cover"
+            src={currentSlide.video}
+            poster={
+              optimizeHeroImageUrl(currentSlide.poster, { width: 1440 }) ||
+              optimizeHeroImageUrl(currentSlide.image, { width: 1440 })
+            }
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+          />
+        ) : currentSlide?.image ? (
+          <Image
+            src={currentSlide.image}
+            alt={currentSlide.alt || ''}
+            fill
+            className="object-cover"
+            priority={active === 0}
+            sizes="100vw"
+            quality={68}
+          />
+        ) : (
+          <div
+            className="w-full h-full"
+            style={{ background: 'var(--primary)' }}
+          />
+        )}
+      </div>
       {/* Directional gradient — bright photo, readable text */}
       <div
         className="absolute inset-0"
@@ -677,6 +698,9 @@ export default function HomePage() {
   useEffect(() => {
     const loc = window.location.pathname.startsWith('/zh') ? 'zh' : 'en';
     setLocale(loc);
+
+    // Fetch hero-critical content first so above-the-fold rendering is not
+    // blocked by secondary sections like listings, posts, and testimonials.
     Promise.all([
       fetch(`/api/content/file?locale=${loc}&path=pages/home.json`).then((r) =>
         r.json(),
@@ -684,6 +708,18 @@ export default function HomePage() {
       fetch(`/api/content/file?locale=${loc}&path=site.json`).then((r) =>
         r.json(),
       ),
+    ])
+      .then(([homeRes, siteRes]) => {
+        try {
+          setH(JSON.parse(homeRes.content || '{}'));
+        } catch {}
+        try {
+          setSite(JSON.parse(siteRes.content || '{}'));
+        } catch {}
+      })
+      .finally(() => setLoading(false));
+
+    Promise.all([
       fetch(`/api/content/items?locale=${loc}&directory=properties`).then((r) =>
         r.json(),
       ),
@@ -697,13 +733,7 @@ export default function HomePage() {
         (r) => r.json(),
       ),
     ])
-      .then(([homeRes, siteRes, propsRes, nbRes, testRes, postsRes]) => {
-        try {
-          setH(JSON.parse(homeRes.content || '{}'));
-        } catch {}
-        try {
-          setSite(JSON.parse(siteRes.content || '{}'));
-        } catch {}
+      .then(([propsRes, nbRes, testRes, postsRes]) => {
         setProperties(
           Array.isArray(propsRes.items) ? (propsRes.items as Property[]) : [],
         );
@@ -722,9 +752,8 @@ export default function HomePage() {
             (b.publishDate || '').localeCompare(a.publishDate || ''),
           ),
         );
-        setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -744,7 +773,12 @@ export default function HomePage() {
       : home.hero?.frontVideoUrl || allSlides.find((s) => s.video)?.video;
   const slides = allSlides
     .filter((s) => s.image)
-    .map((s) => ({ image: s.image, alt: s.alt }));
+    .map((s) => ({
+      image: optimizeHeroImageUrl(s.image, { width: 1920 }),
+      poster: optimizeHeroImageUrl(s.poster, { width: 1440 }),
+      alt: s.alt,
+      video: s.video,
+    }));
   const stats: StatItem[] = home.statsBar?.items || [
     { value: '180', label: 'In Total Sales', prefix: '$', suffix: 'M+' },
     { value: '620', label: 'Transactions Closed', suffix: '+' },
@@ -787,6 +821,23 @@ export default function HomePage() {
         className="min-h-screen flex items-center justify-center"
         style={{ background: 'var(--backdrop-light)' }}
       >
+        <h1
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: 0,
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            border: 0,
+          }}
+        >
+          {isZh
+            ? '欢迎来到 Jin Pang Homes'
+            : 'Welcome to Jin Pang Homes - Port Jervis Real Estate'}
+        </h1>
         <div className="text-center">
           <div
             className="w-10 h-10 border-2 rounded-full animate-spin mx-auto mb-4"

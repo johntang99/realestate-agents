@@ -1,10 +1,10 @@
 {
-  "title": "",
-  "description": "",
-  "ogImage": "",
   "home": {
     "title": "",
     "description": ""
   },
-  "pages": {}
+  "pages": {},
+  "title": "",
+  "ogImage": "",
+  "description": ""
 }

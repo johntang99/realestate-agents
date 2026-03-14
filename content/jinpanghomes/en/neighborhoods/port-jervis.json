@@ -2,11 +2,11 @@
   "name": "Port Jervis",
   "slug": "port-jervis",
   "summary": "A river city with commuter access, local character, and mixed housing stock.",
+  "overview": "Port Jervis, named after John Bloomfield Jervis, a prominent civil engineer who oversaw the construction of the Delaware and Hudson Canal, is a city located at the confluence of the Neversink and Delaware rivers in western Orange County, New York, United States, north of the Delaware Water Gap. Its population was 8,775 at the 2020 census. \n\nThe communities of Deerpark, Huguenot, Sparrowbush, and Greenville are adjacent to Port Jervis. Matamoras, Pennsylvania, is across the river and connected by the Mid-Delaware Bridge. Montague Township, New Jersey, also borders the city. The Tri-States Monument, marking the tripoint between New York, New Jersey, and Pennsylvania, lies at the southwestern corner of the city.\n\nPort Jervis was part of early industrial history, a point for shipping coal to major markets to the southeast by canal and later by railroads. Its residents had long-distance passenger service by railroad until 1970. The restructuring of railroads resulted in a decline in the city's business and economy.",
+  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773360276482-screenshot-2026-03-12-at-8.04.02-pm.png",
   "marketSnapshot": {
     "inventory": "Low-Medium",
     "medianPrice": "$320K",
     "daysOnMarket": "34"
-  },
-  "coverImage": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773360276482-screenshot-2026-03-12-at-8.04.02-pm.png",
-  "overview": "Port Jervis, named after John Bloomfield Jervis, a prominent civil engineer who oversaw the construction of the Delaware and Hudson Canal, is a city located at the confluence of the Neversink and Delaware rivers in western Orange County, New York, United States, north of the Delaware Water Gap. Its population was 8,775 at the 2020 census. \n\nThe communities of Deerpark, Huguenot, Sparrowbush, and Greenville are adjacent to Port Jervis. Matamoras, Pennsylvania, is across the river and connected by the Mid-Delaware Bridge. Montague Township, New Jersey, also borders the city. The Tri-States Monument, marking the tripoint between New York, New Jersey, and Pennsylvania, lies at the southwestern corner of the city.\n\nPort Jervis was part of early industrial history, a point for shipping coal to major markets to the southeast by canal and later by railroads. Its residents had long-distance passenger service by railroad until 1970. The restructuring of railroads resulted in a decline in the city's business and economy."
+  }
 }

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { headers } from 'next/headers';
-import { Cormorant_Garamond, Inter, DM_Sans } from 'next/font/google';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { defaultLocale, locales, type Locale } from '@/lib/i18n';
 import { getDefaultSite, getSiteById } from '@/lib/sites';
 import { getRequestSiteId, loadContent, loadFooter, loadSeo, loadTheme, loadSiteInfo } from '@/lib/content';
@@ -13,20 +13,14 @@ import { getBaseUrlFromHost } from '@/lib/seo';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['600', '700'],
   variable: '--font-heading',
   display: 'swap',
 });
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-body',
-  display: 'swap',
-});
-const dmSans = DM_Sans({
-  subsets: ['latin'],
   weight: ['400', '500'],
-  variable: '--font-ui',
+  variable: '--font-body',
   display: 'swap',
 });
 
@@ -156,7 +150,7 @@ export default async function LocaleLayout({
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: cssVars }} />
-      <div className={`min-h-screen flex flex-col ${cormorant.variable} ${inter.variable} ${dmSans.variable}`} style={{ background: 'var(--backdrop-primary, #F8F6F2)' }}>
+      <div className={`min-h-screen flex flex-col ${cormorant.variable} ${inter.variable}`} style={{ background: 'var(--backdrop-primary, #F8F6F2)' }}>
         <Header
           locale={locale as Locale}
           siteId={site.id}

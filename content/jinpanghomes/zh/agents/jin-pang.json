@@ -1,10 +1,11 @@
 {
+  "bio": "Jin Pang 专注于 Orange County, NY 的买房、卖房与投资服务，以务实策略、透明沟通和全流程执行帮助客户稳定完成交易。",
   "name": "Jin Pang",
-  "role": "agent",
+  "role": "principal_broker",
   "slug": "jin-pang",
   "email": "info@jinpanghomes.com",
   "phone": "(845) 555-0190",
-  "photo": "https://rpwwafkpsdotglwzgbdf.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+  "photo": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
   "title": "持牌房地产经纪人",
   "status": "active",
   "featured": true,
@@ -22,6 +23,5 @@
   "licenseState": "NY",
   "licenseNumber": "10991200XXX",
   "yearsExperience": 12,
-  "transactionCount": 320,
-  "bio": "Jin Pang 专注于 Orange County, NY 的买房、卖房与投资服务，以务实策略、透明沟通和全流程执行帮助客户稳定完成交易。"
+  "transactionCount": 320
 }

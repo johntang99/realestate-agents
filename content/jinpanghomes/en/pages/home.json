@@ -31,11 +31,11 @@
     "frontVideoEnabled": false
   },
   "intro": {
-    "body": "Jin Pang is built around one core promise: to earn your trust with honest advice, strong local knowledge, and hands-on support from first conversation to closing.",
+    "body": "Jin Pang is built around one core promise: to earn your trust with honest advice, strong local knowledge, and hands-on support from first conversation to closing. As a licensed real estate agent with Panorama NY, Inc, Jin focuses on practical guidance and clear communication.",
     "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png",
     "ctaHref": "/about",
     "ctaLabel": "Our Story",
-    "headline": "A Brokerage Built Around Client Trust"
+    "headline": "A Client-First Real Estate Agent You Can Trust"
   },
   "statsBar": {
     "items": [

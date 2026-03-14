@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, DM_Sans, Noto_Serif_SC } from 'next/font/google';
+import { Noto_Serif_SC } from 'next/font/google';
 import '../styles/globals.css';
 import {
   generateLocalBusinessSchema,
@@ -8,22 +8,6 @@ import {
 } from '@/lib/schema';
 
 // comment from alice for testing
-
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-heading',
-  preload: true,
-});
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  display: 'swap',
-  variable: '--font-body',
-  preload: true,
-});
 
 const notoSerifSC = Noto_Serif_SC({
   subsets: ['latin'],
@@ -62,7 +46,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${playfairDisplay.variable} ${dmSans.variable} ${notoSerifSC.variable}`}
+      className={notoSerifSC.variable}
     >
       <head>
         <script

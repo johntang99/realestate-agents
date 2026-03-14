@@ -1,17 +1,26 @@
 {
-  "tagline": "您在 Orange County, NY 值得信赖的地产伙伴。买房、卖房、投资与搬迁，全程专业陪伴。",
   "columns": [
     {
-      "heading": "服务",
-      "title": "服务",
       "links": [
+        {
+          "href": "/services",
+          "label": "全部服务"
+        },
         {
           "href": "/buying",
           "label": "买房服务"
         },
         {
+          "href": "/services#buying",
+          "label": "买房流程"
+        },
+        {
           "href": "/selling",
           "label": "卖房服务"
+        },
+        {
+          "href": "/services#selling",
+          "label": "卖房流程"
         },
         {
           "href": "/home-valuation",
@@ -29,11 +38,11 @@
           "href": "/new-construction",
           "label": "新房项目"
         }
-      ]
+      ],
+      "title": "服务",
+      "heading": "服务"
     },
     {
-      "heading": "公司",
-      "title": "公司",
       "links": [
         {
           "href": "/about",
@@ -59,11 +68,11 @@
           "href": "/contact",
           "label": "联系我们"
         }
-      ]
+      ],
+      "title": "公司",
+      "heading": "公司"
     },
     {
-      "heading": "房源",
-      "title": "房源",
       "links": [
         {
           "href": "/properties",
@@ -85,9 +94,27 @@
           "href": "/faq",
           "label": "常见问题"
         }
-      ]
+      ],
+      "title": "房源",
+      "heading": "房源"
     }
   ],
+  "tagline": "您在 Orange County, NY 值得信赖的地产伙伴。买房、卖房、投资与搬迁，全程专业陪伴。",
+  "compliance": {
+    "state": "New York",
+    "termsHref": "/terms",
+    "privacyHref": "/privacy",
+    "brokerageName": "Jin Pang",
+    "copyrightYear": "2026",
+    "licenseNumber": "10991200XXX",
+    "mlsDisclaimer": "房源信息来源于被认为可靠的渠道，但不作任何担保，仅供消费者个人、非商业用途参考。",
+    "copyrightSuffix": "版权所有。技术支持：baamplatform.com。",
+    "principalBroker": "Jin Pang Leadership Team",
+    "equalHousingText": "Jin Pang 坚持平等住房机会原则。所有信息在发布时被认为可靠，但不作担保。",
+    "fairHousingStatement": "我们承诺遵循并支持美国公平住房政策的文字与精神，推动平等住房机会。",
+    "showEqualHousingLogo": true,
+    "principalBrokerLicense": "10301200XXX"
+  },
   "legalLinks": [
     {
       "href": "/privacy",
@@ -97,21 +124,5 @@
       "href": "/terms",
       "label": "服务条款"
     }
-  ],
-  "compliance": {
-    "state": "New York",
-    "termsHref": "/terms",
-    "privacyHref": "/privacy",
-    "brokerageName": "Panorama NY, Inc",
-    "copyrightYear": "2026",
-    "licenseNumber": "10991200XXX",
-    "mlsDisclaimer": "房源信息来源于被认为可靠的渠道，但不作任何担保，仅供消费者个人、非商业用途参考。",
-    "copyrightSuffix": "版权所有。技术支持：baamplatform.com。",
-    "principalBroker": "Panorama NY, Inc",
-    "equalHousingText": "Panorama NY, Inc 坚持平等住房机会原则。所有信息在发布时被认为可靠，但不作担保。",
-    "fairHousingStatement": "我们承诺遵循并支持美国公平住房政策的文字与精神，推动平等住房机会。",
-    "showEqualHousingLogo": true,
-    "principalBrokerLicense": "10301200XXX",
-    "brokerageAddress": "444 Peenpack Trl, Huguenot, NY 12746"
-  }
+  ]
 }

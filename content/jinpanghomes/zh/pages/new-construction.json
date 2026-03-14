@@ -1,17 +1,47 @@
 {
-  "hero": {
-    "image": "",
-    "subline": "Jin Pang — trusted Orange County real estate agent with Panorama NY, Inc.",
-    "variant": "photo-background",
-    "headline": "New Construction"
+  "cta": {
+    "subline": "Talk with a specialist before you sign with a builder.",
+    "headline": "Plan Your New Construction Purchase",
+    "primaryActionHref": "/contact",
+    "primaryActionLabel": "Schedule a New Build Consultation"
   },
   "seo": {
     "title": "New Construction in Orange County, NY | Jin Pang",
-    "description": "Explore active developments, builder guidance, and expert support for new construction purchases.",
-    "keywords": "new construction orange county ny, new build homes, builder communities"
+    "keywords": "new construction orange county ny, new build homes, builder communities",
+    "description": "Explore active developments, builder guidance, and expert support for new construction purchases."
+  },
+  "hero": {
+    "image": "",
+    "subline": "Jin Pang — Orange County's trusted real estate brokerage.",
+    "variant": "photo-background",
+    "headline": "New Construction"
+  },
+  "leadCapture": {
+    "subline": "Tell us your timeline and preferred communities, and we will guide next steps.",
+    "headline": "Interested in a New Build?",
+    "sourceTag": "new-construction-page",
+    "consentText": "By submitting, you agree to be contacted by Jin Pang about new construction opportunities."
+  },
+  "buyerJourney": {
+    "steps": [
+      "Community and floorplan discovery",
+      "Lot selection and pricing review",
+      "Contract and deposit strategy",
+      "Design center and upgrade decisions",
+      "Construction milestone check-ins",
+      "Final walkthrough and closing"
+    ],
+    "headline": "New Build Buyer Journey"
+  },
+  "upgradeStrategy": {
+    "items": [
+      "Prioritize structural and layout upgrades first.",
+      "Balance resale value vs. personal preference upgrades.",
+      "Plan total project budget including post-close needs."
+    ],
+    "headline": "Upgrade Strategy Guidance"
   },
   "whyBuyNewWithUs": {
-    "headline": "Why Buy New Construction With Jin Pang",
     "items": [
       {
         "title": "Pre-Market Access",
@@ -25,29 +55,10 @@
         "title": "Construction Guidance",
         "description": "Support through milestones, inspections, and contract details from deposit to closing."
       }
-    ]
-  },
-  "buyerJourney": {
-    "headline": "New Build Buyer Journey",
-    "steps": [
-      "Community and floorplan discovery",
-      "Lot selection and pricing review",
-      "Contract and deposit strategy",
-      "Design center and upgrade decisions",
-      "Construction milestone check-ins",
-      "Final walkthrough and closing"
-    ]
-  },
-  "upgradeStrategy": {
-    "headline": "Upgrade Strategy Guidance",
-    "items": [
-      "Prioritize structural and layout upgrades first.",
-      "Balance resale value vs. personal preference upgrades.",
-      "Plan total project budget including post-close needs."
-    ]
+    ],
+    "headline": "Why Buy New Construction With Jin Pang"
   },
   "builderResources": {
-    "headline": "Builder and Move-In Resources",
     "items": [
       {
         "title": "Inspection and Warranty Support",
@@ -61,18 +72,7 @@
         "title": "Post-Close Vendor Help",
         "description": "Recommendations for window treatments, landscaping, and finishing services."
       }
-    ]
-  },
-  "leadCapture": {
-    "headline": "Interested in a New Build?",
-    "subline": "Tell us your timeline and preferred communities, and we will guide next steps.",
-    "sourceTag": "new-construction-page",
-    "consentText": "By submitting, you agree to be contacted by Jin Pang about new construction opportunities."
-  },
-  "cta": {
-    "headline": "Plan Your New Construction Purchase",
-    "subline": "Talk with a specialist before you sign with a builder.",
-    "primaryActionLabel": "Schedule a New Build Consultation",
-    "primaryActionHref": "/contact"
+    ],
+    "headline": "Builder and Move-In Resources"
   }
 }

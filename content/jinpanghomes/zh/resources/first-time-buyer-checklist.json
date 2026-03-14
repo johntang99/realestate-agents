@@ -1,14 +1,17 @@
 {
+  "body": "本指南按时间线梳理从预批到交房的关键步骤，并提示常见风险。",
   "slug": "first-time-buyer-checklist",
-  "title": "首次购房清单",
-  "category": "buyer-guide",
+  "tags": [
+    "buyers",
+    "checklist"
+  ],
   "type": "resource",
+  "title": "首次购房清单",
   "author": "Jin Pang",
-  "publishDate": "2026-02-15",
-  "heroImage": "",
   "excerpt": "涵盖贷款、出价、验房和过户流程的实用清单。",
-  "readTime": "6 分钟",
+  "category": "buyer-guide",
   "featured": true,
-  "tags": ["buyers", "checklist"],
-  "body": "本指南按时间线梳理从预批到交房的关键步骤，并提示常见风险。"
+  "readTime": "6 分钟",
+  "heroImage": "",
+  "publishDate": "2026-02-15"
 }

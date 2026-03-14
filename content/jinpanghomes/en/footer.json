@@ -9,12 +9,24 @@
     {
       "links": [
         {
+          "href": "/services",
+          "label": "All Services"
+        },
+        {
           "href": "/buying",
           "label": "Buy a Home"
         },
         {
+          "href": "/services#buying",
+          "label": "Buying"
+        },
+        {
           "href": "/selling",
           "label": "Sell Your Home"
+        },
+        {
+          "href": "/services#selling",
+          "label": "Selling"
         },
         {
           "href": "/home-valuation",
@@ -100,10 +112,10 @@
     "mlsDisclaimer": "Listing information is from sources deemed reliable but not guaranteed and is provided exclusively for consumers' personal, non-commercial use.",
     "copyrightSuffix": "All rights reserved. Technical Support By baamplatform.com.",
     "principalBroker": "Panorama NY, Inc",
+    "brokerageAddress": "444 Peenpack Trl, Huguenot, NY 12746",
     "equalHousingText": "Panorama NY, Inc is an Equal Housing Opportunity brokerage. All information deemed reliable but not guaranteed.",
     "fairHousingStatement": "We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation.",
     "showEqualHousingLogo": true,
-    "principalBrokerLicense": "10301200XXX",
-    "brokerageAddress": "444 Peenpack Trl, Huguenot, NY 12746"
+    "principalBrokerLicense": "10301200XXX"
   }
 }
