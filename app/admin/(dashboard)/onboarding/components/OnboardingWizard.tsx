@@ -3,6 +3,8 @@
 import { useState, useCallback } from 'react';
 import { Button, Input, Select, Badge } from '@/components/ui';
 import Checkbox from '@/components/ui/Checkbox';
+import ImageDropzone from './ImageDropzone';
+import CollapsibleSection from './CollapsibleSection';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -100,10 +102,15 @@ const PIPELINE_STEPS = [
   { id: 'O7', label: 'Verify' },
 ];
 
-const LOCALE_MAP: Record<string, string> = { English: 'en', Chinese: 'zh' };
-const LANGUAGE_OPTIONS = ['English', 'Chinese'];
-
 const BROKER_LANGUAGE_OPTIONS = ['English', 'Chinese', 'Spanish', 'Korean'];
+const ONBOARDING_IMAGE_EXAMPLES = {
+  headerLogo:
+    'https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773200121536-jinpanghomes-logo1-black.png',
+  headerLogoTransparent:
+    'https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773200033589-jinpanghomes-logo1-white.png',
+  profileImage:
+    'https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1772432027218-screenshot-2026-03-02-at-1.12.32-am.png',
+};
 
 function createInitialAgent(): Agent {
   return {
@@ -147,68 +154,6 @@ async function parseApiError(response: Response, fallback: string) {
 }
 
 // ---------------------------------------------------------------------------
-// CollapsibleSection
-// ---------------------------------------------------------------------------
-
-function CollapsibleSection({
-  title,
-  defaultOpen,
-  badge,
-  children,
-}: {
-  title: string;
-  defaultOpen: boolean;
-  badge?: string;
-  children: React.ReactNode;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-
-  return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
-      <button
-        type="button"
-        className="w-full bg-gray-50 px-6 py-4 flex items-center justify-between cursor-pointer"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <div className="flex items-center gap-3">
-          <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
-          {badge && (
-            <Badge variant="info" size="sm">
-              {badge}
-            </Badge>
-          )}
-        </div>
-        <svg
-          className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
-            open ? 'rotate-180' : ''
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-      <div
-        className={`transition-all duration-200 ${
-          open
-            ? 'max-h-[4000px] opacity-100'
-            : 'max-h-0 opacity-0 overflow-hidden'
-        }`}
-      >
-        <div className="px-6 py-5 bg-white space-y-4">{children}</div>
-      </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
 // OnboardingWizard
 // ---------------------------------------------------------------------------
 
@@ -224,6 +169,14 @@ export function OnboardingWizard({ templateSites }: Props) {
   const [cloneFrom, setCloneFrom] = useState(
     templateSites[0]?.id || 'jinpanghomes',
   );
+  const [headerLogoUrl, setHeaderLogoUrl] = useState('');
+  const [headerLogoTransparentUrl, setHeaderLogoTransparentUrl] = useState('');
+  const [profileImageUrl, setProfileImageUrl] = useState('');
+
+  const [profileUploading, setProfileUploading] = useState(false);
+  const [headerLogoUploading, setHeaderLogoUploading] = useState(false);
+  const [headerLogoTransparentUploading, setHeaderLogoTransparentUploading] =
+    useState(false);
 
   // Section 2: Principal Broker Info
   const [brokerCompany, setBrokerCompany] = useState('');
@@ -451,6 +404,11 @@ export function OnboardingWizard({ templateSites }: Props) {
       services: {
         enabled: selectedVerticals,
       },
+      images: {
+        headerLogo: headerLogoUrl || undefined,
+        headerLogoTransparent: headerLogoTransparentUrl || undefined,
+        profileImage: profileImageUrl || undefined,
+      },
       brand: {
         variant: brandVariant,
         primaryColor: primaryOverride || undefined,
@@ -576,6 +534,9 @@ export function OnboardingWizard({ templateSites }: Props) {
     setBusinessName('');
     setSiteId('');
     setCloneFrom(templateSites[0]?.id || 'jinpanghomes');
+    setHeaderLogoUrl('');
+    setHeaderLogoTransparentUrl('');
+    setProfileImageUrl('');
     setBrokerCompany('');
     setBrokerTitle('Licensed Real Estate Broker');
     setLicenseState('');
@@ -881,6 +842,42 @@ export function OnboardingWizard({ templateSites }: Props) {
           options={templateSites.map((s) => ({ value: s.id, label: s.name }))}
           fullWidth
         />
+        <div className="space-y-4">
+          <ImageDropzone
+            siteId={siteId}
+            label="Agent Image"
+            uploading={profileUploading}
+            onUploaded={setProfileImageUrl}
+            setUploading={setProfileUploading}
+            currentUrl={profileImageUrl}
+            exampleImage={ONBOARDING_IMAGE_EXAMPLES.profileImage}
+            exampleTitle="Agent Image"
+            exampleDescription="Replaces the homepage intro image and the first image on the About page story."
+          />
+          <ImageDropzone
+            siteId={siteId}
+            label="Logo (White Background)"
+            uploading={headerLogoUploading}
+            onUploaded={setHeaderLogoUrl}
+            setUploading={setHeaderLogoUploading}
+            currentUrl={headerLogoUrl}
+            exampleImage={ONBOARDING_IMAGE_EXAMPLES.headerLogo}
+            exampleTitle="Header Logo"
+            exampleDescription="Replaces the standard logo in the site header after scroll."
+          />
+          <ImageDropzone
+            siteId={siteId}
+            label="Logo (Transparent Background)"
+            uploading={headerLogoTransparentUploading}
+            onUploaded={setHeaderLogoTransparentUrl}
+            setUploading={setHeaderLogoTransparentUploading}
+            currentUrl={headerLogoTransparentUrl}
+            exampleImage={ONBOARDING_IMAGE_EXAMPLES.headerLogoTransparent}
+            exampleTitle="Transparent Header Logo"
+            exampleDescription="Used on top of the hero when the header is transparent."
+            exampleDark
+          />
+        </div>
       </CollapsibleSection>
 
       {/* Section 2: Real Estate Agent */}

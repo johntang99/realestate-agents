@@ -148,9 +148,7 @@ function phoneToTel(phone: string): string {
 
 function normalizeStringArray(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value
-      .map((item) => String(item || '').trim())
-      .filter(Boolean);
+    return value.map((item) => String(item || '').trim()).filter(Boolean);
   }
   if (typeof value === 'string') {
     return value
@@ -1058,10 +1056,7 @@ export async function POST(request: NextRequest) {
 
           // 1. Single agent name
           if (intake.agent?.name) {
-            replacements.push([
-              'Jin Pang Leadership Team',
-              intake.agent.name,
-            ]);
+            replacements.push(['Jin Pang Leadership Team', intake.agent.name]);
           }
           // 2. Business name uppercase
           replacements.push(['JIN PANG HOMES', biz.name.toUpperCase()]);
@@ -1241,6 +1236,12 @@ export async function POST(request: NextRequest) {
               header.logoText = biz.name.toUpperCase();
               if (loc.phone) header.phone = loc.phone;
               if (header.logo) header.logo.alt = biz.name;
+              if (intake.images.headerLogo && header.logo) {
+                header.logo.src = intake.images.headerLogo;
+              }
+              if (intake.images.headerLogoTransparent) {
+                header.logoTransparent = intake.images.headerLogoTransparent;
+              }
               await upsert(
                 'content_entries',
                 [
@@ -1390,6 +1391,9 @@ export async function POST(request: NextRequest) {
                 const shortName = agent.name.split(',')[0].trim();
                 home.teamPreview.headline = `Meet ${shortName}`;
               }
+              if (home.intro) {
+                home.intro.image = intake.images.profileImage;
+              }
               await upsert(
                 'content_entries',
                 [
@@ -1403,6 +1407,34 @@ export async function POST(request: NextRequest) {
                 ],
                 'site_id,locale,path',
               );
+            }
+
+            // pages/about.json — update story image from uploaded agent image
+            if (intake.images?.profileImage) {
+              const aboutRows = await fetchRows('content_entries', {
+                site_id: SITE_ID,
+                locale,
+                path: 'pages/about.json',
+              });
+              if (aboutRows[0]?.content) {
+                const about = aboutRows[0].content;
+                if (about.story?.blocks?.[0]) {
+                  about.story.blocks[0].image = intake.images.profileImage;
+                }
+                await upsert(
+                  'content_entries',
+                  [
+                    {
+                      site_id: SITE_ID,
+                      locale,
+                      path: 'pages/about.json',
+                      content: about,
+                      updated_by: 'onboard-api',
+                    },
+                  ],
+                  'site_id,locale,path',
+                );
+              }
             }
             // If no agent name is provided, template agents are kept as-is
             // (their names were already swapped by the deep-replace step above)
@@ -1594,6 +1626,9 @@ export async function POST(request: NextRequest) {
                       });
                     }
                   }
+                }
+                if (about.story?.blocks?.[0]) {
+                  about.story.blocks[0].image = intake.images.profileImage;
                 }
                 await upsert(
                   'content_entries',

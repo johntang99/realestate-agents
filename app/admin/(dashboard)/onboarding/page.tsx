@@ -1,7 +1,7 @@
 import { getSession } from '@/lib/admin/auth';
 import { isSuperAdmin } from '@/lib/admin/permissions';
 import { getSites } from '@/lib/sites';
-import { OnboardingWizard } from '@/components/admin/OnboardingWizard';
+import { OnboardingWizard } from './components/OnboardingWizard';
 
 export default async function AdminOnboardingPage() {
   const session = await getSession();
