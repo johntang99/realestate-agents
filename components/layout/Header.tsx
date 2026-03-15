@@ -59,6 +59,7 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
     { label: 'Sell', href: '/selling' },
     { label: 'Invest', href: '/investing' },
     { label: 'Relocate', href: '/relocating' },
+    { label: 'Services', href: '/services' },
     { label: 'Properties', href: '/properties' },
     { label: 'Neighbourhood', href: '/neighborhoods' },
     { label: 'Blog', href: '/knowledge-center' },
@@ -66,6 +67,24 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ];
+  const normalizedNavItems = (() => {
+    const hasServicesLink = navItems.some((item) => item.href === '/services');
+    if (hasServicesLink) return navItems;
+
+    const servicesItem = {
+      label: locale === 'zh' ? '服务' : 'Services',
+      labelCn: '服务',
+      href: '/services',
+    };
+
+    const relocateIndex = navItems.findIndex((item) => item.href === '/relocating');
+    if (relocateIndex >= 0) {
+      const copy = [...navItems];
+      copy.splice(relocateIndex + 1, 0, servicesItem);
+      return copy;
+    }
+    return [...navItems, servicesItem];
+  })();
   const cta = config.ctaButton || { label: 'Schedule Consultation', href: '/contact' };
   const logoText = config.logoText || (siteInfo as any)?.name || 'Alexandra Reeves';
   const getLogoSrc = (logoValue: unknown): string | undefined => {
@@ -228,7 +247,7 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
-            {navItems.map(item => (
+            {normalizedNavItems.map(item => (
               <Link key={item.href} href={`/${locale}${item.href}`}
                 className={navLink}
                 style={{ color: isSolid ? 'var(--primary)' : '#ffffff', textShadow: isSolid ? 'none' : '0 1px 2px rgba(0,0,0,0.45)' }}>
@@ -271,7 +290,7 @@ export default function Header({ locale, siteInfo, headerConfig }: HeaderProps) 
           </button>
         </div>
         <nav className="flex flex-col gap-1 px-6 py-6 flex-1">
-          {navItems.map(item => (
+          {normalizedNavItems.map(item => (
             <Link key={item.href} href={`/${locale}${item.href}`}
               onClick={() => setMobileOpen(false)}
               className="font-serif text-2xl font-medium text-white py-3 border-b border-white/10 hover:opacity-70 transition-opacity">
