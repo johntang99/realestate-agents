@@ -29,6 +29,18 @@
       "domain": "onboard-e2e-1773015602.local",
       "environment": "dev",
       "enabled": true
+    },
+    {
+      "siteId": "tom-wang-homes",
+      "domain": "tomwanghomes.com",
+      "environment": "prod",
+      "enabled": true
+    },
+    {
+      "siteId": "tom-wang-homes",
+      "domain": "tom-wang-homes.local",
+      "environment": "dev",
+      "enabled": true
     }
   ]
 }

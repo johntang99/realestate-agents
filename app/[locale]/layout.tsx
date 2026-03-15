@@ -3,7 +3,14 @@ import { headers } from 'next/headers';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { defaultLocale, locales, type Locale } from '@/lib/i18n';
 import { getDefaultSite, getSiteById } from '@/lib/sites';
-import { getRequestSiteId, loadContent, loadFooter, loadSeo, loadTheme, loadSiteInfo } from '@/lib/content';
+import {
+  getRequestSiteId,
+  loadContent,
+  loadFooter,
+  loadSeo,
+  loadTheme,
+  loadSiteInfo,
+} from '@/lib/content';
 import type { SeoConfig, SiteInfo } from '@/lib/types';
 import Header, { type JuliaHeaderConfig } from '@/components/layout/Header';
 import Footer, { type JuliaFooterData } from '@/components/layout/Footer';
@@ -28,15 +35,25 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}) {
   const host = headers().get('host');
   const baseUrl = getBaseUrlFromHost(host);
   const requestSiteId = await getRequestSiteId();
   const site = (await getSiteById(requestSiteId)) || (await getDefaultSite());
   const locale = params.locale as Locale;
-  const seo = site ? await loadSeo(site.id, locale) as SeoConfig | null : null;
+  console.log(site, locale);
+  const seo = site
+    ? ((await loadSeo(site.id, locale)) as SeoConfig | null)
+    : null;
   const languageAlternates = Object.fromEntries(
-    locales.map((entryLocale) => [entryLocale, new URL(`/${entryLocale}`, baseUrl).toString()])
+    locales.map((entryLocale) => [
+      entryLocale,
+      new URL(`/${entryLocale}`, baseUrl).toString(),
+    ]),
   );
 
   return {
@@ -45,7 +62,9 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       default: seo?.title || 'Jin Pang Homes — Port Jervis Real Estate',
       template: seo?.titleTemplate || '%s | Jin Pang Homes',
     },
-    description: seo?.description || 'Jin Pang Homes provides trusted guidance for buying, selling, investing, and relocating in Port Jervis and Orange County, NY.',
+    description:
+      seo?.description ||
+      'Jin Pang Homes provides trusted guidance for buying, selling, investing, and relocating in Port Jervis and Orange County, NY.',
     alternates: {
       canonical: new URL(`/${locale}`, baseUrl).toString(),
       languages: {
@@ -81,7 +100,12 @@ export default async function LocaleLayout({
 
   const requestSiteId = await getRequestSiteId();
   const site = (await getSiteById(requestSiteId)) || (await getDefaultSite());
-  if (!site) return <div style={{ padding: '2rem', fontFamily: 'serif' }}>No site configured.</div>;
+  if (!site)
+    return (
+      <div style={{ padding: '2rem', fontFamily: 'serif' }}>
+        No site configured.
+      </div>
+    );
 
   const [theme, headerConfig, footer, siteInfo] = await Promise.all([
     loadTheme(site.id),
@@ -143,14 +167,19 @@ export default async function LocaleLayout({
     --effect-badge-radius: ${fx.badgeRadius || '4px'};
     --effect-transition-base: ${fx.transitionBase || '200ms ease'};
     --effect-card-shadow: ${fx.cardShadow || '0 2px 12px rgba(26,39,68,0.08)'};
-    --effect-card-shadow-hover: ${fx.cardShadowHover || '0 8px 32px rgba(26,39,68,0.16)'};
+    --effect-card-shadow-hover: ${
+      fx.cardShadowHover || '0 8px 32px rgba(26,39,68,0.16)'
+    };
     --photo-shadow: ${fx.photoShadow || '0 4px 24px rgba(26,39,68,0.14)'};
   }`;
 
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: cssVars }} />
-      <div className={`min-h-screen flex flex-col ${cormorant.variable} ${inter.variable}`} style={{ background: 'var(--backdrop-primary, #F8F6F2)' }}>
+      <div
+        className={`min-h-screen flex flex-col ${cormorant.variable} ${inter.variable}`}
+        style={{ background: 'var(--backdrop-primary, #F8F6F2)' }}
+      >
         <Header
           locale={locale as Locale}
           siteId={site.id}
@@ -163,7 +192,9 @@ export default async function LocaleLayout({
           phone={(siteInfo as any)?.phone}
           smsPhone={(siteInfo as any)?.smsPhone}
           ctaHref={(headerConfig as any)?.ctaButton?.href || '/contact'}
-          ctaLabel={(headerConfig as any)?.ctaButton?.label || 'Schedule Consultation'}
+          ctaLabel={
+            (headerConfig as any)?.ctaButton?.label || 'Schedule Consultation'
+          }
         />
         <ChatWidgetLoader
           siteId={site.id}

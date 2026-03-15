@@ -24,6 +24,18 @@
       ],
       "createdAt": "2026-03-09T00:20:05.131Z",
       "updatedAt": "2026-03-09T00:20:05.131Z"
+    },
+    {
+      "id": "tom-wang-homes",
+      "name": "Tom Wang Homes",
+      "domain": "tomwanghomes.com",
+      "enabled": true,
+      "defaultLocale": "en",
+      "supportedLocales": [
+        "en"
+      ],
+      "createdAt": "2026-03-15T03:24:59.382Z",
+      "updatedAt": "2026-03-15T03:24:59.382Z"
     }
   ]
 }

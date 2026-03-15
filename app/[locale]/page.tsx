@@ -236,7 +236,9 @@ function PropertyCard({ p, locale }: { p: Property; locale: string }) {
         )}
         <div className="absolute top-3 left-3">
           <span
-            className={`px-2 py-1 text-xs font-semibold text-white rounded ${STATUS_BADGE[p.status || ''] || 'bg-gray-500'}`}
+            className={`px-2 py-1 text-xs font-semibold text-white rounded ${
+              STATUS_BADGE[p.status || ''] || 'bg-gray-500'
+            }`}
             style={{ borderRadius: 'var(--effect-badge-radius)' }}
           >
             {statusLabels[p.status || ''] || p.status}
@@ -399,7 +401,9 @@ function HeroSlideshow({
       <div
         className="absolute inset-0"
         style={{
-          background: `linear-gradient(to top right, rgba(26,39,68,${overlayOpacity ?? 0.28}) 0%, rgba(26,39,68,0.12) 42%, rgba(26,39,68,0.03) 72%, transparent 100%)`,
+          background: `linear-gradient(to top right, rgba(26,39,68,${
+            overlayOpacity ?? 0.28
+          }) 0%, rgba(26,39,68,0.12) 42%, rgba(26,39,68,0.03) 72%, transparent 100%)`,
         }}
       />
       {/* Slide dots */}
@@ -409,7 +413,9 @@ function HeroSlideshow({
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${i === active ? 'bg-white w-6' : 'bg-white/40 w-2'}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === active ? 'bg-white w-6' : 'bg-white/40 w-2'
+              }`}
             />
           ))}
         </div>
@@ -956,7 +962,7 @@ export default function HomePage() {
                 {home.intro.image ? (
                   <Image
                     src={home.intro.image}
-                    alt="Jin Pang Homes"
+                    alt="agent photo"
                     fill
                     className="object-cover"
                     sizes="50vw"
@@ -1008,7 +1014,9 @@ export default function HomePage() {
                 )}
               </div>
               <Link
-                href={`/${locale}${home.featuredListings?.ctaHref || '/properties'}`}
+                href={`/${locale}${
+                  home.featuredListings?.ctaHref || '/properties'
+                }`}
                 className="hidden md:flex items-center gap-2 text-sm font-semibold group"
                 style={{ color: 'var(--secondary)' }}
               >
@@ -1030,12 +1038,6 @@ export default function HomePage() {
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <p
-                className="text-xs font-semibold uppercase tracking-widest mb-2"
-                style={{ color: 'var(--secondary)' }}
-              >
-                {ui.whyJinPangTag}
-              </p>
               <h2
                 className="font-serif text-3xl md:text-4xl font-semibold"
                 style={{
@@ -1105,13 +1107,19 @@ export default function HomePage() {
               {stripTests.map((t, i) => (
                 <div
                   key={i}
-                  className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 px-4 ${i === activeTestimonial % stripTests.length ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                  className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 px-4 ${
+                    i === activeTestimonial % stripTests.length
+                      ? 'opacity-100'
+                      : 'opacity-0 pointer-events-none'
+                  }`}
                 >
                   <div className="flex gap-1 mb-5">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <Star
                         key={s}
-                        className={`w-4 h-4 ${s <= (t.rating || 5) ? 'fill-current' : ''}`}
+                        className={`w-4 h-4 ${
+                          s <= (t.rating || 5) ? 'fill-current' : ''
+                        }`}
                         style={{ color: 'var(--gold-star)' }}
                       />
                     ))}
@@ -1139,7 +1147,11 @@ export default function HomePage() {
                   <button
                     key={i}
                     onClick={() => setActiveTestimonial(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${i === activeTestimonial % stripTests.length ? 'w-6' : 'w-2 bg-white/30'}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === activeTestimonial % stripTests.length
+                        ? 'w-6'
+                        : 'w-2 bg-white/30'
+                    }`}
                     style={{
                       background:
                         i === activeTestimonial % stripTests.length
@@ -1186,7 +1198,9 @@ export default function HomePage() {
                 )}
               </div>
               <Link
-                href={`/${locale}${home.neighborhoodSpotlight?.ctaHref || '/neighborhoods'}`}
+                href={`/${locale}${
+                  home.neighborhoodSpotlight?.ctaHref || '/neighborhoods'
+                }`}
                 className="hidden md:flex items-center gap-2 text-sm font-semibold group"
                 style={{ color: 'var(--secondary)' }}
               >
@@ -1286,7 +1300,9 @@ export default function HomePage() {
                 )}
               </div>
               <Link
-                href={`/${locale}${home.marketReportTeaser.ctaHref || '/market-reports'}`}
+                href={`/${locale}${
+                  home.marketReportTeaser.ctaHref || '/market-reports'
+                }`}
                 className="btn-gold flex-shrink-0 px-8 py-3.5"
               >
                 {home.marketReportTeaser.ctaLabel || ui.readFullReport}
@@ -1364,7 +1380,9 @@ export default function HomePage() {
                 </h2>
               </div>
               <Link
-                href={`/${locale}${home.knowledgeCenterPreview?.ctaHref || '/knowledge-center'}`}
+                href={`/${locale}${
+                  home.knowledgeCenterPreview?.ctaHref || '/knowledge-center'
+                }`}
                 className="hidden md:flex items-center gap-2 text-sm font-semibold group"
                 style={{ color: 'var(--secondary)' }}
               >
@@ -1481,7 +1499,9 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href={`/${locale}${home.consultationCta?.ctaHref || '/contact'}`}
+                href={`/${locale}${
+                  home.consultationCta?.ctaHref || '/contact'
+                }`}
                 className="btn-gold text-sm px-8 py-3.5"
               >
                 {home.consultationCta?.ctaLabel || ui.scheduleConsultation}
