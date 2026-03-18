@@ -680,3 +680,21 @@ html {
     min-height: 40px;
   }
 }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.prose thead tr {
+  background: #f8fafc;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #e5e7eb;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}

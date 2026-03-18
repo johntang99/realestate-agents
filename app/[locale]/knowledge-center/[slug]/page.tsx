@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { AgentCard, type AgentData } from '@/components/ui/AgentCard';
 
 export default function KnowledgeCenterPostPage() {
@@ -36,6 +38,12 @@ export default function KnowledgeCenterPostPage() {
   if (loading) return <div className="min-h-screen flex items-center justify-center"><div className="w-8 h-8 border-2 rounded-full animate-spin" style={{ borderColor: 'var(--secondary)', borderTopColor: 'transparent' }} /></div>;
   if (!post) return <div className="min-h-screen flex items-center justify-center pt-20"><p style={{ color: 'var(--text-secondary)' }}>Post not found.</p></div>;
 
+  const normalizedBody = String(post.body || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\|\s+\|(?=(?:-+:?|:?-+|[A-Za-z0-9"']))/g, '|\n|')
+    .replace(/([^\n])\n-\s+/g, '$1\n\n- ')
+    .replace(/([^\n])\n\*\s+/g, '$1\n\n- ');
+
   return (
     <>
       <div className="pt-20" style={{ background: 'var(--primary)' }}>
@@ -62,7 +70,28 @@ export default function KnowledgeCenterPostPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12">
             <article>
               {post.excerpt && <p className="text-lg font-medium mb-8 pb-8 border-b border-[var(--border)]" style={{ color: 'var(--text-secondary)' }}>{post.excerpt}</p>}
-              <div className="editorial-body whitespace-pre-wrap">{post.body}</div>
+              <div className="editorial-body prose max-w-none">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    table: (props) => (
+                      <div className="my-6 overflow-x-auto">
+                        <table className="min-w-full border border-gray-200 rounded-lg" {...props} />
+                      </div>
+                    ),
+                    thead: (props) => <thead className="bg-gray-50" {...props} />,
+                    tr: (props) => <tr className="border-b border-gray-200" {...props} />,
+                    th: (props) => (
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 align-top border-r border-gray-200 last:border-r-0" {...props} />
+                    ),
+                    td: (props) => (
+                      <td className="px-4 py-3 text-sm text-gray-700 align-top border-r border-gray-200 last:border-r-0" {...props} />
+                    ),
+                  }}
+                >
+                  {normalizedBody}
+                </ReactMarkdown>
+              </div>
             </article>
             <aside className="space-y-6">
               {author && (

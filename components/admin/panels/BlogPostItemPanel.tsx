@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Props {
   formData: any;
@@ -21,6 +23,11 @@ const CATEGORIES = [
 
 export function BlogPostItemPanel({ formData, updateFormValue, openImagePicker }: Props) {
   const f = formData || {};
+  const normalizedBody = String(f.body || '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\|\s+\|(?=(?:-+:?|:?-+|[A-Za-z0-9"']))/g, '|\n|')
+    .replace(/([^\n])\n-\s+/g, '$1\n\n- ')
+    .replace(/([^\n])\n\*\s+/g, '$1\n\n- ');
 
   return (
     <div className="space-y-6">
@@ -104,6 +111,31 @@ export function BlogPostItemPanel({ formData, updateFormValue, openImagePicker }
         <h3 className="text-sm font-bold text-gray-700 mb-3">Body (Markdown)</h3>
         <textarea rows={14} className={`${inputCls} font-mono text-xs`} value={f.body || ''} onChange={e => updateFormValue('body', e.target.value)} placeholder="## Heading&#10;&#10;Paragraph text..." />
         <p className="text-xs text-gray-400 mt-1">Supports: ## headings, **bold**, *italic*, bullet lists</p>
+        <div className="mt-3 rounded-md border border-gray-200 p-3">
+          <div className="mb-2 text-xs font-semibold uppercase text-gray-500">Preview</div>
+          <div className="prose prose-sm max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                table: (props) => (
+                  <div className="my-4 overflow-x-auto">
+                    <table className="min-w-full border border-gray-200 rounded-md" {...props} />
+                  </div>
+                ),
+                thead: (props) => <thead className="bg-gray-50" {...props} />,
+                tr: (props) => <tr className="border-b border-gray-200" {...props} />,
+                th: (props) => (
+                  <th className="px-3 py-2 text-left text-xs font-semibold text-gray-800 align-top border-r border-gray-200 last:border-r-0" {...props} />
+                ),
+                td: (props) => (
+                  <td className="px-3 py-2 text-xs text-gray-700 align-top border-r border-gray-200 last:border-r-0" {...props} />
+                ),
+              }}
+            >
+              {normalizedBody}
+            </ReactMarkdown>
+          </div>
+        </div>
       </div>
 
       {/* Neighborhood link */}
