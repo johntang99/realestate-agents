@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { GoalEntryPaths } from '@/components/sections/GoalEntryPaths';
 import { TrustPromise } from '@/components/sections/TrustPromise';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface Slide {
@@ -364,7 +365,6 @@ function HeroSlideshow({
   overlayOpacity?: number;
 }) {
   const [active, setActive] = useState(0);
-  const currentSlide = slides[active];
   useEffect(() => {
     if (slides.length <= 1) return;
     const t = setInterval(
@@ -377,33 +377,52 @@ function HeroSlideshow({
   return (
     <section className="relative h-screen min-h-[640px] overflow-hidden flex items-end">
       <div
-        key={active}
-        className="absolute inset-0 transition-opacity duration-700 opacity-100"
-      >
-        {currentSlide?.image ? (
-          <Image
-            src={currentSlide.image}
-            alt={currentSlide.alt || ''}
-            fill
-            className="object-cover"
-            priority={active === 0}
-            sizes="100vw"
-            quality={68}
-          />
-        ) : (
-          <div
-            className="w-full h-full"
-            style={{ background: 'var(--primary)' }}
-          />
-        )}
-      </div>
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(135deg, #1A2744 0%, #24385D 100%)',
+        }}
+      />
+      {slides.map((slide, index) => (
+        <div
+          key={`${slide.image || slide.video || 'slide'}-${index}`}
+          className={`absolute inset-0 transition-opacity duration-[1400ms] ease-in-out ${
+            index === active ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          {slide?.image ? (
+            <Image
+              src={slide.image}
+              alt={slide.alt || ''}
+              fill
+              className={`object-cover transition-transform duration-[7000ms] ease-out ${
+                index === active ? 'scale-100' : 'scale-105'
+              }`}
+              priority={index === 0}
+              sizes="100vw"
+              quality={68}
+            />
+          ) : (
+            <div
+              className="w-full h-full"
+              style={{ background: 'var(--primary)' }}
+            />
+          )}
+        </div>
+      ))}
       {/* Directional gradient — bright photo, readable text */}
       <div
         className="absolute inset-0"
         style={{
           background: `linear-gradient(to top right, rgba(26,39,68,${
             overlayOpacity ?? 0.28
-          }) 0%, rgba(26,39,68,0.12) 42%, rgba(26,39,68,0.03) 72%, transparent 100%)`,
+          }) 0%, rgba(26,39,68,0.18) 34%, rgba(26,39,68,0.08) 62%, rgba(26,39,68,0.02) 82%, transparent 100%)`,
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(to top, rgba(8, 15, 31, 0.42) 0%, rgba(8, 15, 31, 0.12) 28%, rgba(8, 15, 31, 0) 58%)',
         }}
       />
       {/* Slide dots */}
@@ -893,107 +912,170 @@ export default function HomePage() {
       )}
 
       {/* 2. GOAL ENTRY PATHS */}
-      <GoalEntryPaths
-        headline={home.goalPaths?.headline || ui.goalPathsHeadline}
-        items={home.goalPaths?.items}
-        locale={locale}
-      />
+      <ScrollReveal distance={40} duration={860}>
+        <GoalEntryPaths
+          headline={home.goalPaths?.headline || ui.goalPathsHeadline}
+          items={home.goalPaths?.items}
+          locale={locale}
+        />
+      </ScrollReveal>
 
-      <TrustPromise locale={locale} />
+      <ScrollReveal distance={36} duration={820}>
+        <TrustPromise locale={locale} />
+      </ScrollReveal>
 
       {/* 3. STATS BAR */}
-      <section className="py-14" style={{ background: 'var(--backdrop-dark)' }}>
-        <div className="container-custom">
-          <div className="flex flex-wrap justify-center">
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="w-1/2 md:w-1/3 lg:w-[220px] border-r border-white/10 last:border-r-0"
-              >
-                <AnimatedStat item={item} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. BROKERAGE INTRO */}
-      {home.intro && (
-        <section className="section-padding bg-white">
+      <ScrollReveal distance={34} duration={800}>
+        <section
+          className="py-14"
+          style={{ background: 'var(--backdrop-dark)' }}
+        >
           <div className="container-custom">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <p
-                  className="text-xs font-semibold uppercase tracking-[0.25em] mb-4"
-                  style={{ color: 'var(--secondary)' }}
+            <div className="flex flex-wrap justify-center">
+              {stats.map((item, i) => (
+                <div
+                  key={i}
+                  className="w-1/2 md:w-1/3 lg:w-[220px] border-r border-white/10 last:border-r-0"
                 >
-                  {ui.ourStoryTag}
-                </p>
-                <h2
-                  className="font-serif text-3xl md:text-4xl font-semibold mb-6"
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    color: 'var(--primary)',
-                  }}
-                >
-                  {home.intro.headline || ui.introFallbackHeadline}
-                </h2>
-                <p
-                  className="text-base leading-relaxed mb-7"
-                  style={{ color: 'var(--text-secondary)', lineHeight: '1.85' }}
-                >
-                  {home.intro.body}
-                </p>
-                {home.intro.ctaHref && (
-                  <Link
-                    href={`/${locale}${home.intro.ctaHref}`}
-                    className="inline-flex items-center gap-2 font-semibold group"
-                    style={{ color: 'var(--secondary)' }}
-                  >
-                    {home.intro.ctaLabel || ui.ourStoryTag}{' '}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                )}
-              </div>
-              <div
-                className="relative aspect-[4/3] rounded-xl overflow-hidden"
-                style={{ boxShadow: 'var(--photo-shadow)' }}
-              >
-                {home.intro.image ? (
-                  <Image
-                    src={home.intro.image}
-                    alt="agent photo"
-                    fill
-                    className="object-cover"
-                    sizes="50vw"
-                  />
-                ) : (
-                  <div
-                    className="w-full h-full"
-                    style={{ background: 'var(--backdrop-mid)' }}
-                  />
-                )}
-              </div>
+                  <AnimatedStat item={item} />
+                </div>
+              ))}
             </div>
           </div>
         </section>
+      </ScrollReveal>
+
+      {/* 4. BROKERAGE INTRO */}
+      {home.intro && (
+        <ScrollReveal distance={56} duration={1000}>
+          <section className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                  <p
+                    className="text-xs font-semibold uppercase tracking-[0.25em] mb-4"
+                    style={{ color: 'var(--secondary)' }}
+                  >
+                    {ui.ourStoryTag}
+                  </p>
+                  <h2
+                    className="font-serif text-3xl md:text-4xl font-semibold mb-6"
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      color: 'var(--primary)',
+                    }}
+                  >
+                    {home.intro.headline || ui.introFallbackHeadline}
+                  </h2>
+                  <p
+                    className="text-base leading-relaxed mb-7"
+                    style={{
+                      color: 'var(--text-secondary)',
+                      lineHeight: '1.85',
+                    }}
+                  >
+                    {home.intro.body}
+                  </p>
+                  {home.intro.ctaHref && (
+                    <Link
+                      href={`/${locale}${home.intro.ctaHref}`}
+                      className="inline-flex items-center gap-2 font-semibold group"
+                      style={{ color: 'var(--secondary)' }}
+                    >
+                      {home.intro.ctaLabel || ui.ourStoryTag}{' '}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  )}
+                </div>
+                <div
+                  className="relative aspect-[4/3] rounded-xl overflow-hidden"
+                  style={{ boxShadow: 'var(--photo-shadow)' }}
+                >
+                  {home.intro.image ? (
+                    <Image
+                      src={home.intro.image}
+                      alt="agent photo"
+                      fill
+                      className="object-cover"
+                      sizes="50vw"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full"
+                      style={{ background: 'var(--backdrop-mid)' }}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
       )}
 
       {/* 5. FEATURED LISTINGS */}
       {featuredProps.length > 0 && (
-        <section
-          className="section-padding"
-          style={{ background: 'var(--backdrop-light)' }}
-        >
-          <div className="container-custom">
-            <div className="flex items-end justify-between mb-8">
-              <div>
-                <p
-                  className="text-xs font-semibold uppercase tracking-widest mb-2"
+        <ScrollReveal distance={52} duration={960}>
+          <section
+            className="section-padding"
+            style={{ background: 'var(--backdrop-light)' }}
+          >
+            <div className="container-custom">
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <p
+                    className="text-xs font-semibold uppercase tracking-widest mb-2"
+                    style={{ color: 'var(--secondary)' }}
+                  >
+                    {ui.listingsTag}
+                  </p>
+                  <h2
+                    className="font-serif text-3xl md:text-4xl font-semibold"
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      color: 'var(--primary)',
+                    }}
+                  >
+                    {home.featuredListings?.headline ||
+                      ui.featuredListingsFallbackHeadline}
+                  </h2>
+                  {home.featuredListings?.subline && (
+                    <p
+                      className="text-sm mt-2"
+                      style={{ color: 'var(--text-secondary)' }}
+                    >
+                      {home.featuredListings.subline}
+                    </p>
+                  )}
+                </div>
+                <Link
+                  href={`/${locale}${
+                    home.featuredListings?.ctaHref || '/properties'
+                  }`}
+                  className="hidden md:flex items-center gap-2 text-sm font-semibold group"
                   style={{ color: 'var(--secondary)' }}
                 >
-                  {ui.listingsTag}
-                </p>
+                  {home.featuredListings?.ctaLabel || ui.viewAll}{' '}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {featuredProps.map((p, index) => (
+                  <ScrollReveal key={p.slug} delay={index * 120}>
+                    <PropertyCard p={p} locale={locale} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+      )}
+
+      {/* 6. WHY CHOOSE US */}
+      {home.whyChooseUs?.items && home.whyChooseUs.items.length > 0 && (
+        <ScrollReveal distance={48} duration={920}>
+          <section className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="text-center mb-12">
                 <h2
                   className="font-serif text-3xl md:text-4xl font-semibold"
                   style={{
@@ -1001,92 +1083,50 @@ export default function HomePage() {
                     color: 'var(--primary)',
                   }}
                 >
-                  {home.featuredListings?.headline ||
-                    ui.featuredListingsFallbackHeadline}
+                  {home.whyChooseUs.headline || ui.whyJinPangFallbackHeadline}
                 </h2>
-                {home.featuredListings?.subline && (
-                  <p
-                    className="text-sm mt-2"
-                    style={{ color: 'var(--text-secondary)' }}
-                  >
-                    {home.featuredListings.subline}
-                  </p>
-                )}
               </div>
-              <Link
-                href={`/${locale}${
-                  home.featuredListings?.ctaHref || '/properties'
-                }`}
-                className="hidden md:flex items-center gap-2 text-sm font-semibold group"
-                style={{ color: 'var(--secondary)' }}
-              >
-                {home.featuredListings?.ctaLabel || ui.viewAll}{' '}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {home.whyChooseUs.items.map((item, i) => (
+                  <ScrollReveal key={i} delay={i * 120}>
+                    <div
+                      className="p-7 border border-[var(--border)] rounded-xl"
+                      style={{
+                        borderRadius: 'var(--effect-card-radius)',
+                        boxShadow: 'var(--effect-card-shadow)',
+                      }}
+                    >
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+                        style={{ background: 'var(--backdrop-mid)' }}
+                      >
+                        <MapPin
+                          className="w-5 h-5"
+                          style={{ color: 'var(--secondary)' }}
+                        />
+                      </div>
+                      <h3
+                        className="font-serif text-lg font-semibold mb-2"
+                        style={{
+                          fontFamily: 'var(--font-heading)',
+                          color: 'var(--primary)',
+                        }}
+                      >
+                        {item.heading}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: 'var(--text-secondary)' }}
+                      >
+                        {item.description}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredProps.map((p) => (
-                <PropertyCard key={p.slug} p={p} locale={locale} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 6. WHY CHOOSE US */}
-      {home.whyChooseUs?.items && home.whyChooseUs.items.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2
-                className="font-serif text-3xl md:text-4xl font-semibold"
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--primary)',
-                }}
-              >
-                {home.whyChooseUs.headline || ui.whyJinPangFallbackHeadline}
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {home.whyChooseUs.items.map((item, i) => (
-                <div
-                  key={i}
-                  className="p-7 border border-[var(--border)] rounded-xl"
-                  style={{
-                    borderRadius: 'var(--effect-card-radius)',
-                    boxShadow: 'var(--effect-card-shadow)',
-                  }}
-                >
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                    style={{ background: 'var(--backdrop-mid)' }}
-                  >
-                    <MapPin
-                      className="w-5 h-5"
-                      style={{ color: 'var(--secondary)' }}
-                    />
-                  </div>
-                  <h3
-                    className="font-serif text-lg font-semibold mb-2"
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      color: 'var(--primary)',
-                    }}
-                  >
-                    {item.heading}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: 'var(--text-secondary)' }}
-                  >
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
       )}
 
       {/* 8. TESTIMONIAL STRIP */}
@@ -1168,104 +1208,107 @@ export default function HomePage() {
 
       {/* 9. NEIGHBORHOOD SPOTLIGHT */}
       {spotlightNbs.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="flex items-end justify-between mb-8">
-              <div>
-                <p
-                  className="text-xs font-semibold uppercase tracking-widest mb-2"
+        <ScrollReveal distance={52} duration={960}>
+          <section className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <p
+                    className="text-xs font-semibold uppercase tracking-widest mb-2"
+                    style={{ color: 'var(--secondary)' }}
+                  >
+                    {ui.localExpertiseTag}
+                  </p>
+                  <h2
+                    className="font-serif text-3xl md:text-4xl font-semibold"
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      color: 'var(--primary)',
+                    }}
+                  >
+                    {home.neighborhoodSpotlight?.headline ||
+                      ui.exploreNeighborhoods}
+                  </h2>
+                  {home.neighborhoodSpotlight?.subline && (
+                    <p
+                      className="text-sm mt-2"
+                      style={{ color: 'var(--text-secondary)' }}
+                    >
+                      {home.neighborhoodSpotlight.subline}
+                    </p>
+                  )}
+                </div>
+                <Link
+                  href={`/${locale}${
+                    home.neighborhoodSpotlight?.ctaHref || '/neighborhoods'
+                  }`}
+                  className="hidden md:flex items-center gap-2 text-sm font-semibold group"
                   style={{ color: 'var(--secondary)' }}
                 >
-                  {ui.localExpertiseTag}
-                </p>
-                <h2
-                  className="font-serif text-3xl md:text-4xl font-semibold"
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    color: 'var(--primary)',
-                  }}
-                >
-                  {home.neighborhoodSpotlight?.headline ||
-                    ui.exploreNeighborhoods}
-                </h2>
-                {home.neighborhoodSpotlight?.subline && (
-                  <p
-                    className="text-sm mt-2"
-                    style={{ color: 'var(--text-secondary)' }}
-                  >
-                    {home.neighborhoodSpotlight.subline}
-                  </p>
-                )}
-              </div>
-              <Link
-                href={`/${locale}${
-                  home.neighborhoodSpotlight?.ctaHref || '/neighborhoods'
-                }`}
-                className="hidden md:flex items-center gap-2 text-sm font-semibold group"
-                style={{ color: 'var(--secondary)' }}
-              >
-                {home.neighborhoodSpotlight?.ctaLabel || ui.allNeighborhoods}{' '}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {spotlightNbs.map((nb) => (
-                <Link
-                  key={nb.slug}
-                  href={`/${locale}/neighborhoods/${nb.slug}`}
-                  className="group relative overflow-hidden rounded-xl"
-                  style={{
-                    borderRadius: 'var(--effect-card-radius)',
-                    boxShadow: 'var(--effect-card-shadow)',
-                  }}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    {nb.coverImage ? (
-                      <Image
-                        src={nb.coverImage}
-                        alt={nb.name || ''}
-                        fill
-                        className="object-cover transition-transform duration-600 group-hover:scale-105"
-                        sizes="33vw"
-                      />
-                    ) : (
-                      <div
-                        className="w-full h-full"
-                        style={{ background: 'var(--backdrop-mid)' }}
-                      />
-                    )}
-                    <div
-                      className="absolute inset-0 transition-opacity duration-300"
-                      style={{
-                        background:
-                          'linear-gradient(to top, rgba(26,39,68,0.65) 0%, rgba(26,39,68,0.2) 50%, transparent 100%)',
-                      }}
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <h3
-                        className="font-serif text-xl font-semibold text-white mb-1"
-                        style={{ fontFamily: 'var(--font-heading)' }}
-                      >
-                        {nb.name}
-                      </h3>
-                      <p className="text-white/80 text-sm mb-1 truncate">
-                        {nb.tagline}
-                      </p>
-                      {nb.marketSnapshot?.medianPrice && (
-                        <p
-                          className="text-xs font-semibold"
-                          style={{ color: 'var(--secondary)' }}
-                        >
-                          {ui.median}: {nb.marketSnapshot.medianPrice}
-                        </p>
-                      )}
-                    </div>
-                  </div>
+                  {home.neighborhoodSpotlight?.ctaLabel || ui.allNeighborhoods}{' '}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              ))}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {spotlightNbs.map((nb, index) => (
+                  <ScrollReveal key={nb.slug} delay={index * 140}>
+                    <Link
+                      href={`/${locale}/neighborhoods/${nb.slug}`}
+                      className="group relative overflow-hidden rounded-xl block"
+                      style={{
+                        borderRadius: 'var(--effect-card-radius)',
+                        boxShadow: 'var(--effect-card-shadow)',
+                      }}
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        {nb.coverImage ? (
+                          <Image
+                            src={nb.coverImage}
+                            alt={nb.name || ''}
+                            fill
+                            className="object-cover transition-transform duration-600 group-hover:scale-105"
+                            sizes="33vw"
+                          />
+                        ) : (
+                          <div
+                            className="w-full h-full"
+                            style={{ background: 'var(--backdrop-mid)' }}
+                          />
+                        )}
+                        <div
+                          className="absolute inset-0 transition-opacity duration-300"
+                          style={{
+                            background:
+                              'linear-gradient(to top, rgba(26,39,68,0.65) 0%, rgba(26,39,68,0.2) 50%, transparent 100%)',
+                          }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                          <h3
+                            className="font-serif text-xl font-semibold text-white mb-1"
+                            style={{ fontFamily: 'var(--font-heading)' }}
+                          >
+                            {nb.name}
+                          </h3>
+                          <p className="text-white/80 text-sm mb-1 truncate">
+                            {nb.tagline}
+                          </p>
+                          {nb.marketSnapshot?.medianPrice && (
+                            <p
+                              className="text-xs font-semibold"
+                              style={{ color: 'var(--secondary)' }}
+                            >
+                              {ui.median}: {nb.marketSnapshot.medianPrice}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
       )}
 
       {/* 10. MARKET REPORT TEASER */}
@@ -1313,269 +1356,278 @@ export default function HomePage() {
       )}
 
       {/* 11. IDX SEARCH CTA */}
-      <section
-        className="section-padding"
-        style={{ background: 'var(--backdrop-light)' }}
-      >
-        <div className="container-custom text-center">
-          <p
-            className="text-xs font-semibold uppercase tracking-widest mb-3"
-            style={{ color: 'var(--secondary)' }}
-          >
-            {ui.mlsSearchTag}
-          </p>
-          <h2
-            className="font-serif text-3xl md:text-4xl font-semibold mb-4"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              color: 'var(--primary)',
-            }}
-          >
-            {ui.mlsSearchHeadline}
-          </h2>
-          <p
-            className="text-base mb-7 max-w-xl mx-auto"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            {ui.mlsSearchBody}
-          </p>
-          <Link
-            href={`/${locale}/properties`}
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 text-base font-semibold"
-          >
-            <Search className="w-4 h-4" /> {ui.browseAllProperties}
-          </Link>
-          <p
-            className="text-xs mt-3"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            {properties.length > 0
-              ? `${properties.length} ${ui.listingCountSuffix}`
-              : ui.mlsUpdated}
-          </p>
-        </div>
-      </section>
-
-      {/* 12. KNOWLEDGE CENTER PREVIEW */}
-      {previewPosts.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="flex items-end justify-between mb-8">
-              <div>
-                <p
-                  className="text-xs font-semibold uppercase tracking-widest mb-2"
-                  style={{ color: 'var(--secondary)' }}
-                >
-                  {ui.insightsTag}
-                </p>
-                <h2
-                  className="font-serif text-3xl md:text-4xl font-semibold"
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    color: 'var(--primary)',
-                  }}
-                >
-                  {home.knowledgeCenterPreview?.headline ||
-                    ui.knowledgeFallbackHeadline}
-                </h2>
-              </div>
-              <Link
-                href={`/${locale}${
-                  home.knowledgeCenterPreview?.ctaHref || '/knowledge-center'
-                }`}
-                className="hidden md:flex items-center gap-2 text-sm font-semibold group"
-                style={{ color: 'var(--secondary)' }}
-              >
-                {home.knowledgeCenterPreview?.ctaLabel || ui.allPosts}{' '}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {previewPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/${locale}/knowledge-center/${post.slug}`}
-                  className="group block border border-[var(--border)] rounded-xl overflow-hidden hover:border-[var(--secondary)] transition-colors"
-                  style={{
-                    borderRadius: 'var(--effect-card-radius)',
-                    boxShadow: 'var(--effect-card-shadow)',
-                  }}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    {post.heroImage ? (
-                      <Image
-                        src={post.heroImage}
-                        alt={post.title || ''}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="33vw"
-                      />
-                    ) : (
-                      <div
-                        className="w-full h-full"
-                        style={{ background: 'var(--backdrop-mid)' }}
-                      />
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <span
-                      className="text-xs font-semibold uppercase tracking-widest"
-                      style={{ color: 'var(--secondary)' }}
-                    >
-                      {post.category
-                        ?.replace(/-/g, ' ')
-                        .replace(/\b\w/g, (c) => c.toUpperCase())}
-                    </span>
-                    <h3
-                      className="font-serif text-base font-semibold mt-2 mb-2 leading-snug group-hover:opacity-70 transition-opacity"
-                      style={{
-                        fontFamily: 'var(--font-heading)',
-                        color: 'var(--primary)',
-                      }}
-                    >
-                      {post.title}
-                    </h3>
-                    <p
-                      className="text-xs"
-                      style={{ color: 'var(--text-secondary)' }}
-                    >
-                      {post.readTime} · {post.publishDate}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 13. CONSULTATION CTA */}
-      <section className="relative min-h-[56vh] md:min-h-[62vh] overflow-hidden flex items-end">
-        {home.consultationCta?.backgroundImage && (
-          <Image
-            src={home.consultationCta.backgroundImage}
-            alt=""
-            fill
-            className="object-cover opacity-100"
-          />
-        )}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to top left, rgba(20,30,48,0.22) 0%, rgba(20,30,48,0.12) 36%, rgba(20,30,48,0.06) 68%, rgba(20,30,48,0.02) 100%)',
-          }}
-        />
-        <div
-          className="relative z-10 w-full pb-12 md:pb-16 pr-4 sm:pr-8 md:pr-12 lg:pr-20 flex justify-end text-left"
-          style={{
-            background: !home.consultationCta?.backgroundImage
-              ? 'var(--primary)'
-              : undefined,
-          }}
+      <ScrollReveal distance={38} duration={840}>
+        <section
+          className="section-padding"
+          style={{ background: 'var(--backdrop-light)' }}
         >
-          <div className="max-w-2xl">
+          <div className="container-custom text-center">
             <p
               className="text-xs font-semibold uppercase tracking-widest mb-3"
               style={{ color: 'var(--secondary)' }}
             >
-              {ui.getStartedTag}
+              {ui.mlsSearchTag}
             </p>
             <h2
-              className="font-serif text-3xl md:text-5xl font-semibold text-white mb-4 leading-tight"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)',
-              }}
-            >
-              {home.consultationCta?.headline ||
-                ui.consultationFallbackHeadline}
-            </h2>
-            <p
-              className="text-lg text-white/85 mb-8"
-              style={{ textShadow: '0 1px 6px rgba(0,0,0,0.25)' }}
-            >
-              {home.consultationCta?.subline || ui.consultationFallbackSubline}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={`/${locale}${
-                  home.consultationCta?.ctaHref || '/contact'
-                }`}
-                className="btn-gold text-sm px-8 py-3.5"
-              >
-                {home.consultationCta?.ctaLabel || ui.scheduleConsultation}
-              </Link>
-              {site.phone && (
-                <a
-                  href={`tel:${site.phone?.replace(/\D/g, '')}`}
-                  className="flex items-center gap-2 border-2 border-white text-white hover:bg-white/15 transition-colors text-sm px-7 py-3 font-semibold"
-                  style={{ borderRadius: 'var(--effect-button-radius)' }}
-                >
-                  <Phone className="w-4 h-4" /> {site.phone}
-                </a>
-              )}
-            </div>
-            {home.consultationCta?.reviewQuote?.text && (
-              <div className="mt-6 p-4 rounded-lg border border-white/20 bg-black/20 backdrop-blur-[1px] max-w-xl">
-                <p className="text-sm md:text-base text-white/90 leading-relaxed">
-                  "{home.consultationCta.reviewQuote.text}"
-                </p>
-                <p className="text-xs mt-2 text-white/70">
-                  {home.consultationCta.reviewQuote.author ||
-                    ui.reviewAuthorFallback}
-                  {home.consultationCta.reviewQuote.source
-                    ? ` · ${home.consultationCta.reviewQuote.source}`
-                    : ''}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* 14. INLINE CONTACT FORM */}
-      <section
-        className="section-padding"
-        style={{ background: 'var(--backdrop-light)' }}
-      >
-        <div className="container-custom max-w-2xl mx-auto">
-          <div className="text-center mb-8">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-3"
-              style={{ color: 'var(--secondary)' }}
-            >
-              {ui.contactUsTag}
-            </p>
-            <h2
-              className="font-serif text-3xl font-semibold"
+              className="font-serif text-3xl md:text-4xl font-semibold mb-4"
               style={{
                 fontFamily: 'var(--font-heading)',
                 color: 'var(--primary)',
               }}
             >
-              {home.contactForm?.headline || ui.getInTouch}
+              {ui.mlsSearchHeadline}
             </h2>
-            {home.contactForm?.subline && (
-              <p
-                className="text-sm mt-2"
-                style={{ color: 'var(--text-secondary)' }}
-              >
-                {home.contactForm.subline}
-              </p>
-            )}
+            <p
+              className="text-base mb-7 max-w-xl mx-auto"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              {ui.mlsSearchBody}
+            </p>
+            <Link
+              href={`/${locale}/properties`}
+              className="btn-gold inline-flex items-center gap-2 px-8 py-4 text-base font-semibold"
+            >
+              <Search className="w-4 h-4" /> {ui.browseAllProperties}
+            </Link>
+            <p
+              className="text-xs mt-3"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              {properties.length > 0
+                ? `${properties.length} ${ui.listingCountSuffix}`
+                : ui.mlsUpdated}
+            </p>
           </div>
+        </section>
+      </ScrollReveal>
+
+      {/* 12. KNOWLEDGE CENTER PREVIEW */}
+      {previewPosts.length > 0 && (
+        <ScrollReveal distance={44} duration={880}>
+          <section className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <p
+                    className="text-xs font-semibold uppercase tracking-widest mb-2"
+                    style={{ color: 'var(--secondary)' }}
+                  >
+                    {ui.insightsTag}
+                  </p>
+                  <h2
+                    className="font-serif text-3xl md:text-4xl font-semibold"
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      color: 'var(--primary)',
+                    }}
+                  >
+                    {home.knowledgeCenterPreview?.headline ||
+                      ui.knowledgeFallbackHeadline}
+                  </h2>
+                </div>
+                <Link
+                  href={`/${locale}${
+                    home.knowledgeCenterPreview?.ctaHref || '/knowledge-center'
+                  }`}
+                  className="hidden md:flex items-center gap-2 text-sm font-semibold group"
+                  style={{ color: 'var(--secondary)' }}
+                >
+                  {home.knowledgeCenterPreview?.ctaLabel || ui.allPosts}{' '}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {previewPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/${locale}/knowledge-center/${post.slug}`}
+                    className="group block border border-[var(--border)] rounded-xl overflow-hidden hover:border-[var(--secondary)] transition-colors"
+                    style={{
+                      borderRadius: 'var(--effect-card-radius)',
+                      boxShadow: 'var(--effect-card-shadow)',
+                    }}
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      {post.heroImage ? (
+                        <Image
+                          src={post.heroImage}
+                          alt={post.title || ''}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="33vw"
+                        />
+                      ) : (
+                        <div
+                          className="w-full h-full"
+                          style={{ background: 'var(--backdrop-mid)' }}
+                        />
+                      )}
+                    </div>
+                    <div className="p-5">
+                      <span
+                        className="text-xs font-semibold uppercase tracking-widest"
+                        style={{ color: 'var(--secondary)' }}
+                      >
+                        {post.category
+                          ?.replace(/-/g, ' ')
+                          .replace(/\b\w/g, (c) => c.toUpperCase())}
+                      </span>
+                      <h3
+                        className="font-serif text-base font-semibold mt-2 mb-2 leading-snug group-hover:opacity-70 transition-opacity"
+                        style={{
+                          fontFamily: 'var(--font-heading)',
+                          color: 'var(--primary)',
+                        }}
+                      >
+                        {post.title}
+                      </h3>
+                      <p
+                        className="text-xs"
+                        style={{ color: 'var(--text-secondary)' }}
+                      >
+                        {post.readTime} · {post.publishDate}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+      )}
+
+      {/* 13. CONSULTATION CTA */}
+      <ScrollReveal distance={50} duration={960}>
+        <section className="relative min-h-[56vh] md:min-h-[62vh] overflow-hidden flex items-end">
+          {home.consultationCta?.backgroundImage && (
+            <Image
+              src={home.consultationCta.backgroundImage}
+              alt=""
+              fill
+              className="object-cover opacity-100"
+            />
+          )}
           <div
-            className="bg-white p-7 rounded-2xl border border-[var(--border)]"
+            className="absolute inset-0"
             style={{
-              borderRadius: 'var(--effect-card-radius)',
-              boxShadow: 'var(--effect-card-shadow)',
+              background:
+                'linear-gradient(to top left, rgba(20,30,48,0.22) 0%, rgba(20,30,48,0.12) 36%, rgba(20,30,48,0.06) 68%, rgba(20,30,48,0.02) 100%)',
+            }}
+          />
+          <div
+            className="relative z-10 w-full pb-12 md:pb-16 pr-4 sm:pr-8 md:pr-12 lg:pr-20 flex justify-end text-left"
+            style={{
+              background: !home.consultationCta?.backgroundImage
+                ? 'var(--primary)'
+                : undefined,
             }}
           >
-            <InlineContactForm locale={locale} />
+            <div className="max-w-2xl">
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-3"
+                style={{ color: 'var(--secondary)' }}
+              >
+                {ui.getStartedTag}
+              </p>
+              <h2
+                className="font-serif text-3xl md:text-5xl font-semibold text-white mb-4 leading-tight"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                }}
+              >
+                {home.consultationCta?.headline ||
+                  ui.consultationFallbackHeadline}
+              </h2>
+              <p
+                className="text-lg text-white/85 mb-8"
+                style={{ textShadow: '0 1px 6px rgba(0,0,0,0.25)' }}
+              >
+                {home.consultationCta?.subline ||
+                  ui.consultationFallbackSubline}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`/${locale}${
+                    home.consultationCta?.ctaHref || '/contact'
+                  }`}
+                  className="btn-gold text-sm px-8 py-3.5"
+                >
+                  {home.consultationCta?.ctaLabel || ui.scheduleConsultation}
+                </Link>
+                {site.phone && (
+                  <a
+                    href={`tel:${site.phone?.replace(/\D/g, '')}`}
+                    className="flex items-center gap-2 border-2 border-white text-white hover:bg-white/15 transition-colors text-sm px-7 py-3 font-semibold"
+                    style={{ borderRadius: 'var(--effect-button-radius)' }}
+                  >
+                    <Phone className="w-4 h-4" /> {site.phone}
+                  </a>
+                )}
+              </div>
+              {home.consultationCta?.reviewQuote?.text && (
+                <div className="mt-6 p-4 rounded-lg border border-white/20 bg-black/20 backdrop-blur-[1px] max-w-xl">
+                  <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                    "{home.consultationCta.reviewQuote.text}"
+                  </p>
+                  <p className="text-xs mt-2 text-white/70">
+                    {home.consultationCta.reviewQuote.author ||
+                      ui.reviewAuthorFallback}
+                    {home.consultationCta.reviewQuote.source
+                      ? ` · ${home.consultationCta.reviewQuote.source}`
+                      : ''}
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
+
+      {/* 14. INLINE CONTACT FORM */}
+      <ScrollReveal distance={42} duration={860}>
+        <section
+          className="section-padding"
+          style={{ background: 'var(--backdrop-light)' }}
+        >
+          <div className="container-custom max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-3"
+                style={{ color: 'var(--secondary)' }}
+              >
+                {ui.contactUsTag}
+              </p>
+              <h2
+                className="font-serif text-3xl font-semibold"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  color: 'var(--primary)',
+                }}
+              >
+                {home.contactForm?.headline || ui.getInTouch}
+              </h2>
+              {home.contactForm?.subline && (
+                <p
+                  className="text-sm mt-2"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
+                  {home.contactForm.subline}
+                </p>
+              )}
+            </div>
+            <div
+              className="bg-white p-7 rounded-2xl border border-[var(--border)]"
+              style={{
+                borderRadius: 'var(--effect-card-radius)',
+                boxShadow: 'var(--effect-card-shadow)',
+              }}
+            >
+              <InlineContactForm locale={locale} />
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
     </>
   );
 }
