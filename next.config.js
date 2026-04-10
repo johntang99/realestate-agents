@@ -29,6 +29,11 @@ for (const hostname of supabaseHostnames) {
     hostname,
     pathname: '/storage/v1/object/public/**',
   })
+  remotePatterns.push({
+    protocol: 'https',
+    hostname,
+    pathname: '/storage/v1/render/image/public/**',
+  })
 }
 
 const nextConfig = {
