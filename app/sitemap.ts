@@ -1,21 +1,32 @@
 import { MetadataRoute } from 'next';
+import { getRequestSiteId } from '@/lib/content';
+import { getSEOPagesForSite } from '@/lib/seo-pages';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://jinpanghomes.com';
 const LOCALES = ['en', 'zh'] as const;
-
-function entries(path: string, options?: { changeFrequency?: MetadataRoute.Sitemap[0]['changeFrequency']; priority?: number }) {
-  return LOCALES.map(locale => ({
+function entriesForLocales(
+  path: string,
+  locales: readonly string[],
+  options?: { changeFrequency?: MetadataRoute.Sitemap[0]['changeFrequency']; priority?: number },
+) {
+  return locales.map((locale) => ({
     url: `${SITE_URL}/${locale}${path}`,
     lastModified: new Date(),
     changeFrequency: options?.changeFrequency || ('monthly' as const),
     priority: options?.priority ?? 0.7,
     alternates: {
-      languages: Object.fromEntries(LOCALES.map(l => [l, `${SITE_URL}/${l}${path}`])),
+      languages: Object.fromEntries(locales.map((entryLocale) => [entryLocale, `${SITE_URL}/${entryLocale}${path}`])),
     },
   }));
 }
 
+function entries(path: string, options?: { changeFrequency?: MetadataRoute.Sitemap[0]['changeFrequency']; priority?: number }) {
+  return entriesForLocales(path, LOCALES, options);
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const siteId = await getRequestSiteId();
+  const seoPages = await getSEOPagesForSite(siteId);
   const staticPages = [
     ...entries('', { changeFrequency: 'weekly', priority: 1.0 }),
     ...entries('/about', { changeFrequency: 'monthly', priority: 0.8 }),
@@ -36,14 +47,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Seeded dynamic pages (keep updated with seed content)
-  const propertyPages = ['77-highland-terrace', '45-oak-ridge-lane', '12-harbor-view-drive', '88-riverside-court', '220-maple-avenue']
+  const propertyPages = ['77-highland-terrace', '45-oak-ridge-lane', '12-harbor-view-drive', '88-riverside-court', '220-maple-avenue', '44-maple-crest-lane-deerpark', '18-hudson-view-drive-port-jervis']
     .flatMap((slug) => entries(`/properties/${slug}`, { changeFrequency: 'weekly', priority: 0.8 }));
-  const neighborhoodPages = ['scarsdale', 'bronxville', 'larchmont']
+  const neighborhoodPages = ['deerpark', 'bronxville', 'goshen-town', 'larchmont', 'port-jervis']
     .flatMap((slug) => entries(`/neighborhoods/${slug}`, { changeFrequency: 'monthly', priority: 0.7 }));
-  const knowledgePages = ['first-time-buyer-guide-orange-county', 'orange-county-market-report-2026', 'relocating-to-orange-county']
+  const knowledgePages = ['first-time-buyer-guide-westchester', 'westchester-market-report-2026', 'relocating-to-westchester']
     .flatMap((slug) => entries(`/knowledge-center/${slug}`, { changeFrequency: 'monthly', priority: 0.7 }));
   const reportPages = ['february-2026']
     .flatMap((slug) => entries(`/market-reports/${slug}`, { changeFrequency: 'monthly', priority: 0.7 }));
+  const seoPageEntries = seoPages.flatMap((page) =>
+    entriesForLocales(`/${page.slug}`, page.locales, {
+      changeFrequency: 'weekly',
+      priority: page.priority ?? 0.85,
+    }),
+  );
 
   return [
     ...staticPages,
@@ -51,5 +68,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...neighborhoodPages,
     ...knowledgePages,
     ...reportPages,
+    ...seoPageEntries,
   ];
 }

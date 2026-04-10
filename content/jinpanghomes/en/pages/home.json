@@ -3,9 +3,7 @@
     "slides": [
       {
         "alt": "Luxury home in Port Jervis",
-        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773352922316-photo-1628624747186-a941c476b7ef.jpg",
-        "video": "/videos/agent-intro-jinpanghomes.mp4",
-        "poster": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/4bcff0290367977a8a10.jpg"
+        "image": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/jinpanghomes/general/1773352922316-photo-1628624747186-a941c476b7ef.jpg"
       },
       {
         "alt": "Waterfront home in Warwick",

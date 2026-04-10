@@ -40,40 +40,74 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }) {
-  const host = headers().get('host');
+  const requestHeaders = headers();
+  const host = requestHeaders.get('host');
+  const requestPath = requestHeaders.get('x-pathname') || `/${params.locale}`;
   const baseUrl = getBaseUrlFromHost(host);
   const requestSiteId = await getRequestSiteId();
   const site = (await getSiteById(requestSiteId)) || (await getDefaultSite());
   const locale = params.locale as Locale;
-  console.log(site, locale);
   const seo = site
     ? ((await loadSeo(site.id, locale)) as SeoConfig | null)
     : null;
+  const pathWithoutLocale =
+    requestPath.replace(/^\/(en|zh)(?=\/|$)/, '') || '/';
+  const pageKey =
+    pathWithoutLocale === '/'
+      ? 'home'
+      : pathWithoutLocale.split('/').filter(Boolean)[0];
+  const pageSeo =
+    (seo as any)?.pages?.[pageKey] ||
+    (pageKey === 'home' ? (seo as any)?.home : null);
+  const canonicalPath =
+    pathWithoutLocale === '/' ? `/${locale}` : `/${locale}${pathWithoutLocale}`;
   const languageAlternates = Object.fromEntries(
     locales.map((entryLocale) => [
       entryLocale,
-      new URL(`/${entryLocale}`, baseUrl).toString(),
+      new URL(
+        pathWithoutLocale === '/'
+          ? `/${entryLocale}`
+          : `/${entryLocale}${pathWithoutLocale}`,
+        baseUrl,
+      ).toString(),
     ]),
   );
 
   return {
     metadataBase: baseUrl,
     title: {
-      default: seo?.title || 'Jin Pang Homes — Port Jervis Real Estate',
+      default:
+        pageSeo?.title ||
+        seo?.title ||
+        'Jin Pang Homes — Port Jervis Real Estate',
       template: seo?.titleTemplate || '%s | Jin Pang Homes',
     },
     description:
+      pageSeo?.description ||
       seo?.description ||
       'Jin Pang Homes provides trusted guidance for buying, selling, investing, and relocating in Port Jervis and Orange County, NY.',
     alternates: {
-      canonical: new URL(`/${locale}`, baseUrl).toString(),
+      canonical: new URL(canonicalPath, baseUrl).toString(),
       languages: {
         ...languageAlternates,
-        'x-default': new URL(`/${defaultLocale}`, baseUrl).toString(),
+        'x-default': new URL(
+          pathWithoutLocale === '/'
+            ? `/${defaultLocale}`
+            : `/${defaultLocale}${pathWithoutLocale}`,
+          baseUrl,
+        ).toString(),
       },
     },
     openGraph: {
       type: 'website',
+      title:
+        pageSeo?.title ||
+        seo?.title ||
+        'Jin Pang Homes — Port Jervis Real Estate',
+      description:
+        pageSeo?.description ||
+        seo?.description ||
+        'Jin Pang Homes provides trusted guidance for buying, selling, investing, and relocating in Port Jervis and Orange County, NY.',
       siteName: 'Jin Pang Homes',
       images: seo?.ogImage ? [{ url: seo.ogImage }] : undefined,
     },

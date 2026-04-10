@@ -1,0 +1,166 @@
+{
+  "pages": [
+    {
+      "slug": "middletown-real-estate",
+      "pageType": "rea-location-landing",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.85,
+      "keywords": [
+        "best real estate agent in middletown ny",
+        "buy house in middletown ny",
+        "sell my house in middletown ny"
+      ]
+    },
+    {
+      "slug": "deerpark-real-estate",
+      "pageType": "rea-location-landing",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.85,
+      "keywords": [
+        "best real estate agent in deerpark ny",
+        "buy house in deerpark ny",
+        "sell my house in deerpark ny"
+      ]
+    },
+    {
+      "slug": "port-jervis-real-estate",
+      "pageType": "rea-location-landing",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.9,
+      "keywords": [
+        "best real estate agent in port jervis ny",
+        "buy house in port jervis ny",
+        "sell my house in port jervis ny"
+      ]
+    },
+    {
+      "slug": "buy-house-middletown-ny",
+      "pageType": "rea-buy-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.8,
+      "keywords": [
+        "buy house in middletown ny",
+        "homes for sale in middletown ny"
+      ]
+    },
+    {
+      "slug": "sell-house-middletown-ny",
+      "pageType": "rea-sell-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.8,
+      "keywords": [
+        "sell my house in middletown ny",
+        "sell house fast in middletown ny"
+      ]
+    },
+    {
+      "slug": "buy-house-deerpark-ny",
+      "pageType": "rea-buy-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.8,
+      "keywords": [
+        "buy house in deerpark ny",
+        "homes for sale in deerpark ny"
+      ]
+    },
+    {
+      "slug": "sell-house-deerpark-ny",
+      "pageType": "rea-sell-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.8,
+      "keywords": [
+        "sell my house in deerpark ny",
+        "sell house fast in deerpark ny"
+      ]
+    },
+    {
+      "slug": "buy-house-port-jervis-ny",
+      "pageType": "rea-buy-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.8,
+      "keywords": [
+        "buy house in port jervis ny",
+        "homes for sale in port jervis ny"
+      ]
+    },
+    {
+      "slug": "sell-house-port-jervis-ny",
+      "pageType": "rea-sell-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.8,
+      "keywords": [
+        "sell my house in port jervis ny",
+        "sell house fast in port jervis ny"
+      ]
+    },
+    {
+      "slug": "jin-pang-middletown-real-estate-agent",
+      "pageType": "rea-agent-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.82,
+      "keywords": [
+        "jin pang middletown real estate agent",
+        "best real estate agent in middletown ny",
+        "buy house in middletown ny"
+      ]
+    },
+    {
+      "slug": "jin-pang-deerpark-real-estate-agent",
+      "pageType": "rea-agent-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.82,
+      "keywords": [
+        "jin pang deerpark real estate agent",
+        "best real estate agent in deerpark ny",
+        "buy house in deerpark ny"
+      ]
+    },
+    {
+      "slug": "jin-pang-port-jervis-real-estate-agent",
+      "pageType": "rea-agent-location",
+      "active": true,
+      "locales": [
+        "en"
+      ],
+      "priority": 0.82,
+      "keywords": [
+        "jin pang port jervis real estate agent",
+        "best real estate agent in port jervis ny",
+        "buy house in port jervis ny"
+      ]
+    }
+  ]
+}

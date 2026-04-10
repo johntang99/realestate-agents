@@ -13,8 +13,8 @@
     "linkedin": "https://linkedin.com/in/marcusjohnson-re",
     "instagram": ""
   },
-  "status": "active",
-  "featured": true,
+  "status": "inactive",
+  "featured": false,
   "languages": [
     "English",
     "Mandarin Chinese"

@@ -1,0 +1,64 @@
+{
+  "pageType": "rea-buy-location",
+  "seo": {
+    "title": "Buy a House in Port Jervis NY | Local Buyer Guide",
+    "description": "Planning to buy a house in Port Jervis, NY? Get local strategy on neighborhoods, pricing, offer structure, and closing steps.",
+    "canonicalUrl": "/en/buy-house-port-jervis-ny",
+    "keywords": [
+      "buy house in port jervis ny",
+      "homes for sale in port jervis ny",
+      "port jervis ny first time home buyer"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Port Jervis Buyer Guide",
+    "h1": "Buy a House in Port Jervis, NY",
+    "subline": "Use a local plan to compare neighborhoods, avoid overpaying, and submit stronger offers in Port Jervis.",
+    "primaryCtaLabel": "Talk to a Buyer Agent",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Browse Homes",
+    "secondaryCtaHref": "/properties"
+  },
+  "sections": {
+    "overviewHeading": "How to buy in Port Jervis",
+    "overviewParagraphs": [
+      "Buying in Port Jervis is easier when you evaluate inventory, pricing, and negotiation leverage before touring.",
+      "We help buyers move from financing prep to closing with clear priorities and fewer surprises."
+    ],
+    "strengthsHeading": "Buyer strategy checklist",
+    "strengths": [
+      "Pre-approval and budget alignment before search starts.",
+      "Neighborhood and property-fit review against your timeline.",
+      "Offer and contingency strategy based on active competition."
+    ],
+    "relatedSearchesHeading": "Related buyer searches",
+    "relatedSearches": [
+      "buy house in Port Jervis NY",
+      "homes for sale in Port Jervis NY",
+      "Port Jervis NY buyer agent"
+    ],
+    "faqHeading": "Port Jervis buyer FAQ",
+    "faqItems": [
+      {
+        "q": "What is the first step to buy in Port Jervis?",
+        "a": "Start with financing clarity and neighborhood priorities before active showings."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Port Jervis Real Estate Overview",
+        "href": "/en/port-jervis-real-estate"
+      },
+      {
+        "label": "Buy in Middletown",
+        "href": "/en/buy-house-middletown-ny"
+      },
+      {
+        "label": "Buy in Deerpark",
+        "href": "/en/buy-house-deerpark-ny"
+      }
+    ]
+  }
+}

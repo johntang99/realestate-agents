@@ -1,0 +1,64 @@
+{
+  "pageType": "rea-sell-location",
+  "seo": {
+    "title": "Sell My House in Deerpark NY | Local Seller Guide",
+    "description": "Need to sell your house in Deerpark, NY? Get local pricing, launch, and negotiation strategy to improve your outcome.",
+    "canonicalUrl": "/en/sell-house-deerpark-ny",
+    "keywords": [
+      "sell my house in deerpark ny",
+      "sell house fast in deerpark ny",
+      "deerpark ny home value"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Deerpark Seller Guide",
+    "h1": "Sell Your House in Deerpark, NY",
+    "subline": "Use local pricing and launch strategy to attract stronger offers and close with more confidence in Deerpark.",
+    "primaryCtaLabel": "Request a Listing Consultation",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Get Home Valuation",
+    "secondaryCtaHref": "/home-valuation"
+  },
+  "sections": {
+    "overviewHeading": "How to sell in Deerpark",
+    "overviewParagraphs": [
+      "Sellers in Deerpark perform best when pricing and preparation are aligned with current buyer demand.",
+      "Our process covers prep, positioning, offer evaluation, and negotiation through closing."
+    ],
+    "strengthsHeading": "Seller strategy checklist",
+    "strengths": [
+      "Condition-aware pricing and launch planning.",
+      "Offer comparison by full terms, not price alone.",
+      "Inspection and closing coordination to reduce delays."
+    ],
+    "relatedSearchesHeading": "Related seller searches",
+    "relatedSearches": [
+      "sell my house in Deerpark NY",
+      "sell house fast in Deerpark NY",
+      "Deerpark NY home valuation"
+    ],
+    "faqHeading": "Deerpark seller FAQ",
+    "faqItems": [
+      {
+        "q": "How should I price my home in Deerpark?",
+        "a": "Use sold comps, active competition, and condition-adjusted positioning for the current market window."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Deerpark Real Estate Overview",
+        "href": "/en/deerpark-real-estate"
+      },
+      {
+        "label": "Sell in Middletown",
+        "href": "/en/sell-house-middletown-ny"
+      },
+      {
+        "label": "Sell in Port Jervis",
+        "href": "/en/sell-house-port-jervis-ny"
+      }
+    ]
+  }
+}

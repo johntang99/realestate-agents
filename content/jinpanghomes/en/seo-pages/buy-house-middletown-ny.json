@@ -1,0 +1,64 @@
+{
+  "pageType": "rea-buy-location",
+  "seo": {
+    "title": "Buy a House in Middletown NY | Local Buyer Guide",
+    "description": "Planning to buy a house in Middletown, NY? Get local strategy on neighborhoods, pricing, offer structure, and closing steps.",
+    "canonicalUrl": "/en/buy-house-middletown-ny",
+    "keywords": [
+      "buy house in middletown ny",
+      "homes for sale in middletown ny",
+      "middletown ny first time home buyer"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Middletown Buyer Guide",
+    "h1": "Buy a House in Middletown, NY",
+    "subline": "Use a local plan to compare neighborhoods, avoid overpaying, and submit stronger offers in Middletown.",
+    "primaryCtaLabel": "Talk to a Buyer Agent",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Browse Homes",
+    "secondaryCtaHref": "/properties"
+  },
+  "sections": {
+    "overviewHeading": "How to buy in Middletown",
+    "overviewParagraphs": [
+      "Buying in Middletown is easier when you evaluate inventory, pricing, and negotiation leverage before touring.",
+      "We help buyers move from financing prep to closing with clear priorities and fewer surprises."
+    ],
+    "strengthsHeading": "Buyer strategy checklist",
+    "strengths": [
+      "Pre-approval and budget alignment before search starts.",
+      "Neighborhood and property-fit review against your timeline.",
+      "Offer and contingency strategy based on active competition."
+    ],
+    "relatedSearchesHeading": "Related buyer searches",
+    "relatedSearches": [
+      "buy house in Middletown NY",
+      "homes for sale in Middletown NY",
+      "Middletown NY buyer agent"
+    ],
+    "faqHeading": "Middletown buyer FAQ",
+    "faqItems": [
+      {
+        "q": "What is the first step to buy in Middletown?",
+        "a": "Start with financing clarity and neighborhood priorities before active showings."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Middletown Real Estate Overview",
+        "href": "/en/middletown-real-estate"
+      },
+      {
+        "label": "Buy in Deerpark",
+        "href": "/en/buy-house-deerpark-ny"
+      },
+      {
+        "label": "Buy in Port Jervis",
+        "href": "/en/buy-house-port-jervis-ny"
+      }
+    ]
+  }
+}

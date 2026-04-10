@@ -1,0 +1,80 @@
+{
+  "pageType": "rea-agent-location",
+  "seo": {
+    "title": "Jin Pang | Real Estate Agent in Port Jervis NY",
+    "description": "Jin Pang helps buyers and sellers in Port Jervis, NY with practical local strategy, pricing guidance, and closing support.",
+    "canonicalUrl": "/en/jin-pang-port-jervis-real-estate-agent",
+    "keywords": [
+      "jin pang port jervis real estate agent",
+      "best real estate agent in port jervis ny",
+      "buy house in port jervis ny",
+      "sell my house in port jervis ny"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Port Jervis Agent Page",
+    "h1": "Jin Pang: Real Estate Agent in Port Jervis, NY",
+    "subline": "Jin Pang helps clients in Port Jervis buy or sell with clear strategy from consultation through closing.",
+    "primaryCtaLabel": "Talk to Jin Pang",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Browse Port Jervis Listings",
+    "secondaryCtaHref": "/properties"
+  },
+  "agent": {
+    "name": "Jin Pang",
+    "slug": "jin-pang",
+    "title": "Licensed Real Estate Agent",
+    "photo": "https://chmltixvrlyqclxenhpu.supabase.co/storage/v1/object/public/media/reb-template/imported/451ba1bdadd05b3e8a85.jpg",
+    "bio": "Jin Pang helps clients buy, sell, and invest across Orange County, NY with practical market strategy, clear communication, and hands-on support from first meeting to closing.",
+    "yearsExperience": 12,
+    "transactionCount": 320,
+    "languages": [
+      "English",
+      "Mandarin Chinese"
+    ],
+    "specialties": [
+      "Buyers",
+      "Sellers",
+      "Investment",
+      "Relocation"
+    ],
+    "locationName": "Port Jervis"
+  },
+  "sections": {
+    "overviewHeading": "Working with Jin Pang in Port Jervis",
+    "overviewParagraphs": [
+      "Jin Pang supports buyers and sellers across Port Jervis with market-aware strategy and practical guidance.",
+      "We focus on decisions that improve outcomes: pricing, negotiation terms, and timeline control."
+    ],
+    "relatedSearchesHeading": "Related searches",
+    "relatedSearches": [
+      "Jin Pang Port Jervis real estate agent",
+      "best real estate agent in Port Jervis NY",
+      "buy house in Port Jervis NY",
+      "sell my house in Port Jervis NY"
+    ],
+    "faqHeading": "Port Jervis agent FAQ",
+    "faqItems": [
+      {
+        "q": "What does Jin Pang help with in Port Jervis?",
+        "a": "Buyer and seller representation, pricing strategy, negotiation, and full transaction coordination through closing."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Port Jervis Area Overview",
+        "href": "/en/port-jervis-real-estate"
+      },
+      {
+        "label": "Middletown Agent Page",
+        "href": "/en/jin-pang-middletown-real-estate-agent"
+      },
+      {
+        "label": "Deerpark Agent Page",
+        "href": "/en/jin-pang-deerpark-real-estate-agent"
+      }
+    ]
+  }
+}

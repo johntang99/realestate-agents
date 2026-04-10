@@ -14,11 +14,12 @@ const DOMAIN_SITE_MAP: Record<string, string> = {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '').split(',')[0].trim();
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-pathname', pathname);
 
   // Set site ID header for domain routing on production
   const siteId = DOMAIN_SITE_MAP[host];
   if (siteId) {
-    const requestHeaders = new Headers(request.headers);
     requestHeaders.set('x-site-id', siteId);
     const response = NextResponse.next({ request: { headers: requestHeaders } });
     // If no locale prefix, redirect to default
@@ -34,13 +35,13 @@ export function middleware(request: NextRequest) {
   // Admin routes: require auth cookie (verify in API/routes)
   if (pathname.startsWith('/admin')) {
     if (pathname === '/admin/login') {
-      return NextResponse.next();
+      return NextResponse.next({ request: { headers: requestHeaders } });
     }
     const token = request.cookies.get('admin-token')?.value;
     if (!token) {
       return NextResponse.redirect(new URL('/admin/login', request.url));
     }
-    return NextResponse.next();
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
   // Skip middleware for static files, API routes, and admin
@@ -57,7 +58,7 @@ export function middleware(request: NextRequest) {
     pathname === '/sitemap.xml' ||
     pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|mp4|webm|m4v|mov)$/)
   ) {
-    return NextResponse.next();
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
   
   // Check if pathname already has a locale
@@ -66,7 +67,7 @@ export function middleware(request: NextRequest) {
   );
   
   if (pathnameHasLocale) {
-    return NextResponse.next();
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
   
   // Redirect to default locale

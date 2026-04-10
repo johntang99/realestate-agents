@@ -100,6 +100,69 @@
         }
       ],
       "heading": "Properties"
+    },
+    {
+      "links": [
+        {
+          "href": "/middletown-real-estate",
+          "label": "Middletown Real Estate Agent"
+        },
+        {
+          "href": "/deerpark-real-estate",
+          "label": "Deerpark Real Estate Agent"
+        },
+        {
+          "href": "/port-jervis-real-estate",
+          "label": "Port Jervis Real Estate Agent"
+        }
+      ],
+      "heading": "Service Areas"
+    },
+    {
+      "links": [
+        {
+          "href": "/buy-house-middletown-ny",
+          "label": "Buy in Middletown"
+        },
+        {
+          "href": "/sell-house-middletown-ny",
+          "label": "Sell in Middletown"
+        },
+        {
+          "href": "/buy-house-deerpark-ny",
+          "label": "Buy in Deerpark"
+        },
+        {
+          "href": "/sell-house-deerpark-ny",
+          "label": "Sell in Deerpark"
+        },
+        {
+          "href": "/buy-house-port-jervis-ny",
+          "label": "Buy in Port Jervis"
+        },
+        {
+          "href": "/sell-house-port-jervis-ny",
+          "label": "Sell in Port Jervis"
+        }
+      ],
+      "heading": "Buyer & Seller Guides"
+    },
+    {
+      "links": [
+        {
+          "href": "/jin-pang-middletown-real-estate-agent",
+          "label": "Jin Pang in Middletown"
+        },
+        {
+          "href": "/jin-pang-deerpark-real-estate-agent",
+          "label": "Jin Pang in Deerpark"
+        },
+        {
+          "href": "/jin-pang-port-jervis-real-estate-agent",
+          "label": "Jin Pang in Port Jervis"
+        }
+      ],
+      "heading": "Local Agents"
     }
   ],
   "compliance": {

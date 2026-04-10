@@ -1,0 +1,66 @@
+{
+  "pageType": "rea-location-landing",
+  "seo": {
+    "title": "Best Real Estate Agent in Port Jervis NY | Jin Pang",
+    "description": "Looking for the best real estate agent in Port Jervis, NY? Jin Pang helps buyers and sellers with local strategy, negotiation support, and market guidance.",
+    "canonicalUrl": "/en/port-jervis-real-estate",
+    "keywords": [
+      "best real estate agent in port jervis ny",
+      "buy house in port jervis ny",
+      "sell my house in port jervis ny",
+      "homes for sale in port jervis ny"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Port Jervis, NY",
+    "h1": "Best Real Estate Agent in Port Jervis, NY",
+    "subline": "Work with Jin Pang to buy or sell in Port Jervis using local market strategy and clear transaction execution.",
+    "primaryCtaLabel": "Talk to a Port Jervis Agent",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Browse Port Jervis Area Homes",
+    "secondaryCtaHref": "/properties"
+  },
+  "sections": {
+    "overviewHeading": "Port Jervis real estate strategy",
+    "overviewParagraphs": [
+      "Port Jervis is an active local market where block-level context and pricing discipline can materially change outcomes.",
+      "We help buyers compare options and help sellers launch with practical positioning based on active competition."
+    ],
+    "strengthsHeading": "How we help in Port Jervis",
+    "strengths": [
+      "Buyer strategy for search, touring, and offer planning in Port Jervis.",
+      "Seller strategy for prep, pricing, and negotiation in Port Jervis.",
+      "Contract-to-close support with clear milestone management."
+    ],
+    "relatedSearchesHeading": "Related Port Jervis searches",
+    "relatedSearches": [
+      "best real estate agent in Port Jervis NY",
+      "buy house in Port Jervis NY",
+      "sell my house in Port Jervis NY",
+      "homes for sale in Port Jervis NY"
+    ],
+    "faqHeading": "Port Jervis real estate FAQ",
+    "faqItems": [
+      {
+        "q": "How do I choose a real estate agent in Port Jervis?",
+        "a": "Evaluate local track record, pricing process, communication speed, and a clear negotiation plan for your situation."
+      },
+      {
+        "q": "Can one agent help me buy and sell in Port Jervis?",
+        "a": "Yes. We coordinate timelines, contingencies, and transaction steps so both sides of the move stay aligned."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Middletown Real Estate Agent",
+        "href": "/en/middletown-real-estate"
+      },
+      {
+        "label": "Deerpark Real Estate Agent",
+        "href": "/en/deerpark-real-estate"
+      }
+    ]
+  }
+}

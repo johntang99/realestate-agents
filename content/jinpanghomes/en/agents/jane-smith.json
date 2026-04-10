@@ -17,8 +17,8 @@
     "linkedin": "https://linkedin.com/in/janesmith",
     "instagram": "https://instagram.com/janesmith_re"
   },
-  "status": "active",
-  "featured": true,
+  "status": "inactive",
+  "featured": false,
   "languages": [
     "English",
     "Spanish"

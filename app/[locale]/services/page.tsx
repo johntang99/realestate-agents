@@ -154,6 +154,26 @@ export default function ServicesPage() {
         </section>
       )}
 
+      {locale === 'en' && (
+        <section className="section-padding bg-white border-t border-[var(--border)]">
+          <div className="container-custom">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--secondary)' }}>
+              SEO Hubs
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-5" style={{ color: 'var(--primary)' }}>
+              Explore service-area and intent pages
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/en/middletown-real-estate" className="btn-gold px-5 py-2.5">Middletown Overview</Link>
+              <Link href="/en/deerpark-real-estate" className="btn-gold px-5 py-2.5">Deerpark Overview</Link>
+              <Link href="/en/port-jervis-real-estate" className="btn-gold px-5 py-2.5">Port Jervis Overview</Link>
+              <Link href="/en/buy-house-middletown-ny" className="px-5 py-2.5 text-sm font-semibold border-2" style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}>Buy in Middletown</Link>
+              <Link href="/en/sell-house-middletown-ny" className="px-5 py-2.5 text-sm font-semibold border-2" style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}>Sell in Middletown</Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="section-padding" style={{ background: 'var(--primary)' }}>
         <div className="container-custom text-center">

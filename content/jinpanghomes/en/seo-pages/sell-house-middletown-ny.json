@@ -1,0 +1,64 @@
+{
+  "pageType": "rea-sell-location",
+  "seo": {
+    "title": "Sell My House in Middletown NY | Local Seller Guide",
+    "description": "Need to sell your house in Middletown, NY? Get local pricing, launch, and negotiation strategy to improve your outcome.",
+    "canonicalUrl": "/en/sell-house-middletown-ny",
+    "keywords": [
+      "sell my house in middletown ny",
+      "sell house fast in middletown ny",
+      "middletown ny home value"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Middletown Seller Guide",
+    "h1": "Sell Your House in Middletown, NY",
+    "subline": "Use local pricing and launch strategy to attract stronger offers and close with more confidence in Middletown.",
+    "primaryCtaLabel": "Request a Listing Consultation",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Get Home Valuation",
+    "secondaryCtaHref": "/home-valuation"
+  },
+  "sections": {
+    "overviewHeading": "How to sell in Middletown",
+    "overviewParagraphs": [
+      "Sellers in Middletown perform best when pricing and preparation are aligned with current buyer demand.",
+      "Our process covers prep, positioning, offer evaluation, and negotiation through closing."
+    ],
+    "strengthsHeading": "Seller strategy checklist",
+    "strengths": [
+      "Condition-aware pricing and launch planning.",
+      "Offer comparison by full terms, not price alone.",
+      "Inspection and closing coordination to reduce delays."
+    ],
+    "relatedSearchesHeading": "Related seller searches",
+    "relatedSearches": [
+      "sell my house in Middletown NY",
+      "sell house fast in Middletown NY",
+      "Middletown NY home valuation"
+    ],
+    "faqHeading": "Middletown seller FAQ",
+    "faqItems": [
+      {
+        "q": "How should I price my home in Middletown?",
+        "a": "Use sold comps, active competition, and condition-adjusted positioning for the current market window."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Middletown Real Estate Overview",
+        "href": "/en/middletown-real-estate"
+      },
+      {
+        "label": "Sell in Deerpark",
+        "href": "/en/sell-house-deerpark-ny"
+      },
+      {
+        "label": "Sell in Port Jervis",
+        "href": "/en/sell-house-port-jervis-ny"
+      }
+    ]
+  }
+}

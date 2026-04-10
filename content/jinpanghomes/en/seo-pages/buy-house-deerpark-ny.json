@@ -1,0 +1,64 @@
+{
+  "pageType": "rea-buy-location",
+  "seo": {
+    "title": "Buy a House in Deerpark NY | Local Buyer Guide",
+    "description": "Planning to buy a house in Deerpark, NY? Get local strategy on neighborhoods, pricing, offer structure, and closing steps.",
+    "canonicalUrl": "/en/buy-house-deerpark-ny",
+    "keywords": [
+      "buy house in deerpark ny",
+      "homes for sale in deerpark ny",
+      "deerpark ny first time home buyer"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Deerpark Buyer Guide",
+    "h1": "Buy a House in Deerpark, NY",
+    "subline": "Use a local plan to compare neighborhoods, avoid overpaying, and submit stronger offers in Deerpark.",
+    "primaryCtaLabel": "Talk to a Buyer Agent",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Browse Homes",
+    "secondaryCtaHref": "/properties"
+  },
+  "sections": {
+    "overviewHeading": "How to buy in Deerpark",
+    "overviewParagraphs": [
+      "Buying in Deerpark is easier when you evaluate inventory, pricing, and negotiation leverage before touring.",
+      "We help buyers move from financing prep to closing with clear priorities and fewer surprises."
+    ],
+    "strengthsHeading": "Buyer strategy checklist",
+    "strengths": [
+      "Pre-approval and budget alignment before search starts.",
+      "Neighborhood and property-fit review against your timeline.",
+      "Offer and contingency strategy based on active competition."
+    ],
+    "relatedSearchesHeading": "Related buyer searches",
+    "relatedSearches": [
+      "buy house in Deerpark NY",
+      "homes for sale in Deerpark NY",
+      "Deerpark NY buyer agent"
+    ],
+    "faqHeading": "Deerpark buyer FAQ",
+    "faqItems": [
+      {
+        "q": "What is the first step to buy in Deerpark?",
+        "a": "Start with financing clarity and neighborhood priorities before active showings."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Deerpark Real Estate Overview",
+        "href": "/en/deerpark-real-estate"
+      },
+      {
+        "label": "Buy in Middletown",
+        "href": "/en/buy-house-middletown-ny"
+      },
+      {
+        "label": "Buy in Port Jervis",
+        "href": "/en/buy-house-port-jervis-ny"
+      }
+    ]
+  }
+}

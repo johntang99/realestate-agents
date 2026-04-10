@@ -5,5 +5,69 @@
   "canonicalBase": "https://www.jinpanghomes.com",
   "titleTemplate": "%s | Jin Pang",
   "twitterHandle": "@jinpanghomes",
-  "defaultDescription": "Jin Pang helps buyers, sellers, investors, and relocating families across Orange County, NY with trusted local guidance."
+  "defaultDescription": "Jin Pang helps buyers, sellers, investors, and relocating families across Orange County, NY with trusted local guidance.",
+  "title": "Jin Pang | Orange County NY Real Estate Brokerage",
+  "description": "Jin Pang helps buyers, sellers, investors, and relocating families across Orange County, NY with trusted local guidance.",
+  "home": {
+    "title": "Best Real Estate Agent in Port Jervis NY | Jin Pang",
+    "description": "Looking for the best real estate agent in Port Jervis, NY? Jin Pang helps you buy or sell with local expertise across Port Jervis, Deerpark, and Middletown."
+  },
+  "pages": {
+    "about": {
+      "title": "About Jin Pang | Trusted Real Estate Agent in Orange County NY",
+      "description": "Meet Jin Pang, a trusted real estate agent helping clients buy and sell homes in Port Jervis, Deerpark, and Middletown with data-driven local guidance."
+    },
+    "buying": {
+      "title": "Buy a House in Port Jervis, Deerpark, or Middletown | Jin Pang",
+      "description": "Ready to buy a house in Port Jervis, Deerpark, or Middletown? Work with Jin Pang for local market strategy, home tours, and strong offer negotiation."
+    },
+    "selling": {
+      "title": "Sell Your Home in Port Jervis, Deerpark, or Middletown | Jin Pang",
+      "description": "Need to sell your home in Port Jervis, Deerpark, or Middletown? Jin Pang provides pricing strategy, marketing, and negotiation to maximize your sale."
+    },
+    "investing": {
+      "title": "Investment Properties in Port Jervis, Deerpark, Middletown | Jin Pang",
+      "description": "Explore investment properties in Port Jervis, Deerpark, and Middletown with Jin Pang. Review cap rates, rental yields, and market opportunities."
+    },
+    "relocating": {
+      "title": "Relocating to Port Jervis, Deerpark, or Middletown | Jin Pang",
+      "description": "Relocating to Port Jervis, Deerpark, or Middletown? Jin Pang helps you compare neighborhoods, schools, and commute options before you move."
+    },
+    "properties": {
+      "title": "Homes for Sale in Port Jervis, Deerpark, and Middletown | Jin Pang",
+      "description": "Browse homes for sale in Port Jervis, Deerpark, and Middletown. Work with Jin Pang to find the right property and move forward with confidence."
+    },
+    "neighborhoods": {
+      "title": "Neighborhood Guide: Port Jervis, Deerpark, Middletown | Jin Pang",
+      "description": "Compare neighborhoods in Port Jervis, Deerpark, and Middletown with local insights on pricing, schools, and lifestyle from Jin Pang."
+    },
+    "contact": {
+      "title": "Contact Jin Pang | Real Estate Agent in Port Jervis NY",
+      "description": "Contact Jin Pang today if you want to buy or sell in Port Jervis, Deerpark, or Middletown. Get a fast response and a clear local strategy."
+    },
+    "knowledge-center": {
+      "title": "Port Jervis, Deerpark, Middletown Real Estate Blog | Jin Pang",
+      "description": "Read real estate tips and local insights for Port Jervis, Deerpark, and Middletown, including buying, selling, relocation, and market trends."
+    },
+    "market-reports": {
+      "title": "Market Reports for Port Jervis, Deerpark, and Middletown | Jin Pang",
+      "description": "Get real estate market reports for Port Jervis, Deerpark, and Middletown. Track pricing, inventory, and local demand before you make your move."
+    },
+    "services": {
+      "title": "Real Estate Services in Port Jervis, Deerpark, Middletown | Jin Pang",
+      "description": "Discover Jin Pang's real estate services for buyers, sellers, investors, and relocating families in Port Jervis, Deerpark, and Middletown."
+    },
+    "middletown-real-estate": {
+      "title": "Best Real Estate Agent in Middletown NY | Jin Pang",
+      "description": "Searching for the best real estate agent in Middletown, NY? Jin Pang helps you buy a house, sell your home, and navigate Middletown neighborhoods."
+    },
+    "deerpark-real-estate": {
+      "title": "Best Real Estate Agent in Deerpark NY | Jin Pang",
+      "description": "Looking for a top real estate agent in Deerpark, NY? Jin Pang helps you buy a house or sell your home with practical Deerpark market expertise."
+    },
+    "port-jervis-real-estate": {
+      "title": "Best Real Estate Agent in Port Jervis NY | Jin Pang",
+      "description": "Need a trusted real estate agent in Port Jervis, NY? Jin Pang helps buyers and sellers with local strategy, pricing, and neighborhood guidance."
+    }
+  }
 }

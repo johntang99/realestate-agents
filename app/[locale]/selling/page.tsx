@@ -348,6 +348,26 @@ export default function SellingPage() {
         </section>
       )}
 
+      {locale === 'en' && (
+        <section className="section-padding bg-white border-t border-[var(--border)]">
+          <div className="container-custom max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--secondary)' }}>
+              Seller SEO Hubs
+            </p>
+            <h2 className="font-serif text-2xl font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
+              Sell-focused pages by location
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/en/sell-house-middletown-ny" className="btn-gold px-6 py-2.5">Sell in Middletown</Link>
+              <Link href="/en/sell-house-deerpark-ny" className="btn-gold px-6 py-2.5">Sell in Deerpark</Link>
+              <Link href="/en/sell-house-port-jervis-ny" className="btn-gold px-6 py-2.5">Sell in Port Jervis</Link>
+              <Link href="/en/port-jervis-real-estate" className="px-6 py-2.5 text-sm font-semibold border-2" style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}>Port Jervis Overview</Link>
+              <Link href="/en/deerpark-real-estate" className="px-6 py-2.5 text-sm font-semibold border-2" style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}>Deerpark Overview</Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="py-16" style={{ background: 'var(--primary)' }}>
         <div className="container-custom text-center">
           <h2 className="font-serif text-3xl font-semibold text-white mb-4" style={{ fontFamily: 'var(--font-heading)' }}>{cta.headline || 'Ready to Sell?'}</h2>

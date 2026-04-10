@@ -385,6 +385,26 @@ export default function BuyingPage() {
         </div>
       </section>
 
+      {locale === 'en' && (
+        <section className="section-padding bg-white border-t border-[var(--border)]">
+          <div className="container-custom max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--secondary)' }}>
+              Buyer SEO Hubs
+            </p>
+            <h2 className="font-serif text-2xl font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
+              Buy-focused pages by location
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/en/buy-house-middletown-ny" className="btn-gold px-6 py-2.5">Buy in Middletown</Link>
+              <Link href="/en/buy-house-deerpark-ny" className="btn-gold px-6 py-2.5">Buy in Deerpark</Link>
+              <Link href="/en/buy-house-port-jervis-ny" className="btn-gold px-6 py-2.5">Buy in Port Jervis</Link>
+              <Link href="/en/middletown-real-estate" className="px-6 py-2.5 text-sm font-semibold border-2" style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}>Middletown Overview</Link>
+              <Link href="/en/deerpark-real-estate" className="px-6 py-2.5 text-sm font-semibold border-2" style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}>Deerpark Overview</Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="py-16" style={{ background: 'var(--primary)' }}>
         <div className="container-custom text-center">

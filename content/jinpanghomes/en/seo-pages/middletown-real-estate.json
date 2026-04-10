@@ -1,0 +1,66 @@
+{
+  "pageType": "rea-location-landing",
+  "seo": {
+    "title": "Best Real Estate Agent in Middletown NY | Jin Pang",
+    "description": "Looking for the best real estate agent in Middletown, NY? Jin Pang helps buyers and sellers with local strategy, negotiation support, and market guidance.",
+    "canonicalUrl": "/en/middletown-real-estate",
+    "keywords": [
+      "best real estate agent in middletown ny",
+      "buy house in middletown ny",
+      "sell my house in middletown ny",
+      "homes for sale in middletown ny"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Middletown, NY",
+    "h1": "Best Real Estate Agent in Middletown, NY",
+    "subline": "Work with Jin Pang to buy or sell in Middletown using local market strategy and clear transaction execution.",
+    "primaryCtaLabel": "Talk to a Middletown Agent",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Browse Middletown Area Homes",
+    "secondaryCtaHref": "/properties"
+  },
+  "sections": {
+    "overviewHeading": "Middletown real estate strategy",
+    "overviewParagraphs": [
+      "Middletown is an active local market where block-level context and pricing discipline can materially change outcomes.",
+      "We help buyers compare options and help sellers launch with practical positioning based on active competition."
+    ],
+    "strengthsHeading": "How we help in Middletown",
+    "strengths": [
+      "Buyer strategy for search, touring, and offer planning in Middletown.",
+      "Seller strategy for prep, pricing, and negotiation in Middletown.",
+      "Contract-to-close support with clear milestone management."
+    ],
+    "relatedSearchesHeading": "Related Middletown searches",
+    "relatedSearches": [
+      "best real estate agent in Middletown NY",
+      "buy house in Middletown NY",
+      "sell my house in Middletown NY",
+      "homes for sale in Middletown NY"
+    ],
+    "faqHeading": "Middletown real estate FAQ",
+    "faqItems": [
+      {
+        "q": "How do I choose a real estate agent in Middletown?",
+        "a": "Evaluate local track record, pricing process, communication speed, and a clear negotiation plan for your situation."
+      },
+      {
+        "q": "Can one agent help me buy and sell in Middletown?",
+        "a": "Yes. We coordinate timelines, contingencies, and transaction steps so both sides of the move stay aligned."
+      }
+    ]
+  },
+  "links": {
+    "locationLinks": [
+      {
+        "label": "Deerpark Real Estate Agent",
+        "href": "/en/deerpark-real-estate"
+      },
+      {
+        "label": "Port Jervis Real Estate Agent",
+        "href": "/en/port-jervis-real-estate"
+      }
+    ]
+  }
+}

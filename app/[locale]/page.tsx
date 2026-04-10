@@ -167,11 +167,17 @@ function optimizeHeroImageUrl(
   if (!url.includes('/storage/v1/object/public/')) return url;
 
   const [withoutHash, hash = ''] = url.split('#');
-  const [pathname, existingQuery = ''] = withoutHash.split('?');
+  const [pathnameRaw, existingQuery = ''] = withoutHash.split('?');
+  const pathname = pathnameRaw.replace(
+    '/storage/v1/object/public/',
+    '/storage/v1/render/image/public/',
+  );
   const params = new URLSearchParams(existingQuery);
   if (!params.has('width')) params.set('width', String(opts.width ?? 1600));
   if (!params.has('quality')) params.set('quality', String(opts.quality ?? 68));
-  if (!params.has('format')) params.set('format', 'webp');
+  // Supabase image transform on this project rejects format=webp.
+  // Keep width/quality optimizations and let the service negotiate format.
+  params.delete('format');
 
   const query = params.toString();
   return `${pathname}${query ? `?${query}` : ''}${hash ? `#${hash}` : ''}`;
@@ -389,7 +395,20 @@ function HeroSlideshow({
             index === active ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {slide?.image ? (
+          {slide?.video ? (
+            <video
+              key={slide.video}
+              className="w-full h-full object-cover"
+              autoPlay={index === active}
+              muted
+              loop
+              playsInline
+              preload={index === active ? 'auto' : 'none'}
+              poster={slide.poster || slide.image}
+            >
+              <source src={slide.video} type="video/mp4" />
+            </video>
+          ) : slide?.image ? (
             <Image
               src={slide.image}
               alt={slide.alt || ''}
@@ -778,9 +797,11 @@ export default function HomePage() {
 
   const allSlides = home.hero?.slides || [];
   const slides = allSlides
-    .filter((s) => s.image)
+    .filter((s) => s.image || s.video || s.poster)
     .map((s) => ({
       image: optimizeHeroImageUrl(s.image, { width: 1920 }),
+      video: s.video,
+      poster: optimizeHeroImageUrl(s.poster, { width: 1920 }),
       alt: s.alt,
     }));
   const stats: StatItem[] = home.statsBar?.items || [
@@ -1309,6 +1330,74 @@ export default function HomePage() {
             </div>
           </section>
         </ScrollReveal>
+      )}
+
+      {locale === 'en' && (
+        <section className="py-14 bg-white border-t border-[var(--border)]">
+          <div className="container-custom">
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+              style={{ color: 'var(--secondary)' }}
+            >
+              Service Areas
+            </p>
+            <h2
+              className="font-serif text-2xl md:text-3xl font-semibold mb-4"
+              style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}
+            >
+              Local real estate support in Middletown, Deerpark, and Port Jervis
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/en/middletown-real-estate" className="btn-gold px-6 py-2.5">
+                Middletown Real Estate Agent
+              </Link>
+              <Link
+                href="/en/deerpark-real-estate"
+                className="px-6 py-2.5 text-sm font-semibold border-2"
+                style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}
+              >
+                Deerpark Real Estate Agent
+              </Link>
+              <Link
+                href="/en/port-jervis-real-estate"
+                className="px-6 py-2.5 text-sm font-semibold border-2"
+                style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--primary)', color: 'var(--primary)' }}
+              >
+                Port Jervis Real Estate Agent
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-3 mt-3">
+              <Link
+                href="/en/buy-house-middletown-ny"
+                className="px-6 py-2.5 text-sm font-semibold border-2"
+                style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--secondary)', color: 'var(--secondary)' }}
+              >
+                Buy in Middletown
+              </Link>
+              <Link
+                href="/en/sell-house-middletown-ny"
+                className="px-6 py-2.5 text-sm font-semibold border-2"
+                style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--secondary)', color: 'var(--secondary)' }}
+              >
+                Sell in Middletown
+              </Link>
+              <Link
+                href="/en/buy-house-port-jervis-ny"
+                className="px-6 py-2.5 text-sm font-semibold border-2"
+                style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--secondary)', color: 'var(--secondary)' }}
+              >
+                Buy in Port Jervis
+              </Link>
+              <Link
+                href="/en/sell-house-port-jervis-ny"
+                className="px-6 py-2.5 text-sm font-semibold border-2"
+                style={{ borderRadius: 'var(--effect-button-radius)', borderColor: 'var(--secondary)', color: 'var(--secondary)' }}
+              >
+                Sell in Port Jervis
+              </Link>
+            </div>
+          </div>
+        </section>
       )}
 
       {/* 10. MARKET REPORT TEASER */}
