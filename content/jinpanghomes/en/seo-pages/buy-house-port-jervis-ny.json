@@ -33,9 +33,18 @@
     ],
     "relatedSearchesHeading": "Related buyer searches",
     "relatedSearches": [
-      "buy house in Port Jervis NY",
-      "homes for sale in Port Jervis NY",
-      "Port Jervis NY buyer agent"
+      {
+        "label": "buy house in Port Jervis NY",
+        "href": "/en/buy-house-port-jervis-ny"
+      },
+      {
+        "label": "homes for sale in Port Jervis NY",
+        "href": "/en/properties"
+      },
+      {
+        "label": "Port Jervis NY buyer agent",
+        "href": "/en/jin-pang-port-jervis-real-estate-agent"
+      }
     ],
     "faqHeading": "Port Jervis buyer FAQ",
     "faqItems": [

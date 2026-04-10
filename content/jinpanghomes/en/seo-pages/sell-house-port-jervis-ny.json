@@ -33,9 +33,18 @@
     ],
     "relatedSearchesHeading": "Related seller searches",
     "relatedSearches": [
-      "sell my house in Port Jervis NY",
-      "sell house fast in Port Jervis NY",
-      "Port Jervis NY home valuation"
+      {
+        "label": "sell my house in Port Jervis NY",
+        "href": "/en/sell-house-port-jervis-ny"
+      },
+      {
+        "label": "sell house fast in Port Jervis NY",
+        "href": "/en/sell-house-port-jervis-ny"
+      },
+      {
+        "label": "Port Jervis NY home valuation",
+        "href": "/en/home-valuation"
+      }
     ],
     "faqHeading": "Port Jervis seller FAQ",
     "faqItems": [

@@ -48,10 +48,22 @@
     ],
     "relatedSearchesHeading": "Related searches",
     "relatedSearches": [
-      "Jin Pang Middletown real estate agent",
-      "best real estate agent in Middletown NY",
-      "buy house in Middletown NY",
-      "sell my house in Middletown NY"
+      {
+        "label": "Jin Pang Middletown real estate agent",
+        "href": "/en/jin-pang-middletown-real-estate-agent"
+      },
+      {
+        "label": "best real estate agent in Middletown NY",
+        "href": "/en/middletown-real-estate"
+      },
+      {
+        "label": "buy house in Middletown NY",
+        "href": "/en/buy-house-middletown-ny"
+      },
+      {
+        "label": "sell my house in Middletown NY",
+        "href": "/en/sell-house-middletown-ny"
+      }
     ],
     "faqHeading": "Middletown agent FAQ",
     "faqItems": [

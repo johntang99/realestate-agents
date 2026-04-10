@@ -48,10 +48,22 @@
     ],
     "relatedSearchesHeading": "Related searches",
     "relatedSearches": [
-      "Jin Pang Deerpark real estate agent",
-      "best real estate agent in Deerpark NY",
-      "buy house in Deerpark NY",
-      "sell my house in Deerpark NY"
+      {
+        "label": "Jin Pang Deerpark real estate agent",
+        "href": "/en/jin-pang-deerpark-real-estate-agent"
+      },
+      {
+        "label": "best real estate agent in Deerpark NY",
+        "href": "/en/deerpark-real-estate"
+      },
+      {
+        "label": "buy house in Deerpark NY",
+        "href": "/en/buy-house-deerpark-ny"
+      },
+      {
+        "label": "sell my house in Deerpark NY",
+        "href": "/en/sell-house-deerpark-ny"
+      }
     ],
     "faqHeading": "Deerpark agent FAQ",
     "faqItems": [

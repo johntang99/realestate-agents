@@ -33,9 +33,18 @@
     ],
     "relatedSearchesHeading": "Related seller searches",
     "relatedSearches": [
-      "sell my house in Deerpark NY",
-      "sell house fast in Deerpark NY",
-      "Deerpark NY home valuation"
+      {
+        "label": "sell my house in Deerpark NY",
+        "href": "/en/sell-house-deerpark-ny"
+      },
+      {
+        "label": "sell house fast in Deerpark NY",
+        "href": "/en/sell-house-deerpark-ny"
+      },
+      {
+        "label": "Deerpark NY home valuation",
+        "href": "/en/home-valuation"
+      }
     ],
     "faqHeading": "Deerpark seller FAQ",
     "faqItems": [

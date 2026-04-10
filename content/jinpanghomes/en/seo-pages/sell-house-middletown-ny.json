@@ -33,9 +33,18 @@
     ],
     "relatedSearchesHeading": "Related seller searches",
     "relatedSearches": [
-      "sell my house in Middletown NY",
-      "sell house fast in Middletown NY",
-      "Middletown NY home valuation"
+      {
+        "label": "sell my house in Middletown NY",
+        "href": "/en/sell-house-middletown-ny"
+      },
+      {
+        "label": "sell house fast in Middletown NY",
+        "href": "/en/sell-house-middletown-ny"
+      },
+      {
+        "label": "Middletown NY home valuation",
+        "href": "/en/home-valuation"
+      }
     ],
     "faqHeading": "Middletown seller FAQ",
     "faqItems": [

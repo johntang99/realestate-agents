@@ -33,9 +33,18 @@
     ],
     "relatedSearchesHeading": "Related buyer searches",
     "relatedSearches": [
-      "buy house in Middletown NY",
-      "homes for sale in Middletown NY",
-      "Middletown NY buyer agent"
+      {
+        "label": "buy house in Middletown NY",
+        "href": "/en/buy-house-middletown-ny"
+      },
+      {
+        "label": "homes for sale in Middletown NY",
+        "href": "/en/properties"
+      },
+      {
+        "label": "Middletown NY buyer agent",
+        "href": "/en/jin-pang-middletown-real-estate-agent"
+      }
     ],
     "faqHeading": "Middletown buyer FAQ",
     "faqItems": [

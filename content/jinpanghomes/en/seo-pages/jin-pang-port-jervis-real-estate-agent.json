@@ -48,10 +48,22 @@
     ],
     "relatedSearchesHeading": "Related searches",
     "relatedSearches": [
-      "Jin Pang Port Jervis real estate agent",
-      "best real estate agent in Port Jervis NY",
-      "buy house in Port Jervis NY",
-      "sell my house in Port Jervis NY"
+      {
+        "label": "Jin Pang Port Jervis real estate agent",
+        "href": "/en/jin-pang-port-jervis-real-estate-agent"
+      },
+      {
+        "label": "best real estate agent in Port Jervis NY",
+        "href": "/en/port-jervis-real-estate"
+      },
+      {
+        "label": "buy house in Port Jervis NY",
+        "href": "/en/buy-house-port-jervis-ny"
+      },
+      {
+        "label": "sell my house in Port Jervis NY",
+        "href": "/en/sell-house-port-jervis-ny"
+      }
     ],
     "faqHeading": "Port Jervis agent FAQ",
     "faqItems": [

@@ -33,9 +33,18 @@
     ],
     "relatedSearchesHeading": "Related buyer searches",
     "relatedSearches": [
-      "buy house in Deerpark NY",
-      "homes for sale in Deerpark NY",
-      "Deerpark NY buyer agent"
+      {
+        "label": "buy house in Deerpark NY",
+        "href": "/en/buy-house-deerpark-ny"
+      },
+      {
+        "label": "homes for sale in Deerpark NY",
+        "href": "/en/properties"
+      },
+      {
+        "label": "Deerpark NY buyer agent",
+        "href": "/en/jin-pang-deerpark-real-estate-agent"
+      }
     ],
     "faqHeading": "Deerpark buyer FAQ",
     "faqItems": [
