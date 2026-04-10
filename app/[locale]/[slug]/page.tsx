@@ -39,7 +39,7 @@ type SeoLocationPage = {
     strengthsHeading?: string;
     strengths?: string[];
     relatedSearchesHeading?: string;
-    relatedSearches?: string[];
+    relatedSearches?: Array<string | { label: string; href?: string }>;
     faqHeading?: string;
     faqItems?: Array<{ q: string; a: string }>;
   };
@@ -158,6 +158,9 @@ export default async function DynamicSeoPage({ params }: Props) {
     description: page.hero?.subline || page.seo?.description || '',
     url: `/${locale}/${slug}`,
   };
+  const relatedSearchItems = (page.sections?.relatedSearches || []).map((item) =>
+    typeof item === 'string' ? { label: item } : item,
+  );
 
   return (
     <>
@@ -236,14 +239,30 @@ export default async function DynamicSeoPage({ params }: Props) {
         </section>
       )}
 
-      {(page.sections?.relatedSearches || []).length > 0 && (
+      {relatedSearchItems.length > 0 && (
         <section className="section-padding bg-white">
           <div className="container-custom max-w-4xl">
             <h2 className="font-serif text-3xl font-semibold mb-5" style={{ fontFamily: 'var(--font-heading)', color: 'var(--primary)' }}>
               {page.sections?.relatedSearchesHeading || 'Related real estate searches'}
             </h2>
             <ul className="space-y-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
-              {page.sections?.relatedSearches?.map((item, index) => <li key={index}>- {item}</li>)}
+              {relatedSearchItems.map((item, index) => (
+                <li key={`${item.label}-${index}`}>
+                  {item.href ? (
+                    <>
+                      -{' '}
+                      <Link
+                        href={item.href}
+                        className="underline decoration-[var(--secondary)] underline-offset-4 hover:text-[var(--primary)] transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </>
+                  ) : (
+                    <>- {item.label}</>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </section>
